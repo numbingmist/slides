@@ -4,6 +4,7 @@
     <title>Mix your palette like an artist</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <!-- <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css"> -->
     <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/styles.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -15,81 +16,561 @@
 <body class="shower list">
 
     <header class="caption">
-        <h1>Mix your palette like an artist</h1>
-        <p>Anna Shiryaeva</p>
+        <h1>Миксуй палитру как настоящий художник</h1>
+        <p>Анна Ширяева</p>
     </header>
 
     <section class="slide" id="cover">
-        <h2>Shower Presentation Engine</h2>
-        <p>Brought to you by <a href="https://pepelsbey.net">Vadim Makeev</a></p>
+        <h2 class="contrast-bg">Миксуй палитру как настоящий художник!</h2>
+        <p class="contrast-bg">Анна Ширяева, СИБУР Цифровой</p>
         <figure>
-            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
+            <img class="cover fit" src="pictures/full-covers/cover-1.jpeg" alt="oil colors">
         </figure>
     </section>
 
-    <section class="slide frame-wrapper">
-        <iframe src="https://cdpn.io/pen/debug/pompzQV" frameborder="0" allowfullscreen></iframe>
-    </section>
-
-    <section class="slide frame-wrapper">
-        <iframe src="https://cdpn.io/pen/debug/qBGpqNL" frameborder="0" allowfullscreen></iframe>
+    <section class="slide">
+        <div class="side-content left">
+            <h2>Анна Ширяева</h2>
+            <ul>
+                <li>В IT с <strong>2011</strong>.</li>
+                <li><strong>Frontend</strong> разработчик Цифрового СИБУРа.</li>
+                <li>Организатор <strong>MocsowJS</strong>.</li>
+                <li>Прошедшая художку любительница <br/><strong>ярких красок</strong>.</li>
+            </ul>
+        </div>
+        <img class="cover side right" src="pictures/profile.jpg">
     </section>
 
     <section class="slide">
-        <h2>Shower key features</h2>
-        <ol>
-            <li>Built on HTML, CSS and JavaScript</li>
-            <li>Works in all modern browsers</li>
-            <li>Themes are separated from engine</li>
-            <li>Fully keyboard accessible</li>
-            <li>Printable to PDF</li>
-        </ol>
-        <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+        <div class="side-content left">
+            <h2>Поговорим про цвет</h2>
+            <ul>
+                <li>Когда о нем приходится думать?</li>
+                <li>Возможности современного CSS.</li>
+                <li>Что за цветовые пространства?</li>
+                <li>Как они помогают контролировать цвет?</li>
+                <li>Теория VS практика.</li>
+            </ul>
+        </div>
+        <img class="cover side right" src="pictures/side-covers/side-cover-1.jpeg">
     </section>
 
     <section class="slide">
-        <h2>Plain text on your slides</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+        <h2 class="contrast-bg shout">Когда о цвете приходится думать?</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/cover-2.jpeg" alt="oil colors">
+        </figure>
     </section>
 
     <section class="slide">
-        <h2>Two columns if you like</h2>
+        <h2>Палитры</h2>
+        <ul>
+            <li>Диапазон оттенков.</li>
+            <li>Работа с разными темами.</li>
+            <li>Подбор комплиментарных цветов.</li>
+        </ul>
+        <img src="pictures/screenshots/tones.png" alt="tones" style="
+            width: 300px;
+            position: absolute;
+            top: 90px;
+            right: 100px;">
+        <img src="pictures/screenshots/palette.png" alt="palette" style="
+            width: 300px;
+            position: absolute;
+            top: 350px;
+            right: 100px;">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Это работа дизайнеров!</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Гипотеза 1</h2>
+        <ul>
+            <li>Без дизайнера тоже можно сделать красиво.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Гипотеза 2</h2>
+        <ul>
+            <li>CSS тоже код, который нужно поддерживать.</li>
+            <li class="next">Важно как запрограммируете цвет.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="contrast-bg shout">Возможности современного CSS</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/cover-3.jpeg" alt="oil colors">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70 rounded" src="pictures/popular-color-format.png" alt="popular color formats">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Давно использовали <br/>color picker в DevTools?</h2>
+    </section>
+
+    <section class="slide">
         <div class="columns two">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+        <img src="pictures/screenshots/screen-cp-red.png" alt="tones" style="
+            height: 350px;
+            position: absolute;
+            top: 100px;
+            left: 100px;">
+        <img src="pictures/screenshots/screen-cp-formats.png" alt="palette" style="
+            height: 350px;
+            position: absolute;
+            top: 100px;
+            right: 100px;">
         </div>
     </section>
 
     <section class="slide">
-        <h2>All kind of lists</h2>
-        <ol>
-            <li>Simple lists are marked with bullets</li>
-            <li>Ordered lists begin with a number</li>
-            <li>You can even nest lists one inside another
-                <ul>
-                    <li>Or mix their types</li>
-                    <li>But do not go too far</li>
-                    <li>Otherwise audience will be bored</li>
-                </ul>
-            </li>
-            <li>Look, seven rows exactly!</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>Serious citations</h2>
+        <h2 class="contrast-bg shout">Цветовые пространства</h2>
         <figure>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-            </blockquote>
-            <figcaption>Marcus Tullius Cicero</figcaption>
+            <img class="cover fit" src="pictures/full-covers/cover-4.jpeg" alt="oil colors">
         </figure>
     </section>
 
     <section class="slide">
+        <h2>1. Хотим более сочную картинку</h2>
+        <img src="pictures/screenshots/image-neutral.png" alt="image neutral" style="
+            width: 400px;
+            position: absolute;
+            top: 200px;
+            left: 100px;">
+        <img src="pictures/screenshots/image-bright.png" alt="image bright" style="
+            width: 400px;
+            position: absolute;
+            top: 200px;
+            right: 100px;">
+    </section>
+
+    <section class="slide">
+        <h2 style="text-align: center">Больше доступных цветов видимого спектра</h2>
+        <img src="pictures/screenshots/color-profiles.png" alt="color profiles" class="cover place rounded" style="height: 370px; top: 340px;">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/screenshots/colors-1.png" class="cover place" style="
+            height: 90px;
+            top: 100px">
+        <img src="pictures/screenshots/pink-hex.png" style="
+            height: 330px;
+            position: absolute;
+            top: 200px;
+            left: 100px;">
+        <img src="pictures/screenshots/pink-hex-oklch.png" style="
+            height: 330px;
+            position: absolute;
+            top: 200px;
+            right: 100px;">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/screenshots/colors-2.png" class="cover place" style="
+            height: 90px;
+            top: 100px">
+        <img src="pictures/screenshots/pink-hex.png" style="
+            height: 330px;
+            position: absolute;
+            top: 200px;
+            left: 100px;">
+        <img src="pictures/screenshots/pink-oklch.png" style="
+            height: 330px;
+            position: absolute;
+            top: 200px;
+            right: 100px;">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/screenshots/colors-2.png" class="cover place" style="
+            height: 90px;
+            top: 100px">
+        <img src="pictures/screenshots/pink-hex.png" style="
+            height: 330px;
+            position: absolute;
+            top: 200px;
+            left: 100px;">
+        <img src="pictures/screenshots/pink-oklch-devtools.png" style="
+            height: 330px;
+            position: absolute;
+            top: 200px;
+            right: 100px;">
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-90 rounded" src="pictures/screenshots/caniuse-oklch.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2. Разные пространства — <br/>разные системы координат</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70 rounded" src="pictures/screenshots/space-coordinates.png">
+        </figure>
+    </section>
+
+    <section class="slide frame-wrapper">
+        <iframe src="https://hueplot.ardov.me/" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section class="slide">
+        <h2>Внутри цветовых функций:</h2>
+        <div class="columns two" style="
+            font-size: .9em;
+            gap: 50px;
+            grid-template-columns: 3fr 4fr;
+        ">
+            <ul>
+                <li><strong>rgb</strong>(red, green, blue)</li>
+                <li><strong>hsl</strong>(hue, saturation, lightness)</li>
+                <li><strong>hwb</strong>(hue, whiteness, blackness)</li>
+                <li><strong>color</strong>(colorspace c1 c2 c3)</li>
+            </ul>
+            <ul>
+                <li><strong>lab</strong>(lightness, a(red/green), b(blue/yellow))</li>
+                <li><strong>lch</strong>(lightness, chroma, hue)</li>
+                <li><strong>oklab</strong>(lightness, a(red/green), b(blue/yellow))</li>
+                <li><strong>oklch</strong>(lightness, chroma, hue)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="contrast-bg shout">Как это помогает контролировать цвет?</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/cover-5.jpeg">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/0.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/1.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/2.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/3.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/4.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/5.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/6.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palettes/7.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Сравнение</h2>
+        <table>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">HEX</th>
+                <th scope="col">HSL</th>
+                <th scope="col">OKLCH</th>
+            </tr>
+            <tr>
+                <th scope="row">Гибкость</th>
+                <td>—</td>
+                <td>+</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <th scope="row">Контроль светлого/темного</th>
+                <td>—</td>
+                <td>+</td>
+                <td>+—</td>
+            </tr>
+            <tr>
+                <th scope="row">Диапазон цветов</th>
+                <td>sRGB</td>
+                <td>sRGB</td>
+                <td>+ OKLCH</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/palette-builder.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>CSS Color Module Level 5</h2>
+        <code>color-mix()</code>
+    </section>
+
+    <section class="slide">
+        <h2>CSS Color Module Level 5</h2>
+        <code>color-mix(method, color1[ p1], color2[ p2])</code>
+    </section>
+
+    <section class="slide">
+        <h2>CSS Color Module Level 5</h2>
+        <ul>
+            <li>color-mix(<strong>in srgb</strong>, black, white);</li>
+            <li>color-mix(<strong>in srgb-linear</strong>, black, white);</li>
+            <li>color-mix(<strong>in lch</strong>, black, white);</li>
+            <li>color-mix(<strong>in oklch</strong>, black, white);</li>
+            <li>color-mix(<strong>in lab</strong>, black, white);</li>
+            <li>color-mix(<strong>in oklab</strong>, black, white);</li>
+            <li>color-mix(<strong>in xyz</strong>, black, white);</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-90 rounded" src="pictures/screenshots/caniuse-color-mix.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-90" src="pictures/palettes/palette-mix.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Палитра</h2>
+        <ul>
+            <li>Нейтральные оттенки.</li>
+            <li>Бренд цвет.</li>
+            <li>Поддерживающие цвета (success, warning, danger).</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-90" src="pictures/full-palettes/colors-bug.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div style="
+            position: absolute;
+            top: 280px;
+            line-height: 1.2em;
+        ">
+            <p>2 проблемы:</p>
+            <ul>
+                <li>не те оттенки</li>
+                <li>неравномерность</li>
+            </ul>
+        </div>
+        <figure>
+            <img class="cover place nested-90" src="pictures/full-palettes/colors-bug.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Проблема оттенков</h2>
+        <p><code>color-mix(<strong>???</strong>, black, white);</code></p>
+        <p><code>color-mix(<strong>???</strong>, blue, white);</code></p>
+        <img src="pictures/color-mix-spaces.png" style="
+            position: absolute;
+            right: 100px;
+            top: 80px;
+            height: 460px;
+        ">
+    </section>
+
+    <section class="slide">
+        <h2>Решение</h2>
+        <p><code>color-mix(<strong>in oklab</strong>, black, white);</code></p>
+        <p><code>color-mix(<strong>in oklab</strong>, blue, white);</code></p>
+        <img src="pictures/color-mix-spaces.png" style="
+            position: absolute;
+            right: 100px;
+            top: 80px;
+            height: 460px;
+        ">
+    </section>
+
+    <section class="slide">
+        <div style="
+            position: absolute;
+            top: 280px;
+            line-height: 1.2em;
+        ">
+            <h2>БЫЛО</h2>
+            <ul>
+                <li>не те оттенки</li>
+                <li>неравномерность</li>
+            </ul>
+        </div>
+        <figure>
+            <img class="cover place nested-90" src="pictures/full-palettes/colors-bug.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div style="
+            position: absolute;
+            top: 280px;
+            line-height: 1.2em;
+        ">
+            <h2>СТАЛО</h2>
+            <ul>
+                <li style="text-decoration: line-through">не те оттенки</li>
+                <li>неравномерность</li>
+            </ul>
+        </div>
+        <figure>
+            <img class="cover place nested-90" src="pictures/full-palettes/colors-unbalanced.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="contrast-bg shout">Восприятие</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/cover-6.jpeg">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/illusions/greys.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/illusions/color-to-greys.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Цвет - ЧБ - корректировка - цвет</h2>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/illusions/picture-1.png" style="
+            height: 330px;
+            position: absolute;
+            top: 100px;
+            left: 150px;">
+        <img src="pictures/illusions/picture-2.png" style="
+            height: 330px;
+            position: absolute;
+            top: 100px;
+            right: 150px;">
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/illusions/picture-3.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/illusions/picture-4.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>html { filter: grayscale(); }</code></h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/devtools-grayscale.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/full-palettes/colors-unbalanced.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/full-palettes/colors-unbalanced-grayscale.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/full-palettes/colors-balanced-grayscale.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/full-palettes/colors-balanced.png">
+        </figure>
+    </section>
+
+    <!-- THE END -->
+    <section class="slide">
+        <div class="side-content left">
+            <h2>Итого</h2>
+            <ul>
+                <li>Узнайте <strong>дисплеи</strong> пользователей.</li>
+                <li>Определитесь с <strong>цветовым пространством</strong>.</li>
+                <li>Мешайте цвета с <strong>color-mix()</strong>.</li>
+                <li>Пользуйстесь <strong>ЧБ</strong> режимом для проверки.</li>
+            </ul>
+        </div>
+        <img class="cover side right" src="pictures/side-covers/side-cover-last.jpeg" alt="see you">
+    </section>
+
+    <section class="slide">
+        <div class="side-content left">
+            <h2>@it_wildlife</h2>
+            <img class="rounded" src="pictures/tg-qr.png" alt="@it_wildlife" style="max-height: 300px;">
+        </div>
+        <img class="cover side right" src="pictures/see-you.png" alt="see you">
+    </section>
+
+
+    <!-- EXAMPLE -->
+    <!-- <section class="slide">
         <h2>Code samples</h2>
         <pre>
             <code>&lt;!DOCTYPE html&gt;</code>
@@ -100,91 +581,7 @@
             <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
             <code><mark>&lt;/head&gt;</mark></code>
         </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Even tables</h2>
-        <table>
-        <tr>
-            <th scope="col">Locavore</th>
-            <th>Umami</th>
-            <th>Helvetica</th>
-            <th>Vegan</th>
-        </tr>
-        <tr>
-            <th scope="row">Fingerstache</th>
-            <td>Kale</td>
-            <td>Chips</td>
-            <td>Keytar</td>
-        </tr>
-        <tr>
-            <th scope="row">Sriracha</th>
-            <td>Gluten-free</td>
-            <td>Ennui</td>
-            <td>Keffiyeh</td>
-        </tr>
-        <tr>
-            <th scope="row">Thundercats</th>
-            <td>Jean</td>
-            <td>Shorts</td>
-            <td>Biodiesel</td>
-        </tr>
-        <tr>
-            <th scope="row">Terry</th>
-            <td>Richardson</td>
-            <td>Swag</td>
-            <td>Blog</td>
-        </tr>
-        </table>
-        <p>It’s good to have information organized.</p>
-    </section>
-
-    <section class="slide" id="picture">
-        <h2>Pictures</h2>
-        <figure>
-            <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #picture h2 {
-                color: white;
-            }
-        </style>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shrink">You can even shout this way</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Inner navigation</h2>
-        <ol>
-            <li>Lets you reveal list items one by one</li>
-            <li class="next">To keep some key points</li>
-            <li class="next">In secret from audience</li>
-            <li class="next">But it will work only once</li>
-            <li class="next">Nobody wants to see the same joke twice</li>
-        </ol>
-    </section>
-
-    <section class="slide" id="see-more">
-        <h2 class="shout">
-            <img src="pictures/logo.svg" alt="Shower logo">
-            <a href="https://github.com/shower/shower">See more on GitHub</a>
-        </h2>
-        <style>
-            #see-more h2 {
-                font-size: 100px
-            }
-
-            #see-more img {
-                width: 0.72em;
-                height: 0.72em;
-            }
-        </style>
-    </section>
+    </section> -->
 
     <footer class="badge">
         <a href="https://github.com/shower/shower">Fork me on GitHub</a>
@@ -192,6 +589,7 @@
 
     <div class="progress"></div>
 
+    <!-- <script src="node_modules/@shower/core/dist/shower.js"></script> -->
     <script src="../src/shower/shower.min.js"></script>
     <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
 
