@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Life before and after React Compiler</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <!-- <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css"> -->
+    <!-- LIVE -->
+    <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Жизнь до и после React Compiler</h1>
+        <p>Анна Ширяева</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2 class="contrast-bg">Жизнь до и после <br/><strong>React Compiler</strong></h2>
+        <p class="contrast-bg">Анна Ширяева, СИБУР Цифровой</p>
+        <svg viewBox="-10.5 -9.45 21 18.9" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="0" cy="0" r="2" fill="currentColor"></circle><g stroke="currentColor" stroke-width="1" fill="none"><ellipse rx="10" ry="4.5"></ellipse><ellipse rx="10" ry="4.5" transform="rotate(60)"></ellipse><ellipse rx="10" ry="4.5" transform="rotate(120)"></ellipse></g></svg>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <!-- О СЕБЕ -->
+    <section class="slide">
+        <div class="side-content left">
+            <h2>Обо мне</h2>
+            <ul>
+                <li>Коллекционер хобби;</li>
+                <li class="next">В IT с <strong>2011</strong>;</li>
+                <li class="next">C# > Angular > React;</li>
+                <li class="next">Ведущий frontend разработчик <br/>Цифрового СИБУРа;</li>
+                <li class="next">Организатор <strong>MocsowJS</strong> ❤️</li>
+            </ul>
+        </div>
+        <img class="cover side right" src="pictures/profile.jpg">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            memo
+            <br/>useMemo
+            <br/>useCallback
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout cross cross-left cross-right">
+            memo
+            <br/>useMemo
+            <br/>useCallback
+        </h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-50" src="pictures/memes/no-memo.jpeg">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout text-size-xl">R & D</h2>
+    </section>
+
+    <!-- О ДОКЛАДЕ -->
+    <section class="slide">
+        <div>
+            <h2>О докладе</h2>
+            <ul>
+                <li>Жизнь до...</li>
+                <li class="next">Что такое React Compiler?</li>
+                <li class="next">Что он делает?</li>
+                <li class="next">Как поставить и кастомизировать?</li>
+                <li class="next">Почему это работает?</li>
+                <li class="next">На что влияет?</li>
+                <li class="next">Роадмап, развитие и проблемы</li>
+                <li class="next">Выводы</li>
+            </ul>
+            <img alt="meme" class="example" src="pictures/memes/almaz.jpg"/>
+        </div>
+    </section>
+
+    <!-- ЖИЗНЬ ДО -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">Жизнь до...</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="contrast-bg shout">Жизнь сейчас</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>В начале был React...</h2>
+            <ul>
+                <li class="next">Не MVC framework</li>
+                <li class="next"><strong>Библиотека</strong> рендеринга</li>
+                <li class="next"><strong>Декларативный</strong> подход</li>
+                <li class="next">Фокус на <strong>UI компоненты</strong>, а не шаблоны</li>
+                <li class="next">Возможность использовать <strong>композицию</strong> компонентов</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Хотим</h2>
+            <ul>
+                <li class="next">Хранить состояние</li>
+                <li class="next">Отслеживать его изменение</li>
+                <li class="next">Выполнять ререндеры при наличии изменений</li>
+                <li class="next">Все было быстро</li>
+                <li class="next">Меньше кода</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>То есть...</h2>
+            <ul>
+                <li>State management</li>
+                <li>Reactivity</li>
+                <li>DOM updates</li>
+                <li>Performance</li>
+                <li>DX: Developer Experience</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Что может пойти не так?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">state changes <span class="text-light">=</span> re-renders</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-50" src="pictures/screenshots/rerenders/rerender-1.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-50" src="pictures/screenshots/rerenders/rerender-2.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-50" src="pictures/screenshots/rerenders/rerender-3.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li><strong>Memoization</strong>:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li><strong>Memoization</strong>:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+            </ul>
+            <img alt="screen" class="example" src="pictures/code/memo-no.png"/>
+            <div class="example example-highlight" style="top:332px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li><strong>Memoization</strong>:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+            </ul>
+            <img alt="screen" class="example example-big" src="pictures/code/memo-yes.png"/>
+            <div class="example example-big example-highlight" style="top:476px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li><strong>Memoization</strong>:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+            </ul>
+            <img alt="screen" class="example example-big" src="pictures/code/memo-yes.png"/>
+            <div class="example example-big example-highlight" style="top:189px"></div>
+            <div class="example example-big example-highlight" style="top:211px"></div>
+            <div class="example example-big example-highlight" style="top:476px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Умеем ли мы это готовить?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">{ }, [ ], function ()</h2>
+    </section>
+
+    <!-- <section class="slide">
+        <h2 class="shout">{ }, [ ], function (), <span class="text-light">children</span></h2>
+    </section> -->
+
+    <section class="slide">
+        <figure>
+            <img class="cover place nested-70" src="pictures/memes/yeah-i-got.jpg">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li>Memoization:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+                <li><strong>Composition</strong></li>
+            </ul>
+            <img alt="screen" class="example example-big" src="pictures/code/composition-no.png"/>
+            <div class="example example-big example-highlight" style="top:185px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li>Memoization:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+                <li><strong>Composition</strong></li>
+            </ul>
+            <img alt="screen" class="example example-big" src="pictures/code/composition-no.png"/>
+            <div class="example example-big example-highlight" style="top:185px"></div>
+            <div class="example example-big example-highlight" style="top:311px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li>Memoization:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+                <li><strong>Composition</strong></li>
+            </ul>
+            <img alt="screen" class="example example-big" src="pictures/code/composition-yes.png"/>
+            <div class="example example-big example-highlight" style="top:225px"></div>
+            <div class="example example-big example-highlight" style="top:356px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Что там по качеству кода?</h2>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li>Memoization:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+                <li>Composition</li>
+                <li><strong>Rules of React</strong></li>
+                <img alt="screen" class="example" src="pictures/code/ror-no.png"/>
+                <div class="example example-highlight" style="top:170px"></div>
+                <div class="example example-highlight" style="top:231px"></div>
+                <div class="example" style="top: 345px; font-size: 24px">Например:<br/><strong>Сайд эффекты должны быть вне рендера</strong></div>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что помогает сейчас</h2>
+            <ul>
+                <li>Memoization:</li>
+                <ul>
+                    <li>memo</li>
+                    <li>useMemo</li>
+                    <li>useCallback</li>
+                </ul>
+                <li>Composition</li>
+                <li><strong>Rules of React</strong></li>
+                <img alt="screen" class="example" src="pictures/code/ror-yes.png"/>
+                <div class="example example-highlight" style="top:170px"></div>
+                <div class="example" style="top: 345px; font-size: 24px">Например:<br/><strong>Сайд эффекты должны быть вне рендера</strong></div>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>То есть...</h2>
+            <ul>
+                <li>State management</li>
+                <li>Reactivity</li>
+                <li>DOM updates</li>
+                <li>Performance</li>
+                <li>DX: Developer Experience</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>То есть...</h2>
+            <ul>
+                <li>State management</li>
+                <li>Reactivity</li>
+                <li>DOM updates</li>
+                <li>Performance + <strong><b>Memo</b></strong></li>
+                <li>DX: Developer Experience</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>То есть...</h2>
+            <ul>
+                <li class="text-success">State management</li>
+                <li>Reactivity</li>
+                <li>DOM updates</li>
+                <li>Performance + <b>Memo</b></li>
+                <li>DX: Developer Experience</li>
+            </ul>
+            <img alt="meme" class="example" src="pictures/memes/sp-0.jpg"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>То есть...</h2>
+            <ul>
+                <li class="text-success">State management</li>
+                <li class="text-warning">Reactivity</li>
+                <li class="text-warning">DOM updates</li>
+                <li>Performance + <b>Memo</b></li>
+                <li>DX: Developer Experience</li>
+            </ul>
+            <img alt="meme" class="example" src="pictures/memes/sp-1.jpg"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="qr-reference rounded-10" height="110" src="pictures/reference/qr-artem.png">
+            <img class="cover place" src="pictures/reference/artem.jpeg">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>То есть...</h2>
+            <ul>
+                <li class="text-success">State management</li>
+                <li class="text-warning">Reactivity</li>
+                <li class="text-warning">DOM updates</li>
+                <li class="text-error">Performance + <b>Memo</b></li>
+                <li>DX: Developer Experience</li>
+            </ul>
+            <img alt="meme" class="example" src="pictures/memes/sp-2.jpg"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="qr-reference rounded-10" height="150" src="pictures/reference/qr-anton.png">
+            <img class="cover place" src="pictures/reference/anton.jpeg">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>То есть...</h2>
+            <ul>
+                <li class="text-success">State management</li>
+                <li class="text-warning">Reactivity</li>
+                <li class="text-warning">DOM updates</li>
+                <li class="text-error">Performance + <b>Memo</b></li>
+                <li class="text-error">DX: Developer Experience</li>
+            </ul>
+            <img alt="meme" class="example" src="pictures/memes/sp-3.jpg"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="text-light">2022</span> React Forget</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="text-light">2022</span> React Forget → React Compiler <span class="text-light">2024</span></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="text-light">2022</span> <span class="cross cross-left">React Forget</span> → React Compiler <span class="text-light">2024</span></h2>
+    </section>
+
+    <!-- ЧТО ТАКОЕ REACT COMPILER -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">Что такое React Compiler?</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">React Compiler <span class="text-light">!=</span> React 19</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            React 19 — новая <span class="text-light">версия</span> React
+            <br/>
+            React Compiler — <span class="text-light">plugin</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>В каком состоянии сейчас React Compiler?</h2>
+            <ul>
+                <li>Open-source Beta 21 октября 2024</li>
+                <li>Поддержка React 19</li>
+                <li>Добавлена поддержка React 17, 18</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Ожидания RC от нас</h2>
+            <ul>
+                <li><strong>Валидный</strong> JavaScript</li>
+                <li class="next">
+                    Nullable/опциональные значения <strong>определены</strong> перед обращением<br/>
+                    <img alt="meme" height="150" src="pictures/code/optional.png"/>
+                </li>
+                <li class="next">Код соответствует <strong>Rules of React</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img alt="design guide" class="cover place" src="pictures/screenshots/design-guide.png"/>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что является его целями</h2>
+            <ul style="line-height: 2rem;">
+                <li><strong>Ограничить</strong> ререндеры.</li>
+                <li class="next"><strong>Сдерживать</strong> увеличение бандлов и объем кэширования.</li>
+                <li class="next">Оставить <strong>привычную модель</strong> работы с кодом и скорее удалять лишние концепции, нежели добавлять.</li>
+                <li class="next"><strong>"Просто работать"</strong> на коде, соответствующему <strong>Rules of React</strong>.</li>
+                <li class="next">Поддерживать привычные инструменты и подходы к <strong>дебагу</strong>.</li>
+                <li class="next">Быть достаточно <strong>понятным и предсказуемым</strong> для разработчиков.</li>
+                <li class="next"><strong>Не требовать</strong> явных аннотаций или типизации кода для базовых оптимизаций.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что НЕ является его целями?</h2>
+            <ul style="line-height: 2rem;">
+                <li class="next"><strong>Идеальная оптимизация</strong> ререндеров.</li>
+                <li class="next">Поддерживать <strong>код, который не следует</strong> Rules of React.</li>
+                <li class="next">Поддерживать <strong>легаси фичи</strong> React.</li>
+                <li class="next">Поддерживать <strong>100% возможностей JavaScript</strong>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ЧТО ОН ДЕЛАЕТ -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">Что он делает?</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Playground</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-0.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-0.png">
+            <div class="row-highlight right" style="top: 229px;"></div>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-0.png">
+            <div class="row-highlight right" style="top: 229px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Внутренний кэш</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-0.png">
+            <div class="row-highlight right" style="top: 264px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Внутренний кэш</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-0.png">
+            <div class="row-highlight right" style="top: 299px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Внутренний кэш</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-0.png">
+            <div class="row-highlight right" style="top: 336px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Внутренний кэш</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-0.png">
+            <div class="row-highlight right" style="top: 336px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Внутренний кэш</li>
+                <li>Мемоизация без useMemo</li>
+            </ul>
+        </figure>
+    </section>
+
+    <!-- <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-1.png">
+        </figure>
+    </section> -->
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:167px;"></div>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:167px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Удаляется то, что не используется</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:185px;"></div>
+            <div class="row-highlight right" style="top:235px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Удаляется то, что не используется</li>
+                <li>Статичное значение - const</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:204px;"></div>
+            <div class="row-highlight right" style="top:252px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Удаляется то, что не используется</li>
+                <li>Статичное значение - const</li>
+                <li>Вычисляемое преобразовывается</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:204px;"></div>
+            <div class="row-highlight right" style="top:270px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Удаляется то, что не используется</li>
+                <li>Статичное значение - const</li>
+                <li>Вычисляемое преобразовывается</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:204px;"></div>
+            <div class="row-highlight right" style="top:270px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Удаляется то, что не используется</li>
+                <li>Статичное значение - const</li>
+                <li>Вычисляемое преобразовывается</li>
+                <li><span class="cross cross-left">useMemo</span></li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:204px;"></div>
+            <div class="row-highlight right" style="top:270px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Удаляется то, что не используется</li>
+                <li>Статичное значение - const</li>
+                <li>Вычисляемое преобразовывается</li>
+                <li><span class="cross cross-left">useMemo</span>, но a * 2</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-2.png">
+            <div class="row-highlight" style="top:239px;"></div>
+            <div class="row-highlight right" style="top:323px;"></div>
+            <ul class="contrast-bg explanation">
+                <li>Удаляется то, что не используется</li>
+                <li>Статичное значение - const</li>
+                <li>Вычисляемое преобразовывается</li>
+                <li><span class="cross cross-left">useMemo</span>, но a * 2</li>
+                <li>Не создается лишних зависимостей</li>
+            </ul>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/useeffect-cache.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/useeffect-cache.png">
+            <div class="row-highlight" style="top:88px;left:115px;"></div>
+            <div class="row-highlight" style="top:147px;left:115px;"></div>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/useeffect-cache.png">
+            <div class="row-highlight" style="top:88px;left:115px;"></div>
+            <div class="row-highlight" style="top:147px;left:115px;"></div>
+            <div class="row-highlight" style="top:216px;left:563px;width:370px"></div>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/useeffect-cache.png">
+            <div class="row-highlight" style="top:88px;left:115px;"></div>
+            <div class="row-highlight" style="top:147px;left:115px;"></div>
+            <div class="row-highlight" style="top:216px;left:563px;width:370px"></div>
+            <div class="row-highlight" style="top: 279px;left:563px;width:370px;height: 47px;"></div>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/useeffect-cache.png">
+            <div class="row-highlight" style="top:88px;left:115px;"></div>
+            <div class="row-highlight" style="top:147px;left:115px;"></div>
+            <div class="row-highlight" style="top:216px;left:563px;width:370px"></div>
+            <div class="row-highlight" style="top: 279px;left:563px;width:370px;height:61px;"></div>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/useeffect-cache.png">
+            <div class="row-highlight" style="top:88px;left:115px;"></div>
+            <div class="row-highlight" style="top:147px;left:115px;"></div>
+            <div class="row-highlight" style="top:216px;left:563px;width:370px"></div>
+            <div class="row-highlight" style="top: 279px;left:563px;width:370px;height:61px;"></div>
+            <div class="row-highlight" style="top:425px;left:563px;width:370px"></div>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <p class="cross cross-left cross-right">
+                memo
+                <br/>useMemo
+                <br/>useCallback
+            </p>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <p class="cross cross-left cross-right">
+                memo
+                <br/>useMemo
+                <br/>useCallback
+            </p>
+            <p>useEffect ★</p>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Rules of React:</h2>
+        <ul>
+            <li>Сайд эффекты должны быть вне рендера</li>
+        </ul>
+        <figure>
+            <img alt="screen" class="cover place nested-50" style="margin-top:30px;" src="pictures/code/ror-no.png"/>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-5.png">
+        </figure>
+    </section>
+
+    <!-- КАК ПОСТАВИТЬ И КАСТОМИЗИРОВАТЬ -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">Как поставить и кастомизировать?</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Официально используется с...</h2>
+            <ul style="line-height: 2rem;">
+                <li>Babel</li>
+                <li>Vite</li>
+                <li>Webpack</li>
+                <li>Next.js</li>
+                <li>Remix</li>
+                <li>Expo</li>
+                <li>Metro (React Native)</li>
+                <li>Rspack</li>
+                <li>Rsbuild</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Как применить?</h2>
+        <ul style="line-height: 2rem;">
+            <li><strong>React 17+</strong> и <strong>Node v16.6+</strong></li>
+            <li class="next"><strong>react-compiler-healthcheck</strong> (поиск несовместимых библиотек)</li>
+            <li class="next"><strong>ESLint</strong> (проверка на Rules of React)</li>
+            <li class="next">В идеале <strong>проапгрейдиться</strong> до 19</li>
+            <li class="next">Установить <strong>React Compiler</strong></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Для версии 19:</h2>
+        <span class="hint rounded-5 code-block">npm install -D babel-plugin-react-compiler@beta</span>
+    </section>
+
+    <section class="slide">
+        <h2>Для версии 17, 18:</h2>
+        <span class="hint rounded-5 code-block">npm install -D react-compiler-runtime@beta</span>
+        <img alt="config" class="rounded-5" height="300" src="pictures/screenshots/config.png"/>
+    </section>
+
+    <section class="slide">
+        <h2>Как применить?</h2>
+        <ul style="line-height: 2rem;">
+            <li>Убедиться, что у вас <strong>React 17+</strong> и <strong>Node v16.6+</strong></li>
+            <li>Поставить <strong>react-compiler-healthcheck</strong> (поиск несовместимых библиотек)</li>
+            <li>Поставить <strong>ESLint</strong> (проверка на Rules of React)</li>
+            <li>В идеале <strong>проапгрейдиться</strong> до 19</li>
+            <li>Установить <strong>React Compiler</strong></li>
+            <li class="next">Ставим <strong>React DevTools v5.0+</strong></li>
+            <li class="next">
+                Проверяем на наличие “Memo ✨”
+                <img alt="memo" src="pictures/code/devtools.png" class="rounded-10" style="
+                    width: 300px;
+                    position: absolute;
+                    top: 250px;
+                    right: 100px;"/>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Как применить?</h2>
+        <ul style="line-height: 2rem;">
+            <li>Убедиться, что у вас <strong>React 17+</strong> и <strong>Node v16.6+</strong></li>
+            <li>Поставить <strong>react-compiler-healthcheck</strong> (поиск несовместимых библиотек)</li>
+            <li>Поставить <strong>ESLint</strong> (проверка на Rules of React)</li>
+            <li>В идеале <strong>проапгрейдиться</strong> до 19</li>
+            <li>Установить <strong>React Compiler</strong></li>
+            <li>Ставим <strong>React DevTools v5.0+</strong></li>
+            <li>Проверяем на наличие “Memo ✨”</li>
+            <li>С <strong>выключенным</strong> RC <strong>поискать лишние ререндеры</strong></li>
+            <li class="next"><strong>Включить</strong> RC и <strong>проверить, починилось ли</strong></li>
+            <li class="next">Если нет, а нужно, возможно вам стоит <strong>отрефакторить вручную</strong></li>
+            <li class="next">Замеры делайте в <strong>production</strong> сборке</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2>Как применить?</h2>
+        <ul style="line-height: 2rem;">
+            <li>Убедиться, что у вас <strong>React 17+</strong> и <strong>Node v16.6+</strong></li>
+            <li>Поставить <strong>react-compiler-healthcheck</strong> (поиск несовместимых библиотек)</li>
+            <li>Поставить <strong>ESLint</strong> (проверка на Rules of React)</li>
+            <li>В идеале <strong>проапгрейдиться</strong> до 19</li>
+            <li class="transparent">Установить <strong>React Compiler</strong></li>
+            <li class="transparent">Ставим <strong>React DevTools v5.0+</strong></li>
+            <li class="transparent">Проверяем на наличие “Memo ✨”</li>
+            <li>С <strong>выключенным</strong> RC <strong>поискать лишние ререндеры</strong></li>
+            <li class="transparent"><strong>Включить</strong> RC и <strong>проверить, починилось ли</strong></li>
+            <li class="transparent">Если нет, а нужно, возможно вам стоит <strong>отрефакторить вручную</strong></li>
+            <li>Замеры делайте в <strong>production</strong> сборке</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Не хочу компилировать все?</h2>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Не хочу компилировать все?</h2>
+            <ul>
+                <li>Ошибки ESLint</li>
+                <li>Для дебага</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Не хочу компилировать все?</h2>
+            <ul>
+                <li>Ошибки ESLint</li>
+                <li>Для дебага</li>
+            </ul>
+            <img alt="use no memo" class="rounded-5" height="140" src="pictures/code/use-no-memo.png"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что за конфиг?</h2>
+            <img alt="config" class="rounded-5" height="300" src="pictures/screenshots/config.png"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Нет доков, но есть github!</h2>
+            <img alt="config" class="rounded-5" height="400" src="pictures/code/rc-config.png"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2><span class="text-light">Sources</span> = компилируемые файлы!</h2>
+            <img alt="config" class="rounded-5" height="400" src="pictures/code/rc-config.png"/>
+            <div class="row-highlight" style="
+                top: 411px;
+                left: 100px;
+                width: 565px;
+                height: 60px;
+            "></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2><span class="text-light">Environment</span> = ???</h2>
+            <img alt="config" class="rounded-5" height="400" src="pictures/code/rc-config.png"/>
+            <div class="row-highlight" style="
+                top: 284px;
+                left: 100px;
+                width: 565px;
+            "></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Нет доков, но есть github!</h2>
+    </section>
+
+    <section class="slide">
+        <img alt="config" class="cover place" src="pictures/code/environment.png"/>
+    </section>
+
+    <section class="slide">
+        <div class="columns two" style="font-size: 13px;">
+            <ul>
+                <li>customHooks</li>
+                <li>moduleTypeProvider</li>
+                <li>customMacros</li>
+                <li>enableResetCacheOnSourceFileChanges</li>
+                <li>enablePreserveExistingMemoizationGuarantees</li>
+                <li>validatePreserveExistingMemoizationGuarantees</li>
+                <li>enablePreserveExistingManualUseMemo</li>
+                <li>enableForest</li>
+                <li>enableUseTypeAnnotations</li>
+                <li>inlineJsxTransform</li>
+                <li>validateHooksUsage</li>
+                <li>validateRefAccessDuringRender</li>
+                <li>validateNoSetStateInRender</li>
+                <li>validateNoSetStateInPassiveEffects</li>
+                <li>validateNoJSXInTryStatements</li>
+                <li>validateMemoizedEffectDependencies</li>
+                <li>validateNoCapitalizedCalls</li>
+                <li>validateBlocklistedImports</li>
+                <li>enableAssumeHooksFollowRulesOfReact</li>
+            </ul>
+            <ul>
+                <li>enableTransitivelyFreezeFunctionExpressions</li>
+                <li>enableEmitFreeze</li>
+                <li>enableEmitHookGuards</li>
+                <li>enableInstructionReordering</li>
+                <li>enableFunctionOutlining</li>
+                <li>enableJsxOutlining</li>
+                <li>enableEmitInstrumentForget</li>
+                <li>assertValidMutableRanges</li>
+                <li>enableChangeVariableCodegen</li>
+                <li>enableMemoizationComments</li>
+                <li>throwUnknownException__testonly</li>
+                <li>enableTreatFunctionDepsAsConditional</li>
+                <li>disableMemoizationForDebugging</li>
+                <li>enableChangeDetectionForDebugging</li>
+                <li>enableCustomTypeDefinitionForReanimated</li>
+                <li>hookPattern</li>
+                <li>enableTreatRefLikeIdentifiersAsRefs</li>
+                <li>lowerContextAccess</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">enablePreserveExistingMemoizationGuarantees</h2>
+    </section>
+
+    <section class="slide">
+        <h2>enablePreserveExistingMemoizationGuarantees</h2>
+        <div><strong>false</strong> — default</li>
+        </div>
+        <div><strong>true</strong> — RC сохраняет значения из существующих useMemo/useCallback для бэкапа, но удаляет сами вызовы</li>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>enablePreserveExistingMemoizationGuarantees</h2>
+        <div><strong>false</strong> — default</li>
+        </div>
+        <div><strong>true</strong> — RC сохраняет значения из существующих useMemo/useCallback для бэкапа, но удаляет сами вызовы</li>
+        </div>
+        <div><strong>Включать/выключать</strong> для дебага</div>
+    </section>
+
+
+    <!-- ПОЧЕМУ ЭТО РАБОТАЕТ -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">Почему это работает?</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Что такое компилятор?</h2>
+            <ul>
+                <li class="next">Анализирует код</li>
+                <li class="next flex">
+                    Переводит код в более низкоуровневый
+                    <img alt="code to machine" height="100" src="pictures/icons/code-to-machine.png">
+                </li>
+                <ul>
+                    <li class="next">Java, C, C++, C# ...</li>
+                </ul>
+                <li class="next">Способен оптимизировать и находить ошибки</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/screenshots/compiler-explorer.png" alt="compiler explorer">
+            <img alt="compiler explorer qr" src="pictures/reference/qr-compiler-explorer.png" class="rounded-20" style="width:200px; position:absolute;bottom:100px;left:150px;"/>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/screenshots/babel/babel-compiler.png" alt="babel-compiler" class="rounded-10" style="
+            width: 500px;
+            position: absolute;
+            top: 100px;
+            left: 100px;">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/screenshots/babel/babel-compiler.png" alt="babel-compiler" class="rounded-10" style="
+            width: 500px;
+            position: absolute;
+            top: 100px;
+            left: 100px;">
+        <img src="pictures/screenshots/babel/babel-transpiler.png" alt="babel-transpiler" class="rounded-10" style="
+            width: 600px;
+            position: absolute;
+            top: 330px;
+            right: 100px;">
+    </section>
+
+    <!-- <section class="slide">
+        <h2 class="shout">Компилятор vs Транспилятор</h2>
+    </section> -->
+
+    <section class="slide">
+        <div>
+            <h2>Что такое транспилятор?</h2>
+            <ul>
+                <li>Подвид / этап компиляции</li>
+                <li class="next flex">
+                    Высокоуровневый язык → высокоуровневый язык
+                    <img alt="code to code" height="100" src="pictures/icons/code-to-code.png">
+                </li>
+                <li class="next">Кроссплатформенность</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Составляющие RC</h2>
+            <ul class="group">
+                <li class="next">
+                    <strong>Babel plugin</strong> — трансформирует код
+                    <br/>
+                    <span class="hint rounded-5 code-block">babel-plugin-react-compiler@beta</span>
+                </li>
+                <li class="next">
+                    <strong>ESLint plugin</strong> — отлавливает нарушения Rules of React
+                    <br/>
+                    <span class="hint rounded-5 code-block">eslint-plugin-react-compiler@beta</span>
+                </li>
+                <li class="next">
+                    <strong>Compiler core</strong> — основная логика анализа и оптимизации
+                    <div class="rounded-20 group-border"></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Составляющие RC</h2>
+            <ul class="group">
+                <li>
+                    <strong>Babel plugin</strong> — трансформирует код
+                    <br/>
+                    <span class="hint rounded-5 code-block">babel-plugin-react-compiler@beta</span>
+                </li>
+                <li>
+                    <strong>ESLint plugin</strong> — отлавливает нарушения Rules of React
+                    <br/>
+                    <span class="hint rounded-5 code-block">eslint-plugin-react-compiler@beta</span>
+                </li>
+                <li>
+                    <strong>Compiler core</strong> — основная логика анализа и оптимизации
+                    <div class="rounded-20 group-border"></div>
+                </li>
+            </ul>
+            <div class="rounded-10 os hint">Open-source</div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Составляющие RC</h2>
+            <ul class="group">
+                <li>
+                    <strong>Babel plugin</strong> — трансформирует код
+                    <br/>
+                    <span class="hint rounded-5 code-block">babel-plugin-react-compiler@beta</span>
+                </li>
+                <li>
+                    <strong>ESLint plugin</strong> — отлавливает нарушения Rules of React
+                    <br/>
+                    <span class="hint rounded-5 code-block">eslint-plugin-react-compiler@beta</span>
+                </li>
+                <li>
+                    <strong>Compiler core</strong> — основная логика анализа и оптимизации
+                    <div class="rounded-20 group-border"></div>
+                </li>
+            </ul>
+            <div class="rounded-10 os hint">Open-source</div>
+            <div class="rounded-10 nos hint">NOT open-source</div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">RC & сборка</h2>
+    </section>
+
+    <section class="slide">
+        <h2>"Код — это просто текст, <br/>как это работает?"</h2>
+        <img alt="code to browser" class="cover place nested-50" src="pictures/icons/code-to-browser.png"/>
+    </section>
+
+    <section class="slide">
+        <h2>"Код — это просто текст, <br/>как это работает?"</h2>
+        <h2 class="shout text-size-xl text-error">?</h2>
+        <img alt="code to browser" class="cover place nested-50" src="pictures/icons/code-to-browser.png"/>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Одна из схем:
+            <br/>
+            <span class="text-light">Человеко-код</span> → <span class="text-light display-inline-block" style="width: 180px">Babel</span> → <span class="text-light display-inline-block" style="width: 180px">Сборщик</span> → <span class="text-light">Браузер</span></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout flex flex-center">
+            <span class="text-light">Человеко-код</span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Babel</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>Парсит код</span>
+                    <br/>
+                    <span>Создает AST</span>
+                    <br/>
+                    <span>Трансформирует</span>
+                    <br/>
+                    <span>Новый код</span>
+                </span>
+            </span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Сборщик</span>
+            </span> →
+            <span class="text-light">Браузер</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout flex flex-center">
+            <span class="text-light">Человеко-код</span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Babel</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>Парсит код</span>
+                    <br/>
+                    <span>Создает AST</span>
+                    <br/>
+                    <span>Трансформирует</span>
+                    <br/>
+                    <span>Новый код</span>
+                </span>
+            </span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Сборщик</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>JS модули</span>
+                    <br/>
+                    <span>Статика</span>
+                </span>
+            </span> →
+            <span class="text-light">Браузер</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout flex flex-center">
+            <span class="text-light">Человеко-код</span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Babel</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>Парсит код</span>
+                    <br/>
+                    <span>Создает AST</span>
+                    <br/>
+                    <span class="text-error">+ React Compiler (React 19)</span>
+                    <br/>
+                    <span>Трансформирует</span>
+                    <br/>
+                    <span>Новый код</span>
+                </span>
+            </span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Сборщик</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>JS модули</span>
+                    <br/>
+                    <span>Статика</span>
+                </span>
+            </span> →
+            <span class="text-light">Браузер</span>
+        </h2>
+    </section>
+
+    <!-- <section class="slide">
+        <h2 class="shout flex flex-center">
+            <span class="text-light">Человеко-код</span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Babel</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>Парсит код</span>
+                    <br/>
+                    <span>Создает AST</span>
+                    <br/>
+                    <span>Трансформирует</span>
+                    <br/>
+                    <span>Новый код</span>
+                </span>
+            </span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Сборщик</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>JS модули</span>
+                    <br/>
+                    <span>Статика</span>
+                </span>
+            </span> →
+            <span class="display-inline-block">
+                <span class="text-light">Браузер</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span class="text-error">+ React Compiler Runtime (React 17, 18)</span>
+                </span>
+            </span>
+        </h2>
+    </section> -->
+
+    <!-- НА ЧТО ВЛИЯЕТ -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">На что влияет?</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout flex flex-center">
+            <span class="text-light">Человеко-код</span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Babel</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>Парсит код</span>
+                    <br/>
+                    <span>Создает AST</span>
+                    <br/>
+                    <span class="text-error">+ React Compiler (React 19)</span>
+                    <br/>
+                    <span>Трансформирует</span>
+                    <br/>
+                    <span>Новый код</span>
+                </span>
+            </span> →
+            <span class="display-inline-block" style="width: 180px">
+                <span class="text-light">Сборщик</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span>JS модули</span>
+                    <br/>
+                    <span>Статика</span>
+                </span>
+            </span> →
+            <span class="display-inline-block">
+                <span class="text-light">Браузер</span>
+                <br/>
+                <span style="font-size: 28px;">
+                    <span class="text-error">State</span>
+                    <br/>
+                    <span class="text-error">Реактивность</span>
+                    <br/>
+                    <span class="text-error">DOM</span>
+                </span>
+            </span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout flex flex-center">
+            <span class="display-inline-block">React Compiler</span> <span class="text-light">→</span>
+            <span class="display-inline-block">
+                <span>State</span>
+                <br/>
+                <span>Реактивность</span>
+                <br/>
+                <span>DOM</span>
+            </span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout flex flex-center">
+            <span class="display-inline-block">React Compiler</span> <span class="text-light">→</span>
+            <span class="display-inline-block">
+                <span>State</span>
+                <br/>
+                <span>Реактивность</span>
+                <br/>
+                <span>DOM</span>
+            </span> <span class="text-light">→</span>
+            <span class="display-inline-block">Performance</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А что вообще во frontend-e?</h2>
+    </section>
+
+    <section class="slide">
+        <h2><span class="text-light">Доклад:</span> Фантастические фреймворки и как от них не отставать</h2>
+        <div class="flex flex-center">
+            <img class="rounded-30" src="pictures/qr-frameworks.png" alt="frameworks talk" style="max-height: 300px;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Работа с DOM</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Работа с DOM</h2>
+            <img alt="vdom" class="cover place" src="pictures/screenshots/vdom.png"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Работа с DOM</h2>
+            <img alt="vdom" class="cover side right" src="pictures/screenshots/no-vdom.png"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/memes/magic.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Компиляторы</h2>
+            <div class="flex flex-center" style="margin-top: 120px;">
+                <img alt="svelte" height="150" src="pictures/logos/svelte-logo.png"/>
+                <img alt="solid" height="150" src="pictures/logos/solid-logo.png"/>
+                <img alt="solid" height="150" src="pictures/logos/vue-logo.png"/>
+                <span>...</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Реактивность</h2>
+            <ul>
+                <li class="next flex">
+                    Observable
+                    <img alt="angular" height="100" src="pictures/logos/angular-logo.png"/>
+                </li>
+                <li class="next flex">
+                    Signal
+                    <img alt="svelte" height="80" src="pictures/logos/svelte-logo.png"/>
+                    <img alt="solid" height="80" src="pictures/logos/solid-logo.png"/>
+                    <img alt="angular" height="100" src="pictures/logos/angular-logo.png"/>
+                    <img alt="preact" height="70" src="pictures/logos/preact-logo.png"/>
+                </li>
+                <li class="next flex">
+                    Proxy
+                    <img alt="preact" height="70" src="pictures/logos/vue-logo.png"/>
+                    <img alt="preact" height="70" src="pictures/logos/mobx-logo.png"/>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Реактивность</h2>
+            <ul>
+                <li class="flex">
+                    Observable
+                    <img alt="angular" height="100" src="pictures/logos/angular-logo.png"/>
+                </li>
+                <li class="flex">
+                    Signal
+                    <img alt="svelte" height="80" src="pictures/logos/svelte-logo.png"/>
+                    <img alt="solid" height="80" src="pictures/logos/solid-logo.png"/>
+                    <img alt="angular" height="100" src="pictures/logos/angular-logo.png"/>
+                    <img alt="preact" height="70" src="pictures/logos/preact-logo.png"/>
+                </li>
+                <li class="flex">
+                    <span class="text-error">Proxy</span>
+                    <img alt="preact" height="70" src="pictures/logos/vue-logo.png"/>
+                    <img alt="preact" height="70" src="pictures/logos/mobx-logo.png"/>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- РОАДМАП, РАЗВИТИЕ И ПРОБЛЕМЫ -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">Роадмап, развитие и проблемы</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Роадмап</h2>
+            <ul>
+                <li>✅ <strong>Experimental</strong>: Released at React Conf 2024.</li>
+                <li>✅ <strong>Public Beta</strong>: 21 октября 2024, собирается фидбек.</li>
+                <li class="next">🚧 <strong>Release Candidate</strong>: версия, на которой должны хорошо работать большая часть приложений, следующие правилам.</li>
+                <li class="next">🚧 <strong>Stable release</strong>: стабильный релиз еще после сбора фидбека.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li>Гранулярная мемоизация</li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li><strong>Гранулярная мемоизация</strong></li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+            <img alt="screen" class="example" src="pictures/code/fine-memo-1.png"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li><strong>Гранулярная мемоизация</strong></li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+            <img alt="screen" class="example" src="pictures/code/fine-memo-2.png"/>
+            <div class="example example-highlight" style="top:405px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li><strong>Гранулярная мемоизация</strong></li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+            <img alt="screen" class="example" src="pictures/code/fine-memo-3.png"/>
+            <div class="example example-highlight" style="top:405px"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li>Гранулярная мемоизация</li>
+                <li><strong>Type inference (автоназначение типов)</strong></li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+            <img alt="screen" class="example" src="pictures/code/type-inference.png"/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li>Гранулярная мемоизация</li>
+                <li>Type inference (автоназначение типов)</li>
+                <li><strong>Улучшение ESLint</strong></li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li>Гранулярная мемоизация</li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li><strong>Function outlining</strong></li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+            <div class="example example-text rounded-10">RC сам рефакторит за вас функции</div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li>Гранулярная мемоизация</li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li><strong>JSX Elements inlining</strong></li>
+                <li>Поддержка библиотек</li>
+                <li>Community + Working Group</li>
+            </ul>
+            <div class="example example-text rounded-10">
+                RC сам трансформирует JSX
+                <br/>вместо Babel
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li>Гранулярная мемоизация</li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li><strong>Поддержка библиотек</strong></li>
+                <li>Community + Working Group</li>
+            </ul>
+            <div class="example example-text rounded-10">
+                Команда RC просит авторов библиотек
+                <br/>компилировать код
+                <br/>и потом публиковать в npm
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Над чем ведется работа?</h2>
+            <ul>
+                <li>Гранулярная мемоизация</li>
+                <li>Type inference (автоназначение типов)</li>
+                <li>Улучшение ESLint</li>
+                <li>Function outlining</li>
+                <li>JSX Elements inlining</li>
+                <li>Поддержка библиотек</li>
+                <li><strong>Community + Working Group</strong></li>
+            </ul>
+            <div class="example example-text rounded-10">
+                Собираются issues.
+                <br/>Ведутся дискуссии...
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Какие проблемы?</h2>
+            <ul>
+                <li class="next">Proxy (MobX)</li>
+                <li class="next">Не оптимизирует работу некоторых библиотек</li>
+                <li class="next">Много issues про ref</li>
+                <li class="next">Еще не все кейсы оптимизируются</li>
+                <li class="next">...</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2><span class="text-light">Nadia Makarevich:</span> Developer Way</h2>
+        <div class="flex flex-center">
+            <img class="rounded-30" src="pictures/reference/qr-nadia.png" alt="frameworks talk" style="max-height: 300px;">
+        </div>
+    </section>
+
+    <!-- THE END -->
+    <!-- ВЫВОДЫ -->
+    <section class="slide">
+        <h2 class="contrast-bg shout">Выводы</h2>
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Develop: совсем отказываемся от memo?</h2>
+            <ul>
+                <li class="next">Отказываемся там, где оптимизаций RC <strong>достаточно</strong>.</li>
+                <li class="next">Используем, если RC <strong>не справляется</strong>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Develop: где может не справляться?</h2>
+            <ul>
+                <li>Код, написанный не по Rules of React</li>
+                <li class="next">Плохая композиция</li>
+                <li class="next">Внешние библиотеки</li>
+                <li class="next">Proxy → MobX</li>
+                <li class="next">Signal?</li>
+                <li class="next">...</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Develop: что нужно знать, <br/>чтобы было хорошо?</h2>
+            <ul>
+                <li>Memoization</li>
+                <li>Composition</li>
+                <li>Rules of React</li>
+                <li class="next"><strong>React Compiler</strong></li>
+                <ul>
+                    <li class="next">Применять итеративно</li>
+                    <li class="next">Тестировать</li>
+                </ul>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Research: новинка ли это?</h2>
+            <ul>
+                <li class="next">Концепция не новая...</li>
+                <li class="next">Но для React – да</li>
+                <li class="next">Пора <strong>забыть</strong> про <strong>React Forget</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Research: какие возможности открываются?</h2>
+            <ul>
+                <li>Не просто автомемоизация, но и <strong>рефакторинг</strong>.</li>
+                <li class="next">Применение <strong>сторонних инструментов оптимизации</strong> при сборке.</li>
+                <li class="next">Возможное изменение работы с <strong>DOM и реактивностью</strong>.</li>
+                <li class="next">"Когда откажутся от <strong>useState</strong>?"</li>
+                <li class="next">...</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Уже можно в Prod?</h2>
+            <ul>
+                <li class="next">У создателей уже в проде, <strong>но</strong>...</li>
+                <li class="next">Зависит от <strong>качества</strong> вашего кода.</li>
+                <li class="next">Нормально <strong>подождать</strong> стабильного релиза.</li>
+                <li class="next">Используя сейчас – <strong>помогаете</strong> сообществу.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="slide">
+        <figure>
+            <img class="cover fit" src="pictures/full-covers/abstract.jpeg" alt="research">
+        </figure>
+        <div class="side-content left contrast-bg text-center">
+            <h2>@it_wildlife</h2>
+            <img class="rounded-30" src="pictures/tg-qr.png" alt="@it_wildlife" style="max-height: 300px;">
+        </div>
+        <img class="cover side right" src="pictures/see-you.png" alt="see you">
+    </section>
+
+    <!-- <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-3.png">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover place" src="pictures/code/plgr-4.png">
+        </figure>
+    </section> -->
+
+    <!-- <section class="slide frame-wrapper">
+        <iframe src="https://playground.react.dev/" frameborder="0" class="cover width height"></iframe>
+    </section> -->
+
+
+    <!-- EXAMPLE -->
+    <!-- <section class="slide">
+        <h2>Code samples</h2>
+        <pre>
+            <code>&lt;!DOCTYPE html&gt;</code>
+            <code class="mark">&lt;html lang="en"&gt;</code>
+            <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
+            <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
+            <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
+            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+            <code><mark>&lt;/head&gt;</mark></code>
+        </pre>
+    </section> -->
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <!-- <script src="node_modules/@shower/core/dist/shower.js"></script> -->
+    <!-- LIVE -->
+    <script src="../src/shower/shower.min.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>

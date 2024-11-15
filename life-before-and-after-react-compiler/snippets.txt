@@ -1,0 +1,141 @@
+//---- 19 ----
+const GreetHolyJS = () => {
+    const user = { name: 'UserName' };
+    const onClick = () => {
+        console.log('Hello!');
+    }
+    // еще логика
+
+    return (
+        <div>
+            <User onClick={onClick} user={user} />
+            {/* еще компоненты */}
+        </div>
+    )
+}
+
+const User = ({ onClick, user }) => {
+    // ...
+}
+
+//---- 20 ----
+const GreetHolyJS = () => {
+    const user = useMemo(() => { name: 'UserName' }, []);
+    const onClick = useCallback(() => {
+        console.log('Hello!');
+    }, []);
+    // еще логика
+
+    return (
+        <div>
+            <User onClick={onClick} user={user} />
+            {/* еще компоненты */}
+        </div>
+    )
+}
+
+const User = React.memo(({ onClick, user }) {
+    // ...
+});
+
+//---- 23 ----
+const ComplexParent = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <button onClick={() => (setCount(prev => prev + 1))}>
+                Clicked {count} times
+            </button>
+            <MoreStuff />
+        </div>
+    )
+}
+
+//---- 25 ----
+const ComplexParent = () => {
+    return (
+        <div>
+            <ButtonWithCounter />
+            <MoreStuff />
+        </div>
+    )
+}
+
+const ButtonWithCounter = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <button onClick={() => (setCount(prev => prev + 1))}>
+            Clicked {count} times
+        </button>
+    )
+}
+
+//---- 27 ----
+let greeting = 'Hello';
+
+const Welcome = () => {
+    greeting = greeting + ' User!';
+
+    return (<div>{greeting}</div>)
+}
+
+//---- 28 ----
+const Welcome = ({ greeting }) => {
+    return (<div>{greeting}</div>)
+}
+
+// PLAYGROUND
+//---- ?? ----
+const GreetHolyJS = () => {
+    return (
+        <div>Welcome to HolyJS!</div>
+    )
+}
+//---- ?? ----
+const GreetHolyJS = () => {
+    const component = useMemo(() => (<div>Welcome to HolyJS!</div>), []);
+
+    return ({ component });
+}
+
+//---- ?? ----
+const GreetHolyJS = () => {
+    const useless = 'Hi, I am useless!';
+    const a = 1012;
+    const b = useMemo(() => (a * 2), [a]);
+    return (
+      <div>Welcome to HolyJS {b}!</div>
+    )
+}
+
+//---- ?? ----
+const GreetHolyJS = () => {
+    const useless = 'Hi, I am useless!';
+    const a = 1012;
+    const b = useMemo(() => (a * 2), [a]);
+    return (
+      <div>Welcome to HolyJS {b}!</div>
+    )
+}
+
+// Кейс "я особенный" #1
+
+const GreetHolyJS = ({ userName }) => {
+    const [name, setName] = useState(userName);
+
+    useMemo(() => {
+      setName(userName)
+    }, [userName]);
+
+    return (<div>Welcome to HolyJS, {name}!</div>);
+}
+
+// Кейс "я особенный" #2
+
+function _c() {}
+
+const GreetHolyJS = ({ userName }) => {
+    return (<div>Welcome to HolyJS!</div>);
+}
