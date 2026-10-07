@@ -953,14 +953,32 @@
   </section>
 
   <section class="slide">
-    <p>script не нужен</p>
-    <div class="theme" data-demo="2">
-      <div class="label"><span class="num">02</span> light-dark()</div>
-      <div class="stage">
-        <div class="card">
-          <h2>Автоматически по ОС</h2>
-          <p>Значения выбираются функцией <code>light-dark()</code>.</p>
-          <div class="hint">Смените тему ОС — эта секция переключится</div>
+    <div class="layout-flex">
+      <div style="
+            font-size: 1rem;
+            max-width: 50%;
+        ">
+        <p>script не нужен</p>
+        <p>
+          Чтобы постоянно не менять настройки браузера при тестировании кода, вы можете временно подменить тему прямо в инструментах разработчика:
+          1. Откройте инspector кода (нажмите F12 или Ctrl + Shift + I / Cmd + Option + I).
+          2. Нажмите Ctrl + Shift + P (в Windows) или Cmd + Shift + P (в Mac), чтобы открыть панель команд.
+          3. Введите слово Emulate (или Имитировать).
+          4. Выберите из списка:
+            • Emulate CSS prefers-color-scheme: light
+            • Emulate CSS prefers-color-scheme: dark
+        </p>
+      </div>
+      <div>
+        <div class="theme" data-demo="2">
+          <div class="label"><span class="num">02</span> light-dark()</div>
+          <div class="stage">
+            <div class="card">
+              <h2>Автоматически по ОС</h2>
+              <p>Значения выбираются функцией <code>light-dark()</code>.</p>
+              <div class="hint">Смените тему ОС — эта секция переключится</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
