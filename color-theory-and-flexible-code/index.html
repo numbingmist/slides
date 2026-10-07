@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- LOCAL -->
-  <!-- <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/index.css"> -->
+  <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/index.css">
   <!-- LIVE -->
-  <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/index.css">
+  <!-- <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/index.css"> -->
   <link rel="stylesheet" href="styles/index.css">
   <style>
     .shower {
@@ -51,6 +51,185 @@
     </div>
     <div class="slide-bg"></div>
   </section>
+
+  <!-- FRONT COVER WITH VIBE -->
+  <!-- <section class="slide dj-vibe">
+    <!-- <div class="pattern"></div> -->
+    <!-- Кнопки переключения режима --
+    <div class="controls">
+      <button id="mode-auto" class="active">Авто-бит</button>
+      <button id="mode-audio">Web Audio</button>
+    </div>
+
+    <!-- Контент --
+    <section class="content">
+
+      <span class="eyebrow">Доклад · Frontend</span>
+
+      <h1>
+        <span class="line l1">Теория</span>
+        <span class="line l2"><span class="grad">цвета</span></span>
+        <span class="line l1">и практики гибкого кода</span>
+      </h1>
+
+      <p class="subtitle">
+        Как дизайн-системы, цветовые токены и адаптивные практики
+        помогают строить интерфейсы, которые масштабируются вместе
+        с продуктом.
+      </p>
+
+      <div class="speaker">
+        <div class="avatar">ВЫ</div>
+        <div class="info">
+          <span class="label">Спикер</span>
+          <span class="name">Имя Фамилия</span>
+          <span class="role">Frontend-разработчик</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Плеер --
+    <div class="player">
+      <audio id="track" src="pictures/sample.mp3" controls></audio>
+    </div>
+
+    <!-- Индикатор пульса --
+    <div class="pulse-dot"></div>
+    <script>
+    /* ============================================================
+       УПРАВЛЕНИЕ АНИМАЦИЕЙ
+       Два режима:
+       1) auto-bit — таймер-«бит» по BPM трека (Apashe — No Twerk ≈ 100 BPM)
+       2) web-audio — анализ реального аудиопотока (если получится подключиться)
+       ============================================================ */
+
+    const root = document.documentElement;
+    const btnAuto = document.getElementById('mode-auto');
+    const btnAudio = document.getElementById('mode-audio');
+
+    /* --- Утилита: плавное применение значений к CSS-переменным --- */
+    function setPulse(v) {
+      // v — 0..1
+      root.style.setProperty('--pulse', v.toFixed(3));
+      root.style.setProperty('--lightness-boost', (v * 12).toFixed(2) + '%');
+    }
+
+    /* --- Плавное изменение hue по времени, даже без бита --- */
+    let baseHue = 340;
+    let drift = 0;
+    setInterval(() => {
+      drift += 0.15; // hue-дрейф — медленное вращение по цветовому кругу
+      const h1 = (baseHue + drift) % 360;
+      const h2 = (baseHue + 45 + drift) % 360;
+      const h3 = (baseHue + 100 + drift) % 360;
+      root.style.setProperty('--h1', h1.toFixed(1));
+      root.style.setProperty('--h2', h2.toFixed(1));
+      root.style.setProperty('--h3', h3.toFixed(1));
+    }, 80);
+
+    /* --- Режим 1: авто-бит --- */
+    let autoTimer = null;
+    let autoMode = true;
+
+    function startAutoBit() {
+      // «No Twerk» — примерно 100 BPM → 600 мс на удар
+      const interval = 600;
+      let step = 0;
+      autoTimer = setInterval(() => {
+        // Сильные доли — каждые 4 удара, слабые — между ними
+        const isStrong = step % 4 === 0;
+        const peak = isStrong ? 1 : 0.45;
+        setPulse(peak);
+        // Затухание — плавное
+        let v = peak;
+        const fade = setInterval(() => {
+          v *= 0.82;
+          setPulse(v);
+          if (v < 0.03) { clearInterval(fade); setPulse(0); }
+        }, 40);
+        step++;
+      }, interval);
+    }
+
+    function stopAutoBit() {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = null;
+    }
+
+    /* --- Режим 2: Web Audio API --- */
+    let audioCtx = null;
+    let analyser = null;
+    let rafId = null;
+
+    async function startWebAudio() {
+      try {
+        // Пытаемся подключиться к системному аудио или локальному файлу
+        // Встроенный iframe Яндекс.Музыки недоступен — берём «медиапоток»
+        // из любого <audio>/<video> на странице или запрашиваем у пользователя
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: {
+            // Захватываем системный звук — работает в Chrome при выборе
+            // «Поделиться вкладкой» → «Поделиться звуком»
+            echoCancellation: false,
+            noiseSuppression: false,
+            autoGainControl: false
+          }
+        });
+        const src = audioCtx.createMediaStreamSource(stream);
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 512;
+        src.connect(analyser);
+
+        const data = new Uint8Array(analyser.frequencyBinCount);
+
+        function tick() {
+          analyser.getByteFrequencyData(data);
+          // Нижние частоты — бас: именно они дают «сильную долю»
+          let bass = 0;
+          for (let i = 2; i < 12; i++) bass += data[i];
+          bass = bass / (10 * 255); // 0..1
+          setPulse(Math.min(1, bass * 1.6));
+          rafId = requestAnimationFrame(tick);
+        }
+        tick();
+
+        btnAudio.classList.add('active');
+        btnAuto.classList.remove('active');
+        stopAutoBit();
+        autoMode = false;
+      } catch (e) {
+        console.warn('Web Audio недоступен:', e.message);
+        // Откатываемся к авто-биту
+        startAutoBit();
+        btnAuto.classList.add('active');
+        btnAudio.classList.remove('active');
+      }
+    }
+
+    function stopWebAudio() {
+      if (rafId) cancelAnimationFrame(rafId);
+      if (audioCtx) audioCtx.close();
+      audioCtx = null; analyser = null; rafId = null;
+    }
+
+    /* --- Кнопки управления --- */
+    btnAuto.onclick = () => {
+      stopWebAudio();
+      startAutoBit();
+      btnAuto.classList.add('active');
+      btnAudio.classList.remove('active');
+    };
+    btnAudio.onclick = () => {
+      stopAutoBit();
+      startWebAudio();
+    };
+
+    /* --- Запуск --- */
+    startAutoBit();
+  </script>
+  </section> -->
 
   <!-- ABOUT SPEAKER -->
   <section class="slide">
@@ -1647,9 +1826,9 @@
   <div class="progress new"></div>
 
   <!-- LOCAL -->
-	<!-- <script src="node_modules/@shower/core/dist/index.js"></script> -->
+	<script src="node_modules/@shower/core/dist/index.js"></script>
   <!-- LIVE -->
-  <script src="../src/shower/index.js"></script>
+  <!-- <script src="../src/shower/index.js"></script> -->
   <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
 
 </body>
