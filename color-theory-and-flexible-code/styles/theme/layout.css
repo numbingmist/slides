@@ -1,0 +1,29 @@
+.layout-flex {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* DELETE? */
+.cover.side {
+  top: 0;
+  transform: none;
+  height: 100%;
+  width: auto;
+}
+.cover.side.right {
+  right: 0;
+  left: auto;
+}
+.cover.side.left {
+  left: 0;
+  right: auto;
+}
+
+.side-content.left {
+  margin-right: 300px;
+}
+.side-content.right {
+  margin-left: 300px;
+}

@@ -1,0 +1,156 @@
+.demo-contrast {
+  .stage {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .sample {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  .ratio {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.8rem;
+    color: var(--theme-text-dim);
+  }
+  .verdict {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+  }
+  .pass { background: rgba(77, 224, 160, 0.15); color: var(--theme-green); }
+  .fail { background: rgba(255, 77, 109, 0.15); color: var(--theme-red); }
+
+  /* 1. AA/AAA крупный и мелкий текст */
+  &.d1 .c1 { background: #ffffff; color: #6B7280; }
+  &.d1 .c2 { background: #ffffff; color: #4A5160; }
+  &.d1 .c3 { background: #ffffff; color: #2C333F; }
+  &.d1 .c4 { background: #ffffff; color: #0E1016; }
+
+  /* 2. Плохой контраст — серый на сером */
+  &.d2 .bad { background: #9AA0AB; color: #B4B9C1; }
+  &.d2 .good { background: #9AA0AB; color: #1A1E26; }
+
+  /* 3. Контраст в HSL — светлота решает */
+  &.d3 .row { display: flex; gap: 4px; width: 100%; }
+  &.d3 .cell {
+    flex: 1;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    display: grid; place-items: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  &.d3 .c1 { background: hsl(320 80% 90%); color: #0E1016; }
+  &.d3 .c2 { background: hsl(320 80% 75%); color: #0E1016; }
+  &.d3 .c3 { background: hsl(320 80% 55%); color: #FFFFFF; }
+  &.d3 .c4 { background: hsl(320 80% 35%); color: #FFFFFF; }
+  &.d3 .c5 { background: hsl(320 80% 15%); color: #FFFFFF; }
+
+  /* 4. OKLCH — равномерная светлота */
+  &.d4 .row { display: flex; gap: 4px; width: 100%; }
+  &.d4 .cell {
+    flex: 1; aspect-ratio: 1; border-radius: 8px;
+    display: grid; place-items: center;
+    font-size: 0.78rem; font-weight: 700;
+  }
+  &.d4 .c1 { background: oklch(90% 0.05 320); color: #0E1016; }
+  &.d4 .c2 { background: oklch(75% 0.12 320); color: #0E1016; }
+  &.d4 .c3 { background: oklch(60% 0.18 320); color: #FFFFFF; }
+  &.d4 .c4 { background: oklch(45% 0.18 320); color: #FFFFFF; }
+  &.d4 .c5 { background: oklch(25% 0.12 320); color: #FFFFFF; }
+
+  /* 5. Одинаковая светлота — плохой контраст */
+  &.d5 .pair {
+    display: flex; gap: 4px; width: 100%;
+  }
+  &.d5 .cell {
+    flex: 1; height: 60px; border-radius: 10px;
+    display: grid; place-items: center;
+    font-size: 0.85rem; font-weight: 700;
+  }
+  &.d5 .p1a { background: oklch(65% 0.20 320); color: oklch(65% 0.18 200); }
+  &.d5 .p1b { background: oklch(65% 0.20 320); color: oklch(65% 0.18 90); }
+  &.d5 .p2a { background: oklch(65% 0.20 320); color: oklch(25% 0.18 200); }
+  &.d5 .p2b { background: oklch(65% 0.20 320); color: #ffffff; }
+
+  /* 6. Автотекст по APCA-подобной формуле */
+  &.d6 .auto {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    /* выбираем цвет текста по светлоте фона */
+    color: oklch(from var(--c) clamp(0, (l - 0.6) * -1000, 1) 0 h);
+    background: var(--c);
+  }
+
+  /* 7. Focus ring по контрасту */
+  &.d7 button {
+    font: inherit; font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    border: 2px solid var(--theme-pink);
+    background: transparent;
+    color: var(--theme-pink);
+    cursor: pointer;
+    outline: none;
+  }
+  &.d7 button:focus-visible {
+    outline: 2px solid var(--theme-pink);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in oklch, var(--theme-pink) 30%, transparent);
+  }
+
+  /* 8. Контраст иконок и текста на кнопке */
+  &.d8 .btn-row { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+  &.d8 .b {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  &.d8 .b svg { width: 18px; height: 18px; fill: currentColor; }
+  &.d8 .ok { background: var(--theme-purple); color: #FFFFFF; }
+  &.d8 .weak { background: var(--theme-yellow); color: #FFF7D6; }
+  &.d8 .fixed { background: var(--theme-yellow); color: #1F1600; }
+
+  /* 9. Контраст disabled-состояния */
+  &.d9 input {
+    width: 100%;
+    font: inherit;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    outline: none;
+  }
+  &.d9 .normal {
+    background: var(--theme-bg); color: var(--theme-text);
+    border: 1px solid var(--theme-border);
+  }
+  &.d9 .disabled {
+    background: color-mix(in oklch, var(--theme-bg) 92%, white 8%);
+    color: color-mix(in oklch, var(--theme-text) 40%, transparent);
+    border: 1px solid color-mix(in oklch, var(--theme-border) 70%, transparent);
+    cursor: not-allowed;
+  }
+
+  /* 10. Сравнение WCAG AA и AAA */
+  &.d10 .row { display: flex; gap: 4px; width: 100%; }
+  &.d10 .cell {
+    flex: 1; height: 70px; border-radius: 10px;
+    display: grid; place-items: center;
+    font-size: 0.72rem; font-weight: 700;
+    flex-direction: column; gap: 2px;
+    text-align: center;
+  }
+  &.d10 .aa  { background: #808080; color: #FFFFFF; }
+  &.d10 .aaa { background: #595959; color: #FFFFFF; }
+  &.d10 .small-aa  { background: #808080; color: #FFFFFF; font-size: 0.62rem; }
+  &.d10 .small-aaa { background: #595959; color: #FFFFFF; font-size: 0.62rem; }
+}

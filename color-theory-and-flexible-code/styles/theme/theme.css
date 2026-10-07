@@ -1,0 +1,22 @@
+:root {
+  --theme-bg:        #0E1016;
+  --theme-bg-elev:   #16181F;
+  --theme-border:    #262933;
+  --theme-text:      #E8EAED;
+  --theme-text-dim:  #9AA0AB;
+  --theme-text-mute: #6B7280;
+  --theme-pink:      #F637C6;
+  --theme-purple:    #B55EFF; /* #A64DFF; */
+  --theme-blue:      #4DA6FF;
+  --theme-yellow:    #FFC24D;
+  --theme-green:     #4DE0A0;
+  --theme-red:       #FF4D6D;
+  --theme-primary: var(--theme-purple);
+  --theme-font: "Inter", -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.shower {
+  --color-grey: hsl(220 3% 30%);
+  --progress-size: 5px;
+  color: hsl(0 0% 100% / .85);
+}

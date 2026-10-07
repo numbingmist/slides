@@ -1,0 +1,43 @@
+svg {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+:root {
+  --pattern-url: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'><defs><pattern id='p' patternUnits='userSpaceOnUse' width='72' height='72'><g transform='translate(36 36) rotate(-60)'><line x1='-10' y1='0' x2='10' y2='0' stroke='white' stroke-width='3' stroke-linecap='round'/></g></pattern></defs><rect width='100%' height='100%' fill='url(%23p)'/></svg>")
+}
+
+.pattern {
+  animation: rotateGradient 10s linear infinite;
+  background: conic-gradient(from 122deg at 50% 50%, transparent 17%, #f627e3 25%, #6911d2 32%, transparent 38%, transparent 61%, #6911d2 71%, #f627e3 81%, transparent 91%);
+
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-mask-image: var(--pattern-url);
+  mask-image: var(--pattern-url);
+  -webkit-mask-size: 22px 22px;
+  mask-size: 22px 22px;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+
+  &:after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    background: linear-gradient(180deg, transparent, var(--page-background));
+    height: 50px;
+    width: 100%;
+  }
+}
+
+@keyframes rotateGradient {
+  0% { --gradient-angle: 0deg; }
+  50% { --gradient-angle: 1800deg; }
+  100% { --gradient-angle: 360deg; }
+}

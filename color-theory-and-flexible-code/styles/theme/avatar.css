@@ -1,0 +1,21 @@
+.avatar {
+  position: relative;
+  width: 56px; height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background:
+    linear-gradient(var(--theme-bg-elev), var(--theme-bg-elev)) padding-box,
+    linear-gradient(135deg, var(--theme-pink), var(--theme-purple), var(--theme-blue)) border-box;
+  border: 2px solid transparent;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--theme-text-dim);
+  letter-spacing: 0.02em;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}

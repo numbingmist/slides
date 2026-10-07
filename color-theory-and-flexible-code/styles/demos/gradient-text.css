@@ -1,0 +1,274 @@
+.gradient-text {
+    background: linear-gradient(90deg, #ff6b35, #f7931e, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Фолбэк */
+}
+
+.gradient-linear {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-radial {
+    background: radial-gradient(circle, #ff6b35, #f7931e, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-conic {
+    background: conic-gradient(from 0deg, #ff6b35, #f7931e, #ffd700, #ff6b35);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-oklch {
+  background: linear-gradient(
+    in oklch,
+    oklch(0.7 0.2 30),
+    oklch(0.7 0.2 150),
+    oklch(0.7 0.2 270)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-outlined {
+  background: linear-gradient(90deg, #ff6b35, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Обводка */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-text-part {
+  background: linear-gradient(90deg, #ff6b35, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-animated {
+  background: linear-gradient(
+    90deg,
+    #ff6b35,
+    #f7931e,
+    #ffd700,
+    #ff6b35
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-hue-rotate {
+  background: linear-gradient(
+    in oklch,
+    oklch(0.7 0.2 0),
+    oklch(0.7 0.2 60),
+    oklch(0.7 0.2 120),
+    oklch(0.7 0.2 180),
+    oklch(0.7 0.2 240),
+    oklch(0.7 0.2 300),
+    oklch(0.7 0.2 360) /* Возврат к началу */
+  );
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hue-move 3s ease infinite;
+}
+
+@keyframes hue-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.gradient-hue-number-rotate {
+  /* Анимируем переменную --hue */
+  --hue: 0;
+  animation: hue-rotate 3s linear infinite;
+
+  /* Градиент строится из переменной */
+  background: linear-gradient(
+    90deg,
+    oklch(0.7 0.2 var(--hue)),
+    oklch(0.7 0.2 calc(var(--hue) + 120)),
+    oklch(0.7 0.2 calc(var(--hue) + 240))
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Анимируем ЧИСЛО, а не фон */
+@property --hue {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes hue-rotate {
+  from { --hue: 0; }
+  to { --hue: 360; }
+}
+
+.gradient-hue-mask {
+  /* font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 900; */
+  position: relative;
+  color: transparent;
+
+  background: linear-gradient(
+    in oklch,
+    oklch(0.7 0.2 0),
+    oklch(0.7 0.2 120),
+    oklch(0.7 0.2 240),
+    oklch(0.7 0.2 360)
+  );
+  background-size: 300% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Анимируем маску, а не фон */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 50%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 50%,
+    transparent 100%
+  );
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+
+  animation: mask-move 3s linear infinite;
+}
+
+@keyframes mask-move {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: -100% 0;
+    mask-position: -100% 0;
+  }
+}
+
+.gradient-hue-filter {
+  /* font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 900; */
+
+  /* Статичный градиент в OKLCH */
+  background: linear-gradient(
+    in oklch,
+    oklch(0.7 0.2 0),
+    oklch(0.7 0.2 120),
+    oklch(0.7 0.2 240)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Анимируем фильтр */
+  animation: filter-hue 3s linear infinite;
+}
+
+@keyframes filter-hue {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+:root {
+  --color-theme-primary: oklch(0.6 0.2 250);
+  --color-theme-accent: oklch(0.7 0.2 30);
+  /* color-scheme: dark; */
+  color-scheme: light;
+  /* color-scheme: light dark; */
+}
+
+.gradient-text-theme {
+  background: linear-gradient(
+    90deg,
+    var(--color-theme-primary),
+    var(--color-theme-accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-theme-primary: oklch(0.75 0.18 250);
+    --color-theme-accent: oklch(0.89 0.25 146.38);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-theme-primary: oklch(0.6 0.2 250);
+    --color-theme-accent: oklch(0.7 0.2 30);
+  }
+}
+
+:root {
+  --color-theme-light-primary: oklch(0.6 0.2 250);
+  --color-theme-light-accent: oklch(0.7 0.2 30);
+  --color-theme-dark-primary: oklch(0.75 0.18 250);
+  --color-theme-dark-accent: oklch(0.89 0.25 146.38);
+}
+
+.gradient-text-theme-working {
+  background: linear-gradient(
+    90deg,
+    light-dark(var(--color-theme-light-primary), var(--color-theme-dark-primary)),
+    light-dark(var(--color-theme-light-accent), var(--color-theme-dark-accent))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+:root {
+  --color-theme-brand: oklch(0.89 0.25 146.38);
+}
+
+.gradient-auto {
+  background: linear-gradient(
+    in oklch,
+    oklch(from var(--color-theme-brand) l c h),
+    oklch(from var(--color-theme-brand) l c calc(h + 60))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

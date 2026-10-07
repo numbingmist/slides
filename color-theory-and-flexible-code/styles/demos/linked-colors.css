@@ -1,0 +1,212 @@
+.demo-linked-colors {
+  .swatch-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .swatch {
+    width: 38px; height: 38px; border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .menu { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+  .menu-item {
+    padding: 0.65rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0E1016;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .menu-item .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgb(0 0 0 / 0.25);
+  }
+  .btn-mini {
+    font: inherit; font-size: 0.85rem; font-weight: 600;
+    color: #0E1016;
+    padding: 0.55rem 1rem;
+    border: none; border-radius: 10px;
+    cursor: pointer;
+  }
+
+  /* 1. Радужное меню через hsl(from ...) */
+  &.d1 .mi-1 { background: hsl(from var(--theme-pink) h s l); }
+  &.d1 .mi-2 { background: hsl(from var(--theme-pink) calc(h + 30) s l); }
+  &.d1 .mi-3 { background: hsl(from var(--theme-pink) calc(h + 60) s l); }
+  &.d1 .mi-4 { background: hsl(from var(--theme-pink) calc(h + 90) s l); }
+  &.d1 .mi-5 { background: hsl(from var(--theme-pink) calc(h + 120) s l); }
+  &.d1 .mi-6 { background: hsl(from var(--theme-pink) calc(h + 150) s l); }
+
+  /* 2. Радужное меню через oklch(from ...) */
+  &.d2 .mi-1 { background: oklch(from var(--theme-purple) l c h); }
+  &.d2 .mi-2 { background: oklch(from var(--theme-purple) l c calc(h + 30)); }
+  &.d2 .mi-3 { background: oklch(from var(--theme-purple) l c calc(h + 60)); }
+  &.d2 .mi-4 { background: oklch(from var(--theme-purple) l c calc(h + 90)); }
+  &.d2 .mi-5 { background: oklch(from var(--theme-purple) l c calc(h + 120)); }
+
+  /* 3. Монохром — одинаковая hue, разная lightness */
+  &.d3 .mono-1 { background: oklch(from var(--theme-blue) 95% c h); }
+  &.d3 .mono-2 { background: oklch(from var(--theme-blue) 80% c h); }
+  &.d3 .mono-3 { background: oklch(from var(--theme-blue) 65% c h); }
+  &.d3 .mono-4 { background: oklch(from var(--theme-blue) 50% c h); }
+  &.d3 .mono-5 { background: oklch(from var(--theme-blue) 35% c h); }
+  &.d3 .mono-6 { background: oklch(from var(--theme-blue) 20% c h); }
+
+  /* 4. Комплиментарная гармония */
+  &.d4 .comp-a { background: hsl(from var(--theme-pink) h s l); }
+  &.d4 .comp-b { background: hsl(from var(--theme-pink) calc(h + 180) s l); }
+
+  /* 5. Аналоговая гармония */
+  &.d5 .ana-1 { background: hsl(from var(--theme-blue) calc(h - 30) s l); }
+  &.d5 .ana-2 { background: hsl(from var(--theme-blue) h s l); }
+  &.d5 .ana-3 { background: hsl(from var(--theme-blue) calc(h + 30) s l); }
+
+  /* 6. Триада */
+  &.d6 .tri-1 { background: hsl(from var(--theme-pink) h s l); }
+  &.d6 .tri-2 { background: hsl(from var(--theme-pink) calc(h + 120) s l); }
+  &.d6 .tri-3 { background: hsl(from var(--theme-pink) calc(h + 240) s l); }
+
+  /* 7. Тетрада (квадрат) */
+  &.d7 .tet-1 { background: hsl(from var(--theme-purple) h s l); }
+  &.d7 .tet-2 { background: hsl(from var(--theme-purple) calc(h + 90) s l); }
+  &.d7 .tet-3 { background: hsl(from var(--theme-purple) calc(h + 180) s l); }
+  &.d7 .tet-4 { background: hsl(from var(--theme-purple) calc(h + 270) s l); }
+
+  /* 8. Split-complementary */
+  &.d8 .sp-1 { background: hsl(from var(--theme-red) h s l); }
+  &.d8 .sp-2 { background: hsl(from var(--theme-red) calc(h + 150) s l); }
+  &.d8 .sp-3 { background: hsl(from var(--theme-red) calc(h + 210) s l); }
+
+  /* 9. Оттенки по hover через from */
+  &.d9 .hoverable {
+    background: var(--theme-pink);
+    transition: background 0.2s;
+  }
+  &.d9 .hoverable:hover {
+    background: hsl(from var(--theme-pink) h s calc(l - 12));
+  }
+  &.d9 .hoverable:active {
+    background: hsl(from var(--theme-pink) h s calc(l - 22));
+  }
+
+  /* 10. Текст на авто-контрасте */
+  &.d10 .auto {
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    color: oklch(from var(--theme-yellow) clamp(0, (l - 0.65) * -1000, 1) 0 h);
+    background: var(--theme-yellow);
+  }
+
+  /* 11. Затемнение фона по насыщенности акцента */
+  &.d11 .demo-badge {
+    padding: 0.5rem 1rem; border-radius: 999px;
+    font-weight: 600; font-size: 0.85rem;
+    background: oklch(from var(--theme-green) 25% calc(c * 1.2) h);
+    color: oklch(from var(--theme-green) 90% calc(c * 0.6) h);
+    border: 1px solid oklch(from var(--theme-green) 45% c h);
+  }
+
+  /* 12. Осветление через l + % */
+  &.d12 .bar {
+    height: 14px; border-radius: 999px;
+    background: oklch(from var(--theme-purple) calc(l + 20%) c h);
+  }
+  &.d12 .bar.base { background: var(--theme-purple); }
+  &.d12 .bar.dark { background: oklch(from var(--theme-purple) calc(l - 20%) c h); }
+  &.d12 .bars { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+
+  /* 13. Десатурация через c */
+  &.d13 .sw {
+    width: 48px; height: 48px; border-radius: 10px;
+  }
+  &.d13 .s100 { background: oklch(from var(--theme-pink) l c h); }
+  &.d13 .s70  { background: oklch(from var(--theme-pink) l calc(c * 0.7) h); }
+  &.d13 .s40  { background: oklch(from var(--theme-pink) l calc(c * 0.4) h); }
+  &.d13 .s10  { background: oklch(from var(--theme-pink) l calc(c * 0.1) h); }
+
+  /* 14. Родственные состояния disabled / hover */
+  &.d14 .field {
+    padding: 0.6rem 1rem; border-radius: 10px;
+    background: oklch(from var(--theme-blue) 20% calc(c * 0.4) h);
+    color: oklch(from var(--theme-blue) 90% calc(c * 0.3) h);
+    border: 1px solid oklch(from var(--theme-blue) 35% calc(c * 0.6) h);
+    font-size: 0.85rem;
+  }
+  &.d14 .field.active {
+    background: oklch(from var(--theme-blue) 40% c h);
+    color: #fff;
+    border-color: oklch(from var(--theme-blue) 70% c h);
+  }
+
+  /* 15. Тёплая и холодная темы одного компонента */
+  &.d15 .chip {
+    padding: 0.5rem 1rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600; color: #0E1016;
+  }
+  &.d15 .warm-1 { background: hsl(from var(--theme-red) calc(h + 20) s l); }
+  &.d15 .warm-2 { background: hsl(from var(--theme-red) calc(h - 20) s l); }
+  &.d15 .cool-1 { background: hsl(from var(--theme-blue) calc(h + 20) s l); }
+  &.d15 .cool-2 { background: hsl(from var(--theme-blue) calc(h - 20) s l); }
+
+  /* 16. Хлебные крошки — радуга по индексу */
+  &.d16 .crumbs {
+    display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+    font-size: 0.82rem; font-weight: 600;
+  }
+  &.d16 .crumb {
+    padding: 0.35rem 0.7rem; border-radius: 999px;
+    background: hsl(from var(--theme-blue) calc(h + 25 * var(--i)) 70% 55%);
+    color: #0E1016;
+  }
+  &.d16 .crumb:nth-child(1) { --i: 0; }
+  &.d16 .crumb:nth-child(2) { --i: 1; }
+  &.d16 .crumb:nth-child(3) { --i: 2; }
+  &.d16 .crumb:nth-child(4) { --i: 3; }
+  &.d16 .crumb:nth-child(5) { --i: 4; }
+
+  /* 17. Генерация цветной тени от акцента */
+  &.d17 .card {
+    padding: 1rem 1.3rem;
+    background: var(--theme-bg);
+    border-radius: 12px;
+    font-weight: 700;
+    color: var(--theme-pink);
+    box-shadow:
+      0 12px 24px -8px oklch(from var(--theme-pink) 60% c h / 0.5);
+  }
+
+  /* 18. Комплиментарные hover-подсветки */
+  &.d18 .row {
+    padding: 0.6rem 0.9rem; border-radius: 8px;
+    font-size: 0.88rem; margin-bottom: 6px;
+    background: oklch(from var(--theme-blue) 22% calc(c * 0.5) h);
+    color: var(--theme-text);
+  }
+  &.d18 .row:hover {
+    background: oklch(from var(--theme-blue) 30% c calc(h + 180));
+  }
+
+  /* 19. Авто-градиент из одного цвета */
+  &.d19 .grad {
+    height: 100px; border-radius: 12px;
+    background: linear-gradient(
+      135deg,
+      hsl(from var(--theme-pink) h s l) 0%,
+      hsl(from var(--theme-pink) calc(h + 40) s calc(l + 10)) 100%
+    );
+    display: grid; place-items: center;
+    color: #fff; font-weight: 700;
+    padding: 0 2rem;
+  }
+
+  /* 20. Цветовой круг из одной переменной */
+  &.d20 .wheel {
+    position: relative; width: 150px; height: 150px;
+  }
+  &.d20 .petal {
+    position: absolute; top: 50%; left: 50%;
+    width: 30px; height: 30px; border-radius: 50%;
+    transform:
+      translate(-50%, -50%)
+      rotate(calc(var(--i) * 30deg))
+      translateY(-55px);
+    background: hsl(from var(--theme-purple) calc(h + 30 * var(--i)) 70% 55%);
+  }
+}

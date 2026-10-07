@@ -1,0 +1,30 @@
+.bio-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.3rem;
+  max-width: 52ch;
+}
+
+.bio-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--theme-text);
+}
+
+.bio-list li::before {
+  content: "";
+  color: transparent;
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--theme-purple);
+  /* linear-gradient(135deg, var(--theme-pink), var(--theme-purple)); */
+  transform: translateY(-50%);
+}

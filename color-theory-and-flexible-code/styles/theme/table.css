@@ -1,0 +1,11 @@
+.columns.no-gap {
+  gap: 0;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.cell {
+  padding: 10px;
+}

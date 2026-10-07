@@ -1,0 +1,43 @@
+  .demo {
+    display: flex; flex-direction: column;
+    background: var(--theme-bg-elev);
+    border: 1px solid var(--theme-border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .demo .head {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.8rem 1.1rem;
+    border-bottom: 1px solid var(--theme-border);
+    font-size: 0.86rem; font-weight: 600;
+  }
+
+  .demo .num {
+    /* font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));
+    -webkit-background-clip: text; background-clip: text; color: transparent; */
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));
+    box-shadow: 0 0 10px var(--theme-pink);
+  }
+
+  .demo .stage {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 180px;
+    padding: 1.5rem;
+    background:
+      linear-gradient(var(--theme-bg-elev), var(--theme-bg-elev)) padding-box;
+  }
+
+  .demo .note {
+    padding: 0.7rem 1.1rem;
+    border-top: 1px solid var(--theme-border);
+    font-size: 0.76rem;
+    color: var(--theme-text-mute);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  }

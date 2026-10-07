@@ -1,0 +1,29 @@
+/* :root {
+  color-scheme: light dark;
+  --bg:      light-dark(#ffffff, #0E1016);
+  --surface: light-dark(#f4f6f9, #16181F);
+  --text:    light-dark(#0E1016, #E8EAED);
+  --text-dim:light-dark(#5A6273, #9AA0AB);
+  --border:  light-dark(#E2E6EC, #262933);
+  --accent:  light-dark(#F637C6, #FF6ED6);
+}
+* { box-sizing: border-box; margin: 0; }
+body {
+  min-height: 100vh; background: var(--bg); color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  display: grid; place-items: center; padding: 3rem;
+} */
+
+.theme-2 {
+  .card {
+    background: var(--theme-surface); border: 1px solid var(--theme-border);
+    border-radius: 16px; padding: 2rem; max-width: 460px;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  h1 { font-size: 1.5rem; font-weight: 800; }
+  p { color: var(--theme-text-dim); }
+  .hint {
+    font-size: 0.85rem; padding: 0.7rem 1rem;
+    background: var(--theme-accent); color: #fff; border-radius: 10px;
+  }
+}

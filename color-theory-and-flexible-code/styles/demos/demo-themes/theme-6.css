@@ -1,0 +1,50 @@
+/* :root {
+  --base: #F637C6;
+  --bg: #ffffff;
+  --text: #0E1016;
+
+  --accent: var(--theme-base);
+  --accent-soft:  oklch(from var(--theme-base) calc(l + 15%) calc(c * 0.6) h);
+  --accent-deep:  oklch(from var(--theme-base) calc(l - 15%) c h);
+  --surface:      oklch(from var(--theme-base) 96% calc(c * 0.08) h);
+  --border:       oklch(from var(--theme-base) 88% calc(c * 0.15) h);
+  --text-dim:     oklch(from var(--theme-base) 45% calc(c * 0.25) h);
+}
+:root[data-theme="dark"] {
+  --bg: oklch(from var(--theme-base) 12% calc(c * 0.1) h);
+  --surface: oklch(from var(--theme-base) 18% calc(c * 0.12) h);
+  --border: oklch(from var(--theme-base) 28% calc(c * 0.2) h);
+  --text: oklch(from var(--theme-base) 95% calc(c * 0.05) h);
+  --text-dim: oklch(from var(--theme-base) 65% calc(c * 0.15) h);
+  --accent: oklch(from var(--theme-base) 70% c h);
+}
+* { box-sizing: border-box; margin: 0; }
+body {
+  min-height: 100vh; background: var(--theme-bg); color: var(--theme-text);
+  font-family: "Inter", system-ui, sans-serif;
+  display: grid; place-items: center; padding: 3rem;
+  transition: background 0.3s, color 0.3s;
+} */
+
+.theme-6 {
+  .card {
+    background: var(--theme-surface); border: 1px solid var(--theme-border);
+    border-radius: 16px; padding: 2rem; max-width: 520px;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  h1 { font-size: 1.5rem; font-weight: 800; }
+  p { color: var(--theme-text-dim); }
+  .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .row button {
+    font: inherit; font-size: 0.85rem; font-weight: 600;
+    padding: 0.55rem 1.1rem; border-radius: 999px;
+    border: none; cursor: pointer;
+    background: var(--theme-accent); color: #fff;
+  }
+  .row button.ghost {
+    background: var(--theme-accent-soft); color: var(--theme-text);
+  }
+  .row button.deep {
+    background: var(--theme-accent-deep); color: #fff;
+  }
+}

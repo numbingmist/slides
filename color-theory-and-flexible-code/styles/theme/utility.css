@@ -1,0 +1,10 @@
+.rounded {
+  border-radius: 20px;
+}
+
+.border {
+  background:
+    linear-gradient(var(--theme-bg-elev), var(--theme-bg-elev)) padding-box,
+    linear-gradient(135deg, var(--theme-pink), var(--theme-purple), var(--theme-blue)) border-box;
+  border: 5px solid transparent;
+}

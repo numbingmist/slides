@@ -1,0 +1,23 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-text-dim);
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--theme-border);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  width: fit-content;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));
+  box-shadow: 0 0 10px var(--theme-pink);
+}

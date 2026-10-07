@@ -1,0 +1,10 @@
+.progress::before {
+  background: linear-gradient(90deg, var(--theme-pink) 0%, var(--theme-purple) 50%, var(--theme-blue) 100%);
+  transform: none;
+  border-top-right-radius: calc(var(--progress-size) / 2);
+  border-bottom-right-radius: calc(var(--progress-size) / 2);
+}
+
+.progress[style*='100%']::before {
+  border-radius: 0;
+}

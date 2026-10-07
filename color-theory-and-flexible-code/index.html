@@ -1,109 +1,1656 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Color theory and flexible code practices</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <!-- LOCAL -->
-    <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/index.css">
-    <!-- LIVE -->
-    <!-- <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/index.css"> -->
-    <link rel="stylesheet" href="index.css">
-    <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-        }
-    </style>
+  <title>Color theory and flexible code practices</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- LOCAL -->
+  <!-- <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/index.css"> -->
+  <!-- LIVE -->
+  <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/index.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+  </style>
 </head>
 <body class="shower list">
 
-    <header class="caption">
-        <h1>Теория цвета и практики гибкого кода</h1>
-        <p>Анна Ширяева</p>
-    </header>
+  <header class="caption">
+    <h1>Теория цвета и практики гибкого кода</h1>
+    <p>Анна Ширяева</p>
+  </header>
 
-    <section class="slide" id="cover">
-        <h2 class="contrast-bg">Теория цвета и практики гибкого кода</h2>
-        <p class="contrast-bg">Анна Ширяева</p>
-        <figure>
-            <img class="cover fit" src="pictures/full-covers/cover-1.jpeg" alt="oil colors">
-        </figure>
-    </section>
+  <!-- FRONT COVER -->
+  <section class="slide" id="cover">
+    <!-- <div class="pattern"></div> -->
+    <div class="content">
 
-    <section class="slide">
-        <div class="side-content left">
-            <h2>Анна Ширяева</h2>
-            <ul>
-                <li>В IT с <strong>2011</strong>.</li>
-                <li><strong>Frontend</strong> разработчик</li>
-                <li>Организатор <strong>MocsowJS</strong>.</li>
-                <li>Прошедшая художку любительница <br/><strong>ярких красок</strong>.</li>
-            </ul>
+      <span class="eyebrow">Доклад · UI/UX</span>
+
+      <h1>
+        Теория <span class="grad start">цвета</span><br>
+        и практики <span class="grad finish">гибкого</span> кода
+      </h1>
+
+      <!-- <p class="subtitle">
+        Или фронтенд фокусы.
+      </p> -->
+
+      <div class="speaker">
+        <div class="avatar">
+          <img style="margin-top: -5%" src="pictures/profile.jpg">
         </div>
-        <img class="cover side right" src="pictures/profile.jpg">
-    </section>
-
-    <section class="slide">
-        <div class="side-content left">
-            <h2>Поговорим про цвет</h2>
-            <ul>
-                <li>Когда о нем приходится думать?</li>
-                <li>Возможности современного CSS.</li>
-                <li>Что за цветовые пространства?</li>
-                <li>Как они помогают контролировать цвет?</li>
-                <li>Теория VS практика.</li>
-            </ul>
+        <div class="info">
+          <span class="name">Анна Ширяева</span>
+          <span class="role">Frontend-разработчик</span>
         </div>
-        <img class="cover side right" src="pictures/side-covers/side-cover-1.jpeg">
-    </section>
+      </div>
 
-    <!-- THE END -->
-    <section class="slide">
-        <div class="side-content left">
-            <h2>Итого</h2>
-            <ul>
-                <li>Узнайте <strong>дисплеи</strong> пользователей.</li>
-                <li>Определитесь с <strong>цветовым пространством</strong>.</li>
-                <li>Мешайте цвета с <strong>color-mix()</strong>.</li>
-                <li>Пользуйстесь <strong>ЧБ</strong> режимом для проверки.</li>
-            </ul>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- ABOUT SPEAKER -->
+  <section class="slide">
+    <div class="card speaker">
+
+      <div class="avatar">
+        <img style="margin-top: -5%" src="pictures/profile.jpg">
+      </div>
+
+      <div class="info">
+        <!-- <span class="eyebrow">Обо мне</span> -->
+
+        <h1>Анна <span class="grad">Ширяева</span></h1>
+
+        <ul class="bio-list">
+          <li>В IT с 2011 года</li>
+          <li>Frontend разработчица</li>
+          <li>Организатор MoscowJS</li>
+          <li>Прошедшая художку любительница ярких красок</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">Gamer</span>
+          <span class="tag">Коллекционер хобби</span>
         </div>
-        <img class="cover side right" src="pictures/side-covers/side-cover-last.jpeg" alt="see you">
-    </section>
+      </div>
 
-    <section class="slide">
-        <div class="side-content left">
-            <h2>@it_wildlife</h2>
-            <img class="rounded" src="pictures/tg-qr.png" alt="@it_wildlife" style="max-height: 300px;">
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- ABOUT TALK -->
+  <section class="slide">
+    <h2>О чём <span class="grad">доклад</span></h2>
+    <div class="cards-list">
+      <div class="card">
+        <span class="num">01</span>
+        <div>
+          <div class="title">Становление героя</div>
+          <div class="subtitle">Как поднялась тема</div>
         </div>
-        <img class="cover side right" src="pictures/see-you.png" alt="see you">
-    </section>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <div>
+          <div class="title">Работа с цветом</div>
+          <div class="subtitle">Базовая теория, параметры цвета</div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <div>
+          <div class="title">Зависимые цвета и гармонии</div>
+          <!-- <div class="subtitle">Как поднялась тема</div> -->
+        </div>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <div>
+          <div class="title">Цветовая доступность</div>
+          <!-- <div class="subtitle">Как поднялась тема</div> -->
+        </div>
+      </div>
+      <div class="card">
+        <span class="num">05</span>
+        <div>
+          <div class="title">Контраст</div>
+          <!-- <div class="subtitle">Как поднялась тема</div> -->
+        </div>
+      </div>
+      <div class="card">
+        <span class="num">06</span>
+        <div>
+          <div class="title">Темы</div>
+          <!-- <div class="subtitle">Как поднялась тема</div> -->
+        </div>
+      </div>
+      <div class="card">
+        <span class="num">07</span>
+        <div>
+          <div class="title">Магия</div>
+          <!-- <div class="subtitle">Как поднялась тема</div> -->
+        </div>
+      </div>
+      <div class="card">
+        <span class="num">08</span>
+        <div>
+          <div class="title">Заключение</div>
+          <!-- <div class="subtitle">Как поднялась тема</div> -->
+        </div>
+      </div>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
 
-    <!-- EXAMPLE -->
-    <!-- <section class="slide">
-        <h2>Code samples</h2>
-        <pre>
-            <code>&lt;!DOCTYPE html&gt;</code>
-            <code class="mark">&lt;html lang="en"&gt;</code>
-            <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-            <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-            <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-            <code><mark>&lt;/head&gt;</mark></code>
-        </pre>
-    </section> -->
+  <!-- SUBTITLE SLIDE 01 -->
+  <section class="slide">
+    <span class="bignum">01</span>
 
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
+    <div class="content">
+      <h1>Становление <span class="grad">героя</span></h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
 
-    <div class="progress"></div>
+  <!-- TWO COLUMNS EXAMPLE -->
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <span class="eyebrow">01 · Становление</span>
+        <h2><span class="grad">Герой</span> рождался</h2>
+        <p>Как-то так...</p>
+      </div>
+      <div>
+        <img class="rounded" src="pictures/img/spiderman.jpg" alt="hero">
+      </div>
+    </div>
+  </section>
 
-    <!-- LOCAL -->
-	<script src="node_modules/@shower/core/dist/index.js"></script>
-    <!-- LIVE -->
-    <!-- <script src="../src/shower/index.js"></script> -->
-    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+  <!-- CODE EXAMPLE -->
+  <section class="slide">
+    <h2>Код хочу оформлять <span class="grad">вот так</span></h2>
+    <div class="code-window">
+      <div class="titlebar">
+        <span class="dot r"></span>
+        <span class="dot y"></span>
+        <span class="dot g"></span>
+        <span class="filename">theme.ts</span>
+      </div>
+      <pre class="code"><code><span class="ln"><span class="num">1</span><span><span class="tok-com">// Токены — единый источник правды</span></span></span>
+      <span class="ln"><span class="num">2</span><span><span class="tok-kw">export const</span> <span class="tok-fn">theme</span> <span class="tok-punct">=</span> <span class="tok-punct">{</span></span></span>
+      <span class="ln"><span class="num">3</span><span>  <span class="tok-attr">accent</span><span class="tok-punct">:</span> <span class="tok-str">'#F637C6'</span><span class="tok-punct">,</span></span></span>
+      <span class="ln"><span class="num">4</span><span>  <span class="tok-attr">surface</span><span class="tok-punct">:</span> <span class="tok-str">'#0E1016'</span><span class="tok-punct">,</span></span></span>
+      <span class="ln"><span class="num">5</span><span>  <span class="tok-attr">radius</span><span class="tok-punct">:</span> <span class="tok-num">14</span><span class="tok-punct">,</span></span></span>
+      <span class="ln"><span class="num">6</span><span><span class="tok-punct">};</span></span></span>
+      <span class="ln"><span class="num">7</span><span></span></span></code></pre>
+    </div>
+  </section>
+
+  <!-- SUBTITLE SLIDE 02 -->
+  <section class="slide">
+    <span class="bignum">02</span>
+
+    <div class="content">
+      <h1>Работа с <span class="grad">цветом</span></h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- ONE COLOR -->
+  <section class="slide">
+    <div class="demo demo-one-color d1">
+      <div class="head"><span class="num"></span> HSL-шкала</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch a100"></div>
+          <div class="swatch a300"></div>
+          <div class="swatch a500"></div>
+          <div class="swatch a700"></div>
+          <div class="swatch a900"></div>
+        </div>
+      </div>
+      <div class="note">hsl(320 90% 92%) … hsl(320 70% 15%)</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d2">
+      <div class="head"><span class="num"></span> OKLCH-шкала</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch b100"></div>
+          <div class="swatch b300"></div>
+          <div class="swatch b500"></div>
+          <div class="swatch b700"></div>
+          <div class="swatch b900"></div>
+        </div>
+      </div>
+      <div class="note">oklch(95% 0.05 320) … oklch(25% 0.12 320)</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d3">
+      <div class="head"><span class="num"></span> color-mix состояния</div>
+      <div class="stage">
+        <button class="btn">Наведи и клик</button>
+      </div>
+      <div class="note">hover: mix 85% + white 15%</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d4">
+      <div class="head"><span class="num"></span> Полупрозрачность</div>
+      <div class="stage">
+        <div class="backdrop">
+          <div class="glass">glass поверх градиента</div>
+        </div>
+      </div>
+      <div class="note">rgb(255 255 255 / 0.08)</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d5">
+      <div class="head"><span class="num"></span> currentColor</div>
+      <div class="stage">
+        <button class="cbtn">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+          Обычная
+        </button>
+        <button class="cbtn danger" style="margin-left: 8px;">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+          Опасная
+        </button>
+      </div>
+      <div class="note">border и иконка наследуют color</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d6">
+      <div class="head"><span class="num"></span> light-dark()</div>
+      <div class="stage">
+        <div class="auto">цвет по теме ОС</div>
+      </div>
+      <div class="note">смените тему ОС — фон и текст адаптируются</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d7">
+      <div class="head"><span class="num"></span> filter: invert</div>
+      <div class="stage">
+        <div class="inv">ИНВЕРСИЯ</div>
+      </div>
+      <div class="note">invert(1) hue-rotate(180deg)</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d8">
+      <div class="head"><span class="num"></span> brightness / saturate</div>
+      <div class="stage">
+        <div class="chip">hover</div>
+        <div class="chip muted">muted</div>
+        <div class="chip">base</div>
+      </div>
+      <div class="note">filter: brightness / saturate</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d9">
+      <div class="head"><span class="num"></span> OKLCH-градиент</div>
+      <div class="stage">
+        <div class="hero">Плавный переход</div>
+      </div>
+      <div class="note">без «серой зоны» в середине</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d10">
+      <div class="head"><span class="num"></span> Цветная тень</div>
+      <div class="stage">
+        <div class="card">карточка с розовым свечением</div>
+      </div>
+      <div class="note">color-mix в box-shadow</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d11">
+      <div class="head"><span class="num"></span> Focus ring</div>
+      <div class="stage">
+        <input type="text" placeholder="клик по полю" style="width:100%;">
+      </div>
+      <div class="note">outline + мягкое свечение</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d12">
+      <div class="head"><span class="num"></span> Оверлей на картинке</div>
+      <div class="stage">
+        <div class="img">
+          <div class="caption">Читаемый текст</div>
+        </div>
+      </div>
+      <div class="note">градиент rgb(14 16 22 / 0.85) снизу</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d13">
+      <div class="head"><span class="num"></span> background-blend-mode</div>
+      <div class="stage">
+        <div class="noise">overlay</div>
+      </div>
+      <div class="note">текстура + градиент</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d14">
+      <div class="head"><span class="num"></span> mix-blend-mode</div>
+      <div class="stage">
+        <div class="wrap">
+          <span class="title">DIFFERENCE</span>
+        </div>
+      </div>
+      <div class="note">текст меняет цвет под фоном</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d15">
+      <div class="head"><span class="num"></span> Плейсхолдеры</div>
+      <div class="stage" style="display:flex; flex-direction:column; gap:8px;">
+        <input type="text" placeholder="активное поле">
+        <input type="text" placeholder="выключенное" disabled>
+      </div>
+      <div class="note">color-mix для состояний</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d16">
+      <div class="head"><span class="num"></span> Статусы</div>
+      <div class="stage">
+        <span class="demo-badge s-success">success</span>
+        <span class="demo-badge s-warning">warning</span>
+        <span class="demo-badge s-error">error</span>
+        <span class="demo-badge s-info">info</span>
+      </div>
+      <div class="note">oklch с одинаковым L и C</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d17">
+      <div class="head"><span class="num"></span> Skeuomorphic</div>
+      <div class="stage">
+        <button class="skeu">Объёмная кнопка</button>
+      </div>
+      <div class="note">inset highlight + цветная тень</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d18">
+      <div class="head"><span class="num"></span> :has()</div>
+      <div class="stage" style="width:400px; display:block;">
+        <div class="hcard">
+          <div>Задача 1</div>
+          <div class="status status-success">успех</div>
+        </div>
+        <div class="hcard">
+          <div>Задача 2</div>
+          <div class="status status-error">ошибка</div>
+        </div>
+      </div>
+      <div class="note">цвет по содержимому блока</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d19">
+      <div class="head"><span class="num"></span> Иерархия текста</div>
+      <div class="stage" style="width:400px; display:block;">
+        <div class="t1">Заголовок</div>
+        <div class="t2">Подзаголовок, чуть тише</div>
+        <div class="t3">Служебный текст, самый тихий</div>
+      </div>
+      <div class="note">один цвет + opacity</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d20">
+      <div class="head"><span class="num"></span> Hover / selected</div>
+      <div class="stage" style="width:400px; display:block;">
+        <table>
+          <tr><td>Строка 1</td><td>—</td></tr>
+          <tr class="selected"><td>Строка 2 (выбрана)</td><td>18%</td></tr>
+          <tr><td>Строка 3</td><td>hover</td></tr>
+        </table>
+      </div>
+      <div class="note">color-mix в hover/selected</div>
+    </div>
+  </section>
+  <!-- ONE COLOR END-->
+
+  <!-- SUBTITLE SLIDE 03 -->
+  <section class="slide">
+    <span class="bignum">03</span>
+
+    <div class="content">
+      <h1>Зависимые цвета и <span class="grad">гармонии</span></h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- LINKED COLORS AND COLOR HARMONIES -->
+  <section class="slide">
+    <div class="demo demo-linked-colors d1">
+      <div class="head"><span class="num"></span> Радужное меню (hsl from)</div>
+      <div class="stage" style="width:400px;">
+        <div class="menu">
+          <div class="menu-item mi-1"><span class="dot"></span>Пункт 1</div>
+          <div class="menu-item mi-2"><span class="dot"></span>Пункт 2</div>
+          <div class="menu-item mi-3"><span class="dot"></span>Пункт 3</div>
+          <div class="menu-item mi-4"><span class="dot"></span>Пункт 4</div>
+          <div class="menu-item mi-5"><span class="dot"></span>Пункт 5</div>
+          <div class="menu-item mi-6"><span class="dot"></span>Пункт 6</div>
+        </div>
+      </div>
+      <div class="note">hsl(from var(--pink) calc(h + N) s l)</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d2">
+      <div class="head"><span class="num"></span> Радужное меню (oklch from)</div>
+      <div class="stage" style="width:400px;">
+        <div class="menu">
+          <div class="menu-item mi-1">01</div>
+          <div class="menu-item mi-2">02</div>
+          <div class="menu-item mi-3">03</div>
+          <div class="menu-item mi-4">04</div>
+          <div class="menu-item mi-5">05</div>
+        </div>
+      </div>
+      <div class="note">oklch(from var(--purple) l c calc(h + N))</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d3">
+      <div class="head"><span class="num"></span> Монохром</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch mono-1"></div>
+          <div class="swatch mono-2"></div>
+          <div class="swatch mono-3"></div>
+          <div class="swatch mono-4"></div>
+          <div class="swatch mono-5"></div>
+          <div class="swatch mono-6"></div>
+        </div>
+      </div>
+      <div class="note">одна hue, разная l</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d4">
+      <div class="head"><span class="num"></span> Комплиментарная</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch comp-a"></div>
+          <div class="swatch comp-b"></div>
+        </div>
+      </div>
+      <div class="note">h + 180</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d5">
+      <div class="head"><span class="num"></span> Аналоговая</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch ana-1"></div>
+          <div class="swatch ana-2"></div>
+          <div class="swatch ana-3"></div>
+        </div>
+      </div>
+      <div class="note">h − 30, h, h + 30</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d6">
+      <div class="head"><span class="num"></span> Триада</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch tri-1"></div>
+          <div class="swatch tri-2"></div>
+          <div class="swatch tri-3"></div>
+        </div>
+      </div>
+      <div class="note">h, h + 120, h + 240</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d7">
+      <div class="head"><span class="num"></span> Тетрада</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch tet-1"></div>
+          <div class="swatch tet-2"></div>
+          <div class="swatch tet-3"></div>
+          <div class="swatch tet-4"></div>
+        </div>
+      </div>
+      <div class="note">h, +90, +180, +270</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d8">
+      <div class="head"><span class="num"></span> Split-complementary</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch sp-1"></div>
+          <div class="swatch sp-2"></div>
+          <div class="swatch sp-3"></div>
+        </div>
+      </div>
+      <div class="note">h, h + 150, h + 210</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d9">
+      <div class="head"><span class="num"></span> Hover через from</div>
+      <div class="stage">
+        <button class="btn-mini hoverable">Наведи и клик</button>
+      </div>
+      <div class="note">hover: l − 12, active: l − 22</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d10">
+      <div class="head"><span class="num"></span> Авто-контраст текста</div>
+      <div class="stage" style="width:400px;">
+        <div class="auto" style="width:100%; text-align:center;">
+          Тёмный или светлый — по светлоте фона
+        </div>
+      </div>
+      <div class="note">clamp по l в oklch(from ...)</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d11">
+      <div class="head"><span class="num"></span> Badge от акцента</div>
+      <div class="stage">
+        <span class="demo-badge">status: ok</span>
+      </div>
+      <div class="note">фон и текст — производные от --green</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d12">
+      <div class="head"><span class="num"></span> Осветление / затемнение</div>
+      <div class="stage" style="width:400px;">
+        <div class="bars">
+          <div class="bar"></div>
+          <div class="bar base"></div>
+          <div class="bar dark"></div>
+        </div>
+      </div>
+      <div class="note">l ± 20% от базового</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d13">
+      <div class="head"><span class="num"></span> Десатурация</div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="sw s100"></div>
+          <div class="sw s70"></div>
+          <div class="sw s40"></div>
+          <div class="sw s10"></div>
+        </div>
+      </div>
+      <div class="note">c × 0.7 / 0.4 / 0.1</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d14">
+      <div class="head"><span class="num"></span> Disabled / active поля</div>
+      <div class="stage" style="width:400px; display:flex; flex-direction:column; gap:8px;">
+        <div class="field">Пассивное состояние</div>
+        <div class="field active">Активное состояние</div>
+      </div>
+      <div class="note">разные l и c от одного --blue</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d15">
+      <div class="head"><span class="num"></span> Тёплое / холодное</div>
+      <div class="stage" style="flex-direction:column; gap:10px;">
+        <div style="display:flex; gap:6px;">
+          <span class="chip warm-1">+20°</span>
+          <span class="chip warm-2">−20°</span>
+        </div>
+        <div style="display:flex; gap:6px;">
+          <span class="chip cool-1">+20°</span>
+          <span class="chip cool-2">−20°</span>
+        </div>
+      </div>
+      <div class="note">h ± 20 от тёплого и холодного</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d16">
+      <div class="head"><span class="num"></span> Радужные хлебные крошки</div>
+      <div class="stage" style="width:500px;">
+        <div class="crumbs">
+          <span class="crumb">Главная</span>
+          <span class="crumb">Каталог</span>
+          <span class="crumb">Раздел</span>
+          <span class="crumb">Подраздел</span>
+          <span class="crumb">Товар</span>
+        </div>
+      </div>
+      <div class="note">hue = base + 25 × var(--i)</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d17">
+      <div class="head"><span class="num"></span> Цветная тень от акцента</div>
+      <div class="stage">
+        <div class="card">Карточка</div>
+      </div>
+      <div class="note">oklch(from var(--pink) …) в тени</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d18">
+      <div class="head"><span class="num"></span> Комплимент на hover</div>
+      <div class="stage" style="width:400px; display:block;">
+        <div class="row">Строка 1</div>
+        <div class="row">Строка 2</div>
+        <div class="row">Строка 3</div>
+      </div>
+      <div class="note">hover: hue + 180</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d19">
+      <div class="head"><span class="num"></span> Градиент из одного цвета</div>
+      <div class="stage" style="width:400px;">
+        <div class="grad">Градиент от --pink</div>
+      </div>
+      <div class="note">h + 40, l + 10 на втором стопе</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-linked-colors d20">
+      <div class="head"><span class="num"></span> Цветовой круг</div>
+      <div class="stage">
+        <div class="wheel">
+          <div class="petal" style="--i:0"></div>
+          <div class="petal" style="--i:1"></div>
+          <div class="petal" style="--i:2"></div>
+          <div class="petal" style="--i:3"></div>
+          <div class="petal" style="--i:4"></div>
+          <div class="petal" style="--i:5"></div>
+          <div class="petal" style="--i:6"></div>
+          <div class="petal" style="--i:7"></div>
+          <div class="petal" style="--i:8"></div>
+          <div class="petal" style="--i:9"></div>
+          <div class="petal" style="--i:10"></div>
+          <div class="petal" style="--i:11"></div>
+        </div>
+      </div>
+      <div class="note">hue = base + 30 × --i, поворот через rotate</div>
+    </div>
+  </section>
+  <!-- LINKED COLORS AND COLOR HARMONIES END -->
+
+  <!-- SUBTITLE SLIDE 04 -->
+  <section class="slide">
+    <span class="bignum">04</span>
+
+    <div class="content">
+      <h1><span class="grad">Цветовая</span> доступность</h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- THEORY COLOR ACCESSIBILITY -->
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <span class="eyebrow">04 · Цветовая доступность</span>
+        <h2><span class="grad">Цветовая</span> доступность</h2>
+        <p>Тут будет теория</p>
+      </div>
+      <div>
+        <img class="rounded" src="pictures/img/spiderman.jpg" alt="hero">
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTITLE SLIDE 05 -->
+  <section class="slide">
+    <span class="bignum">05</span>
+
+    <div class="content">
+      <h1><span class="grad">Контраст</span></h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- CONTRAST -->
+  <section class="slide">
+    <div class="demo demo-contrast d1">
+      <div class="head"><span class="num"></span> Шкала серого и WCAG</div>
+      <div class="stage">
+        <div class="sample c1">#6B7280 на белом <span class="ratio">~4.5:1</span></div>
+        <div class="sample c2">#4A5160 на белом <span class="ratio">~7:1</span></div>
+        <div class="sample c3">#2C333F на белом <span class="ratio">~12:1</span></div>
+        <div class="sample c4">#0E1016 на белом <span class="ratio">~18:1</span></div>
+      </div>
+      <div class="note">чем темнее серый, тем выше контраст на белом</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-contrast d2">
+      <div class="head"><span class="num"></span> Плохой / хороший контраст</div>
+      <div class="stage">
+        <div class="sample bad">Серый текст на сером фоне — не читается</div>
+        <div class="sample good">Тот же фон, но тёмный текст — читается</div>
+      </div>
+      <div class="note">контраст — не про цвет, а про разницу светлот</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-contrast d3">
+      <div class="head"><span class="num"></span> HSL: светлота решает</div>
+      <div class="stage">
+        <div class="row">
+          <div class="cell c1">90%</div>
+          <div class="cell c2">75%</div>
+          <div class="cell c3">55%</div>
+          <div class="cell c4">35%</div>
+          <div class="cell c5">15%</div>
+        </div>
+      </div>
+      <div class="note">порог между тёмным и светлым текстом ~ l 55–60%</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-contrast d4">
+      <div class="head"><span class="num"></span> OKLCH: ровная шкала</div>
+      <div class="stage">
+        <div class="row">
+          <div class="cell c1">90%</div>
+          <div class="cell c2">75%</div>
+          <div class="cell c3">60%</div>
+          <div class="cell c4">45%</div>
+          <div class="cell c5">25%</div>
+        </div>
+      </div>
+      <div class="note">в OKLCH шаг светлоты визуально одинаковый</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-contrast d5">
+      <div class="head"><span class="num"></span> Одинаковая L — плохой контраст</div>
+      <div class="stage">
+        <div class="pair">
+          <div class="cell p1a">L 65%</div>
+          <div class="cell p1b">L 65%</div>
+        </div>
+        <div class="pair">
+          <div class="cell p2a">L 25%</div>
+          <div class="cell p2b">white</div>
+        </div>
+      </div>
+      <div class="note">разные hue с одинаковой L почти не различимы</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-contrast d6">
+      <div class="head"><span class="num"></span> Авто-подбор цвета текста</div>
+      <div class="stage">
+        <div class="auto" style="--c: #F5D76E;">Светлый фон → тёмный текст</div>
+        <div class="auto" style="--c: #A64DFF;">Средний фон → светлый текст</div>
+        <div class="auto" style="--c: #0E1016;">Тёмный фон → белый текст</div>
+      </div>
+      <div class="note">oklch(from ...) + clamp по l</div>
+    </div>
+  </section>
+
+  <!-- CHECK -->
+  <!-- <section class="slide">
+    <div class="demo demo-contrast d7">
+      <div class="head"><span class="num"></span> Focus ring по контрасту</div>
+      <div class="stage">
+        <button>Нажми Tab или клик</button>
+      </div>
+      <div class="note">outline + мягкое свечение ≥ 3:1 к фону</div>
+    </div>
+  </section> -->
+
+  <section class="slide">
+    <div class="demo demo-contrast d8">
+      <div class="head"><span class="num"></span> Иконка и текст вместе</div>
+      <div class="stage">
+        <div class="btn-row">
+          <div class="b ok">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
+            Хороший контраст
+          </div>
+          <div class="b weak">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
+            Слабый контраст
+          </div>
+          <div class="b fixed">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
+            Исправлено
+          </div>
+        </div>
+      </div>
+      <div class="note">иконка и текст должны иметь одинаковый контраст к фону</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-contrast d9">
+      <div class="head"><span class="num"></span> Disabled ≠ невидимый</div>
+      <div class="stage" style="width:400px;">
+        <input class="normal" type="text" placeholder="активное поле">
+        <input class="disabled" type="text" placeholder="disabled" disabled>
+      </div>
+      <div class="note">disabled ослабляем, но не делаем нечитаемым</div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-contrast d10">
+      <div class="head"><span class="num"></span> AA vs AAA</div>
+      <div class="stage">
+        <div class="row">
+          <div class="cell aa">AA<br>крупный</div>
+          <div class="cell aaa">AAA<br>крупный</div>
+          <div class="cell small-aa">AA<br>мелкий</div>
+          <div class="cell small-aaa">AAA<br>мелкий</div>
+        </div>
+      </div>
+      <div class="note">AA: 4.5:1 мелкий, 3:1 крупный · AAA: 7:1 / 4.5:1</div>
+    </div>
+  </section>
+  <!-- CONTRAST END -->
+
+  <!-- SUBTITLE SLIDE 06 -->
+  <section class="slide">
+    <span class="bignum">06</span>
+
+    <div class="content">
+      <h1><span class="grad">Темы</span></h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- THEMES -->
+  <section class="slide theme-1">
+    <div class="card">
+      <h1>Пример 1</h1>
+      <p>Обычные CSS-переменные + атрибут <code>data-theme</code> на <code>&lt;html&gt;</code>.</p>
+      <button onclick="
+        const r = document.documentElement;
+        r.dataset.theme = r.dataset.theme === 'dark' ? '' : 'dark';
+      ">Переключить тему</button>
+    </div>
+  </section>
+
+  <section class="slide theme-2">
+    <div class="card">
+      <h1>Пример 2</h1>
+      <p>Функция <code>light-dark()</code> сама выбирает значение по теме ОС. Никакого JS.</p>
+      <div class="hint">Смените тему ОС — цвета переключатся автоматически</div>
+    </div>
+  </section>
+
+  <section class="slide theme-3">
+    <div class="card">
+      <h1>Пример 3</h1>
+      <p><code>color-scheme</code> переключает системные цвета <code>Canvas</code> и <code>CanvasText</code> — браузер сам подбирает цвета.</p>
+      <div class="switch">
+        <button data-set="light">Светлая</button>
+        <button data-set="dark">Тёмная</button>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('[data-set]').forEach(btn => {
+        btn.onclick = () => {
+          document.documentElement.dataset.theme = btn.dataset.set;
+          document.querySelectorAll('[data-set]').forEach(b =>
+            b.classList.toggle('active', b === btn));
+        };
+      });
+      document.querySelector('[data-set="light"]').click();
+    </script>
+  </section>
+
+  <section class="slide theme-4">
+    <div class="card">
+      <h1>Пример 4</h1>
+      <p>Атрибут <code>data-theme</code> управляет не только светлым/тёмным, но и акцентным цветом.</p>
+      <div class="row">
+        <button class="alt" data-th="">Pink</button>
+        <button class="alt" data-th="blue">Blue</button>
+        <button class="alt" data-th="green">Green</button>
+        <button class="alt" data-th="yellow">Yellow</button>
+        <button class="alt" data-th="dark">Dark</button>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('[data-th]').forEach(btn => {
+        btn.onclick = () => {
+          const th = btn.dataset.th;
+          if (th) document.documentElement.dataset.theme = th;
+          else delete document.documentElement.dataset.theme;
+        };
+      });
+    </script>
+  </section>
+
+  <section class="slide theme-5">
+    <div class="card">
+      <h1>Пример 5</h1>
+      <p>Тема привязана к системной настройке через <code>prefers-color-scheme</code>.</p>
+      <span class="badge">Смените тему ОС — карточка переключится</span>
+    </div>
+  </section>
+
+  <section class="slide theme-6">
+    <div class="card">
+      <h1>Пример 6</h1>
+      <p>Меняем только <code>--base</code> — вся палитра пересчитывается через <code>oklch(from ...)</code>.</p>
+      <div class="row">
+        <button data-base="#F637C6">Pink</button>
+        <button data-base="#4DA6FF">Blue</button>
+        <button data-base="#4DE0A0">Green</button>
+        <button data-base="#FFC24D">Yellow</button>
+        <button class="ghost" data-theme-toggle>Тёмная тема</button>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('[data-base]').forEach(btn => {
+        btn.onclick = () =>
+          document.documentElement.style.setProperty('--base', btn.dataset.base);
+      });
+      document.querySelector('[data-theme-toggle]').onclick = () => {
+        const r = document.documentElement;
+        r.dataset.theme = r.dataset.theme === 'dark' ? '' : 'dark';
+      };
+    </script>
+  </section>
+
+  <section class="slide theme-7">
+    <div class="card">
+      <h1>Пример 7</h1>
+      <p>Все поверхности построены через <code>color-mix()</code> от акцента и фона.</p>
+      <div class="swatches">
+        <div class="sw a">100%</div>
+        <div class="sw b">60%</div>
+        <div class="sw c">30%</div>
+      </div>
+      <button onclick="
+        const r = document.documentElement;
+        r.dataset.theme = r.dataset.theme === 'dark' ? '' : 'dark';
+      ">Переключить</button>
+    </div>
+  </section>
+
+  <section class="slide theme-8">
+    <div class="card">
+      <h1>Пример 8</h1>
+      <p>Три темы через <code>data-theme</code>: светлая, тёмная, sepia. Плюс разные радиусы скругления.</p>
+      <div class="row" id="switch">
+        <button data-th="light">Light</button>
+        <button data-th="dark">Dark</button>
+        <button data-th="sepia">Sepia</button>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('[data-th]').forEach(btn => {
+        btn.onclick = () => {
+          document.documentElement.dataset.theme = btn.dataset.th;
+          document.querySelectorAll('[data-th]').forEach(b =>
+            b.classList.toggle('active', b === btn));
+        };
+      });
+      document.querySelector('[data-th="light"]').click();
+    </script>
+  </section>
+
+  <section class="slide theme-9">
+    <div class="card">
+      <h1>Пример 9</h1>
+      <p>Тема сохраняется в <code>localStorage</code> и восстанавливается при следующем визите.</p>
+      <label class="toggle">
+        <input type="checkbox" id="th">
+        <span class="track"></span>
+        <span>Тёмная тема</span>
+      </label>
+    </div>
+    <script>
+      const r = document.documentElement;
+      const box = document.getElementById('th');
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') { r.dataset.theme = 'dark'; box.checked = true; }
+      box.onchange = () => {
+        if (box.checked) { r.dataset.theme = 'dark'; localStorage.setItem('theme', 'dark'); }
+        else { delete r.dataset.theme; localStorage.setItem('theme', 'light'); }
+      };
+    </script>
+  </section>
+
+  <section class="slide theme-10">
+    <div class="card">
+      <h1>Пример 10</h1>
+      <p>Тема и акцент управляются только CSS-селекторами <code>:has()</code>, без JS.</p>
+
+      <div class="row">
+        <label>
+          <input type="checkbox" data-theme-switch>
+          Тёмная тема
+        </label>
+      </div>
+
+      <div class="row">
+        <label><input type="radio" name="accent" value="pink" checked> Pink</label>
+        <label><input type="radio" name="accent" value="blue"> Blue</label>
+        <label><input type="radio" name="accent" value="green"> Green</label>
+        <span class="sw"></span>
+      </div>
+    </div>
+  </section>
+  <!-- THEMES END -->
+
+  <!-- SUBTITLE SLIDE 07 -->
+  <section class="slide">
+    <span class="bignum">07</span>
+
+    <div class="content">
+      <h1><span class="grad">Магия</span></h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- CONCLUSION SLIDE 08 -->
+  <section class="slide">
+    <span class="bignum">08</span>
+
+    <div class="content">
+      <h1>Что мы <span class="grad">поняли</span>?</h1>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- THE END -->
+  <section class="slide" id="end">
+    <div class="layout-flex">
+      <div>
+        <h2 class="grad">@it_wildlife</h2>
+        <img class="rounded border" src="pictures/tg-qr.png" alt="@it_wildlife" style="max-height: 300px;">
+      </div>
+      <div>
+        <img class="rounded" src="pictures/see-you.png" alt="see you" width="300px">
+      </div>
+    </div>
+    <div class="slide-bg"></div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="slide">
+    <div class="side-content left">
+      <h2>Итого</h2>
+      <ul>
+        <li>Узнайте <strong>дисплеи</strong> пользователей.</li>
+        <li>Определитесь с <strong>цветовым пространством</strong>.</li>
+        <li>Мешайте цвета с <strong>color-mix()</strong>.</li>
+        <li>Пользуйстесь <strong>ЧБ</strong> режимом для проверки.</li>
+      </ul>
+    </div>
+    <img class="cover side right" src="pictures/side-covers/side-cover-last.jpeg" alt="see you">
+  </section>
+
+  <!-- ONE COLOR -->
+  <section class="slide">
+    <div class="columns two no-gap">
+      <div>
+        <div class="row" style="text-align: center;">
+          <img style="height: 125px;" src="pictures/img/green-oklch.png" alt="green oklch">
+        </div>
+        <div class="row cell" style="
+          /* background: lch(57 104.64 22.27); */
+          background: lch(88 97.51 159.88);
+          color: black;">
+          <!-- lch(57 104.64 22.27) -->
+          lch(88 97.51 159.88)
+        </div>
+        <div class="row cell" style="
+          /* background: oklch(0.66 0.3 16.21); */
+          background: oklch(0.87 0.26 160.99);
+          color: black;">
+          <!-- oklch(0.66 0.3 16.21) -->
+          oklch(0.87 0.26 160.99)
+        </div>
+        <div class="row cell" style="
+          /* background: lab(57 96.83 39.66); */
+          background: lab(88 -89.64 32.86);
+          color: black;">
+          <!-- lab(57 96.83 39.66) -->
+          lab(88 -89.64 32.86)
+        </div>
+        <div class="row cell" style="
+          /* background: oklab(0.66 0.29 0.08); */
+          background: oklab(0.87 -0.25 0.08);
+          color: black;">
+          <!-- oklab(0.66 0.29 0.08) -->
+          oklab(0.87 -0.25 0.08)
+        </div>
+      </div>
+      <div>
+        <div class="row" style="text-align: center;">
+          <img style="height: 125px;" src="pictures/img/color-conversion.png" alt="green oklch">
+        </div>
+        <div class="row cell" style="
+          /* background: #ff0051; */
+          background: #00ff97;
+          color: black;">
+          <!-- #ff0051 -->
+          #00ff97
+        </div>
+        <div class="row cell" style="
+          /* background: rgb(255 0 81); */
+          background: rgb(0 255 151);
+          color: black;">
+          <!-- rgb(255 0 81) -->
+          rgb(0 255 151)
+        </div>
+        <div class="row cell" style="
+          /* background: hsl(340.94deg 100% 50%); */
+          background: hsl(155.53deg 100% 50%);
+          color: black;">
+          <!-- hsl(340.94deg 100% 50%) -->
+          hsl(155.53deg 100% 50%)
+        </div>
+        <div class="row cell" style="
+          /* background: hwb(340.94deg 0% 0%); */
+          background: hwb(155.53deg 0% 0%);
+          color: black;">
+          <!-- hwb(340.94deg 0% 0%) -->
+          hwb(155.53deg 0% 0%)
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <!-- GRADIENT TEXT -->
+  <section class="slide">
+    <div class="columns two">
+      <div>
+        <h3 class="gradient-text">Градиентный текст</h3>
+        <h3 class="gradient-linear">Градиентный текст linear</h3>
+        <h3 class="gradient-radial">Градиентный текст radial</h3>
+        <h3 class="gradient-conic">Градиентный текст conic</h3>
+      </div>
+      <div>
+        <h3 class="gradient-oklch">Градиентный текст oklch</h3>
+        <h3 class="gradient-outlined">Градиентный текст outlined</h3>
+        <h3>
+          Обычный текст
+          <span class="gradient-text-part">градиентный</span>
+          и снова обычный
+        </h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h1 class="gradient-animated">Анимированный градиентный текст</h1>
+  </section>
+
+  <section class="slide">
+    <!-- DEMO OF A PROBLEM -->
+    <h3 class="gradient-hue-rotate">Анимированный OKLCH hue rotation (not working)</h3>
+    <!-- WORKING DEMO -->
+    <h3 class="gradient-hue-number-rotate">Анимированный OKLCH mask</h3>
+    <h3 class="gradient-hue-mask">Анимированный OKLCH mask</h3>
+    <h3 class="gradient-hue-filter">Анимированный OKLCH hue number</h3>
+  </section>
+
+  <section class="slide">
+    <table>
+      <tbody>
+        <tr>
+          <th scope="col">Способ</th>
+          <th>Плавность</th>
+          <th>Производительность</th>
+          <th>Совместимость</th>
+          <th>Сложность</th>
+        </tr>
+        <tr>
+          <th scope="row">CSS var + @property</th>
+          <td>Идеальная</td>
+          <td>Высокая</td>
+          <td>Все современные</td>
+          <td>Средняя</td>
+        </tr>
+        <tr>
+          <th scope="row">Маска</th>
+          <td>Плавная</td>
+          <td>Средняя</td>
+          <td>Все</td>
+          <td>Высокая</td>
+        </tr>
+        <tr>
+          <th scope="row">filter: hue-rotate</th>
+          <td>Резкая</td>
+          <td>Высокая</td>
+          <td>Все</td>
+          <td>Низкая</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide">
+    <!-- IMPROVE DEMO AFTER THEME SECTION -->
+    <!-- DEMO OF A PROBLEM -->
+    <!-- @media (prefers-color-scheme: Х) проверяет настройки системы и color-scheme: Х на это не влияет -->
+    <h1 class="gradient-text-theme">Градиентный текст с учетом темы (not working)</h1>
+    <!-- WORKING DEMO -->
+    <h1 class="gradient-text-theme-working">Градиентный текст с учетом темы (working)</h1>
+  </section>
+
+  <section class="slide">
+    <h1 class="gradient-auto">Градиентный текст с генерацией из одного цвета</h1>
+  </section>
+  <!-- END GRADIENT TEXT -->
+
+  <!-- BACKGROUND EXPERIMENT -->
+  <section class="slide">
+    <svg viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="-6" dy="0" stdDeviation="6" flood-color="#000" flood-opacity="0.25"/>
+        </filter>
+
+        <linearGradient id="c1"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFC2A8"/><stop offset="100%" stop-color="#FFA98A"/></linearGradient>
+        <linearGradient id="c2"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F9AECC"/><stop offset="100%" stop-color="#F08FB6"/></linearGradient>
+        <linearGradient id="c3"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#A9CBEF"/><stop offset="100%" stop-color="#87B5E4"/></linearGradient>
+        <linearGradient id="c4"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7ED6E8"/><stop offset="100%" stop-color="#5AC4DB"/></linearGradient>
+        <linearGradient id="c5"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8FE2C7"/><stop offset="100%" stop-color="#6CD1B0"/></linearGradient>
+        <linearGradient id="c6"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#BCE99C"/><stop offset="100%" stop-color="#A0DC7E"/></linearGradient>
+        <linearGradient id="c7"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E9EA8C"/><stop offset="100%" stop-color="#DCD86E"/></linearGradient>
+        <linearGradient id="c8"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F7DA75"/><stop offset="100%" stop-color="#F0C94C"/></linearGradient>
+        <linearGradient id="c9"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F7BC60"/><stop offset="100%" stop-color="#F0A63E"/></linearGradient>
+        <linearGradient id="c10" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F7A578"/><stop offset="100%" stop-color="#F08A52"/></linearGradient>
+        <linearGradient id="c11" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F09090"/><stop offset="100%" stop-color="#E87078"/></linearGradient>
+      </defs>
+
+      <!-- Слой 1 (фон, персиковый) -->
+      <path filter="url(#sh)" fill="url(#c1)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 60 1050 20 950 70 850
+          C 120 750 60 650 90 550
+          C 120 450 70 350 110 250
+          C 150 150 90 50 130 -50
+          Z"/>
+
+      <!-- Слой 2 (розовый) -->
+      <path filter="url(#sh)" fill="url(#c2)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 140 1060 100 960 150 860
+          C 200 760 140 660 170 560
+          C 200 460 150 360 190 260
+          C 230 160 170 60 210 -50
+          Z"/>
+
+      <!-- Слой 3 (голубой) -->
+      <path filter="url(#sh)" fill="url(#c3)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 220 1070 180 970 230 870
+          C 280 770 220 670 250 570
+          C 280 470 230 370 270 270
+          C 310 170 250 70 290 -50
+          Z"/>
+
+      <!-- Слой 4 (бирюзовый) -->
+      <path filter="url(#sh)" fill="url(#c4)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 300 1080 260 980 310 880
+          C 360 780 300 680 330 580
+          C 360 480 310 380 350 280
+          C 390 180 330 80 370 -50
+          Z"/>
+
+      <!-- Слой 5 (мятный) -->
+      <path filter="url(#sh)" fill="url(#c5)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 380 1090 340 990 390 890
+          C 440 790 380 690 410 590
+          C 440 490 390 390 430 290
+          C 470 190 410 90 450 -50
+          Z"/>
+
+      <!-- Слой 6 (салатовый) -->
+      <path filter="url(#sh)" fill="url(#c6)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 460 1100 420 1000 470 900
+          C 520 800 460 700 490 600
+          C 520 500 470 400 510 300
+          C 550 200 490 100 530 -50
+          Z"/>
+
+      <!-- Слой 7 (жёлто-зелёный) -->
+      <path filter="url(#sh)" fill="url(#c7)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 540 1110 500 1010 550 910
+          C 600 810 540 710 570 610
+          C 600 510 550 410 590 310
+          C 630 210 570 110 610 -50
+          Z"/>
+
+      <!-- Слой 8 (жёлтый) -->
+      <path filter="url(#sh)" fill="url(#c8)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 620 1120 580 1020 630 920
+          C 680 820 620 720 650 620
+          C 680 520 630 420 670 320
+          C 710 220 650 120 690 -50
+          Z"/>
+
+      <!-- Слой 9 (оранжево-жёлтый) -->
+      <path filter="url(#sh)" fill="url(#c9)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 700 1130 660 1030 710 930
+          C 760 830 700 730 730 630
+          C 760 530 710 430 750 330
+          C 790 230 730 130 770 -50
+          Z"/>
+
+      <!-- Слой 10 (тёплый оранжевый) -->
+      <path filter="url(#sh)" fill="url(#c10)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 780 1140 740 1040 790 940
+          C 840 840 780 740 810 640
+          C 840 540 790 440 830 340
+          C 870 240 810 140 850 -50
+          Z"/>
+
+      <!-- Слой 11 (коралловый, нижний правый) -->
+      <path filter="url(#sh)" fill="url(#c11)"
+        d="M 0 0
+          H 800 V 1200 H 0
+          C 860 1150 820 1050 870 950
+          C 920 850 860 750 890 650
+          C 920 550 870 450 910 350
+          C 950 250 890 150 930 -50
+          Z"/>
+    </svg>
+  </section>
+
+  <section class="slide">
+    <svg viewBox="0 0 800 1400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#7A9BC4"/>
+          <stop offset="35%"  stop-color="#B8CEE4"/>
+          <stop offset="70%"  stop-color="#EAF2F8"/>
+          <stop offset="100%" stop-color="#FFFFFF"/>
+        </linearGradient>
+
+        <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#F5B87A"/>
+          <stop offset="100%" stop-color="#F0A868"/>
+        </linearGradient>
+
+        <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#F07A5A"/>
+          <stop offset="100%" stop-color="#E85548"/>
+        </linearGradient>
+
+        <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#F04A48"/>
+          <stop offset="100%" stop-color="#E03030"/>
+        </linearGradient>
+
+        <linearGradient id="m4" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#5A8FC4"/>
+          <stop offset="100%" stop-color="#3A6EA8"/>
+        </linearGradient>
+
+        <linearGradient id="m5" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#1A3A6A"/>
+          <stop offset="100%" stop-color="#0F2648"/>
+        </linearGradient>
+
+        <linearGradient id="m6" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#0A1A38"/>
+          <stop offset="100%" stop-color="#050D20"/>
+        </linearGradient>
+
+        <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#FFF8D0" stop-opacity="0.95"/>
+          <stop offset="50%"  stop-color="#FFE890" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#FFE890" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- НЕБО -->
+      <rect width="800" height="1400" fill="url(#sky)"/>
+
+      <!-- СОЛНЦЕ -->
+      <ellipse cx="560" cy="580" rx="260" ry="180" fill="url(#sun)"/>
+
+      <!-- ДАЛЬНИЕ ГОРЫ (светло-оранжевые, центральный пик) -->
+      <path fill="url(#m1)"
+        d="M 0 660
+          C 60 640 90 630 120 622
+          C 150 615 170 630 200 640
+          C 230 650 260 590 300 565
+          C 330 548 360 578 400 575
+          C 440 572 470 590 510 600
+          C 550 610 590 615 630 592
+          C 670 570 710 605 750 600
+          C 775 596 790 585 800 580
+          L 800 1400
+          L 0 1400 Z"/>
+
+      <!-- СРЕДНИЕ ГОРЫ (оранжево-красные) -->
+      <path fill="url(#m2)"
+        d="M 0 700
+          C 30 680 45 650 60 640
+          C 90 620 115 680 140 700
+          C 180 730 220 675 260 660
+          C 295 648 315 685 340 700
+          C 375 720 410 672 440 660
+          C 470 650 495 675 520 680
+          C 560 688 590 665 620 660
+          C 655 654 680 675 700 680
+          C 730 688 760 668 780 662
+          C 790 659 795 664 800 668
+          L 800 1400
+          L 0 1400 Z"/>
+
+      <!-- ЯРКО-КРАСНЫЕ ГОРЫ -->
+      <path fill="url(#m3)"
+        d="M 0 760
+          C 40 738 60 722 80 720
+          C 120 716 160 770 200 780
+          C 245 792 270 748 300 740
+          C 340 730 380 790 420 800
+          C 460 810 480 768 500 762
+          C 535 752 555 782 580 790
+          C 620 802 650 772 680 770
+          C 720 767 745 792 760 800
+          C 780 810 790 795 800 790
+          L 800 1400
+          L 0 1400 Z"/>
+
+      <!-- СИНИЕ ГОРЫ (справа) -->
+      <path fill="url(#m4)"
+        d="M 0 980
+          C 40 960 80 940 130 930
+          C 180 920 220 900 260 895
+          C 300 890 330 880 370 875
+          C 410 870 440 875 470 880
+          C 500 885 530 895 560 905
+          C 600 918 640 910 680 905
+          C 720 900 760 890 800 885
+          L 800 1400
+          L 0 1400 Z"/>
+
+      <!-- ТЁМНО-СИНИЕ ГОРЫ (слева) -->
+      <path fill="url(#m5)"
+        d="M 0 850
+          C 25 872 45 890 60 900
+          C 90 920 115 950 140 960
+          C 175 972 200 990 220 1000
+          C 260 1020 280 985 300 970
+          C 335 948 360 1000 380 1010
+          C 410 1025 430 995 440 990
+          C 460 980 500 1012 520 1000
+          C 545 986 560 1020 580 1028
+          C 605 1038 625 1012 645 1008
+          C 670 1003 690 1032 715 1038
+          C 745 1046 770 1028 790 1032
+          C 795 1033 798 1042 800 1050
+          L 800 1400
+          L 0 1400 Z"/>
+
+      <!-- САМЫЙ ТЁМНЫЙ НИЖНИЙ СЛОЙ -->
+      <path fill="url(#m6)"
+        d="M 0 1080
+          C 30 1098 55 1110 80 1110
+          C 115 1110 140 1092 160 1090
+          C 190 1087 215 1122 240 1130
+          C 280 1142 310 1108 340 1100
+          C 375 1090 400 1132 420 1140
+          C 455 1152 480 1118 500 1110
+          C 535 1098 555 1140 580 1150
+          C 615 1162 640 1130 660 1120
+          C 695 1108 715 1150 740 1160
+          C 765 1170 785 1148 800 1140
+          L 800 1400
+          L 0 1400 Z"/>
+    </svg>
+  </section>
+
+  <section class="slide">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3000" height="1686" viewBox="0 0 3000 1686"
+    >
+    <!-- preserveAspectRatio="xMidYMid slice" -->
+    <path fill-rule="nonzero" fill="rgb(100%, 85.9375%, 77.34375%)" fill-opacity="1" d="M 3.789062 1685.367188 L 3000 1685.367188 L 3000 -0.00390625 L 3.789062 -0.00390625 Z M 3.789062 1685.367188 "/>
+    <path fill-rule="nonzero" fill="rgb(100%, 91.40625%, 86.326599%)" fill-opacity="1" d="M 2826.921875 263.21875 C 2826.921875 351.578125 2755.289062 423.210938 2666.929688 423.210938 C 2624.488281 423.210938 2583.800781 406.359375 2553.789062 376.351562 C 2523.789062 346.339844 2506.929688 305.648438 2506.929688 263.21875 C 2506.929688 220.78125 2523.789062 180.089844 2553.789062 150.078125 C 2583.800781 120.078125 2624.488281 103.21875 2666.929688 103.21875 C 2755.289062 103.21875 2826.921875 174.859375 2826.921875 263.21875 Z M 2826.921875 263.21875 "/>
+    <path fill-rule="nonzero" fill="rgb(100%, 91.40625%, 86.326599%)" fill-opacity="1" d="M 504.417969 356.121094 C 504.417969 356.121094 -27.175781 454.179688 189.589844 459.339844 C 406.355469 464.5 788.28125 479.980469 494.097656 510.949219 C 199.914062 541.921875 -140.722656 619.328125 60.5625 603.851562 C 261.84375 588.371094 1567.609375 732.878906 1562.441406 634.820312 C 1557.289062 536.761719 798.601562 645.140625 943.113281 578.039062 C 1087.628906 510.949219 2145.648438 583.210938 1877.269531 526.429688 C 1608.898438 469.660156 1139.230469 521.269531 1232.140625 479.980469 C 1325.039062 438.691406 2615.308594 500.628906 2166.300781 433.53125 C 1717.28125 366.441406 943.113281 474.820312 1134.070312 407.730469 C 1325.039062 340.628906 1944.371094 371.601562 1706.960938 325.148438 C 1469.550781 278.699219 504.417969 356.121094 504.417969 356.121094 Z M 504.417969 356.121094 "/>
+    <path fill-rule="nonzero" fill="rgb(99.609375%, 49.804688%, 29.026794%)" fill-opacity="1" d="M 3.789062 842.683594 C 3.789062 842.683594 783.375 719.257812 1071.078125 542.929688 C 1358.78125 366.589844 1511.910156 785.132812 1776.421875 842.683594 C 2040.921875 900.234375 2350.871094 505.800781 2509.601562 505.800781 C 2732.378906 505.800781 3000 842.683594 3000 842.683594 L 3000 1685.367188 L 3.789062 1685.367188 Z M 3.789062 842.683594 "/>
+    <path fill-rule="nonzero" fill="rgb(78.90625%, 17.259216%, 24.705505%)" fill-opacity="1" d="M 3.789062 842.683594 C 3.789062 842.683594 384.300781 1067.289062 727.691406 918.796875 C 1071.078125 770.304688 1395.910156 1290.027344 1623.289062 1266.824219 C 1850.660156 1243.625 2116.101562 900.234375 2375.03125 900.234375 C 2658.089844 900.234375 2789.699219 1265.867188 3000 1264.027344 L 3000 1685.367188 L 3.789062 1685.367188 Z M 3.789062 842.683594 "/>
+    <path fill-rule="nonzero" fill="rgb(48.242188%, 0.392151%, 19.604492%)" fill-opacity="1" d="M 3000 1264.027344 C 3000 1264.027344 2416.789062 1577.730469 2245.101562 1368.914062 C 2073.398438 1160.097656 1799.621094 1058.007812 1586.160156 1155.457031 C 1372.699219 1252.902344 1006.109375 1429.238281 774.09375 1387.476562 C 542.074219 1345.710938 3.789062 1169.378906 3.789062 1169.378906 L 3.789062 1685.367188 L 3000 1685.367188 Z M 3000 1264.027344 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 3.789062 1356.207031 C 3.789062 1356.207031 683.6875 1329.445312 1080.980469 1329.445312 C 1497.121094 1329.445312 1526.128906 1524.058594 1706.808594 1475.640625 C 1986.148438 1400.792969 2305.371094 1327.148438 2504.960938 1327.148438 C 2705.359375 1327.148438 3000 1474.695312 3000 1474.695312 L 3000 1685.367188 L 3.789062 1685.367188 Z M 3.789062 1356.207031 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 427.847656 1184.625 C 419.800781 1184.625 413.320312 1191.128906 413.320312 1199.210938 L 413.320312 1238.78125 L 377.945312 1238.78125 L 377.945312 1205.09375 C 377.945312 1202.875 376.164062 1201.089844 373.953125 1201.089844 L 370.652344 1201.089844 C 368.441406 1201.089844 366.664062 1202.875 366.664062 1205.09375 L 366.664062 1242.613281 C 366.464844 1243.183594 366.359375 1243.800781 366.359375 1244.441406 C 366.359375 1245.105469 366.476562 1245.742188 366.6875 1246.335938 C 366.898438 1248.339844 368.566406 1249.890625 370.617188 1249.910156 C 371.082031 1250.03125 371.574219 1250.097656 372.082031 1250.097656 L 413.320312 1250.097656 L 413.320312 1347.800781 C 413.320312 1355.878906 419.800781 1362.386719 427.847656 1362.386719 C 435.898438 1362.386719 442.375 1355.878906 442.375 1347.800781 L 442.375 1280.628906 L 484.742188 1280.628906 C 485.285156 1280.628906 485.808594 1280.558594 486.308594 1280.429688 C 488.496094 1280.410156 490.277344 1278.75 490.503906 1276.613281 C 490.730469 1275.980469 490.855469 1275.296875 490.855469 1274.585938 C 490.855469 1273.902344 490.738281 1273.246094 490.527344 1272.632812 L 490.527344 1232.5625 C 490.527344 1230.191406 488.628906 1228.285156 486.265625 1228.285156 L 482.746094 1228.285156 C 480.382812 1228.285156 478.484375 1230.191406 478.484375 1232.5625 L 478.484375 1268.542969 L 442.375 1268.542969 L 442.375 1199.210938 C 442.375 1191.128906 435.898438 1184.625 427.847656 1184.625 Z M 427.847656 1184.625 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 2043.28125 1262.039062 C 2035.230469 1262.039062 2028.75 1268.546875 2028.75 1276.628906 L 2028.75 1316.199219 L 1993.371094 1316.199219 L 1993.371094 1282.511719 C 1993.371094 1280.292969 1991.589844 1278.503906 1989.378906 1278.503906 L 1986.078125 1278.503906 C 1983.871094 1278.503906 1982.089844 1280.292969 1982.089844 1282.511719 L 1982.089844 1320.027344 C 1981.890625 1320.601562 1981.789062 1321.214844 1981.789062 1321.855469 C 1981.789062 1322.523438 1981.898438 1323.160156 1982.121094 1323.753906 C 1982.328125 1325.753906 1984 1327.308594 1986.039062 1327.328125 C 1986.511719 1327.449219 1987 1327.515625 1987.511719 1327.515625 L 2028.75 1327.515625 L 2028.75 1425.214844 C 2028.75 1433.296875 2035.230469 1439.804688 2043.28125 1439.804688 C 2051.320312 1439.804688 2057.808594 1433.296875 2057.808594 1425.214844 L 2057.808594 1358.046875 L 2100.171875 1358.046875 C 2100.710938 1358.046875 2101.238281 1357.976562 2101.738281 1357.847656 C 2103.929688 1357.824219 2105.710938 1356.167969 2105.929688 1354.027344 C 2106.160156 1353.394531 2106.289062 1352.714844 2106.289062 1352.003906 C 2106.289062 1351.320312 2106.171875 1350.664062 2105.960938 1350.050781 L 2105.960938 1309.980469 C 2105.960938 1307.609375 2104.058594 1305.703125 2101.699219 1305.703125 L 2098.179688 1305.703125 C 2095.808594 1305.703125 2093.910156 1307.609375 2093.910156 1309.980469 L 2093.910156 1345.960938 L 2057.808594 1345.960938 L 2057.808594 1276.628906 C 2057.808594 1268.546875 2051.320312 1262.039062 2043.28125 1262.039062 Z M 2043.28125 1262.039062 "/>
+    <path fill-rule="nonzero" fill="rgb(78.90625%, 17.259216%, 24.705505%)" fill-opacity="1" d="M 902.671875 771.734375 C 894.621094 771.734375 888.144531 778.242188 888.144531 786.320312 L 888.144531 825.894531 L 852.765625 825.894531 L 852.765625 792.207031 C 852.765625 789.984375 850.988281 788.199219 848.777344 788.199219 L 845.476562 788.199219 C 843.265625 788.199219 841.484375 789.984375 841.484375 792.207031 L 841.484375 829.722656 C 841.289062 830.296875 841.179688 830.910156 841.179688 831.550781 C 841.179688 832.214844 841.296875 832.855469 841.507812 833.445312 C 841.71875 835.449219 843.390625 837.003906 845.4375 837.023438 C 845.90625 837.144531 846.398438 837.207031 846.90625 837.207031 L 888.144531 837.207031 L 888.144531 934.910156 C 888.144531 942.992188 894.621094 949.496094 902.671875 949.496094 C 910.71875 949.496094 917.199219 942.992188 917.199219 934.910156 L 917.199219 867.738281 L 959.5625 867.738281 C 960.105469 867.738281 960.632812 867.667969 961.132812 867.539062 C 963.316406 867.519531 965.101562 865.863281 965.328125 863.722656 C 965.550781 863.089844 965.675781 862.410156 965.675781 861.699219 C 965.675781 861.011719 965.5625 860.355469 965.351562 859.746094 L 965.351562 819.675781 C 965.351562 817.304688 963.449219 815.394531 961.089844 815.394531 L 957.566406 815.394531 C 955.207031 815.394531 953.304688 817.304688 953.304688 819.675781 L 953.304688 855.65625 L 917.199219 855.65625 L 917.199219 786.320312 C 917.199219 778.242188 910.71875 771.734375 902.671875 771.734375 Z M 902.671875 771.734375 "/>
+    <path fill-rule="nonzero" fill="rgb(78.90625%, 17.259216%, 24.705505%)" fill-opacity="1" d="M 2832.929688 1055.597656 C 2824.878906 1055.597656 2818.398438 1062.101562 2818.398438 1070.183594 L 2818.398438 1109.753906 L 2783.019531 1109.753906 L 2783.019531 1076.066406 C 2783.019531 1073.847656 2781.238281 1072.0625 2779.03125 1072.0625 L 2775.730469 1072.0625 C 2773.519531 1072.0625 2771.738281 1073.847656 2771.738281 1076.066406 L 2771.738281 1113.585938 C 2771.550781 1114.15625 2771.441406 1114.773438 2771.441406 1115.414062 C 2771.441406 1116.078125 2771.558594 1116.714844 2771.769531 1117.308594 C 2771.980469 1119.3125 2773.648438 1120.863281 2775.699219 1120.882812 C 2776.160156 1121.003906 2776.660156 1121.070312 2777.160156 1121.070312 L 2818.398438 1121.070312 L 2818.398438 1218.769531 C 2818.398438 1226.851562 2824.878906 1233.359375 2832.929688 1233.359375 C 2840.980469 1233.359375 2847.460938 1226.851562 2847.460938 1218.769531 L 2847.460938 1151.601562 L 2889.820312 1151.601562 C 2890.359375 1151.601562 2890.890625 1151.53125 2891.390625 1151.402344 C 2893.570312 1151.378906 2895.359375 1149.722656 2895.578125 1147.582031 C 2895.808594 1146.953125 2895.929688 1146.269531 2895.929688 1145.558594 C 2895.929688 1144.875 2895.820312 1144.21875 2895.609375 1143.605469 L 2895.609375 1103.535156 C 2895.609375 1101.164062 2893.710938 1099.257812 2891.351562 1099.257812 L 2887.820312 1099.257812 C 2885.46875 1099.257812 2883.558594 1101.164062 2883.558594 1103.535156 L 2883.558594 1139.515625 L 2847.460938 1139.515625 L 2847.460938 1070.183594 C 2847.460938 1062.101562 2840.980469 1055.597656 2832.929688 1055.597656 Z M 2832.929688 1055.597656 "/>
+    <path fill-rule="nonzero" fill="rgb(48.242188%, 0.392151%, 19.604492%)" fill-opacity="1" d="M 1630.390625 1014.308594 C 1622.339844 1014.308594 1615.859375 1020.8125 1615.859375 1028.894531 L 1615.859375 1068.464844 L 1580.480469 1068.464844 L 1580.480469 1034.777344 C 1580.480469 1032.558594 1578.699219 1030.773438 1576.488281 1030.773438 L 1573.191406 1030.773438 C 1570.980469 1030.773438 1569.199219 1032.558594 1569.199219 1034.777344 L 1569.199219 1072.296875 C 1569.011719 1072.867188 1568.898438 1073.484375 1568.898438 1074.125 C 1568.898438 1074.789062 1569.019531 1075.425781 1569.230469 1076.019531 C 1569.441406 1078.023438 1571.109375 1079.574219 1573.160156 1079.59375 C 1573.628906 1079.714844 1574.109375 1079.78125 1574.621094 1079.78125 L 1615.859375 1079.78125 L 1615.859375 1177.480469 C 1615.859375 1185.5625 1622.339844 1192.070312 1630.390625 1192.070312 C 1638.441406 1192.070312 1644.910156 1185.5625 1644.910156 1177.480469 L 1644.910156 1110.3125 L 1687.28125 1110.3125 C 1687.820312 1110.3125 1688.351562 1110.242188 1688.851562 1110.113281 C 1691.039062 1110.089844 1692.820312 1108.433594 1693.039062 1106.296875 C 1693.269531 1105.664062 1693.390625 1104.980469 1693.390625 1104.269531 C 1693.390625 1103.585938 1693.28125 1102.929688 1693.070312 1102.316406 L 1693.070312 1062.246094 C 1693.070312 1059.875 1691.171875 1057.96875 1688.808594 1057.96875 L 1685.289062 1057.96875 C 1682.929688 1057.96875 1681.019531 1059.875 1681.019531 1062.246094 L 1681.019531 1098.226562 L 1644.910156 1098.226562 L 1644.910156 1028.894531 C 1644.910156 1020.8125 1638.441406 1014.308594 1630.390625 1014.308594 Z M 1630.390625 1014.308594 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 679.320312 1140.21875 L 556.953125 1352.167969 L 801.691406 1352.167969 Z M 679.320312 1140.21875 "/>
+    <path fill-rule="nonzero" fill="rgb(48.242188%, 0.392151%, 19.604492%)" fill-opacity="1" d="M 1787.46875 1016.730469 L 1724.128906 1126.433594 L 1850.808594 1126.433594 Z M 1787.46875 1016.730469 "/>
+    <path fill-rule="nonzero" fill="rgb(98.4375%, 36.863708%, 0%)" fill-opacity="1" d="M 877.835938 1298.296875 C 877.835938 1298.296875 834.953125 1238.078125 854.113281 1244.464844 C 873.273438 1250.851562 881.484375 1278.222656 880.574219 1265.449219 C 879.660156 1252.675781 854.113281 1150.492188 872.359375 1176.039062 C 890.609375 1201.585938 905.207031 1210.707031 905.207031 1186.074219 C 905.207031 1161.441406 927.101562 1083.890625 926.191406 1142.28125 C 925.277344 1200.671875 906.117188 1249.941406 922.542969 1243.554688 C 938.964844 1237.167969 997.355469 1248.113281 966.335938 1269.097656 C 935.3125 1290.082031 907.945312 1314.71875 896.082031 1312.894531 C 884.222656 1311.066406 877.835938 1298.296875 877.835938 1298.296875 Z M 877.835938 1298.296875 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 869.886719 1313.949219 C 869.886719 1313.949219 898.464844 1324.367188 898.316406 1328.832031 C 898.167969 1333.296875 891.066406 1335.664062 891.066406 1335.664062 L 863.636719 1320.050781 Z M 869.886719 1313.949219 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 863.242188 1324.296875 C 863.242188 1324.296875 893.59375 1322.285156 895.257812 1326.433594 C 896.925781 1330.578125 891.386719 1335.609375 891.386719 1335.609375 L 859.988281 1332.40625 Z M 863.242188 1324.296875 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 917.863281 1314.398438 C 917.863281 1314.398438 888.847656 1323.519531 888.796875 1327.984375 C 888.742188 1332.453125 895.726562 1335.136719 895.726562 1335.136719 L 923.832031 1320.777344 Z M 917.863281 1314.398438 "/>
+    <path fill-rule="nonzero" fill="rgb(18.041992%, 6.665039%, 17.651367%)" fill-opacity="1" d="M 921.519531 1326.222656 C 921.519531 1326.222656 891.210938 1323.65625 889.46875 1327.769531 C 887.726562 1331.882812 893.171875 1337.015625 893.171875 1337.015625 L 924.625 1334.386719 Z M 921.519531 1326.222656 "/>
+    <path fill-rule="nonzero" fill="rgb(100%, 91.40625%, 86.326599%)" fill-opacity="1" d="M 880.558594 1306.96875 C 880.558594 1306.96875 865.6875 1288.410156 870.152344 1288.558594 C 874.617188 1288.707031 881.183594 1305.570312 882.089844 1294.898438 C 882.996094 1284.226562 856.902344 1252.097656 867.664062 1255.058594 C 878.425781 1258.019531 880.003906 1286.414062 885.363281 1275.550781 C 890.71875 1264.683594 874.683594 1219.425781 891.164062 1235.515625 C 907.640625 1251.601562 891.792969 1273.554688 899.484375 1276.992188 C 907.179688 1280.429688 938.433594 1257.804688 927.285156 1269.609375 C 916.140625 1281.410156 894.5 1288.527344 902.878906 1291.933594 C 911.261719 1295.34375 936.246094 1270.589844 928.65625 1285.324219 C 921.070312 1300.058594 904.074219 1311.429688 899.265625 1311.296875 C 894.457031 1311.164062 880.558594 1306.96875 880.558594 1306.96875 Z M 880.558594 1306.96875 "/>
+    <path fill-rule="nonzero" fill="rgb(99.609375%, 49.804688%, 29.026794%)" fill-opacity="1" d="M 445.214844 688.53125 C 441.414062 688.53125 438.351562 691.605469 438.351562 695.421875 L 438.351562 714.113281 L 421.640625 714.113281 L 421.640625 698.199219 C 421.640625 697.152344 420.800781 696.308594 419.757812 696.308594 L 418.199219 696.308594 C 417.152344 696.308594 416.3125 697.152344 416.3125 698.199219 L 416.3125 715.921875 C 416.21875 716.191406 416.167969 716.484375 416.167969 716.785156 C 416.167969 717.097656 416.222656 717.402344 416.324219 717.679688 C 416.425781 718.625 417.210938 719.359375 418.179688 719.367188 C 418.402344 719.425781 418.632812 719.457031 418.875 719.457031 L 438.351562 719.457031 L 438.351562 765.605469 C 438.351562 769.421875 441.414062 772.496094 445.214844 772.496094 C 449.015625 772.496094 452.078125 769.421875 452.078125 765.605469 L 452.078125 733.878906 L 472.085938 733.878906 C 472.34375 733.878906 472.589844 733.847656 472.828125 733.785156 C 473.859375 733.773438 474.703125 732.992188 474.808594 731.980469 C 474.917969 731.683594 474.976562 731.359375 474.976562 731.023438 C 474.976562 730.703125 474.921875 730.390625 474.820312 730.101562 L 474.820312 711.175781 C 474.820312 710.054688 473.921875 709.152344 472.808594 709.152344 L 471.144531 709.152344 C 470.03125 709.152344 469.132812 710.054688 469.132812 711.175781 L 469.132812 728.171875 L 452.078125 728.171875 L 452.078125 695.421875 C 452.078125 691.605469 449.015625 688.53125 445.214844 688.53125 Z M 445.214844 688.53125 "/>
+    <path fill-rule="nonzero" fill="rgb(78.90625%, 17.259216%, 24.705505%)" fill-opacity="1" d="M 1102.96875 922.023438 C 1102.96875 929.765625 1099.898438 937.191406 1094.421875 942.667969 C 1088.941406 948.144531 1081.519531 951.21875 1073.78125 951.21875 C 1066.039062 951.21875 1058.609375 948.144531 1053.128906 942.667969 C 1047.660156 937.191406 1044.578125 929.765625 1044.578125 922.023438 C 1044.578125 914.28125 1047.660156 906.855469 1053.128906 901.378906 C 1058.609375 895.902344 1066.039062 892.828125 1073.78125 892.828125 C 1081.519531 892.828125 1088.941406 895.902344 1094.421875 901.378906 C 1099.898438 906.855469 1102.96875 914.28125 1102.96875 922.023438 Z M 1102.96875 922.023438 "/>
+    <path fill-rule="nonzero" fill="rgb(99.609375%, 49.804688%, 29.026794%)" fill-opacity="1" d="M 2287.449219 604.609375 C 2287.449219 612.359375 2284.371094 619.78125 2278.898438 625.261719 C 2273.421875 630.730469 2266 633.808594 2258.25 633.808594 C 2242.128906 633.808594 2229.058594 620.738281 2229.058594 604.609375 C 2229.058594 588.488281 2242.128906 575.421875 2258.25 575.421875 C 2266 575.421875 2273.421875 578.5 2278.898438 583.96875 C 2284.371094 589.441406 2287.449219 596.871094 2287.449219 604.609375 Z M 2287.449219 604.609375 "/>
+    </svg>
+  </section>
+
+  <section class="slide">
+    <div class="pattern"></div>
+  </section>
+  <!-- BACKGROUND EXPERIMENT END -->
+
+  <!-- EXAMPLE -->
+  <!-- <section class="slide">
+    <h2>Code samples</h2>
+    <pre>
+      <code>&lt;!DOCTYPE html&gt;</code>
+      <code class="mark">&lt;html lang="en"&gt;</code>
+      <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
+      <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
+      <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
+      <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+      <code><mark>&lt;/head&gt;</mark></code>
+    </pre>
+  </section> -->
+
+  <footer class="badge">
+    <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+  </footer>
+
+  <div class="progress new"></div>
+
+  <!-- LOCAL -->
+	<!-- <script src="node_modules/@shower/core/dist/index.js"></script> -->
+  <!-- LIVE -->
+  <script src="../src/shower/index.js"></script>
+  <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
 
 </body>
 </html>
