@@ -1,0 +1,116 @@
+.theme {
+  --page-bg: #0B0D12;
+  --page-text: #E8EAED;
+  --page-dim: #9AA0AB;
+  --page-border: #262933;
+
+  border: 1px solid var(--page-border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--page-bg);
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    padding: 0.75rem 1.1rem;
+    border-bottom: 1px solid var(--page-border);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--page-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .label .num {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    background: linear-gradient(135deg, #F637C6, #A64DFF);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .stage {
+    flex: 1;
+    padding: 2rem;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    /* Каждая секция объявляет свои переменные — они изолированы */
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+  p {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+
+  .btn {
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: var(--accent);
+    color: #fff;
+    width: fit-content;
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .sw {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--accent);
+  }
+
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+  .toggle input { display: none; }
+  .track {
+    width: 44px; height: 24px;
+    border-radius: 999px;
+    background: var(--border);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .track::after {
+    content: "";
+    position: absolute; top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: transform 0.2s;
+  }
+  .toggle input:checked + .track { background: var(--accent); }
+  .toggle input:checked + .track::after {
+    transform: translateX(20px);
+    background: #fff;
+  }
+}

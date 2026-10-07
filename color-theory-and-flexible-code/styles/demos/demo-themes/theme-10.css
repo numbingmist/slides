@@ -1,40 +1,25 @@
-/* :root {
+/* 10. Тема через :has() без JS */
+.theme[data-demo="10"] .stage {
   --bg: #ffffff; --surface: #f4f6f9; --text: #0E1016;
   --text-dim: #5A6273; --border: #E2E6EC; --accent: #F637C6;
 }
-/* Тема меняется, если на <html> появится атрибут data-theme *
-html:has([data-theme-switch]:checked) {
+/* :has() работает в границах .stage, потому что чекбокс внутри него */
+.theme[data-demo="10"] .stage:has([data-theme-switch]:checked) {
   --bg: #0E1016; --surface: #16181F; --text: #E8EAED;
   --text-dim: #9AA0AB; --border: #262933; --accent: #FF6ED6;
 }
-/* Акцент меняется, если выбрана конкретная радиокнопка *
-html:has([name="accent"][value="blue"]:checked)   { --accent: #4DA6FF; }
-html:has([name="accent"][value="green"]:checked)  { --accent: #4DE0A0; }
+.theme[data-demo="10"] .stage:has([name="accent"][value="blue"]:checked)   { --accent: #4DA6FF; }
+.theme[data-demo="10"] .stage:has([name="accent"][value="green"]:checked)  { --accent: #4DE0A0; }
 
-* { box-sizing: border-box; margin: 0; }
-body {
-  min-height: 100vh; background: var(--theme-bg); color: var(--theme-text);
-  font-family: "Inter", system-ui, sans-serif;
-  display: grid; place-items: center; padding: 3rem;
+.theme[data-demo="10"] .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
   transition: background 0.3s, color 0.3s;
-} */
-
-.theme-10 {
-  .card {
-    background: var(--theme-surface); border: 1px solid var(--theme-border);
-    border-radius: 16px; padding: 2rem; max-width: 520px;
-    display: flex; flex-direction: column; gap: 1rem;
-  }
-  h1 { font-size: 1.5rem; font-weight: 800; }
-  p { color: var(--theme-text-dim); }
-  .row {
-    display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;
-  }
-  label { display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; }
-  input[type="radio"] { accent-color: var(--theme-accent); }
-
-  .sw {
-    width: 32px; height: 32px; border-radius: 8px;
-    background: var(--theme-accent);
-  }
 }
+.theme[data-demo="10"] input[type="radio"] { accent-color: var(--accent); }
+.theme[data-demo="10"] label { display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; }

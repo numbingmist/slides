@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- LOCAL -->
-  <!-- <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/index.css"> -->
+  <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/index.css">
   <!-- LIVE -->
-  <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/index.css">
+  <!-- <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/index.css"> -->
   <link rel="stylesheet" href="styles/index.css">
   <style>
     .shower {
@@ -51,185 +51,6 @@
     </div>
     <div class="slide-bg"></div>
   </section>
-
-  <!-- FRONT COVER WITH VIBE -->
-  <!-- <section class="slide dj-vibe">
-    <!-- <div class="pattern"></div> -->
-    <!-- Кнопки переключения режима --
-    <div class="controls">
-      <button id="mode-auto" class="active">Авто-бит</button>
-      <button id="mode-audio">Web Audio</button>
-    </div>
-
-    <!-- Контент --
-    <section class="content">
-
-      <span class="eyebrow">Доклад · Frontend</span>
-
-      <h1>
-        <span class="line l1">Теория</span>
-        <span class="line l2"><span class="grad">цвета</span></span>
-        <span class="line l1">и практики гибкого кода</span>
-      </h1>
-
-      <p class="subtitle">
-        Как дизайн-системы, цветовые токены и адаптивные практики
-        помогают строить интерфейсы, которые масштабируются вместе
-        с продуктом.
-      </p>
-
-      <div class="speaker">
-        <div class="avatar">ВЫ</div>
-        <div class="info">
-          <span class="label">Спикер</span>
-          <span class="name">Имя Фамилия</span>
-          <span class="role">Frontend-разработчик</span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Плеер --
-    <div class="player">
-      <audio id="track" src="pictures/sample.mp3" controls></audio>
-    </div>
-
-    <!-- Индикатор пульса --
-    <div class="pulse-dot"></div>
-    <script>
-    /* ============================================================
-       УПРАВЛЕНИЕ АНИМАЦИЕЙ
-       Два режима:
-       1) auto-bit — таймер-«бит» по BPM трека (Apashe — No Twerk ≈ 100 BPM)
-       2) web-audio — анализ реального аудиопотока (если получится подключиться)
-       ============================================================ */
-
-    const root = document.documentElement;
-    const btnAuto = document.getElementById('mode-auto');
-    const btnAudio = document.getElementById('mode-audio');
-
-    /* --- Утилита: плавное применение значений к CSS-переменным --- */
-    function setPulse(v) {
-      // v — 0..1
-      root.style.setProperty('--pulse', v.toFixed(3));
-      root.style.setProperty('--lightness-boost', (v * 12).toFixed(2) + '%');
-    }
-
-    /* --- Плавное изменение hue по времени, даже без бита --- */
-    let baseHue = 340;
-    let drift = 0;
-    setInterval(() => {
-      drift += 0.15; // hue-дрейф — медленное вращение по цветовому кругу
-      const h1 = (baseHue + drift) % 360;
-      const h2 = (baseHue + 45 + drift) % 360;
-      const h3 = (baseHue + 100 + drift) % 360;
-      root.style.setProperty('--h1', h1.toFixed(1));
-      root.style.setProperty('--h2', h2.toFixed(1));
-      root.style.setProperty('--h3', h3.toFixed(1));
-    }, 80);
-
-    /* --- Режим 1: авто-бит --- */
-    let autoTimer = null;
-    let autoMode = true;
-
-    function startAutoBit() {
-      // «No Twerk» — примерно 100 BPM → 600 мс на удар
-      const interval = 600;
-      let step = 0;
-      autoTimer = setInterval(() => {
-        // Сильные доли — каждые 4 удара, слабые — между ними
-        const isStrong = step % 4 === 0;
-        const peak = isStrong ? 1 : 0.45;
-        setPulse(peak);
-        // Затухание — плавное
-        let v = peak;
-        const fade = setInterval(() => {
-          v *= 0.82;
-          setPulse(v);
-          if (v < 0.03) { clearInterval(fade); setPulse(0); }
-        }, 40);
-        step++;
-      }, interval);
-    }
-
-    function stopAutoBit() {
-      if (autoTimer) clearInterval(autoTimer);
-      autoTimer = null;
-    }
-
-    /* --- Режим 2: Web Audio API --- */
-    let audioCtx = null;
-    let analyser = null;
-    let rafId = null;
-
-    async function startWebAudio() {
-      try {
-        // Пытаемся подключиться к системному аудио или локальному файлу
-        // Встроенный iframe Яндекс.Музыки недоступен — берём «медиапоток»
-        // из любого <audio>/<video> на странице или запрашиваем у пользователя
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const stream = await navigator.mediaDevices.getUserMedia({
-          audio: {
-            // Захватываем системный звук — работает в Chrome при выборе
-            // «Поделиться вкладкой» → «Поделиться звуком»
-            echoCancellation: false,
-            noiseSuppression: false,
-            autoGainControl: false
-          }
-        });
-        const src = audioCtx.createMediaStreamSource(stream);
-        analyser = audioCtx.createAnalyser();
-        analyser.fftSize = 512;
-        src.connect(analyser);
-
-        const data = new Uint8Array(analyser.frequencyBinCount);
-
-        function tick() {
-          analyser.getByteFrequencyData(data);
-          // Нижние частоты — бас: именно они дают «сильную долю»
-          let bass = 0;
-          for (let i = 2; i < 12; i++) bass += data[i];
-          bass = bass / (10 * 255); // 0..1
-          setPulse(Math.min(1, bass * 1.6));
-          rafId = requestAnimationFrame(tick);
-        }
-        tick();
-
-        btnAudio.classList.add('active');
-        btnAuto.classList.remove('active');
-        stopAutoBit();
-        autoMode = false;
-      } catch (e) {
-        console.warn('Web Audio недоступен:', e.message);
-        // Откатываемся к авто-биту
-        startAutoBit();
-        btnAuto.classList.add('active');
-        btnAudio.classList.remove('active');
-      }
-    }
-
-    function stopWebAudio() {
-      if (rafId) cancelAnimationFrame(rafId);
-      if (audioCtx) audioCtx.close();
-      audioCtx = null; analyser = null; rafId = null;
-    }
-
-    /* --- Кнопки управления --- */
-    btnAuto.onclick = () => {
-      stopWebAudio();
-      startAutoBit();
-      btnAuto.classList.add('active');
-      btnAudio.classList.remove('active');
-    };
-    btnAudio.onclick = () => {
-      stopAutoBit();
-      startWebAudio();
-    };
-
-    /* --- Запуск --- */
-    startAutoBit();
-  </script>
-  </section> -->
 
   <!-- ABOUT SPEAKER -->
   <section class="slide">
@@ -1109,178 +930,258 @@
   </section>
 
   <!-- THEMES -->
-  <section class="slide theme-1">
-    <div class="card">
-      <h1>Пример 1</h1>
-      <p>Обычные CSS-переменные + атрибут <code>data-theme</code> на <code>&lt;html&gt;</code>.</p>
-      <button onclick="
-        const r = document.documentElement;
-        r.dataset.theme = r.dataset.theme === 'dark' ? '' : 'dark';
-      ">Переключить тему</button>
-    </div>
-  </section>
-
-  <section class="slide theme-2">
-    <div class="card">
-      <h1>Пример 2</h1>
-      <p>Функция <code>light-dark()</code> сама выбирает значение по теме ОС. Никакого JS.</p>
-      <div class="hint">Смените тему ОС — цвета переключатся автоматически</div>
-    </div>
-  </section>
-
-  <section class="slide theme-3">
-    <div class="card">
-      <h1>Пример 3</h1>
-      <p><code>color-scheme</code> переключает системные цвета <code>Canvas</code> и <code>CanvasText</code> — браузер сам подбирает цвета.</p>
-      <div class="switch">
-        <button data-set="light">Светлая</button>
-        <button data-set="dark">Тёмная</button>
+  <section class="slide">
+    <p>Cкрипт для каждой секции работает с атрибутами СЕКЦИИ, а не документа.</p>
+    <div class="theme" data-demo="1">
+      <div class="label"><span class="num">01</span> CSS-переменные</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Обычные переменные</h2>
+          <p>Тема переключается атрибутом <code>data-theme</code> у секции.</p>
+          <button class="btn" data-toggle>Переключить тему</button>
+        </div>
       </div>
     </div>
     <script>
-      document.querySelectorAll('[data-set]').forEach(btn => {
+      document.querySelectorAll('.theme[data-demo="1"] [data-toggle]').forEach(btn => {
         btn.onclick = () => {
-          document.documentElement.dataset.theme = btn.dataset.set;
-          document.querySelectorAll('[data-set]').forEach(b =>
+          const s = btn.closest('.theme');
+          s.dataset.theme = s.dataset.theme === 'dark' ? '' : 'dark';
+        };
+      });
+    </script>
+  </section>
+
+  <section class="slide">
+    <p>script не нужен</p>
+    <div class="theme" data-demo="2">
+      <div class="label"><span class="num">02</span> light-dark()</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Автоматически по ОС</h2>
+          <p>Значения выбираются функцией <code>light-dark()</code>.</p>
+          <div class="hint">Смените тему ОС — эта секция переключится</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="theme" data-demo="3">
+      <div class="label"><span class="num">03</span> color-scheme</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Системные цвета</h2>
+          <p>Используются <code>Canvas</code> и <code>CanvasText</code>.</p>
+          <div class="switch">
+            <button data-set="light">Светлая</button>
+            <button data-set="dark">Тёмная</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('.theme[data-demo="3"] [data-set]').forEach(btn => {
+        btn.onclick = () => {
+          const s = btn.closest('.theme');
+          s.dataset.theme = btn.dataset.set;
+          s.querySelectorAll('[data-set]').forEach(b =>
             b.classList.toggle('active', b === btn));
         };
       });
-      document.querySelector('[data-set="light"]').click();
+      document.querySelector('.theme[data-demo="3"] [data-set="light"]').click();
     </script>
   </section>
 
-  <section class="slide theme-4">
-    <div class="card">
-      <h1>Пример 4</h1>
-      <p>Атрибут <code>data-theme</code> управляет не только светлым/тёмным, но и акцентным цветом.</p>
-      <div class="row">
-        <button class="alt" data-th="">Pink</button>
-        <button class="alt" data-th="blue">Blue</button>
-        <button class="alt" data-th="green">Green</button>
-        <button class="alt" data-th="yellow">Yellow</button>
-        <button class="alt" data-th="dark">Dark</button>
+  <section class="slide">
+    <div class="theme" data-demo="4">
+      <div class="label"><span class="num">04</span> data-theme + акценты</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Разные акценты</h2>
+          <p>Атрибуты <code>data-theme</code> и <code>data-accent</code> меняют палитру.</p>
+          <div class="row">
+            <button class="btn ghost" data-accent="">Pink</button>
+            <button class="btn ghost" data-accent="blue">Blue</button>
+            <button class="btn ghost" data-accent="green">Green</button>
+            <button class="btn ghost" data-accent="yellow">Yellow</button>
+            <button class="btn" data-toggle>Dark</button>
+          </div>
+        </div>
       </div>
     </div>
     <script>
-      document.querySelectorAll('[data-th]').forEach(btn => {
+      document.querySelectorAll('.theme[data-demo="4"] [data-accent]').forEach(btn => {
         btn.onclick = () => {
-          const th = btn.dataset.th;
-          if (th) document.documentElement.dataset.theme = th;
-          else delete document.documentElement.dataset.theme;
+          const s = btn.closest('.theme');
+          const acc = btn.dataset.accent;
+          if (acc) s.dataset.accent = acc;
+          else delete s.dataset.accent;
+        };
+      });
+      document.querySelectorAll('.theme[data-demo="4"] [data-toggle]').forEach(btn => {
+        btn.onclick = () => {
+          const s = btn.closest('.theme');
+          s.dataset.theme = s.dataset.theme === 'dark' ? '' : 'dark';
         };
       });
     </script>
   </section>
 
-  <section class="slide theme-5">
-    <div class="card">
-      <h1>Пример 5</h1>
-      <p>Тема привязана к системной настройке через <code>prefers-color-scheme</code>.</p>
-      <span class="badge">Смените тему ОС — карточка переключится</span>
+  <section class="slide">
+    <p>script не нужен</p>
+    <div class="theme" data-demo="5">
+      <div class="label"><span class="num">05</span> prefers-color-scheme</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Следует за ОС</h2>
+          <p>Тема определяется медиазапросом без JS.</p>
+          <span class="badge">Смените тему ОС</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="slide theme-6">
-    <div class="card">
-      <h1>Пример 6</h1>
-      <p>Меняем только <code>--base</code> — вся палитра пересчитывается через <code>oklch(from ...)</code>.</p>
-      <div class="row">
-        <button data-base="#F637C6">Pink</button>
-        <button data-base="#4DA6FF">Blue</button>
-        <button data-base="#4DE0A0">Green</button>
-        <button data-base="#FFC24D">Yellow</button>
-        <button class="ghost" data-theme-toggle>Тёмная тема</button>
+  <section class="slide">
+    <div class="theme" data-demo="6">
+      <div class="label"><span class="num">06</span> from / OKLCH</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Вся тема из одного цвета</h2>
+          <p>Меняем только <code>--base</code> — палитра пересчитывается через <code>oklch(from ...)</code>.</p>
+          <div class="row">
+            <button class="btn ghost" data-base="#F637C6">Pink</button>
+            <button class="btn ghost" data-base="#4DA6FF">Blue</button>
+            <button class="btn ghost" data-base="#4DE0A0">Green</button>
+            <button class="btn" data-toggle>Тема</button>
+          </div>
+        </div>
       </div>
     </div>
     <script>
-      document.querySelectorAll('[data-base]').forEach(btn => {
-        btn.onclick = () =>
-          document.documentElement.style.setProperty('--base', btn.dataset.base);
-      });
-      document.querySelector('[data-theme-toggle]').onclick = () => {
-        const r = document.documentElement;
-        r.dataset.theme = r.dataset.theme === 'dark' ? '' : 'dark';
-      };
-    </script>
-  </section>
-
-  <section class="slide theme-7">
-    <div class="card">
-      <h1>Пример 7</h1>
-      <p>Все поверхности построены через <code>color-mix()</code> от акцента и фона.</p>
-      <div class="swatches">
-        <div class="sw a">100%</div>
-        <div class="sw b">60%</div>
-        <div class="sw c">30%</div>
-      </div>
-      <button onclick="
-        const r = document.documentElement;
-        r.dataset.theme = r.dataset.theme === 'dark' ? '' : 'dark';
-      ">Переключить</button>
-    </div>
-  </section>
-
-  <section class="slide theme-8">
-    <div class="card">
-      <h1>Пример 8</h1>
-      <p>Три темы через <code>data-theme</code>: светлая, тёмная, sepia. Плюс разные радиусы скругления.</p>
-      <div class="row" id="switch">
-        <button data-th="light">Light</button>
-        <button data-th="dark">Dark</button>
-        <button data-th="sepia">Sepia</button>
-      </div>
-    </div>
-    <script>
-      document.querySelectorAll('[data-th]').forEach(btn => {
+      document.querySelectorAll('.theme[data-demo="6"] [data-base]').forEach(btn => {
         btn.onclick = () => {
-          document.documentElement.dataset.theme = btn.dataset.th;
-          document.querySelectorAll('[data-th]').forEach(b =>
-            b.classList.toggle('active', b === btn));
+          const stage = btn.closest('.stage');
+          stage.style.setProperty('--base', btn.dataset.base);
         };
       });
-      document.querySelector('[data-th="light"]').click();
+      document.querySelectorAll('.theme[data-demo="6"] [data-toggle]').forEach(btn => {
+        btn.onclick = () => {
+          const s = btn.closest('.theme');
+          s.dataset.theme = s.dataset.theme === 'dark' ? '' : 'dark';
+        };
+      });
     </script>
   </section>
 
-  <section class="slide theme-9">
-    <div class="card">
-      <h1>Пример 9</h1>
-      <p>Тема сохраняется в <code>localStorage</code> и восстанавливается при следующем визите.</p>
-      <label class="toggle">
-        <input type="checkbox" id="th">
-        <span class="track"></span>
-        <span>Тёмная тема</span>
-      </label>
+  <section class="slide">
+    <div class="theme" data-demo="7">
+      <div class="label"><span class="num">07</span> color-mix()</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Мягкие оттенки</h2>
+          <p>Все поверхности — производные от акцента и фона.</p>
+          <div class="swatches">
+            <div class="sw a">100%</div>
+            <div class="sw b">60%</div>
+            <div class="sw c">30%</div>
+          </div>
+          <button class="btn" data-toggle>Переключить</button>
+        </div>
+      </div>
     </div>
     <script>
-      const r = document.documentElement;
-      const box = document.getElementById('th');
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark') { r.dataset.theme = 'dark'; box.checked = true; }
-      box.onchange = () => {
-        if (box.checked) { r.dataset.theme = 'dark'; localStorage.setItem('theme', 'dark'); }
-        else { delete r.dataset.theme; localStorage.setItem('theme', 'light'); }
-      };
+      document.querySelectorAll('.theme[data-demo="7"] [data-toggle]').forEach(btn => {
+        btn.onclick = () => {
+          const s = btn.closest('.theme');
+          s.dataset.theme = s.dataset.theme === 'dark' ? '' : 'dark';
+        };
+      });
     </script>
   </section>
 
-  <section class="slide theme-10">
-    <div class="card">
-      <h1>Пример 10</h1>
-      <p>Тема и акцент управляются только CSS-селекторами <code>:has()</code>, без JS.</p>
-
-      <div class="row">
-        <label>
-          <input type="checkbox" data-theme-switch>
-          Тёмная тема
-        </label>
+  <section class="slide">
+    <div class="theme" data-demo="8">
+      <div class="label"><span class="num">08</span> три темы</div>
+      <div class="stage" data-theme="light">
+        <div class="card">
+          <h2>Light / Dark / Sepia</h2>
+          <p>Три палитры и разные радиусы скругления.</p>
+          <div class="row">
+            <button class="btn ghost" data-stage-theme="light">Light</button>
+            <button class="btn ghost" data-stage-theme="dark">Dark</button>
+            <button class="btn ghost" data-stage-theme="sepia">Sepia</button>
+          </div>
+        </div>
       </div>
+    </div>
+    <script>
+      document.querySelectorAll('.theme[data-demo="8"] [data-stage-theme]').forEach(btn => {
+        btn.onclick = () => {
+          const stage = btn.closest('.stage');
+          stage.dataset.theme = btn.dataset.stageTheme;
+        };
+      });
+    </script>
+  </section>
 
-      <div class="row">
-        <label><input type="radio" name="accent" value="pink" checked> Pink</label>
-        <label><input type="radio" name="accent" value="blue"> Blue</label>
-        <label><input type="radio" name="accent" value="green"> Green</label>
-        <span class="sw"></span>
+  <section class="slide">
+    <div class="theme" data-demo="9">
+      <div class="label"><span class="num">09</span> localStorage</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Запоминаем выбор</h2>
+          <p>Тема хранится между визитами. У всех секций — свой ключ.</p>
+          <label class="toggle">
+            <input type="checkbox" data-persist>
+            <span class="track"></span>
+            <span>Тёмная тема</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const s = document.querySelector('.theme[data-demo="9"]');
+        const box = s.querySelector('[data-persist]');
+        const KEY = 'theme-demo-9';
+        if (localStorage.getItem(KEY) === 'dark') {
+          s.dataset.theme = 'dark';
+          box.checked = true;
+        }
+        box.onchange = () => {
+          if (box.checked) {
+            s.dataset.theme = 'dark';
+            localStorage.setItem(KEY, 'dark');
+          } else {
+            delete s.dataset.theme;
+            localStorage.setItem(KEY, 'light');
+          }
+        };
+      })();
+    </script>
+  </section>
+
+  <section class="slide">
+    <p>script не нужен</p>
+    <div class="theme" data-demo="10">
+      <div class="label"><span class="num">10</span> :has() без JS</div>
+      <div class="stage">
+        <div class="card">
+          <h2>Только CSS</h2>
+          <p>Тема и акцент — через <code>:has()</code> и радиокнопки.</p>
+          <label class="toggle" style="color:var(--text);">
+            <input type="checkbox" data-theme-switch>
+            <span class="track"></span>
+            <span>Тёмная тема</span>
+          </label>
+          <div class="row">
+            <label><input type="radio" name="accent" value="pink" checked> Pink</label>
+            <label><input type="radio" name="accent" value="blue"> Blue</label>
+            <label><input type="radio" name="accent" value="green"> Green</label>
+            <span class="sw"></span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1318,20 +1219,6 @@
       </div>
     </div>
     <div class="slide-bg"></div>
-  </section>
-
-  <!-- CONCLUSION -->
-  <section class="slide">
-    <div class="side-content left">
-      <h2>Итого</h2>
-      <ul>
-        <li>Узнайте <strong>дисплеи</strong> пользователей.</li>
-        <li>Определитесь с <strong>цветовым пространством</strong>.</li>
-        <li>Мешайте цвета с <strong>color-mix()</strong>.</li>
-        <li>Пользуйстесь <strong>ЧБ</strong> режимом для проверки.</li>
-      </ul>
-    </div>
-    <img class="cover side right" src="pictures/side-covers/side-cover-last.jpeg" alt="see you">
   </section>
 
   <!-- ONE COLOR -->
@@ -1826,9 +1713,9 @@
   <div class="progress new"></div>
 
   <!-- LOCAL -->
-	<!-- <script src="node_modules/@shower/core/dist/index.js"></script> -->
+	<script src="node_modules/@shower/core/dist/index.js"></script>
   <!-- LIVE -->
-  <script src="../src/shower/index.js"></script>
+  <!-- <script src="../src/shower/index.js"></script> -->
   <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
 
 </body>
