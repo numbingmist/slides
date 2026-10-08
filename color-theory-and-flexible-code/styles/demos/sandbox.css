@@ -59,15 +59,15 @@
   appearance: none;
   width: 18px; height: 18px;
   border-radius: 50%;
-  background: var(--theme-accent-control, var(--theme-pink));
+  background: var(--accent-control, var(--theme-pink));
   cursor: pointer;
   border: 2px solid var(--theme-bg);
-  box-shadow: 0 0 0 1px var(--theme-accent-control, var(--theme-pink));
+  box-shadow: 0 0 0 1px var(--accent-control, var(--theme-pink));
 }
 .control input[type="range"]::-moz-range-thumb {
   width: 18px; height: 18px;
   border-radius: 50%;
-  background: var(--theme-accent-control, var(--theme-pink));
+  background: var(--accent-control, var(--theme-pink));
   cursor: pointer;
   border: 2px solid var(--theme-bg);
 }
@@ -100,6 +100,3 @@
   overflow-x: auto;
   white-space: nowrap;
 }
-.sandbox-preview .output .tok-fn { color: var(--theme-purple); }
-.sandbox-preview .output .tok-num { color: var(--theme-yellow); }
-.sandbox-preview .output .tok-prop { color: var(--theme-blue); }
