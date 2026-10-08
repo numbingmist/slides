@@ -8,7 +8,8 @@
 
 .slide h1,
 .slide h2,
-.slide h3 {
+.slide h3,
+.slide p {
   width: 100%;
 }
 

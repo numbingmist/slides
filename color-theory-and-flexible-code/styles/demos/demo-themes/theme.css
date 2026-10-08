@@ -24,7 +24,7 @@
     align-items: center;
   }
   .label .num {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--theme-font-code);
     background: linear-gradient(135deg, #F637C6, #A64DFF);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }

@@ -45,7 +45,7 @@
     transition: border-color 0.2s, transform 0.2s;
 
     .num {
-      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-family: var(--theme-font-code);
       font-size: 1.2rem;
       font-weight: 700;
       background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));

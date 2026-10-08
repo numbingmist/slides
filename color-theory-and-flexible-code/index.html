@@ -1239,6 +1239,88 @@
     <div class="slide-bg"></div>
   </section>
 
+  <!-- SANDBOX!!! -->
+  <section class="slide">
+    <h2>Песочница <span class="grad">oklch()</span></h2>
+
+    <p>
+      Крутите ползунки — цвет и код обновляются вживую.
+    </p>
+
+    <div class="sandbox">
+
+      <div class="controls">
+        <div class="control" data-param="h">
+          <div class="label">
+            <span class="name"><code>h</code> · оттенок</span>
+            <span class="value" id="val-h">320</span>
+          </div>
+          <input type="range" id="range-h" min="0" max="360" value="320">
+        </div>
+
+        <div class="control" data-param="c">
+          <div class="label">
+            <span class="name"><code>c</code> · насыщенность</span>
+            <span class="value" id="val-c">0.20</span>
+          </div>
+          <input type="range" id="range-c" min="0" max="40" value="20">
+        </div>
+
+        <div class="control" data-param="l">
+          <div class="label">
+            <span class="name"><code>l</code> · светлота</span>
+            <span class="value" id="val-l">65%</span>
+          </div>
+          <input type="range" id="range-l" min="10" max="95" value="65">
+        </div>
+      </div>
+
+      <div class="sandbox-preview">
+        <div class="box" id="demo-box"></div>
+        <div class="output" id="demo-code">background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> <span class="tok-num">0.20</span> <span class="tok-num">320</span>);</div>
+      </div>
+
+    </div>
+    <script>
+      (function () {
+        const rangeH = document.getElementById('range-h');
+        const rangeC = document.getElementById('range-c');
+        const rangeL = document.getElementById('range-l');
+
+        const valH = document.getElementById('val-h');
+        const valC = document.getElementById('val-c');
+        const valL = document.getElementById('val-l');
+
+        const demoBox = document.getElementById('demo-box');
+        const demoCode = document.getElementById('demo-code');
+
+        function updateSandbox() {
+          const h = parseInt(rangeH.value, 10);
+          const c = (parseInt(rangeC.value, 10) / 100).toFixed(2);
+          const l = parseInt(rangeL.value, 10);
+
+          valH.textContent = h;
+          valC.textContent = c;
+          valL.textContent = l + '%';
+
+          const color = `oklch(${l}% ${c} ${h})`;
+          demoBox.style.background = color;
+          demoCode.innerHTML =
+            'background: <span class="tok-fn">oklch</span>(' +
+            '<span class="tok-num">' + l + '%</span> ' +
+            '<span class="tok-num">' + c + '</span> ' +
+            '<span class="tok-num">' + h + '</span>);';
+        }
+
+        rangeH.addEventListener('input', updateSandbox);
+        rangeC.addEventListener('input', updateSandbox);
+        rangeL.addEventListener('input', updateSandbox);
+
+        updateSandbox();
+      })();
+    </script>
+  </section>
+
   <!-- ONE COLOR -->
   <section class="slide">
     <div class="columns two no-gap">

@@ -14,7 +14,7 @@
   }
 
   .demo .num {
-    /* font-family: "JetBrains Mono", ui-monospace, monospace;
+    /* font-family: var(--theme-font-code);
     font-size: 0.78rem;
     background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));
     -webkit-background-clip: text; background-clip: text; color: transparent; */
@@ -39,5 +39,5 @@
     border-top: 1px solid var(--theme-border);
     font-size: 0.76rem;
     color: var(--theme-text-mute);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--theme-font-code);
   }
