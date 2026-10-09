@@ -8,3 +8,7 @@
     linear-gradient(135deg, var(--theme-pink), var(--theme-purple), var(--theme-blue)) border-box;
   border: 5px solid transparent;
 }
+
+.center {
+  text-align: center;
+}

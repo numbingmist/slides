@@ -34,9 +34,9 @@
         и практики <span class="grad finish">гибкого</span> кода
       </h1>
 
-      <!-- <p class="subtitle">
-        Или фронтенд фокусы.
-      </p> -->
+      <p class="lead">
+        "Вместе с цветом в нашу жизнь приходят эмоции"
+      </p>
 
       <div class="speaker">
         <div class="avatar">
@@ -151,7 +151,7 @@
     <span class="bignum">01</span>
 
     <div class="content">
-      <h1>Становление <span class="grad">героя</span></h1>
+      <h1 class="center">Становление <span class="grad">героя</span></h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -195,7 +195,7 @@
     <span class="bignum">02</span>
 
     <div class="content">
-      <h1>Работа с <span class="grad">цветом</span></h1>
+      <h1 class="center">Работа с <span class="grad">цветом</span></h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -451,7 +451,7 @@
     <span class="bignum">03</span>
 
     <div class="content">
-      <h1>Зависимые цвета и <span class="grad">гармонии</span></h1>
+      <h1 class="center">Зависимые цвета и <span class="grad">гармонии</span></h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -743,7 +743,7 @@
     <span class="bignum">04</span>
 
     <div class="content">
-      <h1><span class="grad">Цветовая</span> доступность</h1>
+      <h1 class="center"><span class="grad">Цветовая</span> доступность</h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -767,7 +767,7 @@
     <span class="bignum">05</span>
 
     <div class="content">
-      <h1><span class="grad">Контраст</span></h1>
+      <h1 class="center"><span class="grad">Контраст</span></h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -924,7 +924,7 @@
     <span class="bignum">06</span>
 
     <div class="content">
-      <h1><span class="grad">Темы</span></h1>
+      <h1 class="center"><span class="grad">Темы</span></h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -1210,7 +1210,7 @@
     <span class="bignum">07</span>
 
     <div class="content">
-      <h1><span class="grad">Магия</span></h1>
+      <h1 class="center"><span class="grad">Магия</span></h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -1220,7 +1220,7 @@
     <span class="bignum">08</span>
 
     <div class="content">
-      <h1>Что мы <span class="grad">поняли</span>?</h1>
+      <h1 class="center">Что мы <span class="grad">поняли</span>?</h1>
     </div>
     <div class="slide-bg"></div>
   </section>
@@ -1249,46 +1249,46 @@
         <div class="control" data-param="h">
           <div class="label">
             <span class="name"><code>h</code> · оттенок</span>
-            <span class="value" id="val-h">320</span>
+            <span class="value" id="sandbox-val-h">320</span>
           </div>
-          <input type="range" id="range-h" min="0" max="360" value="320">
+          <input type="range" id="sandbox-range-h" min="0" max="360" value="320">
         </div>
 
         <div class="control" data-param="c">
           <div class="label">
             <span class="name"><code>c</code> · насыщенность</span>
-            <span class="value" id="val-c">0.20</span>
+            <span class="value" id="sandbox-val-c">0.20</span>
           </div>
-          <input type="range" id="range-c" min="0" max="40" value="20">
+          <input type="range" id="sandbox-range-c" min="0" max="40" value="20">
         </div>
 
         <div class="control" data-param="l">
           <div class="label">
             <span class="name"><code>l</code> · светлота</span>
-            <span class="value" id="val-l">65%</span>
+            <span class="value" id="sandbox-val-l">65%</span>
           </div>
-          <input type="range" id="range-l" min="10" max="95" value="65">
+          <input type="range" id="sandbox-range-l" min="10" max="95" value="65">
         </div>
       </div>
 
       <div class="sandbox-preview">
-        <div class="box" id="demo-box"></div>
-        <div class="output" id="demo-code">background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> <span class="tok-num">0.20</span> <span class="tok-num">320</span>);</div>
+        <div class="box" id="sandbox-demo-box"></div>
+        <div class="output" id="sandbox-demo-code">background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> <span class="tok-num">0.20</span> <span class="tok-num">320</span>);</div>
       </div>
 
     </div>
     <script>
       (function () {
-        const rangeH = document.getElementById('range-h');
-        const rangeC = document.getElementById('range-c');
-        const rangeL = document.getElementById('range-l');
+        const rangeH = document.getElementById('sandbox-range-h');
+        const rangeC = document.getElementById('sandbox-range-c');
+        const rangeL = document.getElementById('sandbox-range-l');
 
-        const valH = document.getElementById('val-h');
-        const valC = document.getElementById('val-c');
-        const valL = document.getElementById('val-l');
+        const valH = document.getElementById('sandbox-val-h');
+        const valC = document.getElementById('sandbox-val-c');
+        const valL = document.getElementById('sandbox-val-l');
 
-        const demoBox = document.getElementById('demo-box');
-        const demoCode = document.getElementById('demo-code');
+        const demoBox = document.getElementById('sandbox-demo-box');
+        const demoCode = document.getElementById('sandbox-demo-code');
 
         function updateSandbox() {
           const h = parseInt(rangeH.value, 10);
@@ -1316,6 +1316,1081 @@
       })();
     </script>
   </section>
+  <!-- SANDBOX!!! END -->
+
+  <!-- EMOTIONS BLOCK -->
+  <!-- ============================================================
+     ОСЬ 1. СВЕТЛОТА
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Ось 1 · Светлота</span>
+    <h3>Светлее, темнее, <span class="grad">воздушнее</span></h3>
+    <p class="lead">
+      Светлота отвечает за «вес» цвета. Она же — главный параметр,
+      от которого зависит читаемость текста на фоне.
+    </p>
+
+    <div class="axis-table">
+      <div class="axis-row">
+        <span class="word">светлее</span>
+        <span class="param"><span class="arrow">→</span> <code>l</code> ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">темнее</span>
+        <span class="param"><span class="arrow">→</span> <code>l</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">воздушнее</span>
+        <span class="param"><span class="arrow">→</span> <code>l</code> ↑ + <code>c</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">тяжелее</span>
+        <span class="param"><span class="arrow">→</span> <code>l</code> ↓ + <code>c</code> ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">прозрачнее</span>
+        <span class="param"><span class="arrow">→</span> <code>l</code> ↑ + <code>alpha</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">глубже</span>
+        <span class="param"><span class="arrow">→</span> <code>l</code> ↓ + <code>c</code> ↑</span>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     ОСЬ 2. НАСЫЩЕННОСТЬ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Ось 2 · Насыщенность</span>
+    <h3>Ярче, бледнее, <span class="grad">спокойнее</span></h3>
+    <p class="lead">
+      Насыщенность — это «громкость» цвета. Один и тот же оттенок
+      при разной <code>c</code> звучит как крик или как шёпот.
+    </p>
+
+    <div class="axis-table">
+      <div class="axis-row">
+        <span class="word">ярче</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">бледнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">сочнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↑ + <code>l</code> ~ 55–65%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">спокойнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">пыльнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓ + <code>l</code> ↑ + <code>h</code> в тёплую</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">кислотнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↑↑ + <code>l</code> ~ 60–70%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">благороднее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓ + <code>l</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">дешевле</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↑↑ + <code>l</code> ~ 50%</span>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     ОСЬ 3. ОТТЕНОК
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Ось 3 · Оттенок</span>
+    <h3>Теплее, холоднее, <span class="grad">золотистее</span></h3>
+    <p class="lead">
+      Оттенок — это «характер» цвета. Он двигает цвет по кругу:
+      от красного через жёлтый, зелёный, синий и обратно.
+    </p>
+
+    <div class="axis-table">
+      <div class="axis-row">
+        <span class="word">теплее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> к 30–60°</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">холоднее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> к 200–260°</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">розовее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 340°</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">зеленее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 140°</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">золотистее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 70–85° + <code>l</code> ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">морской</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 200° + <code>c</code> ~ 0.10</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">землистее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 70° + <code>c</code> ↓ + <code>l</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">ядовитее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 100–130° + <code>c</code> ↑↑</span>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     ОСЬ 4. КОНТРАСТ И ОТНОШЕНИЯ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Ось 4 · Контраст и отношения</span>
+    <h3>Мягче, строже, <span class="grad">дороже</span></h3>
+    <p class="lead">
+      Эти слова описывают не отдельный цвет, а отношения между цветами
+      в интерфейсе — разницу светлот, радиусы, тени.
+    </p>
+
+    <div class="axis-table">
+      <div class="axis-row">
+        <span class="word">контрастнее</span>
+        <span class="param"><span class="arrow">→</span> разница <code>l</code> между элементами ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">мягче</span>
+        <span class="param"><span class="arrow">→</span> разница <code>l</code> ↓ + <code>c</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">строже</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓ + <code>h</code> монохром + радиус ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">игривее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> сдвиг + <code>c</code> ↑ + радиус ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">дороже</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓ + тень в тон + радиус ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">дешевле</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↑ + тень серая + радиус ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">агрессивнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↑↑ + контраст ↑ + <code>h</code> красный</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">дружелюбнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓ + <code>l</code> ↑ + <code>h</code> тёплый</span>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     ОСЬ 5. ХАРАКТЕР И СТИЛЬ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Ось 5 · Характер и стиль</span>
+    <h3>Минималистичнее, <span class="grad">винтажнее</span>, футуристичнее</h3>
+    <p class="lead">
+      Эти слова — про целое настроение интерфейса. Они складываются
+      из нескольких параметров сразу, а не из одного.
+    </p>
+
+    <div class="axis-table">
+      <div class="axis-row">
+        <span class="word">минималистичнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓ + контраст ↓ + узкая палитра</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">винтажнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ↓ + <code>l</code> ↑ + <code>h</code> в тёплый</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">современнее</span>
+        <span class="param"><span class="arrow">→</span> <code>c</code> ~ 0.15 + <code>h</code> монохром + тень в тон</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">ретро</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 40–60° + <code>c</code> ↓ + <code>l</code> ~ 70%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">футуристичнее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 200–280° + <code>c</code> ↑ + контраст ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">натуральнее</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 60–120° + <code>c</code> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">техно</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 200° + <code>c</code> ↑ + монохром</span>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     ОСЬ 6. МЕТАФОРЫ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Ось 6 · Метафоры</span>
+    <h3>Как закат, как море, <span class="grad">как золото</span></h3>
+    <p class="lead">
+      Самый человеческий уровень. Здесь эмоция — это образ,
+      а образ — это конкретная точка в цветовом пространстве.
+    </p>
+
+    <div class="axis-table">
+      <div class="axis-row">
+        <span class="word">как закат</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 20–40° + <code>l</code> ~ 65% + <code>c</code> ~ 0.15</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">как море</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 200° + <code>c</code> ~ 0.12 + <code>l</code> ~ 60%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">как мох</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 100° + <code>c</code> ~ 0.06 + <code>l</code> ~ 45%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">как вино</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 350° + <code>c</code> ~ 0.15 + <code>l</code> ~ 30%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">как кровь</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 25° + <code>c</code> ~ 0.25 + <code>l</code> ~ 40%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">как небо</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 220° + <code>c</code> ~ 0.08 + <code>l</code> ~ 80%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">как золото</span>
+        <span class="param"><span class="arrow">→</span> <code>h</code> ~ 70° + <code>c</code> ~ 0.15 + <code>l</code> ~ 70%</span>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 01. СВЕТЛЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Светлота</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">светлее</span>
+        <p class="description">Поднимаем светлоту, оставляя оттенок и насыщенность на месте.</p>
+        <div class="params"><span class="tag">l ↑</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(45% 0.2 35)"></div>
+            <div class="caption"><span class="label">было</span>l 45%</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(75% 0.2 35)"></div>
+            <div class="caption"><span class="label">стало</span>l 75%</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(<span class="tok-num">45%</span> 0.2 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(<span class="tok-num">75%</span> 0.2 35);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 02. ТЕМНЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Светлота</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">темнее</span>
+        <p class="description">Опускаем светлоту. Оттенок и насыщенность те же.</p>
+        <div class="params"><span class="tag">l ↓</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 35)"></div>
+            <div class="caption"><span class="label">было</span>l 65%</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(35% 0.2 35)"></div>
+            <div class="caption"><span class="label">стало</span>l 35%</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> 0.2 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(<span class="tok-num">35%</span> 0.2 35);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 03. ВОЗДУШНЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Светлота + насыщенность</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">воздушнее</span>
+        <p class="description">Светлее и одновременно менее насыщенный — цвет как бы растворяется в белом.</p>
+        <div class="params"><span class="tag">l ↑</span><span class="tag">c ↓</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 35)"></div>
+            <div class="caption"><span class="label">было</span>l 65% c 0.20</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(80% 0.08 35)"></div>
+            <div class="caption"><span class="label">стало</span>l 80% c 0.08</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.20</span> 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(80% <span class="tok-num">0.08</span> 35);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 04. ТЯЖЕЛЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Светлота + насыщенность</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">тяжелее</span>
+        <p class="description">Темнее и насыщеннее — цвет становится «плотным».</p>
+        <div class="params"><span class="tag">l ↓</span><span class="tag">c ↑</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 35)"></div>
+            <div class="caption"><span class="label">было</span>l 65% c 0.20</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(40% 0.25 35)"></div>
+            <div class="caption"><span class="label">стало</span>l 40% c 0.25</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.20</span> 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(40% <span class="tok-num">0.25</span> 35);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 05. ЯРЧЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Насыщенность</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">ярче</span>
+        <p class="description">Поднимаем насыщенность. Оттенок и светлота те же.</p>
+        <div class="params"><span class="tag">c ↑</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.08 35)"></div>
+            <div class="caption"><span class="label">было</span>c 0.08</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.25 35)"></div>
+            <div class="caption"><span class="label">стало</span>c 0.25</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.08</span> 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.25</span> 35);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 06. БЛЕДНЕЕ / СПОКОЙНЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Насыщенность</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">спокойнее</span>
+        <p class="description">Снижаем насыщенность — цвет становится тише, но не темнее.</p>
+        <div class="params"><span class="tag">c ↓</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.25 35)"></div>
+            <div class="caption"><span class="label">было</span>c 0.25</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.06 35)"></div>
+            <div class="caption"><span class="label">стало</span>c 0.06</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.25</span> 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.06</span> 35);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 07. СОЧНЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Насыщенность + светлота</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">сочнее</span>
+        <p class="description">Повышаем насыщенность и чуть поднимаем светлоту до «вкусной» середины.</p>
+        <div class="params"><span class="tag">c ↑</span><span class="tag">l ~ 60%</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(50% 0.15 35)"></div>
+            <div class="caption"><span class="label">было</span>l 50% c 0.15</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(60% 0.28 35)"></div>
+            <div class="caption"><span class="label">стало</span>l 60% c 0.28</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(50% <span class="tok-num">0.15</span> 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(60% <span class="tok-num">0.28</span> 35);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 08. ДОРОЖЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Насыщенность + тень</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">дороже</span>
+        <p class="description">Снижаем насыщенность, добавляем тень в тон и увеличиваем радиус.</p>
+        <div class="params"><span class="tag">c ↓</span><span class="tag">тень в тон</span><span class="tag">radius ↑</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.28 35)"></div>
+            <div class="caption"><span class="label">было</span>c 0.28</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(55% 0.10 35); box-shadow: 0 20px 40px -12px oklch(55% 0.10 35 / 0.5)"></div>
+            <div class="caption"><span class="label">стало</span>c 0.10 + тень</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.28</span> 35);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(55% <span class="tok-num">0.10</span> 35);
+  box-shadow: 0 20px 40px -12px
+    <span class="tok-fn">oklch</span>(55% 0.10 35 / <span class="tok-num">0.5</span>);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 09. ТЕПЛЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Оттенок</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">теплее</span>
+        <p class="description">Двигаем оттенок по кругу в сторону красного и оранжевого.</p>
+        <div class="params"><span class="tag">h к 30–60°</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 250)"></div>
+            <div class="caption"><span class="label">было</span>h 250°</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 35)"></div>
+            <div class="caption"><span class="label">стало</span>h 35°</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% 0.2 <span class="tok-num">250</span>);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(65% 0.2 <span class="tok-num">35</span>);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 10. ХОЛОДНЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Оттенок</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">холоднее</span>
+        <p class="description">Двигаем оттенок в сторону синего и голубого.</p>
+        <div class="params"><span class="tag">h к 200–260°</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 35)"></div>
+            <div class="caption"><span class="label">было</span>h 35°</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 240)"></div>
+            <div class="caption"><span class="label">стало</span>h 240°</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% 0.2 <span class="tok-num">35</span>);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(65% 0.2 <span class="tok-num">240</span>);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 11. ЗОЛОТИСТЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Оттенок + светлота</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">золотистее</span>
+        <p class="description">Двигаем оттенок к жёлтому, поднимаем светлоту.</p>
+        <div class="params"><span class="tag">h ~ 80°</span><span class="tag">l ↑</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 35)"></div>
+            <div class="caption"><span class="label">было</span>h 35°</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(75% 0.15 80)"></div>
+            <div class="caption"><span class="label">стало</span>h 80° l 75%</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% 0.2 <span class="tok-num">35</span>);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(<span class="tok-num">75%</span> 0.15 <span class="tok-num">80</span>);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 12. МОРСКОЙ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Оттенок + насыщенность</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">морской</span>
+        <p class="description">Оттенок в голубую зону, насыщенность умеренная, светлота средняя.</p>
+        <div class="params"><span class="tag">h ~ 200°</span><span class="tag">c ~ 0.10</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.2 35)"></div>
+            <div class="caption"><span class="label">было</span>h 35°</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.10 200)"></div>
+            <div class="caption"><span class="label">стало</span>h 200° c 0.10</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% 0.2 <span class="tok-num">35</span>);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(65% <span class="tok-num">0.10</span> <span class="tok-num">200</span>);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 13. ГРУСТНЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Настроение</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">грустнее</span>
+        <p class="description">Уходим в синий, снижаем насыщенность и светлоту — цвет «гаснет».</p>
+        <div class="params"><span class="tag">c ↓</span><span class="tag">l ↓</span><span class="tag">h к синему</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(70% 0.2 30)"></div>
+            <div class="caption"><span class="label">было</span>радость</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(45% 0.06 240)"></div>
+            <div class="caption"><span class="label">стало</span>грусть</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(70% 0.2 <span class="tok-num">30</span>);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(45% <span class="tok-num">0.06</span> <span class="tok-num">240</span>);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 14. РАДОСТНЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Настроение</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">радостнее</span>
+        <p class="description">Уходим в тёплый жёлтый, поднимаем насыщенность и светлоту.</p>
+        <div class="params"><span class="tag">c ↑</span><span class="tag">l ↑</span><span class="tag">h к жёлтому</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(50% 0.1 240)"></div>
+            <div class="caption"><span class="label">было</span>нейтрально</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(75% 0.25 85)"></div>
+            <div class="caption"><span class="label">стало</span>радость</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(50% 0.1 <span class="tok-num">240</span>);
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(<span class="tok-num">75%</span> 0.25 <span class="tok-num">85</span>);
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 15. СТРОЖЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Характер</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">строже</span>
+        <p class="description">Снижаем насыщенность, уходим в монохром, уменьшаем радиусы.</p>
+        <div class="params"><span class="tag">c ↓</span><span class="tag">h монохром</span><span class="tag">radius ↓</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(65% 0.25 340); border-radius: 14px;"></div>
+            <div class="caption"><span class="label">было</span>игриво</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(55% 0.05 250); border-radius: 4px;"></div>
+            <div class="caption"><span class="label">стало</span>строго</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(65% 0.25 <span class="tok-num">340</span>);
+  border-radius: <span class="tok-num">14px</span>;
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(55% <span class="tok-num">0.05</span> <span class="tok-num">250</span>);
+  border-radius: <span class="tok-num">4px</span>;
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     СВЯЗКА 16. ИГРИВЕЕ
+     ============================================================ -->
+  <section class="slide slide-emotions">
+    <span class="eyebrow">Связка · Характер</span>
+    <div class="pair">
+      <div class="left">
+        <span class="word-big grad">игривее</span>
+        <p class="description">Сдвигаем оттенок, повышаем насыщенность, увеличиваем радиусы.</p>
+        <div class="params"><span class="tag">h сдвиг</span><span class="tag">c ↑</span><span class="tag">radius ↑</span></div>
+      </div>
+      <div class="right">
+        <div class="swatches">
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(55% 0.05 250); border-radius: 4px;"></div>
+            <div class="caption"><span class="label">было</span>строго</div>
+          </div>
+          <div class="swatch-card">
+            <div class="swatch" style="background: oklch(70% 0.25 320); border-radius: 24px;"></div>
+            <div class="caption"><span class="label">стало</span>игриво</div>
+          </div>
+        </div>
+        <div class="code-block">
+  <span class="tok-com">/* было */</span>
+  background: <span class="tok-fn">oklch</span>(55% 0.05 <span class="tok-num">250</span>);
+  border-radius: <span class="tok-num">4px</span>;
+  <span class="tok-com">/* стало */</span>
+  background: <span class="tok-fn">oklch</span>(70% 0.25 <span class="tok-num">320</span>);
+  border-radius: <span class="tok-num">24px</span>;
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- EMOTIONS BLOCK END -->
+
+  <!-- EMOTIONS DASHBOARD & LOGIC -->
+  <section class="slide slide-dashboard-logic">
+    <h3>Эмоция — это <span class="grad">функция</span> над цветом</h3>
+
+    <p class="lead">
+      Выберите эмоцию слева. Она превратит «было» в «стало» по своему правилу.
+      Ползунки тут же применяют правило к новому цвету.
+      «Стало» скрывается только при смене эмоции.
+    </p>
+
+    <div class="dashboard">
+
+      <div class="emotions" id="dl-emotions">
+
+        <button class="emotion-btn active" data-emotion="ярче">
+          ярче
+          <span class="hint">c + 0.18</span>
+        </button>
+        <button class="emotion-btn" data-emotion="светлее">
+          светлее
+          <span class="hint">l + 25</span>
+        </button>
+        <button class="emotion-btn" data-emotion="темнее">
+          темнее
+          <span class="hint">l − 25</span>
+        </button>
+        <button class="emotion-btn" data-emotion="теплее">
+          теплее
+          <span class="hint">h → 35°</span>
+        </button>
+        <button class="emotion-btn" data-emotion="холоднее">
+          холоднее
+          <span class="hint">h → 240°</span>
+        </button>
+        <button class="emotion-btn" data-emotion="спокойнее">
+          спокойнее
+          <span class="hint">c − 0.20</span>
+        </button>
+        <button class="emotion-btn" data-emotion="дороже">
+          дороже
+          <span class="hint">c ↓ + l ↓</span>
+        </button>
+        <button class="emotion-btn" data-emotion="грустнее">
+          грустнее
+          <span class="hint">c ↓ · l ↓ · h син</span>
+        </button>
+        <button class="emotion-btn" data-emotion="радостнее">
+          радостнее
+          <span class="hint">c ↑ · l ↑ · h жёлт</span>
+        </button>
+        <button class="emotion-btn" data-emotion="строже">
+          строже
+          <span class="hint">c ↓ · h 250</span>
+        </button>
+        <button class="emotion-btn" data-emotion="как море">
+          как море
+          <span class="hint">h 200° · c 0.10</span>
+        </button>
+
+      </div>
+
+      <div class="right">
+
+        <div class="cards">
+
+          <div class="color-card before">
+            <span class="title">Было</span>
+            <div class="swatch" id="dl-swatch-before"></div>
+            <div class="code" id="dl-code-before"></div>
+          </div>
+
+          <div class="color-card after" id="dl-card-after">
+            <span class="title">
+              Стало
+              <span class="delta" id="dl-delta-label"></span>
+            </span>
+            <div class="swatch" id="dl-swatch-after"></div>
+            <div class="code" id="dl-code-after"></div>
+
+            <div class="cover" id="dl-cover-after">
+              <div class="cover-content">
+                <div class="eye">👁</div>
+                <div class="cover-label">Показать «стало»</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="controls">
+          <div class="control" data-param="h">
+            <div class="label">
+              <span class="name"><code>h</code> · оттенок</span>
+              <span class="value" id="dl-val-h">35</span>
+            </div>
+            <input type="range" id="dl-range-h" min="0" max="360" value="35">
+          </div>
+          <div class="control" data-param="c">
+            <div class="label">
+              <span class="name"><code>c</code> · насыщенность</span>
+              <span class="value" id="dl-val-c">0.10</span>
+            </div>
+            <input type="range" id="dl-range-c" min="0" max="40" value="10">
+          </div>
+          <div class="control" data-param="l">
+            <div class="label">
+              <span class="name"><code>l</code> · светлота</span>
+              <span class="value" id="dl-val-l">65%</span>
+            </div>
+            <input type="range" id="dl-range-l" min="10" max="95" value="65">
+          </div>
+        </div>
+
+        <div class="reset-row">
+          <span class="reset-note" id="dl-rule-note"></span>
+          <button class="reset" id="dl-reset">← скрыть «стало»</button>
+        </div>
+
+      </div>
+
+    </div>
+    <script>
+      (function () {
+        // ============================================================
+        // Правила эмоций — функции от {l, c, h}
+        // ============================================================
+        const RULES = {
+          'ярче':      (o) => ({ l: o.l,                     c: Math.min(0.40, o.c + 0.18), h: o.h }),
+          'светлее':   (o) => ({ l: Math.min(95, o.l + 25),  c: o.c,                       h: o.h }),
+          'темнее':    (o) => ({ l: Math.max(10, o.l - 25),  c: o.c,                       h: o.h }),
+          'теплее':    (o) => ({ l: o.l,                     c: o.c,                       h: 35 }),
+          'холоднее':  (o) => ({ l: o.l,                     c: o.c,                       h: 240 }),
+          'спокойнее': (o) => ({ l: o.l,                     c: Math.max(0, o.c - 0.20),   h: o.h }),
+          'дороже':    (o) => ({ l: Math.max(20, o.l - 10),  c: Math.max(0.05, o.c * 0.4), h: o.h }),
+          'грустнее':  (o) => ({ l: Math.max(20, o.l - 20),  c: Math.max(0.03, o.c * 0.3), h: 240 }),
+          'радостнее': (o) => ({ l: Math.min(95, o.l + 15),  c: Math.min(0.40, o.c + 0.15), h: 85 }),
+          'строже':    (o) => ({ l: o.l,                     c: Math.max(0.02, o.c * 0.25), h: 250 }),
+          'как море':  (o) => ({ l: 62,                      c: 0.10,                      h: 200 }),
+        };
+
+        const RULE_LABELS = {
+          'ярче':      'c → c + 0.18',
+          'светлее':   'l → l + 25',
+          'темнее':    'l → l − 25',
+          'теплее':    'h → 35',
+          'холоднее':  'h → 240',
+          'спокойнее': 'c → c − 0.20',
+          'дороже':    'c × 0.4, l − 10',
+          'грустнее':  'c × 0.3, l − 20, h → 240',
+          'радостнее': 'c + 0.15, l + 15, h → 85',
+          'строже':    'c × 0.25, h → 250',
+          'как море':  'l → 62, c → 0.10, h → 200',
+        };
+
+        // ============================================================
+        // DOM
+        // ============================================================
+        const emotions      = document.querySelectorAll('.dashboard-logic .emotion-btn');
+        const cardAfter     = document.getElementById('dl-card-after');
+        const coverAfter    = document.getElementById('dl-cover-after');
+        const deltaLabel    = document.getElementById('dl-delta-label');
+        const ruleNote      = document.getElementById('dl-rule-note');
+
+        const swatchBefore  = document.getElementById('dl-swatch-before');
+        const swatchAfter   = document.getElementById('dl-swatch-after');
+        const codeBefore    = document.getElementById('dl-code-before');
+        const codeAfter     = document.getElementById('dl-code-after');
+
+        const rangeH = document.getElementById('dl-range-h');
+        const rangeC = document.getElementById('dl-range-c');
+        const rangeL = document.getElementById('dl-range-l');
+        const valH   = document.getElementById('dl-val-h');
+        const valC   = document.getElementById('dl-val-c');
+        const valL   = document.getElementById('dl-val-l');
+
+        const resetBtn = document.getElementById('dl-reset');
+
+        // ============================================================
+        // Вспомогательное
+        // ============================================================
+        function toCss({ l, c, h }) {
+          return `oklch(${Math.round(l)}% ${c.toFixed(2)} ${Math.round(h)})`;
+        }
+
+        function formatCode(color) {
+          return 'background: ' +
+            color.replace(/(oklch)/g, '<span class="tok-fn">$1</span>')
+                .replace(/([\d.]+%?)/g, '<span class="tok-num">$1</span>') + ';';
+        }
+
+        // ============================================================
+        // Состояние
+        // ============================================================
+        let currentEmotion = 'ярче';
+        let revealed = false;
+
+        function getFrom() {
+          return {
+            h: parseInt(rangeH.value, 10),
+            c: parseInt(rangeC.value, 10) / 100,
+            l: parseInt(rangeL.value, 10),
+          };
+        }
+
+        function getTo(from) {
+          const rule = RULES[currentEmotion];
+          return rule ? rule(from) : { ...from };
+        }
+
+        // ============================================================
+        // Отрисовка
+        // ============================================================
+        function render() {
+          const from = getFrom();
+          const to   = getTo(from);
+
+          valH.textContent = from.h;
+          valC.textContent = from.c.toFixed(2);
+          valL.textContent = from.l + '%';
+
+          const cssFrom = toCss(from);
+          const cssTo   = toCss(to);
+
+          swatchBefore.style.background = cssFrom;
+          swatchAfter.style.background  = cssTo;
+
+          codeBefore.innerHTML = formatCode(cssFrom);
+          codeAfter.innerHTML  = formatCode(cssTo);
+
+          deltaLabel.textContent = 'Δ ' + RULE_LABELS[currentEmotion];
+          ruleNote.textContent   = currentEmotion + ': ' + RULE_LABELS[currentEmotion];
+
+          cardAfter.classList.toggle('revealed', revealed);
+        }
+
+        // ============================================================
+        // Выбор эмоции — здесь единственное место, где скрывается «стало»
+        // ============================================================
+        emotions.forEach(btn => {
+          btn.addEventListener('click', () => {
+            emotions.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentEmotion = btn.dataset.emotion;
+            revealed = false;   // ← скрываем только тут
+            render();
+          });
+        });
+
+        // ============================================================
+        // Чехол «стало»
+        // ============================================================
+        coverAfter.addEventListener('click', () => {
+          if (revealed) return;
+          revealed = true;
+          render();
+        });
+
+        cardAfter.addEventListener('click', (e) => {
+          if (e.target.closest('.cover')) return;
+          if (!revealed) return;
+          revealed = false;
+          render();
+        });
+
+        // ============================================================
+        // Ползунки — НЕ скрывают «стало», только пересчитывают
+        // ============================================================
+        [rangeH, rangeC, rangeL].forEach(r => {
+          r.addEventListener('input', render);
+        });
+
+        // ============================================================
+        // Кнопка «скрыть „стало"» — тоже необязательное действие
+        // ============================================================
+        resetBtn.addEventListener('click', () => {
+          revealed = false;
+          render();
+        });
+
+        // ============================================================
+        // Старт
+        // ============================================================
+        render();
+      })();
+    </script>
+  </section>
+  <!-- EMOTIONS DASHBOARD & LOGIC END -->
 
   <!-- ONE COLOR -->
   <section class="slide">

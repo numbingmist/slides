@@ -21,3 +21,5 @@
   --progress-size: 5px;
   color: hsl(0 0% 100% / .85);
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }

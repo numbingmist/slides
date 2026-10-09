@@ -1,0 +1,150 @@
+.slide-emotions {
+  .kicker {
+    font-family: var(--theme-font);
+    font-size: 0.82rem;
+    color: var(--theme-text-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  code, .mono {
+    font-family: var(--theme-font-code);
+    font-size: 0.9em;
+  }
+
+  /* ОСЬ: слайд с таблицей слов */
+  .axis-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 900px;
+    width: 100%;
+    max-height: 310px;
+    overflow-y: auto;
+  }
+  .axis-row {
+    display: grid;
+    grid-template-columns: minmax(12ch, 1fr) 2fr;
+    align-items: baseline;
+    gap: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--theme-border);
+  }
+  .axis-row .word {
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    font-weight: 700;
+    color: var(--theme-text);
+  }
+  .axis-row .param {
+    color: var(--theme-text-dim);
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+  }
+  .axis-row .param code {
+    background: rgba(166, 77, 255, 0.12);
+    color: #C9A9FF;
+    padding: 0.1em 0.45em;
+    border-radius: 5px;
+  }
+  .axis-row .arrow {
+    color: var(--theme-text-mute);
+    margin-right: 0.3em;
+  }
+
+  /* СВЯЗКА: слайд с одной эмоцией */
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  .pair .left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    justify-content: center;
+  }
+
+  .pair .word-big {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .pair .word-big.grad {
+    background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple), var(--theme-blue));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .pair .description {
+    color: var(--theme-text-dim);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    max-width: 40ch;
+  }
+
+  .pair .params {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+  .pair .params .tag {
+    font-family: var(--theme-font-code);
+    font-size: 0.82rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(166, 77, 255, 0.12);
+    border: 1px solid rgba(166, 77, 255, 0.3);
+    color: #C9A9FF;
+  }
+
+  .pair .right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .swatch-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .swatch-card .swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .swatch-card .caption {
+    font-family: var(--theme-font-code);
+    font-size: 0.78rem;
+    color: var(--theme-text-mute);
+    text-align: center;
+  }
+  .swatch-card .caption .label {
+    color: var(--theme-text-dim);
+    font-family: var(--theme-font);
+    font-weight: 600;
+    margin-right: 0.4em;
+  }
+
+  .code-block {
+    background: var(--theme-bg-elev);
+    border: 1px solid var(--theme-border);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    font-family: var(--theme-font-code);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--theme-text-dim);
+    overflow-x: auto;
+  }
+}
