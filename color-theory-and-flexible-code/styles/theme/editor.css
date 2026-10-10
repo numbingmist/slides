@@ -1,0 +1,439 @@
+/* TODO combine with main theme */
+:root {
+  --theme-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --theme-font-code: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ============================================================
+      УПРАВЛЯЕМЫЕ ТОКЕНЫ
+      ============================================================ */
+  --ctrl-h: 320;
+  --ctrl-c: 0.22;
+  --ctrl-sat: 1;
+  --ctrl-angle: 45;
+
+  /* ============================================================
+      ПРОИЗВОДНЫЕ
+      ============================================================ */
+  --c: calc(var(--ctrl-c) * var(--ctrl-sat));
+
+  /* Три оттенка для гармонии — все как числа */
+  --h1: var(--ctrl-h);
+  --h2: calc(var(--ctrl-h) + var(--ctrl-angle));
+  --h3: calc(var(--ctrl-h) - var(--ctrl-angle));
+
+  /* Основной цвет и два производных */
+  --accent:   oklch(65% var(--c) var(--h1));
+  --accent-2: oklch(65% var(--c) var(--h2));
+  --accent-3: oklch(65% var(--c) var(--h3));
+
+  /* Градиент: сначала производный «−Δh», потом основной, потом «+Δh» */
+  --gradient: linear-gradient(
+    90deg,
+    oklch(72% var(--c) var(--h3)),
+    oklch(65% var(--c) var(--h1)),
+    oklch(68% var(--c) var(--h2))
+  );
+
+  /* Фон и поверхности */
+  --bg:        oklch(12% 0 var(--h1));
+  --bg-elev:   oklch(18% calc(var(--c) * 0.10) var(--h1));
+  --border:    oklch(28% calc(var(--c) * 0.20) var(--h1));
+  --text:      oklch(93% 0 var(--h1));
+  --text-dim:  oklch(72% 0 var(--h1));
+  --text-mute: oklch(54% 0 var(--h1));
+
+  /* Свечения */
+  --glow-1: oklch(70% calc(var(--c) * 1.1) var(--h1) / 0.32);
+  --glow-2: oklch(72% calc(var(--c) * 0.9) var(--h2) / 0.26);
+}
+
+/* * { box-sizing: border-box; margin: 0; padding: 0; } */
+/* html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--theme-font);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+} */
+
+
+.slide-editor {
+  position: relative;
+  /* width: 100vw;
+  height: 100vh; */
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 420px);
+  gap: 4vw;
+  padding: 4vh 4vw;
+  /* overflow: hidden; */
+  line-height: 1.2rem;
+
+  &::before
+  /* , &::after  */
+  {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+    transition: background 0.5s ease;
+  }
+  &::before {
+    width: 50vw; height: 50vw;
+    top: -18vw; left: -14vw;
+    background: radial-gradient(circle, var(--glow-1) 0%, transparent 70%);
+  }
+  /* &::after {
+    width: 45vw; height: 45vw;
+    bottom: -20vw; right: -12vw;
+    background: radial-gradient(circle, var(--glow-2) 0%, transparent 70%);
+  } */
+
+  /* ============================================================
+      ЛЕВАЯ ЧАСТЬ — СЛАЙД
+      ============================================================ */
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+    max-width: 720px;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  h2 .grad {
+    display: inline-block;
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  p.lead {
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 56ch;
+    margin: 0;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 480px;
+    margin: 0;
+  }
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+
+    &::before {
+      content: '';
+      color: transparent;
+    }
+  }
+  .list-item .bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .list-item:nth-child(1) .bullet {
+    background: oklch(68% var(--c) var(--h1));
+    box-shadow: 0 0 12px oklch(68% var(--c) var(--h1));
+  }
+  .list-item:nth-child(2) .bullet {
+    background: oklch(68% var(--c) var(--h2));
+    box-shadow: 0 0 12px oklch(68% var(--c) var(--h2));
+  }
+  .list-item:nth-child(3) .bullet {
+    background: oklch(68% var(--c) var(--h3));
+    box-shadow: 0 0 12px oklch(68% var(--c) var(--h3));
+  }
+
+  .speaker {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--border);
+    width: fit-content;
+  }
+
+  /* Аватар с градиентной обводкой через mask */
+  .speaker .avatar {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-dim);
+    background: transparent;
+  }
+  .speaker .avatar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    padding: 2px;
+    background: var(--gradient);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+  }
+  .speaker .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .speaker .label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+  }
+  .speaker .name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .speaker .role {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+  }
+  .btn {
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: oklch(15% 0 var(--h1));
+    cursor: pointer;
+    transition: background 0.5s ease, color 0.5s ease, transform 0.1s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn.ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  /* ============================================================
+      ПРАВАЯ ЧАСТЬ — РЕДАКТОР
+      ============================================================ */
+  .editor {
+    position: relative;
+    z-index: 2;
+    /* align-self: center; */
+    background: oklch(18% 0.02 var(--h1) / 0.9);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* max-height: 98vh; */
+    height: fit-content;
+    backdrop-filter: blur(12px);
+  }
+
+  .editor .title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+  }
+
+  .control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .control .label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .control .label code {
+    font-family: var(--theme-font-code);
+    font-size: 0.72rem;
+    color: var(--text-mute);
+    background: oklch(30% 0.10 var(--h1) / 0.4);
+    padding: 0.1em 0.4em;
+    border-radius: 5px;
+  }
+  .control .value {
+    font-family: var(--theme-font-code);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    min-width: 4ch;
+    text-align: right;
+  }
+  .control input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+
+    &#editor-range-h {
+      background: transparent;
+      margin-top: -15px;
+    }
+  }
+  .control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .control input[type="range"]::-moz-range-thumb {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 2px solid var(--bg);
+  }
+
+  .hue-strip {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(90deg,
+      oklch(65% 0.22 0),
+      oklch(65% 0.22 60),
+      oklch(65% 0.22 120),
+      oklch(65% 0.22 180),
+      oklch(65% 0.22 240),
+      oklch(65% 0.22 300),
+      oklch(65% 0.22 360)
+    );
+  }
+
+  /* ============================================================
+      ПРЕВЬЮ ГАРМОНИИ: производный − Δh | основной | производный + Δh
+      ============================================================ */
+  .harmony-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .harmony-preview .sw {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  /* Порядок важен: сначала левый производный, потом основной, потом правый */
+  .harmony-preview .sw-1 {
+    background: oklch(68% var(--c) var(--h3));   /* h − Δh */
+  }
+  .harmony-preview .sw-2 {
+    background: oklch(68% var(--c) var(--h1));   /* h — основной */
+    outline: 2px solid oklch(90% 0 var(--h1) / 0.35);
+    outline-offset: 2px;
+  }
+  .harmony-preview .sw-3 {
+    background: oklch(68% var(--c) var(--h2));   /* h + Δh */
+  }
+
+  /* Подписи под свотчами */
+  .harmony-labels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    font-family: var(--theme-font-code);
+    font-size: 0.68rem;
+    color: var(--text-mute);
+    text-align: center;
+  }
+  .harmony-labels span:nth-child(2) {
+    color: var(--text);   /* основной выделен */
+    font-weight: 700;
+  }
+
+  .harmony-note {
+    font-size: 0.75rem;
+    color: var(--text-mute);
+    font-family: var(--theme-font-code);
+    text-align: center;
+  }
+
+  .quick-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .quick-actions button {
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .quick-actions button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* TODO use for main progress bar */
+  .progress-bar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    height: 4px;
+    background: var(--border);
+    z-index: 10;
+  }
+  .progress-bar .fill {
+    height: 100%;
+    width: 68%;
+    background: var(--gradient);
+  }
+}

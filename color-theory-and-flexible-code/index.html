@@ -1215,6 +1215,206 @@
     <div class="slide-bg"></div>
   </section>
 
+  <!-- EDITOR -->
+  <section class="slide slide-editor">
+
+    <!-- ЛЕВАЯ ЧАСТЬ: СЛАЙД -->
+    <div class="content">
+      <h2>
+        Теория <span class="grad">цвета</span><br>
+        и практики гибкого кода
+      </h2>
+
+      <p class="lead">
+        Один токен меняет всё: градиент, булеты, подсветки, кнопку и аватар.
+      </p>
+
+      <ul class="list">
+        <li class="list-item">
+          <span class="bullet"></span>
+          Цвет — это три числа: <code>l</code>, <code>c</code>, <code>h</code>
+        </li>
+        <li class="list-item">
+          <span class="bullet"></span>
+          Гармония — это правила сдвига по оттенку
+        </li>
+        <li class="list-item">
+          <span class="bullet"></span>
+          Тема — это один токен и его производные
+        </li>
+      </ul>
+
+      <div class="speaker">
+        <div class="avatar">ВЫ</div>
+        <div class="info">
+          <span class="name">Имя Фамилия</span>
+          <span class="role">Frontend-разработчик</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn">Основное действие</button>
+        <button class="btn ghost">Второстепенное</button>
+      </div>
+
+    </div>
+
+    <!-- ПРАВАЯ ЧАСТЬ: РЕДАКТОР -->
+    <aside class="editor">
+
+      <span class="title">Редактор темы</span>
+
+      <div class="control">
+        <div class="label">
+          <span>Основной оттенок <code>h</code></span>
+          <span class="value" id="editor-val-h">320°</span>
+        </div>
+        <div class="hue-strip"></div>
+        <input type="range" id="editor-range-h" min="0" max="360" value="320">
+      </div>
+
+      <div class="control">
+        <div class="label">
+          <span>Насыщенность <code>c</code></span>
+          <span class="value" id="editor-val-c">0.22</span>
+        </div>
+        <input type="range" id="editor-range-c" min="0" max="40" value="22">
+      </div>
+
+      <div class="control">
+        <div class="label">
+          <span>Отступ гармонии <code>Δh</code></span>
+          <span class="value" id="editor-val-angle">45°</span>
+        </div>
+        <input type="range" id="editor-range-angle" min="0" max="180" value="45">
+      </div>
+
+      <div class="control">
+        <div class="label">
+          <span>Сохранение цвета</span>
+          <span class="value" id="editor-val-sat">100%</span>
+        </div>
+        <input type="range" id="editor-range-sat" min="0" max="100" value="100">
+      </div>
+
+      <!-- Превью гармонии: слева «−Δh», в центре основной, справа «+Δh» -->
+      <div class="harmony-preview">
+        <div class="sw sw-1"></div>
+        <div class="sw sw-2"></div>
+        <div class="sw sw-3"></div>
+      </div>
+      <div class="harmony-labels">
+        <span id="editor-label-h3">h − Δh</span>
+        <span id="editor-label-h1">h (основной)</span>
+        <span id="editor-label-h2">h + Δh</span>
+      </div>
+      <div class="harmony-note" id="editor-harmony-note">аналоговая: h−45°, h, h+45°</div>
+
+      <div class="quick-actions">
+        <button data-preset="pink">Pink</button>
+        <button data-preset="blue">Blue</button>
+        <button data-preset="green">Green</button>
+        <button data-preset="yellow">Yellow</button>
+        <button data-preset="gray">Gray</button>
+      </div>
+
+    </aside>
+
+    <div class="progress-bar"><div class="fill"></div></div>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+
+        const rangeH = document.getElementById('editor-range-h');
+        const rangeC = document.getElementById('editor-range-c');
+        const rangeAngle = document.getElementById('editor-range-angle');
+        const rangeSat = document.getElementById('editor-range-sat');
+
+        const valH = document.getElementById('editor-val-h');
+        const valC = document.getElementById('editor-val-c');
+        const valAngle = document.getElementById('editor-val-angle');
+        const valSat = document.getElementById('editor-val-sat');
+        const harmonyNote = document.getElementById('editor-harmony-note');
+        const labelH1 = document.getElementById('editor-label-h1');
+        const labelH2 = document.getElementById('editor-label-h2');
+        const labelH3 = document.getElementById('editor-label-h3');
+
+        const presets = {
+          pink:   { h: 320, c: 0.22, angle: 45,  sat: 1 },
+          blue:   { h: 240, c: 0.20, angle: 45,  sat: 1 },
+          green:  { h: 145, c: 0.18, angle: 45,  sat: 1 },
+          yellow: { h: 85,  c: 0.18, angle: 45,  sat: 1 },
+          gray:   { h: 320, c: 0.22, angle: 45,  sat: 0 },
+        };
+
+        function update() {
+          const h = parseInt(rangeH.value, 10);
+          const c = parseInt(rangeC.value, 10) / 100;
+          const angle = parseInt(rangeAngle.value, 10);
+          const sat = parseInt(rangeSat.value, 10) / 100;
+
+          // Все три токена — просто числа, без единиц
+          root.style.setProperty('--ctrl-h', h);
+          root.style.setProperty('--ctrl-c', c);
+          root.style.setProperty('--ctrl-angle', angle);
+          root.style.setProperty('--ctrl-sat', sat);
+
+          valH.textContent = h + '°';
+          valC.textContent = c.toFixed(2);
+          valAngle.textContent = angle + '°';
+          valSat.textContent = Math.round(sat * 100) + '%';
+
+          // Подписи под свотчами
+          labelH1.textContent = 'h = ' + h + '°';
+          labelH2.textContent = 'h + ' + angle + '° = ' + ((h + angle) % 360) + '°';
+          labelH3.textContent = 'h − ' + angle + '° = ' + ((h - angle + 360) % 360) + '°';
+
+          let note = '';
+          if (angle === 0) {
+            note = 'монохром: все три оттенка совпадают';
+          } else if (angle < 30) {
+            note = 'аналоговая узкая: h−' + angle + '°, h, h+' + angle + '°';
+          } else if (angle < 60) {
+            note = 'аналоговая: h−' + angle + '°, h, h+' + angle + '°';
+          } else if (angle < 90) {
+            note = 'расширенная: h−' + angle + '°, h, h+' + angle + '°';
+          } else if (angle === 90) {
+            note = 'тетрада по одной оси: h−90°, h, h+90°';
+          } else if (angle === 120) {
+            note = 'триада: h−120°, h, h+120°';
+          } else if (angle === 180) {
+            note = 'комплимент: h, h+180° (крайние совпадают)';
+          } else {
+            note = 'широкая: h−' + angle + '°, h, h+' + angle + '°';
+          }
+          harmonyNote.textContent = note;
+        }
+
+        rangeH.addEventListener('input', update);
+        rangeC.addEventListener('input', update);
+        rangeAngle.addEventListener('input', update);
+        rangeSat.addEventListener('input', update);
+
+        document.querySelectorAll('[data-preset]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const preset = presets[btn.dataset.preset];
+            if (!preset) return;
+
+            rangeH.value = preset.h;
+            rangeC.value = Math.round(preset.c * 100);
+            rangeAngle.value = preset.angle;
+            rangeSat.value = Math.round(preset.sat * 100);
+
+            update();
+          });
+        });
+
+        update();
+      })();
+    </script>
+  </section>
+
   <!-- CONCLUSION SLIDE 08 -->
   <section class="slide">
     <span class="bignum">08</span>
