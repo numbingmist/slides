@@ -56,7 +56,7 @@
     border-color: rgba(166, 77, 255, 0.5);
   }
   .emotion-btn.active {
-    border-color: var(--theme-pink);
+    border-color: var(--theme-accent-2);
     background: rgba(246, 55, 198, 0.08);
   }
   .emotion-btn.active .hint {
@@ -100,7 +100,7 @@
   .color-card .title .delta {
     font-family: var(--theme-font-code);
     font-size: 0.7rem;
-    color: var(--theme-pink);
+    color: var(--theme-accent-2);
     letter-spacing: 0;
     text-transform: none;
   }
@@ -124,7 +124,7 @@
     overflow-x: auto;
     white-space: nowrap;
   }
-  .color-card .code .tok-fn { color: var(--theme-purple); }
+  .color-card .code .tok-fn { color: var(--theme-accent); }
   .color-card .code .tok-num { color: var(--theme-yellow); }
 
   /* ==== Карточка «стало» с серым чехлом ==== */
@@ -183,8 +183,8 @@
     transition: border-color 0.15s, color 0.15s;
   }
   .color-card.after:hover .cover .eye {
-    border-color: var(--theme-pink);
-    color: var(--theme-pink);
+    border-color: var(--theme-accent-2);
+    color: var(--theme-accent-2);
   }
   .color-card.after .cover .cover-label {
     font-size: 0.8rem;
@@ -243,20 +243,20 @@
     appearance: none;
     width: 16px; height: 16px;
     border-radius: 50%;
-    background: var(--accent-control, var(--theme-pink));
+    background: var(--accent-control, var(--theme-accent-2));
     cursor: pointer;
     border: 2px solid var(--theme-bg);
-    box-shadow: 0 0 0 1px var(--accent-control, var(--theme-pink));
+    box-shadow: 0 0 0 1px var(--accent-control, var(--theme-accent-2));
   }
   .control input[type="range"]::-moz-range-thumb {
     width: 16px; height: 16px;
     border-radius: 50%;
-    background: var(--accent-control, var(--theme-pink));
+    background: var(--accent-control, var(--theme-accent-2));
     cursor: pointer;
     border: 2px solid var(--theme-bg);
   }
-  .control[data-param="h"] { --accent-control: var(--theme-pink); }
-  .control[data-param="c"] { --accent-control: var(--theme-purple); }
+  .control[data-param="h"] { --accent-control: var(--theme-accent-2); }
+  .control[data-param="c"] { --accent-control: var(--theme-accent); }
   .control[data-param="l"] { --accent-control: var(--theme-yellow); }
 
   /* ==== Нижняя строка ==== */
@@ -285,6 +285,6 @@
   }
   .reset:hover {
     color: var(--theme-text);
-    border-color: var(--theme-pink);
+    border-color: var(--theme-accent-2);
   }
 }

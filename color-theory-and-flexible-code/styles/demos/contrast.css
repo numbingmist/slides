@@ -95,16 +95,16 @@
     font: inherit; font-weight: 600;
     padding: 0.7rem 1.4rem;
     border-radius: 10px;
-    border: 2px solid var(--theme-pink);
+    border: 2px solid var(--theme-accent-2);
     background: transparent;
-    color: var(--theme-pink);
+    color: var(--theme-accent-2);
     cursor: pointer;
     outline: none;
   }
   &.d7 button:focus-visible {
-    outline: 2px solid var(--theme-pink);
+    outline: 2px solid var(--theme-accent-2);
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px color-mix(in oklch, var(--theme-pink) 30%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in oklch, var(--theme-accent-2) 30%, transparent);
   }
 
   /* 8. Контраст иконок и текста на кнопке */
@@ -117,7 +117,7 @@
     font-size: 0.9rem;
   }
   &.d8 .b svg { width: 18px; height: 18px; fill: currentColor; }
-  &.d8 .ok { background: var(--theme-purple); color: #FFFFFF; }
+  &.d8 .ok { background: var(--theme-accent); color: #FFFFFF; }
   &.d8 .weak { background: var(--theme-yellow); color: #FFF7D6; }
   &.d8 .fixed { background: var(--theme-yellow); color: #1F1600; }
 

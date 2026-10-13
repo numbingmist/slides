@@ -49,11 +49,11 @@
   opacity: 0.6;
 }
 
-.tok-kw   { color: var(--theme-pink); }
-.tok-fn   { color: var(--theme-purple); }
+.tok-kw   { color: var(--theme-accent-2); }
+.tok-fn   { color: var(--theme-accent); }
 .tok-str  { color: var(--theme-green); }
 .tok-num  { color: var(--theme-yellow); }
 .tok-com  { color: var(--theme-text-mute); font-style: italic; }
-.tok-tag  { color: var(--theme-blue); }
+.tok-tag  { color: var(--theme-accent-3); }
 .tok-attr { color: var(--theme-yellow); }
 .tok-punct{ color: var(--theme-text-dim); }

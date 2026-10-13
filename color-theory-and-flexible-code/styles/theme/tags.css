@@ -8,8 +8,8 @@
 .tag {
   font-size: 0.82rem;
   padding: 0.35rem 0.85rem;
-  background: rgba(166, 77, 255, 0.1);
-  border: 1px solid rgba(166, 77, 255, 0.3);
-  color: #C9A9FF;
+  background: oklch(from var(--theme-accent) l c h / 0.1);
+  border: 1px solid oklch(0.4 0.12 var(--hue1));
+  color: oklch(0.8 0.12 var(--hue1));
   border-radius: 999px;
 }

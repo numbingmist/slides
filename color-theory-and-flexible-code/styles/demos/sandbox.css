@@ -59,20 +59,20 @@
   appearance: none;
   width: 18px; height: 18px;
   border-radius: 50%;
-  background: var(--accent-control, var(--theme-pink));
+  background: var(--accent-control, var(--theme-accent-2));
   cursor: pointer;
   border: 2px solid var(--theme-bg);
-  box-shadow: 0 0 0 1px var(--accent-control, var(--theme-pink));
+  box-shadow: 0 0 0 1px var(--accent-control, var(--theme-accent-2));
 }
 .control input[type="range"]::-moz-range-thumb {
   width: 18px; height: 18px;
   border-radius: 50%;
-  background: var(--accent-control, var(--theme-pink));
+  background: var(--accent-control, var(--theme-accent-2));
   cursor: pointer;
   border: 2px solid var(--theme-bg);
 }
-.control[data-param="h"] { --accent-control: var(--theme-pink); }
-.control[data-param="c"] { --accent-control: var(--theme-purple); }
+.control[data-param="h"] { --accent-control: var(--theme-accent-2); }
+.control[data-param="c"] { --accent-control: var(--theme-accent); }
 .control[data-param="l"] { --accent-control: var(--theme-yellow); }
 
 .sandbox-preview {

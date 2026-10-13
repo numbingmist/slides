@@ -16,13 +16,13 @@
   .demo .num {
     /* font-family: var(--theme-font-code);
     font-size: 0.78rem;
-    background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));
+    background: linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent));
     -webkit-background-clip: text; background-clip: text; color: transparent; */
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));
-    box-shadow: 0 0 10px var(--theme-pink);
+    background: linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent));
+    box-shadow: 0 0 10px var(--theme-accent-2);
   }
 
   .demo .stage {

@@ -24,7 +24,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--theme-purple);
-  /* linear-gradient(135deg, var(--theme-pink), var(--theme-purple)); */
+  background: var(--theme-accent);
+  /* linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent)); */
   transform: translateY(-50%);
 }

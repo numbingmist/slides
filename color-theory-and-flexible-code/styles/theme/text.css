@@ -22,9 +22,9 @@
   margin-inline: 0;
 }
 
-.slide p.lead {
+.slide p.dim {
   color: var(--theme-text-dim);
-  font-size: 0.98rem;
+  font-size: 0.98rem; /* TODO check */
 }
 
 /* .slide * + h2 {
@@ -32,19 +32,19 @@
 } */
 
 .slide .grad {
-  background: linear-gradient(90deg, var(--theme-pink) 0%, var(--theme-purple) 50%, var(--theme-blue) 100%);
+  background: var(--theme-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 
   &.start {
-    background: linear-gradient(90deg, var(--theme-pink) 0%, var(--theme-purple) 100%);
+    background: linear-gradient(90deg, var(--theme-accent-2) 0%, var(--theme-accent) 100%);
     -webkit-background-clip: text;
     background-clip: text;
   }
 
   &.finish {
-    background: linear-gradient(90deg, var(--theme-purple) 0%, var(--theme-blue) 100%);
+    background: linear-gradient(90deg, var(--theme-accent) 0%, var(--theme-accent-3) 100%);
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -57,7 +57,7 @@ strong {
 /* .slide h2, */
 .slide li::before,
 .slide strong {
-  color: var(--theme-primary);
+  color: var(--theme-accent);
 }
 
 .bignum {
@@ -70,9 +70,10 @@ strong {
   font-weight: 900;
   line-height: 1;
   background: linear-gradient(180deg,
-    rgba(246,55,198,0.18) 0%,
-    rgba(166,77,255,0.10) 50%,
-    rgba(77,166,255,0.05) 100%);
+    var(--theme-accent-2) 0%,
+    var(--theme-accent) 50%,
+    var(--theme-accent-3) 100%);
+  opacity: 0.1;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

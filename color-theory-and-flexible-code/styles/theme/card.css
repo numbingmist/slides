@@ -48,7 +48,7 @@
       font-family: var(--theme-font-code);
       font-size: 1.2rem;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--theme-pink), var(--theme-purple));
+      background: linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;

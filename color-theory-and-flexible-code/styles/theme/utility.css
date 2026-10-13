@@ -5,7 +5,7 @@
 .border {
   background:
     linear-gradient(var(--theme-bg-elev), var(--theme-bg-elev)) padding-box,
-    linear-gradient(135deg, var(--theme-pink), var(--theme-purple), var(--theme-blue)) border-box;
+    linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent), var(--theme-accent-3)) border-box;
   border: 5px solid transparent;
 }
 

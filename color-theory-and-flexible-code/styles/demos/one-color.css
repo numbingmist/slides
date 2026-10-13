@@ -42,9 +42,9 @@
   &.d2 .b900 { background: oklch(25% 0.12 320); }
 
   /* ===== 3. color-mix states ===== */
-  &.d3 .btn { background: var(--theme-pink); }
-  &.d3 .btn:hover  { background: color-mix(in oklch, var(--theme-pink) 85%, white 15%); }
-  &.d3 .btn:active { background: color-mix(in oklch, var(--theme-pink) 80%, black 20%); }
+  &.d3 .btn { background: var(--theme-accent-2); }
+  &.d3 .btn:hover  { background: color-mix(in oklch, var(--theme-accent-2) 85%, white 15%); }
+  &.d3 .btn:active { background: color-mix(in oklch, var(--theme-accent-2) 80%, black 20%); }
 
   /* ===== 4. Прозрачность ===== */
   &.d4 { position: relative; }
@@ -73,7 +73,7 @@
     border: 1px solid currentColor;
     background: transparent;
     border-radius: 10px;
-    color: var(--theme-blue);
+    color: var(--theme-accent-3);
     cursor: pointer;
   }
   &.d5 .cbtn.danger { color: var(--theme-red); }
@@ -103,7 +103,7 @@
   &.d8 { display: flex; gap: 8px; }
   &.d8 .chip {
     padding: 0.6rem 1rem; border-radius: 999px;
-    background: var(--theme-purple); color: #fff;
+    background: var(--theme-accent); color: #fff;
     font-weight: 600; font-size: 0.85rem;
   }
   &.d8 .chip.muted { filter: saturate(0.3); }
@@ -131,7 +131,7 @@
     border-radius: 14px;
     color: var(--theme-text);
     font-weight: 600;
-    box-shadow: 0 20px 40px -12px color-mix(in oklch, var(--theme-pink) 55%, transparent);
+    box-shadow: 0 20px 40px -12px color-mix(in oklch, var(--theme-accent-2) 55%, transparent);
   }
 
   /* ===== 11. Focus ring ===== */
@@ -144,9 +144,9 @@
     outline: none;
   }
   &.d11 input:focus-visible {
-    outline: 2px solid var(--theme-pink);
+    outline: 2px solid var(--theme-accent-2);
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px color-mix(in oklch, var(--theme-pink) 25%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in oklch, var(--theme-accent-2) 25%, transparent);
   }
 
   /* ===== 12. Оверлей ===== */
@@ -266,10 +266,10 @@
   &.d20 th, &.d20 td { padding: 0.55rem 0.8rem; text-align: left; }
   &.d20 tr { cursor: pointer; transition: background 0.15s; }
   &.d20 tr:hover {
-    background: color-mix(in oklch, var(--theme-pink) 10%, transparent);
+    background: color-mix(in oklch, var(--theme-accent-2) 10%, transparent);
   }
   &.d20 tr.selected {
-    background: color-mix(in oklch, var(--theme-pink) 18%, transparent);
-    box-shadow: inset 3px 0 0 var(--theme-pink);
+    background: color-mix(in oklch, var(--theme-accent-2) 18%, transparent);
+    box-shadow: inset 3px 0 0 var(--theme-accent-2);
   }
 }

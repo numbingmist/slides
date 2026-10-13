@@ -74,7 +74,7 @@
     line-height: 1;
   }
   .pair .word-big.grad {
-    background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple), var(--theme-blue));
+    background: var(--theme-gradient);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
 

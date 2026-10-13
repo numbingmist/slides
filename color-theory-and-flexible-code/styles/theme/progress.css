@@ -1,5 +1,5 @@
 .progress::before {
-  background: linear-gradient(90deg, var(--theme-pink) 0%, var(--theme-purple) 50%, var(--theme-blue) 100%);
+  background: var(--theme-gradient);
   transform: none;
   border-top-right-radius: calc(var(--progress-size) / 2);
   border-bottom-right-radius: calc(var(--progress-size) / 2);
