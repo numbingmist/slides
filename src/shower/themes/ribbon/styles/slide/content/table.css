@@ -38,7 +38,7 @@
 .slide tr:not(:last-of-type) > * {
 	background-image: linear-gradient(
 		to top,
-		var(--color-line) 0.06em,
+		var(--theme-line) 0.06em,
 		transparent 0.06em
 	);
 	background-repeat: repeat-x;

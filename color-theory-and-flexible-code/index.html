@@ -146,6 +146,42 @@
     </div>
   </section>
 
+  <!-- TURN OFF THE COLOR -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <h1>Выключаем <span class="grad">цвет</span></h1>
+    <div class="master-slider">
+      <input type="range" id="master-off" min="0" max="100" value="100">
+    </div>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const master = document.getElementById('master-off');
+
+        // Один ползунок управляет двумя токенами:
+        // t = 0    → --theme-c = 0.00, --theme-angle = 0
+        // t = 0.55 → --theme-c = 0.13, --theme-angle = 25
+        // t = 1    → --theme-c = 0.25, --theme-angle = 45  (дефолт)
+        function update() {
+          const t = parseInt(master.value, 10) / 100;
+
+          // --theme-c: линейно 0 → 0.25
+          const c = t * 0.25;
+
+          // --theme-angle: линейно 0 → 180
+          const angle = t * 45;
+
+          root.style.setProperty('--theme-c', c.toFixed(3));
+          root.style.setProperty('--theme-angle', angle.toFixed(1));
+        }
+
+        master.addEventListener('input', update);
+        update();
+      })();
+    </script>
+  </section>
+
   <!-- SUBTITLE SLIDE 01 -->
   <section class="slide">
     <div class="slide-bg"></div>
@@ -1342,9 +1378,9 @@
           const angle = parseInt(rangeAngle.value, 10);
 
           // Все три токена — просто числа, без единиц
-          root.style.setProperty('--color-h', h);
-          root.style.setProperty('--color-c', c);
-          root.style.setProperty('--color-angle', angle);
+          root.style.setProperty('--theme-h', h);
+          root.style.setProperty('--theme-c', c);
+          root.style.setProperty('--theme-angle', angle);
 
           valH.textContent = h + '°';
           valC.textContent = c.toFixed(2);

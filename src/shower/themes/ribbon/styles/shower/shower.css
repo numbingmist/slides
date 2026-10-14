@@ -36,7 +36,7 @@
 	--color-yellow: #fafaa2;
 	--color-grey: #585a5e;
 	--color-fill: rgb(88 90 94 / 10%);
-	--color-line: rgb(88 90 94 / 50%);
+	--theme-line: rgb(88 90 94 / 50%);
 
 	--ribbon-size: 50px;
 	--progress-size: 10px;

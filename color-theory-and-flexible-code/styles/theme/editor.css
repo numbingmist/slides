@@ -67,16 +67,16 @@
     flex-shrink: 0;
   }
   .list-item:nth-child(1) .bullet {
-    background: oklch(68% var(--color-c) var(--hue1));
-    box-shadow: 0 0 12px oklch(68% var(--color-c) var(--hue1));
+    background: oklch(68% var(--theme-c) var(--hue1));
+    box-shadow: 0 0 12px oklch(68% var(--theme-c) var(--hue1));
   }
   .list-item:nth-child(2) .bullet {
-    background: oklch(68% var(--color-c) var(--hue2));
-    box-shadow: 0 0 12px oklch(68% var(--color-c) var(--hue2));
+    background: oklch(68% var(--theme-c) var(--hue2));
+    box-shadow: 0 0 12px oklch(68% var(--theme-c) var(--hue2));
   }
   .list-item:nth-child(3) .bullet {
-    background: oklch(68% var(--color-c) var(--hue3));
-    box-shadow: 0 0 12px oklch(68% var(--color-c) var(--hue3));
+    background: oklch(68% var(--theme-c) var(--hue3));
+    box-shadow: 0 0 12px oklch(68% var(--theme-c) var(--hue3));
   }
 
   .speaker {
@@ -280,15 +280,15 @@
   }
   /* Порядок важен: сначала левый производный, потом основной, потом правый */
   .harmony-preview .sw-1 {
-    background: oklch(68% var(--color-c) var(--hue3));   /* h − Δh */
+    background: oklch(68% var(--theme-c) var(--hue3));   /* h − Δh */
   }
   .harmony-preview .sw-2 {
-    background: oklch(68% var(--color-c) var(--hue1));   /* h — основной */
+    background: oklch(68% var(--theme-c) var(--hue1));   /* h — основной */
     outline: 2px solid oklch(90% 0 var(--hue1) / 0.35);
     outline-offset: 2px;
   }
   .harmony-preview .sw-3 {
-    background: oklch(68% var(--color-c) var(--hue2));   /* h + Δh */
+    background: oklch(68% var(--theme-c) var(--hue2));   /* h + Δh */
   }
 
   /* Подписи под свотчами */
