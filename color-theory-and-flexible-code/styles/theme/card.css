@@ -2,6 +2,58 @@
   background: var(--theme-bg-elev);
   border: 1px solid var(--theme-border);
   border-radius: 14px;
+  padding: 1.1rem 1.4rem;
+  transition: border-color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+
+  .num {
+    font-family: var(--theme-font-code);
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    min-width: 2ch;
+  }
+
+  .bullet {
+    position: relative;
+    width: 1ch;
+
+    &::before {
+      content: '.';
+      color: transparent;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--theme-accent);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--theme-text);
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    color: var(--theme-text-mute);
+    margin-top: 0.15rem;
+  }
+
+  .text {
+    margin: 0;
+    line-height: 2rem;
+  }
 }
 
 .card.speaker {
@@ -33,39 +85,10 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1rem 2rem;
   width: 100%;
 
-  .card {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-    padding: 1.1rem 1.4rem;
-    transition: border-color 0.2s, transform 0.2s;
-
-    .num {
-      font-family: var(--theme-font-code);
-      font-size: 1.2rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      min-width: 2ch;
-    }
-
-    .title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--theme-text);
-      line-height: 1.3;
-    }
-
-    .subtitle {
-      font-size: 0.85rem;
-      color: var(--theme-text-mute);
-      margin-top: 0.15rem;
-    }
+  &.two-columns {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

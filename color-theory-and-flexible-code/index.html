@@ -86,7 +86,7 @@
   <section class="slide">
     <div class="slide-bg"></div>
     <h2>О чём <span class="grad">доклад</span></h2>
-    <div class="cards-list">
+    <div class="cards-list two-columns">
       <div class="card">
         <span class="num">01</span>
         <div>
@@ -206,6 +206,435 @@
     </div>
   </section>
 
+  <!-- SUBTITLE SLIDE 02 -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <span class="bignum">02</span>
+
+    <div class="content">
+      <h1 class="center">Работа с <span class="grad">цветом</span></h1>
+    </div>
+  </section>
+
+  <!-- SUBTITLE SLIDE 03 -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <span class="bignum">03</span>
+
+    <div class="content">
+      <h1 class="center">Зависимые цвета и <span class="grad">гармонии</span></h1>
+    </div>
+  </section>
+
+  <!-- SUBTITLE SLIDE 04 -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <span class="bignum">04</span>
+
+    <div class="content">
+      <h1 class="center"><span class="grad">Цветовая</span> доступность</h1>
+    </div>
+  </section>
+
+  <!-- SUBTITLE SLIDE 05 -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <span class="bignum">05</span>
+
+    <div class="content">
+      <h1 class="center"><span class="grad">Контраст</span></h1>
+    </div>
+  </section>
+
+  <!-- SUBTITLE SLIDE 06 -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <span class="bignum">06</span>
+
+    <div class="content">
+      <h1 class="center"><span class="grad">Темы</span></h1>
+    </div>
+  </section>
+
+  <!-- SUBTITLE SLIDE 07 -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <span class="bignum">07</span>
+
+    <div class="content">
+      <h1 class="center"><span class="grad">Магия</span></h1>
+    </div>
+  </section>
+
+  <!-- EDITOR -->
+  <section class="slide slide-editor">
+    <div class="slide-bg"></div>
+    <!-- ЛЕВАЯ ЧАСТЬ: СЛАЙД -->
+    <div class="content">
+      <h2>
+        Теория <span class="grad">цвета</span><br>
+        и практики гибкого кода
+      </h2>
+
+      <p class="dim">
+        Один токен меняет всё: градиент, булеты, подсветки, кнопку и аватар.
+      </p>
+
+      <ul class="list">
+        <li class="list-item">
+          <span class="bullet"></span>
+          Цвет — это три числа: <code>l</code>, <code>c</code>, <code>h</code>
+        </li>
+        <li class="list-item">
+          <span class="bullet"></span>
+          Гармония — это правила сдвига по оттенку
+        </li>
+        <li class="list-item">
+          <span class="bullet"></span>
+          Тема — это один токен и его производные
+        </li>
+      </ul>
+
+      <div class="speaker">
+        <div class="avatar">ВЫ</div>
+        <div class="info">
+          <span class="name">Имя Фамилия</span>
+          <span class="role">Должность</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn">Основное</button>
+        <button class="btn outlined">Второстепенное</button>
+      </div>
+
+    </div>
+
+    <!-- ПРАВАЯ ЧАСТЬ: РЕДАКТОР -->
+    <aside class="editor">
+
+      <span class="title">Редактор темы</span>
+
+      <div class="control">
+        <div class="label">
+          <span>Основной оттенок <code>h</code></span>
+          <span class="value" id="editor-val-h">320°</span>
+        </div>
+        <div class="hue-strip"></div>
+        <input type="range" id="editor-range-h" min="0" max="360" value="305">
+      </div>
+
+      <div class="control">
+        <div class="label">
+          <span>Насыщенность <code>c</code></span>
+          <span class="value" id="editor-val-c">0.25</span>
+        </div>
+        <input type="range" id="editor-range-c" min="0" max="40" value="25">
+      </div>
+
+      <div class="control">
+        <div class="label">
+          <span>Светлота <code>l</code></span>
+          <span class="value" id="editor-val-l">0.65</span>
+        </div>
+        <input type="range" id="editor-range-l" min="0" max="100" value="65">
+      </div>
+
+      <div class="control">
+        <div class="label">
+          <span>Отступ гармонии <code>Δh</code></span>
+          <span class="value" id="editor-val-angle">45°</span>
+        </div>
+        <input type="range" id="editor-range-angle" min="0" max="180" value="45">
+      </div>
+
+      <!-- Превью гармонии: слева «−Δh», в центре основной, справа «+Δh» -->
+      <div class="harmony-preview">
+        <div class="sw sw-1"></div>
+        <div class="sw sw-2"></div>
+        <div class="sw sw-3"></div>
+      </div>
+      <div class="harmony-labels">
+        <span id="editor-label-h3">h − Δh</span>
+        <span id="editor-label-h1">h (основной)</span>
+        <span id="editor-label-h2">h + Δh</span>
+      </div>
+      <div class="harmony-note" id="editor-harmony-note">аналоговая: h−45°, h, h+45°</div>
+
+      <div class="quick-actions">
+        <button data-preset="purple">Purple</button>
+        <button data-preset="blue">Blue</button>
+        <button data-preset="green">Green</button>
+        <button data-preset="yellow">Yellow</button>
+        <button data-preset="gray">Gray</button>
+      </div>
+
+    </aside>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+
+        const rangeH = document.getElementById('editor-range-h');
+        const rangeC = document.getElementById('editor-range-c');
+        const rangeL = document.getElementById('editor-range-l');
+        const rangeAngle = document.getElementById('editor-range-angle');
+
+        const valH = document.getElementById('editor-val-h');
+        const valC = document.getElementById('editor-val-c');
+        const valL = document.getElementById('editor-val-l');
+        const valAngle = document.getElementById('editor-val-angle');
+        const harmonyNote = document.getElementById('editor-harmony-note');
+        const labelH1 = document.getElementById('editor-label-h1');
+        const labelH2 = document.getElementById('editor-label-h2');
+        const labelH3 = document.getElementById('editor-label-h3');
+
+        const presets = {
+          purple: { h: 305, c: 0.25, angle: 45, l: 0.65 },
+          blue:   { h: 240, c: 0.20, angle: 45, l: 0.65 },
+          green:  { h: 145, c: 0.18, angle: 45, l: 0.65 },
+          yellow: { h: 85,  c: 0.18, angle: 45, l: 0.65 },
+          gray:   { h: 305, c: 0, angle: 45, l: 0.65 },
+        };
+
+        function update() {
+          const h = parseInt(rangeH.value, 10);
+          const c = parseInt(rangeC.value, 10) / 100;
+          const l = parseInt(rangeL.value, 10) / 100;
+          const angle = parseInt(rangeAngle.value, 10);
+
+          // Все три токена — просто числа, без единиц
+          root.style.setProperty('--theme-h', h);
+          root.style.setProperty('--theme-c', c);
+          root.style.setProperty('--theme-l', l);
+          root.style.setProperty('--theme-angle', angle);
+
+          valH.textContent = h + '°';
+          valC.textContent = c.toFixed(2);
+          valL.textContent = l.toFixed(2);
+          valAngle.textContent = angle + '°';
+
+          // Подписи под свотчами
+          labelH1.textContent = 'h = ' + h + '°';
+          labelH2.textContent = 'h + ' + angle + '° = ' + ((h + angle) % 360) + '°';
+          labelH3.textContent = 'h − ' + angle + '° = ' + ((h - angle + 360) % 360) + '°';
+
+          let note = '';
+          if (angle === 0) {
+            note = 'монохром: все три оттенка совпадают';
+          } else if (angle < 30) {
+            note = 'аналоговая узкая: h−' + angle + '°, h, h+' + angle + '°';
+          } else if (angle < 60) {
+            note = 'аналоговая: h−' + angle + '°, h, h+' + angle + '°';
+          } else if (angle < 90) {
+            note = 'расширенная: h−' + angle + '°, h, h+' + angle + '°';
+          } else if (angle === 90) {
+            note = 'тетрада по одной оси: h−90°, h, h+90°';
+          } else if (angle === 120) {
+            note = 'триада: h−120°, h, h+120°';
+          } else if (angle === 180) {
+            note = 'комплимент: h, h+180° (крайние совпадают)';
+          } else {
+            note = 'широкая: h−' + angle + '°, h, h+' + angle + '°';
+          }
+          harmonyNote.textContent = note;
+        }
+
+        rangeH.addEventListener('input', update);
+        rangeC.addEventListener('input', update);
+        rangeL.addEventListener('input', update);
+        rangeAngle.addEventListener('input', update);
+
+        document.querySelectorAll('[data-preset]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const preset = presets[btn.dataset.preset];
+            if (!preset) return;
+
+            rangeH.value = preset.h;
+            rangeC.value = Math.round(preset.c * 100);
+            rangeL.value = Math.round(preset.l * 100);
+            rangeAngle.value = preset.angle;
+
+            update();
+          });
+        });
+
+        update();
+      })();
+    </script>
+  </section>
+
+  <!-- CONCLUSION SLIDE 08 -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <span class="bignum">08</span>
+
+    <div class="content">
+      <h1 class="center"><span class="grad">Заключение</span></h1>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2><span class="grad">Шпаргалка</span> <br/>«безграничных возможностей»</h2>
+    <div class="layout-flex">
+      <ul class="cards-list two-columns no-marker">
+        <li>
+          Основные инструменты:
+          <ul>
+            <li>--css-tokens</li>
+            <li>oklch()</li>
+            <li>calc()</li>
+            <li>from()</li>
+            <li>color-mix()</li>
+            <li>clamp()</li>
+          </ul>
+        </li>
+        <li class="next">
+          С чем смешать:
+          <ul>
+            <li>другой цвет</li>
+            <li>количество элементов</li>
+            <li>каунтер списка</li>
+            <li>анимации @keyframes</li>
+            <li>скролл</li>
+            <li class="next bold grad">ваша фантазия</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <ul class="cards-list no-marker">
+      <li class="card">
+        <span class="bullet"></span>
+        <p class="text">
+        Цветовые пространства = <span class="accent bold">математика цвета в коде</span>.
+        </p>
+      </li>
+      <li class="card next">
+        <span class="bullet"></span>
+        <p class="text">
+          Новые возможности CSS помогают
+          <br/>проще этой математикой <span class="accent bold">пользоваться</span>.
+        </p>
+      </li>
+      <li class="card next">
+        <span class="bullet"></span>
+        <p class="text">
+          Теорию цвета можно применять не только в CSS,
+          </br>но и в <span class="accent bold">любых других вычислениях</span>.
+        </p>
+      </li>
+      <li class="card next">
+        <span class="bullet"></span>
+        <p class="text">
+          Используя эти возможности, вы можете создавать
+          <br/><span class="accent bold">гибкие решения</span>.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>На математику можно переложить <span class="grad">гармонию</span>,
+      <br/>но стиля вам раздаст <span class="grad">дизайнер</span>
+    </h2>
+  </section>
+
+  <!-- THE END -->
+  <section class="slide" id="end">
+    <div class="slide-bg"></div>
+    <div class="layout-flex">
+      <div>
+        <h2 class="grad">@it_wildlife</h2>
+        <img class="rounded border" src="pictures/tg-qr.png" alt="@it_wildlife" style="max-height: 300px;">
+      </div>
+      <div>
+        <img class="rounded" src="pictures/see-you.png" alt="see you" width="300px">
+      </div>
+    </div>
+  </section>
+
+  <!-- SANDBOX!!! -->
+  <section class="slide">
+    <h2>Песочница <span class="grad">oklch()</span></h2>
+
+    <div class="sandbox">
+
+      <div class="controls">
+        <div class="control" data-param="h">
+          <div class="label">
+            <span class="name"><code>h</code> · оттенок</span>
+            <span class="value" id="sandbox-val-h">320</span>
+          </div>
+          <input type="range" id="sandbox-range-h" min="0" max="360" value="320">
+        </div>
+
+        <div class="control" data-param="c">
+          <div class="label">
+            <span class="name"><code>c</code> · насыщенность</span>
+            <span class="value" id="sandbox-val-c">0.20</span>
+          </div>
+          <input type="range" id="sandbox-range-c" min="0" max="40" value="20">
+        </div>
+
+        <div class="control" data-param="l">
+          <div class="label">
+            <span class="name"><code>l</code> · светлота</span>
+            <span class="value" id="sandbox-val-l">65%</span>
+          </div>
+          <input type="range" id="sandbox-range-l" min="10" max="95" value="65">
+        </div>
+      </div>
+
+      <div class="sandbox-preview">
+        <div class="box" id="sandbox-demo-box"></div>
+        <div class="output" id="sandbox-demo-code">background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> <span class="tok-num">0.20</span> <span class="tok-num">320</span>);</div>
+      </div>
+
+    </div>
+    <script>
+      (function () {
+        const rangeH = document.getElementById('sandbox-range-h');
+        const rangeC = document.getElementById('sandbox-range-c');
+        const rangeL = document.getElementById('sandbox-range-l');
+
+        const valH = document.getElementById('sandbox-val-h');
+        const valC = document.getElementById('sandbox-val-c');
+        const valL = document.getElementById('sandbox-val-l');
+
+        const demoBox = document.getElementById('sandbox-demo-box');
+        const demoCode = document.getElementById('sandbox-demo-code');
+
+        function updateSandbox() {
+          const h = parseInt(rangeH.value, 10);
+          const c = (parseInt(rangeC.value, 10) / 100).toFixed(2);
+          const l = parseInt(rangeL.value, 10);
+
+          valH.textContent = h;
+          valC.textContent = c;
+          valL.textContent = l + '%';
+
+          const color = `oklch(${l}% ${c} ${h})`;
+          demoBox.style.background = color;
+          demoCode.innerHTML =
+            'background: <span class="tok-fn">oklch</span>(' +
+            '<span class="tok-num">' + l + '%</span> ' +
+            '<span class="tok-num">' + c + '</span> ' +
+            '<span class="tok-num">' + h + '</span>);';
+        }
+
+        rangeH.addEventListener('input', updateSandbox);
+        rangeC.addEventListener('input', updateSandbox);
+        rangeL.addEventListener('input', updateSandbox);
+
+        updateSandbox();
+      })();
+    </script>
+  </section>
+  <!-- SANDBOX!!! END -->
+
   <!-- CODE EXAMPLE -->
   <section class="slide">
     <h2>Код хочу оформлять <span class="grad">вот так</span></h2>
@@ -223,16 +652,6 @@
       <span class="ln"><span class="num">5</span><span>  <span class="tok-attr">radius</span><span class="tok-punct">:</span> <span class="tok-num">14</span><span class="tok-punct">,</span></span></span>
       <span class="ln"><span class="num">6</span><span><span class="tok-punct">};</span></span></span>
       <span class="ln"><span class="num">7</span><span></span></span></code></pre>
-    </div>
-  </section>
-
-  <!-- SUBTITLE SLIDE 02 -->
-  <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">02</span>
-
-    <div class="content">
-      <h1 class="center">Работа с <span class="grad">цветом</span></h1>
     </div>
   </section>
 
@@ -481,16 +900,6 @@
     </div>
   </section>
   <!-- ONE COLOR END-->
-
-  <!-- SUBTITLE SLIDE 03 -->
-  <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">03</span>
-
-    <div class="content">
-      <h1 class="center">Зависимые цвета и <span class="grad">гармонии</span></h1>
-    </div>
-  </section>
 
   <!-- LINKED COLORS AND COLOR HARMONIES -->
   <section class="slide">
@@ -774,40 +1183,6 @@
   </section>
   <!-- LINKED COLORS AND COLOR HARMONIES END -->
 
-  <!-- SUBTITLE SLIDE 04 -->
-  <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">04</span>
-
-    <div class="content">
-      <h1 class="center"><span class="grad">Цветовая</span> доступность</h1>
-    </div>
-  </section>
-
-  <!-- THEORY COLOR ACCESSIBILITY -->
-  <section class="slide">
-    <div class="layout-flex">
-      <div>
-        <span class="eyebrow">04 · Цветовая доступность</span>
-        <h2><span class="grad">Цветовая</span> доступность</h2>
-        <p>Тут будет теория</p>
-      </div>
-      <div>
-        <img class="rounded" src="pictures/img/spiderman.jpg" alt="hero">
-      </div>
-    </div>
-  </section>
-
-  <!-- SUBTITLE SLIDE 05 -->
-  <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">05</span>
-
-    <div class="content">
-      <h1 class="center"><span class="grad">Контраст</span></h1>
-    </div>
-  </section>
-
   <!-- CONTRAST -->
   <section class="slide">
     <div class="demo demo-contrast d1">
@@ -954,16 +1329,6 @@
     </div>
   </section>
   <!-- CONTRAST END -->
-
-  <!-- SUBTITLE SLIDE 06 -->
-  <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">06</span>
-
-    <div class="content">
-      <h1 class="center"><span class="grad">Темы</span></h1>
-    </div>
-  </section>
 
   <!-- THEMES -->
   <section class="slide">
@@ -1240,302 +1605,6 @@
     </div>
   </section>
   <!-- THEMES END -->
-
-  <!-- SUBTITLE SLIDE 07 -->
-  <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">07</span>
-
-    <div class="content">
-      <h1 class="center"><span class="grad">Магия</span></h1>
-    </div>
-  </section>
-
-  <!-- EDITOR -->
-  <section class="slide slide-editor">
-    <div class="slide-bg"></div>
-    <!-- ЛЕВАЯ ЧАСТЬ: СЛАЙД -->
-    <div class="content">
-      <h2>
-        Теория <span class="grad">цвета</span><br>
-        и практики гибкого кода
-      </h2>
-
-      <p class="dim">
-        Один токен меняет всё: градиент, булеты, подсветки, кнопку и аватар.
-      </p>
-
-      <ul class="list">
-        <li class="list-item">
-          <span class="bullet"></span>
-          Цвет — это три числа: <code>l</code>, <code>c</code>, <code>h</code>
-        </li>
-        <li class="list-item">
-          <span class="bullet"></span>
-          Гармония — это правила сдвига по оттенку
-        </li>
-        <li class="list-item">
-          <span class="bullet"></span>
-          Тема — это один токен и его производные
-        </li>
-      </ul>
-
-      <div class="speaker">
-        <div class="avatar">ВЫ</div>
-        <div class="info">
-          <span class="name">Имя Фамилия</span>
-          <span class="role">Должность</span>
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="btn">Основное</button>
-        <button class="btn outlined">Второстепенное</button>
-      </div>
-
-    </div>
-
-    <!-- ПРАВАЯ ЧАСТЬ: РЕДАКТОР -->
-    <aside class="editor">
-
-      <span class="title">Редактор темы</span>
-
-      <div class="control">
-        <div class="label">
-          <span>Основной оттенок <code>h</code></span>
-          <span class="value" id="editor-val-h">320°</span>
-        </div>
-        <div class="hue-strip"></div>
-        <input type="range" id="editor-range-h" min="0" max="360" value="305">
-      </div>
-
-      <div class="control">
-        <div class="label">
-          <span>Насыщенность <code>c</code></span>
-          <span class="value" id="editor-val-c">0.22</span>
-        </div>
-        <input type="range" id="editor-range-c" min="0" max="40" value="25">
-      </div>
-
-      <div class="control">
-        <div class="label">
-          <span>Отступ гармонии <code>Δh</code></span>
-          <span class="value" id="editor-val-angle">45°</span>
-        </div>
-        <input type="range" id="editor-range-angle" min="0" max="180" value="45">
-      </div>
-
-      <!-- Превью гармонии: слева «−Δh», в центре основной, справа «+Δh» -->
-      <div class="harmony-preview">
-        <div class="sw sw-1"></div>
-        <div class="sw sw-2"></div>
-        <div class="sw sw-3"></div>
-      </div>
-      <div class="harmony-labels">
-        <span id="editor-label-h3">h − Δh</span>
-        <span id="editor-label-h1">h (основной)</span>
-        <span id="editor-label-h2">h + Δh</span>
-      </div>
-      <div class="harmony-note" id="editor-harmony-note">аналоговая: h−45°, h, h+45°</div>
-
-      <div class="quick-actions">
-        <button data-preset="purple">Purple</button>
-        <button data-preset="blue">Blue</button>
-        <button data-preset="green">Green</button>
-        <button data-preset="yellow">Yellow</button>
-        <button data-preset="gray">Gray</button>
-      </div>
-
-    </aside>
-
-    <script>
-      (function () {
-        const root = document.documentElement;
-
-        const rangeH = document.getElementById('editor-range-h');
-        const rangeC = document.getElementById('editor-range-c');
-        const rangeAngle = document.getElementById('editor-range-angle');
-
-        const valH = document.getElementById('editor-val-h');
-        const valC = document.getElementById('editor-val-c');
-        const valAngle = document.getElementById('editor-val-angle');
-        const harmonyNote = document.getElementById('editor-harmony-note');
-        const labelH1 = document.getElementById('editor-label-h1');
-        const labelH2 = document.getElementById('editor-label-h2');
-        const labelH3 = document.getElementById('editor-label-h3');
-
-        const presets = {
-          purple: { h: 305, c: 0.25, angle: 45 },
-          blue:   { h: 240, c: 0.20, angle: 45 },
-          green:  { h: 145, c: 0.18, angle: 45 },
-          yellow: { h: 85,  c: 0.18, angle: 45 },
-          gray:   { h: 305, c: 0, angle: 45 },
-        };
-
-        function update() {
-          const h = parseInt(rangeH.value, 10);
-          const c = parseInt(rangeC.value, 10) / 100;
-          const angle = parseInt(rangeAngle.value, 10);
-
-          // Все три токена — просто числа, без единиц
-          root.style.setProperty('--theme-h', h);
-          root.style.setProperty('--theme-c', c);
-          root.style.setProperty('--theme-angle', angle);
-
-          valH.textContent = h + '°';
-          valC.textContent = c.toFixed(2);
-          valAngle.textContent = angle + '°';
-
-          // Подписи под свотчами
-          labelH1.textContent = 'h = ' + h + '°';
-          labelH2.textContent = 'h + ' + angle + '° = ' + ((h + angle) % 360) + '°';
-          labelH3.textContent = 'h − ' + angle + '° = ' + ((h - angle + 360) % 360) + '°';
-
-          let note = '';
-          if (angle === 0) {
-            note = 'монохром: все три оттенка совпадают';
-          } else if (angle < 30) {
-            note = 'аналоговая узкая: h−' + angle + '°, h, h+' + angle + '°';
-          } else if (angle < 60) {
-            note = 'аналоговая: h−' + angle + '°, h, h+' + angle + '°';
-          } else if (angle < 90) {
-            note = 'расширенная: h−' + angle + '°, h, h+' + angle + '°';
-          } else if (angle === 90) {
-            note = 'тетрада по одной оси: h−90°, h, h+90°';
-          } else if (angle === 120) {
-            note = 'триада: h−120°, h, h+120°';
-          } else if (angle === 180) {
-            note = 'комплимент: h, h+180° (крайние совпадают)';
-          } else {
-            note = 'широкая: h−' + angle + '°, h, h+' + angle + '°';
-          }
-          harmonyNote.textContent = note;
-        }
-
-        rangeH.addEventListener('input', update);
-        rangeC.addEventListener('input', update);
-        rangeAngle.addEventListener('input', update);
-
-        document.querySelectorAll('[data-preset]').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const preset = presets[btn.dataset.preset];
-            if (!preset) return;
-
-            rangeH.value = preset.h;
-            rangeC.value = Math.round(preset.c * 100);
-            rangeAngle.value = preset.angle;
-
-            update();
-          });
-        });
-
-        update();
-      })();
-    </script>
-  </section>
-
-  <!-- CONCLUSION SLIDE 08 -->
-  <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">08</span>
-
-    <div class="content">
-      <h1 class="center">Что мы <span class="grad">поняли</span>?</h1>
-    </div>
-  </section>
-
-  <!-- THE END -->
-  <section class="slide" id="end">
-    <div class="slide-bg"></div>
-    <div class="layout-flex">
-      <div>
-        <h2 class="grad">@it_wildlife</h2>
-        <img class="rounded border" src="pictures/tg-qr.png" alt="@it_wildlife" style="max-height: 300px;">
-      </div>
-      <div>
-        <img class="rounded" src="pictures/see-you.png" alt="see you" width="300px">
-      </div>
-    </div>
-  </section>
-
-  <!-- SANDBOX!!! -->
-  <section class="slide">
-    <h2>Песочница <span class="grad">oklch()</span></h2>
-
-    <div class="sandbox">
-
-      <div class="controls">
-        <div class="control" data-param="h">
-          <div class="label">
-            <span class="name"><code>h</code> · оттенок</span>
-            <span class="value" id="sandbox-val-h">320</span>
-          </div>
-          <input type="range" id="sandbox-range-h" min="0" max="360" value="320">
-        </div>
-
-        <div class="control" data-param="c">
-          <div class="label">
-            <span class="name"><code>c</code> · насыщенность</span>
-            <span class="value" id="sandbox-val-c">0.20</span>
-          </div>
-          <input type="range" id="sandbox-range-c" min="0" max="40" value="20">
-        </div>
-
-        <div class="control" data-param="l">
-          <div class="label">
-            <span class="name"><code>l</code> · светлота</span>
-            <span class="value" id="sandbox-val-l">65%</span>
-          </div>
-          <input type="range" id="sandbox-range-l" min="10" max="95" value="65">
-        </div>
-      </div>
-
-      <div class="sandbox-preview">
-        <div class="box" id="sandbox-demo-box"></div>
-        <div class="output" id="sandbox-demo-code">background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> <span class="tok-num">0.20</span> <span class="tok-num">320</span>);</div>
-      </div>
-
-    </div>
-    <script>
-      (function () {
-        const rangeH = document.getElementById('sandbox-range-h');
-        const rangeC = document.getElementById('sandbox-range-c');
-        const rangeL = document.getElementById('sandbox-range-l');
-
-        const valH = document.getElementById('sandbox-val-h');
-        const valC = document.getElementById('sandbox-val-c');
-        const valL = document.getElementById('sandbox-val-l');
-
-        const demoBox = document.getElementById('sandbox-demo-box');
-        const demoCode = document.getElementById('sandbox-demo-code');
-
-        function updateSandbox() {
-          const h = parseInt(rangeH.value, 10);
-          const c = (parseInt(rangeC.value, 10) / 100).toFixed(2);
-          const l = parseInt(rangeL.value, 10);
-
-          valH.textContent = h;
-          valC.textContent = c;
-          valL.textContent = l + '%';
-
-          const color = `oklch(${l}% ${c} ${h})`;
-          demoBox.style.background = color;
-          demoCode.innerHTML =
-            'background: <span class="tok-fn">oklch</span>(' +
-            '<span class="tok-num">' + l + '%</span> ' +
-            '<span class="tok-num">' + c + '</span> ' +
-            '<span class="tok-num">' + h + '</span>);';
-        }
-
-        rangeH.addEventListener('input', updateSandbox);
-        rangeC.addEventListener('input', updateSandbox);
-        rangeL.addEventListener('input', updateSandbox);
-
-        updateSandbox();
-      })();
-    </script>
-  </section>
-  <!-- SANDBOX!!! END -->
 
   <!-- EMOTIONS BLOCK -->
   <!-- ----

@@ -50,6 +50,20 @@
   }
 }
 
+.slide .accent {
+  color: oklch(from var(--theme-accent) calc(l + 0.15) c h);
+}
+.slide .accent-2 {
+  color: oklch(from var(--theme-accent-2) calc(l + 0.15) c h);
+}
+.slide .accent-3 {
+  color: oklch(from var(--theme-accent-3) calc(l + 0.15) c h);
+}
+
+.slide .bold {
+  font-weight: 700;
+}
+
 strong {
   font-weight: normal;
 }
