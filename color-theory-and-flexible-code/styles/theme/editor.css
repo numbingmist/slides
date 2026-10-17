@@ -150,7 +150,7 @@
     border-radius: 10px;
     border: none;
     background: var(--theme-accent);
-    color: oklch(15% 0 var(--hue1));
+    color: oklch(from var(--theme-accent) clamp(0, (l - 0.7) * -1000, 1) 0 h);
     cursor: pointer;
     transition: background 0.5s ease, color 0.5s ease, transform 0.1s;
   }

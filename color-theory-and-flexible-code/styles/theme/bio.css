@@ -8,23 +8,7 @@
 }
 
 .bio-list li {
-  position: relative;
-  padding-left: 1.5rem;
   font-size: 0.98rem;
   line-height: 1.5;
   color: var(--theme-text);
-}
-
-.bio-list li::before {
-  content: "";
-  color: transparent;
-  position: absolute;
-  left: 0;
-  top: 0.75em;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--theme-accent);
-  /* linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent)); */
-  transform: translateY(-50%);
 }

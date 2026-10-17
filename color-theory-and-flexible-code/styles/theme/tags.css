@@ -9,7 +9,7 @@
   font-size: 0.82rem;
   padding: 0.35rem 0.85rem;
   background: oklch(from var(--theme-accent) l c h / 0.1);
-  border: 1px solid oklch(0.4 0.12 var(--hue1));
-  color: oklch(0.8 0.12 var(--hue1));
+  border: 1px solid oklch(0.4 clamp(0, var(--theme-c), 0.12) var(--hue1));
+  color: oklch(0.8 clamp(0, var(--theme-c), 0.12) var(--hue1));
   border-radius: 999px;
 }

@@ -3,7 +3,7 @@
   --bg: #ffffff;
   --text: #0E1016;
   --accent: #A64DFF;
-  --surface: color-mix(in oklab, var(--accent) 6%, var(--bg));
+  --surface: color-mix(in oklab, var(--accent) 14%, var(--bg));
   --border:  color-mix(in oklab, var(--accent) 18%, var(--bg));
   --text-dim:color-mix(in oklab, var(--text) 65%, var(--bg));
 }
@@ -11,9 +11,6 @@
   --bg: #0E1016;
   --text: #E8EAED;
   --accent: #C08BFF;
-  --surface: color-mix(in oklab, var(--accent) 14%, var(--bg));
-  --border:  color-mix(in oklab, var(--accent) 28%, var(--bg));
-  --text-dim:color-mix(in oklab, var(--text) 65%, var(--bg));
 }
 .theme[data-demo="7"] .card {
   background: var(--surface);
@@ -22,14 +19,19 @@
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.7rem;
 }
-.theme[data-demo="7"] .swatches { display: flex; gap: 8px; }
+.theme[data-demo="7"] .swatches {
+  display: flex; gap: 8px;
+  width: 100%;
+}
 .theme[data-demo="7"] .sw {
   flex: 1; height: 44px;
   display: grid; place-items: center;
-  font-size: 0.72rem; font-weight: 700; color: #fff;
+  font-size: 0.9rem; font-weight: 700; color: #fff;
 }
 .theme[data-demo="7"] .sw.a { background: var(--accent); }
 .theme[data-demo="7"] .sw.b { background: color-mix(in oklab, var(--accent) 60%, var(--bg)); color: var(--text); }
 .theme[data-demo="7"] .sw.c { background: color-mix(in oklab, var(--accent) 30%, var(--bg)); color: var(--text); }
+.theme[data-demo="7"] .btn { font-size: 0.9rem; }

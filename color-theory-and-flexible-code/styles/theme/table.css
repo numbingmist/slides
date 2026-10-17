@@ -9,3 +9,37 @@
 .cell {
   padding: 10px;
 }
+
+.slide .grid-table {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto 1fr 1fr;
+
+  .grid-col {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 1 / -1;
+  }
+
+  .grid-th {
+    height: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-text-dim);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .grid-td {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}

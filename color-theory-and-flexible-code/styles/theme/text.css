@@ -18,13 +18,8 @@
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-block: 0.5em;
+  margin-block: 0.5rem 1.5rem;
   margin-inline: 0;
-}
-
-.slide p.dim {
-  color: var(--theme-text-dim);
-  font-size: 0.98rem; /* TODO check */
 }
 
 /* .slide * + h2 {
@@ -60,8 +55,23 @@
   color: oklch(from var(--theme-accent-3) calc(l + 0.15) c h);
 }
 
+.slide .dim {
+  color: var(--theme-text-dim);
+}
+.slide p.dim {
+  font-size: 0.98rem; /* CHECK */
+}
+
+.slide .mute {
+  color: var(--theme-text-mute);
+}
+
 .slide .bold {
   font-weight: 700;
+}
+
+.slide .code-text {
+  font-family: var(--theme-font-code);
 }
 
 strong {

@@ -18,6 +18,7 @@
   left: 974px;
   height: var(--ribbon-size);
   border-bottom-left-radius: 20px;
+  color: oklch(from var(--theme-accent) clamp(0, (l - 0.7) * -1000, 1) 0 0);
 }
 
 .slide#cover,
@@ -25,6 +26,10 @@
   &::after {
     display: none;
   }
+}
+
+.slide-wide {
+  padding-inline: 2rem;
 }
 
 .slide-bg {

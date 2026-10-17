@@ -54,6 +54,7 @@
 .tok-str  { color: var(--theme-green); }
 .tok-num  { color: var(--theme-yellow); }
 .tok-com  { color: var(--theme-text-mute); font-style: italic; }
-.tok-tag  { color: var(--theme-blue); }
+.tok-tag,
+.tok-prop { color: var(--theme-blue); }
 .tok-attr { color: var(--theme-yellow); }
 .tok-punct{ color: var(--theme-text-dim); }

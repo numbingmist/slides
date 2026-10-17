@@ -5,15 +5,13 @@
   }
   .sample {
     width: 100%;
-    padding: 1rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     border-radius: 10px;
     font-weight: 600;
-    font-size: 0.95rem;
     text-align: center;
   }
   .ratio {
     font-family: var(--theme-font-code);
-    font-size: 0.8rem;
     color: var(--theme-text-dim);
   }
   .verdict {
@@ -28,10 +26,14 @@
   .fail { background: rgba(255, 77, 109, 0.15); color: var(--theme-red); }
 
   /* 1. AA/AAA крупный и мелкий текст */
-  &.d1 .c1 { background: #ffffff; color: #6B7280; }
-  &.d1 .c2 { background: #ffffff; color: #4A5160; }
-  &.d1 .c3 { background: #ffffff; color: #2C333F; }
-  &.d1 .c4 { background: #ffffff; color: #0E1016; }
+  &.d1 {
+    --d1-bg: oklch(1 0 0);
+  }
+  &.d1 .sample { background: var(--d1-bg);}
+  &.d1 .c1 { color: oklch(0.66 0 0); }
+  &.d1 .c2 { color: oklch(0.56 0 0); }
+  &.d1 .c3 { color: oklch(0.46 0 0); }
+  &.d1 .c4 { color: oklch(0 0 0); }
 
   /* 2. Плохой контраст — серый на сером */
   &.d2 .bad { background: #9AA0AB; color: #B4B9C1; }
@@ -85,9 +87,13 @@
     padding: 1rem 1.2rem;
     border-radius: 10px;
     font-weight: 700;
+    font-size: 1rem;
     /* выбираем цвет текста по светлоте фона */
-    color: oklch(from var(--c) clamp(0, (l - 0.6) * -1000, 1) 0 h);
+    color: oklch(from var(--c) clamp(0, (l - 0.6) * -100, 1) 0 h);
     background: var(--c);
+  }
+  &.d6 .auto.c1 {
+    color: oklch(from var(--c) clamp(0, (l - 0.6) * -1, 1) 0 h);
   }
 
   /* 7. Focus ring по контрасту */

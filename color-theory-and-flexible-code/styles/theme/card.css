@@ -19,24 +19,6 @@
     min-width: 2ch;
   }
 
-  .bullet {
-    position: relative;
-    width: 1ch;
-
-    &::before {
-      content: '.';
-      color: transparent;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--theme-accent);
-      transform: translate(-50%, -50%);
-    }
-  }
-
   .title {
     font-size: 1.05rem;
     font-weight: 600;
@@ -53,6 +35,27 @@
   .text {
     margin: 0;
     line-height: 2rem;
+  }
+}
+
+.card,
+.demo {
+  .bullet {
+    position: relative;
+    width: 1ch;
+
+    &::before {
+      content: '.';
+      color: transparent;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--theme-accent);
+      transform: translate(-50%, -50%);
+    }
   }
 }
 

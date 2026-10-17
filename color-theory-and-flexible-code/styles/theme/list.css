@@ -5,3 +5,21 @@
   width: 0;
   height: 0;
 }
+
+.slide li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.slide li::before {
+  content: "•";
+  color: transparent;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--theme-accent-2), var(--theme-accent));
+  transform: translateY(-50%);
+}

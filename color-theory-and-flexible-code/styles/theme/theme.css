@@ -22,7 +22,8 @@
   --theme-accent-3:    oklch(var(--theme-l) var(--theme-c) var(--hue3));
 
   /* Утилитарные цвета */
-  --theme-pink:        oklch(0.68 0.2424 341.2);
+  --theme-pink:        oklch(0.8 0.25 350);
+  --theme-blue:        oklch(0.71 0.16 250.96);
   --theme-purple:      oklch(0.71 0.2041 297.7);
   --theme-yellow:      oklch(0.85 0.15 80.43);
   --theme-green:       oklch(0.81 0.16 160.73);
@@ -42,12 +43,13 @@
   --theme-glow-3: radial-gradient(circle, var(--theme-accent-3) 0%, transparent 70%);
 
   /* Фон, поверхности, текст */
-  --theme-bg:          oklch(0.13 0.012 265);
-  --theme-bg-elev:     oklch(0.18 0.012 265);
-  --theme-border:      oklch(0.28 0.012 265);
-  --theme-text:        oklch(0.9 0 0);
-  --theme-text-dim:    oklch(0.70 0.02 262);
-  --theme-text-mute:   oklch(0.60 0.02 262);
+  --theme-bg-l:        0.15;
+  --theme-bg:          oklch(var(--theme-bg-l) 0.012 265);
+  --theme-bg-elev:     oklch(calc(var(--theme-bg-l) + 0.05) 0.012 265);
+  --theme-border:      oklch(calc(var(--theme-bg-l) + 0.13) 0.012 265);
+  --theme-text-mute:   oklch(calc(var(--theme-bg-l) + 0.45) 0.02 262);
+  --theme-text-dim:    oklch(calc(var(--theme-bg-l) + 0.55) 0.02 262);
+  --theme-text:        oklch(calc(var(--theme-bg-l) + 0.75) 0 0);
 
   /* Шрифты */
   --theme-font: "Inter", -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Helvetica, Arial, sans-serif;
