@@ -1,4 +1,5 @@
-.slide ul.no-marker > li::before {
+.slide ul.no-marker > li::before,
+.slide li.no-marker::before {
   content: '';
   margin: 0;
   padding: 0;

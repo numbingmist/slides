@@ -28,7 +28,7 @@
   .demo .stage {
     flex: 1;
     display: flex; align-items: center; justify-content: center;
-    min-height: 180px;
+    min-height: 80px;
     padding: 1.5rem;
     background:
       linear-gradient(var(--theme-bg-elev), var(--theme-bg-elev)) padding-box;

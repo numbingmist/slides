@@ -49,13 +49,13 @@
   &.d3 .mono-6 { background: oklch(from var(--theme-accent-3) 20% c h); }
 
   /* 4. Комплиментарная гармония */
-  &.d4 .comp-a { background: hsl(from var(--theme-accent-2) h s l); }
-  &.d4 .comp-b { background: hsl(from var(--theme-accent-2) calc(h + 180) s l); }
+  &.d4 .comp-a { background: oklch(from var(--theme-accent-2) l c h); }
+  &.d4 .comp-b { background: oklch(from var(--theme-accent-2) l c calc(h + 180)); }
 
   /* 5. Аналоговая гармония */
-  &.d5 .ana-1 { background: hsl(from var(--theme-accent-3) calc(h - 30) s l); }
-  &.d5 .ana-2 { background: hsl(from var(--theme-accent-3) h s l); }
-  &.d5 .ana-3 { background: hsl(from var(--theme-accent-3) calc(h + 30) s l); }
+  &.d5 .ana-1 { background: oklch(from var(--theme-accent) l c calc(h - 45)); }
+  &.d5 .ana-2 { background: oklch(from var(--theme-accent) l c h); }
+  &.d5 .ana-3 { background: oklch(from var(--theme-accent) l c calc(h + 45)); }
 
   /* 6. Триада */
   &.d6 .tri-1 { background: hsl(from var(--theme-accent-2) h s l); }

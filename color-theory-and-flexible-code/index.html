@@ -138,10 +138,88 @@
     </div>
   </section>
 
-  <!-- TURN OFF THE COLOR -->
+  <!-- SUBTITLE SLIDE 01: INTRODUCTION -->
   <section class="slide">
     <div class="slide-bg"></div>
-    <h1>Выключаем <span class="grad">цвет</span></h1>
+    <span class="bignum">01</span>
+
+    <div class="content">
+      <h1 class="center"><span class="grad">Введение</span></h1>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Когда-то я написала внутренний <span class="grad">редактор тем</span>...</h2>
+    <p class="next">Он позволял выбирать <span class="bold accent">любые</span> цвета!</p>
+    <p class="next">Когда заказчики с ним играли, почему-то <span class="bold accent">получалось не очень</span>...</p>
+    <p class="next">Потому что редактор позволял выбирать <span class="bold accent">любые</span> цвета!</p>
+  </section>
+
+  <section class="slide">
+    <h2>
+      Было бы круто...<br/>
+      <span class="grad">Код</span> = <span class="grad">логика</span> работы с цветом
+    </h2>
+    <div class="layout-flex" style="font-size:1.3rem; line-height: 1.5rem">
+      <div class="card next" style="width: 50%">
+        <span class="bullet"></span>
+        Код должен <br/>это позволять
+      </div>
+      <div class="card next" style="width: 50%">
+        <span class="bullet"></span>
+        Логика должна быть <br/>понятна тому, кто пишет
+      </div>
+    </div>
+    <h3 class="next">Проблемы:</h3>
+    <div class="layout-flex" style="font-size:1.3rem">
+      <div class="card next" style="width: 50%">
+        <span class="bullet"></span>
+        Код в руках разработчиков
+      </div>
+      <div class="card next" style="width: 50%">
+        <span class="bullet"></span>
+        Знания про цвет у дизайнеров
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h2>Этим докладом я <span class="grad">хочу</span>...</h2>
+        <div class="cards-list" style="font-size: 1.3rem; line-height: 1.5rem;align-content: center">
+          <div class="card" style="height:fit-content">
+            <span class="bullet"></span>
+            Построить мостик между мирами
+          </div>
+          <!-- <div class="card next">
+            <span class="bullet"></span>
+            Показать возможности кода<br/>
+            (не только разработчикам)
+          </div>
+          <div class="card next">
+            <span class="bullet"></span>
+            Раскрыть кусочек теории
+          </div> -->
+          <div class="card next" style="height:fit-content">
+            <span class="bullet"></span>
+            Привить любовь к магии цвета
+          </div>
+        </div>
+      </div>
+      <div>
+        <img class="rounded" src="pictures/img/bubbles.jpg" alt="bubbles" style="max-height: 400px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- TURN OFF THE COLOR & GRADIENT -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <h2 style="margin-top: 0">
+      Вместе с <span class="grad">цветом</span><br/>
+      в нашу жизнь приходит <span class="grad">эмоция</span>
+    </h2>
     <div class="master-slider">
       <input type="range" id="master-off" min="0" max="100" value="100">
     </div>
@@ -174,14 +252,71 @@
     </script>
   </section>
 
-  <!-- SUBTITLE SLIDE 01: INTRODUCTION -->
   <section class="slide">
-    <div class="slide-bg"></div>
-    <span class="bignum">01</span>
+    <h1>Глоссарий</h1>
+    <ul>
+      <li>--css-vars</li>
+      <li>цветовые пространства</li>
+      <li>calc()</li>
+      <li>from</li>
+      <li>color-mix()</li>
+      <li>...</li>
+    </ul>
+  </section>
 
-    <div class="content">
-      <h1 class="center"><span class="grad">Введение</span></h1>
+  <section class="slide slide-wide">
+    <h2>
+      Пространство <span class="dim">= система координат</span>
+    </h2>
+    <div class="layout-flex">
+      <ul>
+        <li><span class="bold">#HEX</span></li>
+        <li><span class="bold">rgb</span>(<span class="tok-punct">reg, green, blue</span>)</li>
+        <li><span class="bold">hsl</span>(<span class="tok-punct">hue, saturation, lightness</span>)</li>
+        <li><span class="bold">hwb</span>(<span class="tok-punct">hue, whiteness, blackness</span>)</li>
+      </ul>
+      <ul>
+        <li><span class="bold">lab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li><span class="bold">lch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+        <li><span class="bold">oklab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li><span class="bold">oklch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+      </ul>
     </div>
+  </section>
+
+  <section class="slide">
+    <h1>calc(<span class="dim">expression</span>)</h1>
+    <p class="dim" style="line-height: 1.5rem;">
+      Даёт возможность рассчитать значения свойств CSS
+      <br/>во время их определения
+    </p>
+    <p class="code" style="font-size: 1.5rem; padding-inline: 0;">
+      calc(var(--opacity) + 0.5)
+    </p>
+  </section>
+
+  <section class="slide">
+    <h1>from</h1>
+    <p class="dim" style="line-height: 1.5rem">
+      Создает новый цвета из заданного<br/>
+      через сохранение или коррекцию каналов оригинального цвета
+    </p>
+    <p class="code" style="font-size: 1.5rem; padding-inline: 0;">
+      <!-- color-function(from origin-color channel1 channel2 channel3 / alpha)<br/> -->
+      oklch(from var(--base-color) l c 300 / 0.5)
+    </p>
+  </section>
+
+  <section class="slide">
+    <h1>color-mix()</h1>
+    <p class="dim" style="line-height: 1.5rem">
+      Смешивает два цвета в заданном пространстве<br/>
+      и указанных пропорциях
+    </p>
+    <p class="code" style="font-size: 1.5rem; padding-inline: 0;">
+      <!-- color-mix(in color-space, color1 [%], color2 [%]) -->
+      color-mix(in oklab, white 25%, blue 75%)
+    </p>
   </section>
 
   <!-- SUBTITLE SLIDE 02: SINGLE COLOR -->
@@ -194,6 +329,867 @@
     </div>
   </section>
 
+  <!-- TURN ON THE COLOR -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <h2 style="margin-top: 0">
+      Включаем <span class="grad">цвет</span><br/>
+    </h2>
+    <div class="master-slider">
+      <input type="range" id="master-color-on" min="0" max="100" value="0">
+    </div>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const master = document.getElementById('master-color-on');
+
+        // Один ползунок управляет двумя токенами:
+        // t = 0    → --theme-c = 0.00, --theme-angle = 0
+        // t = 0.55 → --theme-c = 0.13, --theme-angle = 25
+        // t = 1    → --theme-c = 0.25, --theme-angle = 45  (дефолт)
+        function update() {
+          const t = parseInt(master.value, 10) / 100;
+
+          // --theme-c: линейно 0 → 0.25
+          const c = t * 0.25;
+
+          root.style.setProperty('--theme-c', c.toFixed(3));
+        }
+
+        master.addEventListener('input', update);
+        update();
+      })();
+    </script>
+  </section>
+
+  <section class="slide">
+    <h1>Начинается с <span class="grad">задач</span></h1>
+    <div class="layout-flex" style="justify-content: flex-start;">
+      <ul>
+        <li class="next">Светлее / темнее</li>
+        <li class="next">Ярче / спокойнее</li>
+        <li class="next">Поменять оттенок</li>
+        <li class="next">Настроить прозрачность</li>
+      </ul>
+      <ul class="next no-marker dim">
+        <li><span class="dim" style="font-size: 1.2rem">→</span> lightness / brightness</li>
+        <li><span class="dim" style="font-size: 1.2rem">→</span> chroma / saturation</li>
+        <li><span class="dim" style="font-size: 1.2rem">→</span> hue</li>
+        <li><span class="dim" style="font-size: 1.2rem">→</span> alpha / opacity</li>
+      </ul>
+      <ul class="next no-marker">
+        <li><span class="dim" style="font-size: 1.2rem">→</span> <span class="key">l</span></li>
+        <li><span class="dim" style="font-size: 1.2rem">→</span> <span class="key">c</span></li>
+        <li><span class="dim" style="font-size: 1.2rem">→</span> <span class="key">h</span></li>
+        <li><span class="dim" style="font-size: 1.2rem">→</span> <span class="key">a</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h3 style="margin-bottom: 2rem">Пространство должно <span class="accent">решать задачу</span></h3>
+    <img class="rounded" src="pictures/img/color-spaces.png" alt="color-spaces" />
+  </section>
+
+  <section class="slide slide-wide">
+    <h2>
+      <span class="dim">Одновременная настройка</span><br/>
+      lightness <span class="dim thin">|</span> chroma <span class="dim thin">|</span> hue
+    </h2>
+    <div class="layout-flex">
+      <ul>
+        <li class="opacity-30"><span class="bold">#HEX</span></li>
+        <li class="opacity-30"><span class="bold">rgb</span>(<span class="tok-punct">reg, green, blue</span>)</li>
+        <li><span class="bold">hsl</span>(<span class="tok-punct">hue, saturation, lightness</span>)</li>
+        <li class="opacity-30"><span class="bold">hwb</span>(<span class="tok-punct">hue, whiteness, blackness</span>)</li>
+      </ul>
+      <ul>
+        <li class="opacity-30"><span class="bold">lab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li><span class="bold">lch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+        <li class="opacity-30"><span class="bold">oklab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li><span class="bold">oklch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide slide-wide">
+    <h2>
+       <span class="dim">Больше оттенков +</span><br/>
+       предсказуемое изменение цвета
+    </h2>
+    <div class="layout-flex">
+      <ul>
+        <li class="opacity-30"><span class="bold">#HEX</span></li>
+        <li class="opacity-30"><span class="bold">rgb</span>(<span class="tok-punct">reg, green, blue</span>)</li>
+        <li class="opacity-30"><span class="bold">hsl</span>(<span class="tok-punct">hue, saturation, lightness</span>)</li>
+        <li class="opacity-30"><span class="bold">hwb</span>(<span class="tok-punct">hue, whiteness, blackness</span>)</li>
+      </ul>
+      <ul>
+        <li class="opacity-30"><span class="bold">lab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li><span class="bold">lch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+        <li class="opacity-30"><span class="bold">oklab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li><span class="bold">oklch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide slide-wide">
+    <h2>
+       Исправлены баги<br/>
+       <span class="dim">например, работа с синими оттенками</span>
+    </h2>
+    <div class="layout-flex">
+      <ul>
+        <li class="opacity-30"><span class="bold">#HEX</span></li>
+        <li class="opacity-30"><span class="bold">rgb</span>(<span class="tok-punct">reg, green, blue</span>)</li>
+        <li class="opacity-30"><span class="bold">hsl</span>(<span class="tok-punct">hue, saturation, lightness</span>)</li>
+        <li class="opacity-30"><span class="bold">hwb</span>(<span class="tok-punct">hue, whiteness, blackness</span>)</li>
+      </ul>
+      <ul>
+        <li class="opacity-30"><span class="bold">lab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li class="opacity-30"><span class="bold">lch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+        <li class="opacity-30"><span class="bold">oklab</span>(<span class="tok-punct">lightness, a(red/green), b(blue/yellow)</span>)</li>
+        <li><span class="bold">oklch</span>(<span class="tok-punct">lightness, chroma, hue</span>)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide slide">
+    <div class="layout-flex">
+      <div>
+        <h3>Lightness <span class="dim">(0% - 100% / 0 - 1)</span></h3>
+        <div class="code" style="padding-inline:0; font-size: 1.2rem;">
+          <span class="tok-fn">oklch</span>(<span class="tok-num">20%</span> var(<span class="tok-prop">--c</span>) var(<span class="tok-prop">--hue</span>));<br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-num">35%</span> var(<span class="tok-prop">--c</span>) var(<span class="tok-prop">--hue</span>));<br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-num">50%</span> var(<span class="tok-prop">--c</span>) var(<span class="tok-prop">--hue</span>));<br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-num">75%</span> var(<span class="tok-prop">--c</span>) var(<span class="tok-prop">--hue</span>));<br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-num">90%</span> var(<span class="tok-prop">--c</span>) var(<span class="tok-prop">--hue</span>));
+        </div>
+      </div>
+      <div class="demo demo-one-color d2">
+        <div class="head"><span class="num"></span> OKLCH [L] шкала</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch swatch-hint" style="text-align: right">l:</div>
+            <div class="swatch swatch-hint">20%</div>
+            <div class="swatch swatch-hint">35%</div>
+            <div class="swatch swatch-hint">50%</div>
+            <div class="swatch swatch-hint">75%</div>
+            <div class="swatch swatch-hint">90%</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint"></div>
+            <div class="swatch b900"></div>
+            <div class="swatch b700"></div>
+            <div class="swatch b500"></div>
+            <div class="swatch b300"></div>
+            <div class="swatch b100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-wide">
+    <div class="layout-flex">
+      <div>
+        <h3>Lightness <span class="dim">(0% - 100% / 0 - 1)</span></h3>
+        <div class="code" style="padding-inline:0; font-size: 1rem;">
+          <span class="tok-prop">--l</span>: <span class="tok-num">0.5</span>;<br/>
+          <span class="tok-prop">--step</span>: <span class="tok-num">0.15</span>;<br/><br/>
+          <span class="next"><span class="tok-fn">oklch</span>(calc(var(<span class="tok-prop">--l</span>) + var(<span class="tok-prop">--step</span>) * <span class="tok-num">4</span>) <span class="tok-punct">[с]</span> <span class="tok-punct">[h]</span>) <span class="tok-kw">1.10</span></span><br/>
+          <span class="tok-fn">oklch</span>(calc(var(<span class="tok-prop">--l</span>) + var(<span class="tok-prop">--step</span>) * <span class="tok-num">2</span>) <span class="tok-punct">[с]</span> <span class="tok-punct">[h]</span>)<br/>
+          <span class="tok-fn">oklch</span>(calc(var(<span class="tok-prop">--l</span>) + var(<span class="tok-prop">--step</span>)) <span class="tok-punct">[с]</span> <span class="tok-punct">[h]</span>)<br/><br/>
+          <span class="tok-fn">oklch</span>(var(<span class="tok-prop">--l</span>) <span class="tok-punct">[с]</span> <span class="tok-punct">[h]</span>)<br/><br/>
+          <span class="tok-fn">oklch</span>(calc(var(<span class="tok-prop">--l</span>) - var(<span class="tok-prop">--step</span>)) <span class="tok-punct">[с]</span> <span class="tok-punct">[h]</span>)<br/>
+          <span class="tok-fn">oklch</span>(calc(var(<span class="tok-prop">--l</span>) - var(<span class="tok-prop">--step</span>) * <span class="tok-num">2</span>) <span class="tok-punct">[с]</span> <span class="tok-punct">[h]</span>)
+        </div>
+      </div>
+      <div class="demo demo-one-color d2">
+        <div class="head"><span class="num"></span> OKLCH [L] шкала</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch swatch-hint" style="text-align: right">l:</div>
+            <div class="swatch swatch-hint">20%</div>
+            <div class="swatch swatch-hint">35%</div>
+            <div class="swatch swatch-hint">50%</div>
+            <div class="swatch swatch-hint">75%</div>
+            <div class="swatch swatch-hint">90%</div>
+            <div class="swatch swatch-hint next tok-kw">100%</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint"></div>
+            <div class="swatch b900"></div>
+            <div class="swatch b700"></div>
+            <div class="swatch b500"></div>
+            <div class="swatch b300"></div>
+            <div class="swatch b100"></div>
+            <div class="swatch b000 next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-wide">
+    <div class="layout-flex">
+      <div>
+        <h3>Lightness <span class="dim">(0% - 100% / 0 - 1)</span></h3><br/>
+        <ul style="font-size:1.1rem;">
+          <li>В hsl() L для разных H даст разную визуальную яркость.</li>
+          <li class="next">В oklch() для любого оттенка один и тот же L одинаково яркий.</li>
+        </ul>
+        <div class="next" style="font-size:1.1rem;">
+          Особенности диапазона:
+          <ul>
+            <li><span class="bold">~90–100%</span> — <span class="dim">почти белый</span></li>
+            <li><span class="bold">~75–85%</span> — <span class="dim">светлые тона</span></li>
+            <li><span class="bold">~40–60%</span> — <span class="dim">средние тона («основные» цвета)</span></li>
+            <li><span class="bold">~10–20%</span> — <span class="dim">очень тёмные цвета</span></li>
+            <li><span class="bold">~0–10%</span> — <span class="dim">почти черный</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="demo demo-one-color d2">
+        <div class="head"><span class="num"></span> [L] шкала</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch swatch-hint" style="text-align: right">l:</div>
+            <div class="swatch swatch-hint">20%</div>
+            <div class="swatch swatch-hint">35%</div>
+            <div class="swatch swatch-hint">50%</div>
+            <div class="swatch swatch-hint">75%</div>
+            <div class="swatch swatch-hint">90%</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">hsl</div>
+            <div class="swatch hslY900"></div>
+            <div class="swatch hslY700"></div>
+            <div class="swatch hslY500"></div>
+            <div class="swatch hslY300"></div>
+            <div class="swatch hslY100"></div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">hsl</div>
+            <div class="swatch hslB900"></div>
+            <div class="swatch hslB700"></div>
+            <div class="swatch hslB500"></div>
+            <div class="swatch hslB300"></div>
+            <div class="swatch hslB100"></div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">oklch</div>
+            <div class="swatch b900"></div>
+            <div class="swatch b700"></div>
+            <div class="swatch b500"></div>
+            <div class="swatch b300"></div>
+            <div class="swatch b100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-wide">
+    <div class="layout-flex">
+      <div>
+        <h3>Chroma</h3>
+        <div class="code" style="padding-inline:0; font-size: 1rem;">
+          <span class="tok-prop">--c</span>: <span class="tok-num">0.2</span>;<br/>
+          <span class="tok-prop">--step</span>: <span class="tok-num">0.1</span>;<br/><br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-punct">[l]</span> calc(var(<span class="tok-prop">--c</span>) + var(<span class="tok-prop">--step</span>) * <span class="tok-num">2</span>) <span class="tok-punct">[h]</span>)<br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-punct">[l]</span> calc(var(<span class="tok-prop">--c</span>) + var(<span class="tok-prop">--step</span>)) <span class="tok-punct">[h]</span>)<br/><br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-punct">[l]</span> var(<span class="tok-prop">--c</span>) <span class="tok-punct">[h]</span>)<br/><br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-punct">[l]</span> calc(var(<span class="tok-prop">--c</span>) - var(<span class="tok-prop">--step</span>)) <span class="tok-punct">[h]</span>)<br/>
+          <span class="tok-fn">oklch</span>(<span class="tok-punct">[l]</span> calc(var(<span class="tok-prop">--c</span>) - var(<span class="tok-prop">--step</span>) * <span class="tok-num">2</span>) <span class="tok-punct">[h]</span>)
+        </div>
+      </div>
+      <div class="demo demo-one-color d2">
+        <div class="head"><span class="num"></span> OKLCH [L C] шкала</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch swatch-hint" style="text-align: right">c \ l:</div>
+            <div class="swatch swatch-hint">20%</div>
+            <div class="swatch swatch-hint">35%</div>
+            <div class="swatch swatch-hint">50%</div>
+            <div class="swatch swatch-hint">75%</div>
+            <div class="swatch swatch-hint">90%</div>
+          </div>
+          <div class="swatch-row next">
+            <div class="swatch swatch-hint">0.4</div>
+            <div class="swatch b920"></div>
+            <div class="swatch b720"></div>
+            <div class="swatch b520"></div>
+            <div class="swatch b320"></div>
+            <div class="swatch b120"></div>
+          </div>
+          <div class="swatch-row next">
+            <div class="swatch swatch-hint">0.3</div>
+            <div class="swatch b910"></div>
+            <div class="swatch b710"></div>
+            <div class="swatch b510"></div>
+            <div class="swatch b310"></div>
+            <div class="swatch b110"></div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">0.2</div>
+            <div class="swatch b900"></div>
+            <div class="swatch b700"></div>
+            <div class="swatch b500"></div>
+            <div class="swatch b300"></div>
+            <div class="swatch b100"></div>
+          </div>
+          <div class="swatch-row next">
+            <div class="swatch swatch-hint">0.1</div>
+            <div class="swatch b890"></div>
+            <div class="swatch b690"></div>
+            <div class="swatch b490"></div>
+            <div class="swatch b290"></div>
+            <div class="swatch b90"></div>
+          </div>
+          <div class="swatch-row next">
+            <div class="swatch swatch-hint">0</div>
+            <div class="swatch b880"></div>
+            <div class="swatch b680"></div>
+            <div class="swatch b480"></div>
+            <div class="swatch b280"></div>
+            <div class="swatch b80"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-wide">
+    <div class="layout-flex">
+      <div>
+        <h3>Chroma</h3><br/>
+        <ul style="font-size:1.1rem;">
+          <li>
+            Базовый диапазон (0 ~ 0.4).
+          </li>
+          <li>
+            Но максимум зависит от hue и может быть ~0.5.
+          </li>
+        </ul>
+        <ul style="font-size:1.1rem;">
+          <li><span class="bold">0.00-0.05</span> — <span class="dim">едва заметный оттенок (пастель)</span></li>
+          <li><span class="bold">0.10–0.15</span> — <span class="dim">уже цветной, но спокойный</span></li>
+          <li><span class="bold">0.20-0.35</span> — <span class="dim">яркий, насыщенный цвет</span></li>
+          <li><span class="bold">0.35 и выше</span> — <span class="dim">насыщенный, «неоновый»</span></li>
+        </ul>
+      </div>
+      <div class="demo demo-one-color d2">
+        <div class="head"><span class="num"></span> OKLCH [L C] шкала</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch swatch-hint" style="text-align: right">c \ l:</div>
+            <div class="swatch swatch-hint">20%</div>
+            <div class="swatch swatch-hint">35%</div>
+            <div class="swatch swatch-hint">50%</div>
+            <div class="swatch swatch-hint">75%</div>
+            <div class="swatch swatch-hint">90%</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">0.4</div>
+            <div class="swatch b920"></div>
+            <div class="swatch b720"></div>
+            <div class="swatch b520"></div>
+            <div class="swatch b320"></div>
+            <div class="swatch b120"></div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">0.3</div>
+            <div class="swatch b910"></div>
+            <div class="swatch b710"></div>
+            <div class="swatch b510"></div>
+            <div class="swatch b310"></div>
+            <div class="swatch b110"></div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">0.2</div>
+            <div class="swatch b900"></div>
+            <div class="swatch b700"></div>
+            <div class="swatch b500"></div>
+            <div class="swatch b300"></div>
+            <div class="swatch b100"></div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">0.1</div>
+            <div class="swatch b890"></div>
+            <div class="swatch b690"></div>
+            <div class="swatch b490"></div>
+            <div class="swatch b290"></div>
+            <div class="swatch b90"></div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">0</div>
+            <div class="swatch b880"></div>
+            <div class="swatch b680"></div>
+            <div class="swatch b480"></div>
+            <div class="swatch b280"></div>
+            <div class="swatch b80"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h3>Hue <span class="dim">(0 - 360)</span></h3>
+    <div class="code" style="padding-inline:0; font-size: 1rem;">
+      <span class="tok-fn">oklch</span>(<span class="tok-punct">[l] [c]</span> <span class="tok-num">X</span>)
+    </div>
+    <div class="demo demo-one-color d21">
+      <div class="head"><span class="num"></span> OKLCH [L H] шкала, C = <span class="tok-str">0.25</span></div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch swatch-hint" style="text-align: right">l \ h:</div>
+          <div class="swatch swatch-hint">0</div>
+          <div class="swatch swatch-hint">30</div>
+          <div class="swatch swatch-hint">60</div>
+          <div class="swatch swatch-hint">90</div>
+          <div class="swatch swatch-hint">120</div>
+          <div class="swatch swatch-hint">150</div>
+          <div class="swatch swatch-hint">180</div>
+          <div class="swatch swatch-hint">210</div>
+          <div class="swatch swatch-hint">240</div>
+          <div class="swatch swatch-hint">270</div>
+          <div class="swatch swatch-hint">300</div>
+          <div class="swatch swatch-hint">330</div>
+          <div class="swatch swatch-hint">360</div>
+        </div>
+        <div class="swatch-row next" style="--d21-l: 0.9;">
+          <div class="swatch swatch-hint">0.90</div>
+          <div class="swatch b000"></div>
+          <div class="swatch b030"></div>
+          <div class="swatch b060"></div>
+          <div class="swatch b090"></div>
+          <div class="swatch b120"></div>
+          <div class="swatch b150"></div>
+          <div class="swatch b180"></div>
+          <div class="swatch b210"></div>
+          <div class="swatch b240"></div>
+          <div class="swatch b270"></div>
+          <div class="swatch b300"></div>
+          <div class="swatch b330"></div>
+          <div class="swatch b360"></div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch swatch-hint">0.6</div>
+          <div class="swatch b000"></div>
+          <div class="swatch b030"></div>
+          <div class="swatch b060"></div>
+          <div class="swatch b090"></div>
+          <div class="swatch b120"></div>
+          <div class="swatch b150"></div>
+          <div class="swatch b180"></div>
+          <div class="swatch b210"></div>
+          <div class="swatch b240"></div>
+          <div class="swatch b270"></div>
+          <div class="swatch b300"></div>
+          <div class="swatch b330"></div>
+          <div class="swatch b360"></div>
+        </div>
+        <div class="swatch-row next" style="--d21-l: 0.3;">
+          <div class="swatch swatch-hint">0.30</div>
+          <div class="swatch b000"></div>
+          <div class="swatch b030"></div>
+          <div class="swatch b060"></div>
+          <div class="swatch b090"></div>
+          <div class="swatch b120"></div>
+          <div class="swatch b150"></div>
+          <div class="swatch b180"></div>
+          <div class="swatch b210"></div>
+          <div class="swatch b240"></div>
+          <div class="swatch b270"></div>
+          <div class="swatch b300"></div>
+          <div class="swatch b330"></div>
+          <div class="swatch b360"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h3>Hue <span class="dim">(0 - 360)</span></h3>
+      <div class="code" style="padding-inline:0; font-size: 1rem;">
+        <span class="tok-fn">oklch</span>(<span class="tok-str">1</span> <span class="tok-str">0.05</span> <span class="tok-num">X</span>) <span class="dim">— что получится?</span>
+      </div>
+    </div>
+    <div class="demo demo-one-color d21">
+      <div class="head"><span class="num"></span> Шкала <span class="next tok-kw">«помоги девушке выбрать лак для ногтей»</span></div>
+      <div class="stage">
+        <div class="swatch-row">
+          <div class="swatch swatch-hint" style="text-align: right">h:</div>
+          <div class="swatch swatch-hint">0</div>
+          <div class="swatch swatch-hint">30</div>
+          <div class="swatch swatch-hint">60</div>
+          <div class="swatch swatch-hint">90</div>
+          <div class="swatch swatch-hint">120</div>
+          <div class="swatch swatch-hint">150</div>
+          <div class="swatch swatch-hint">180</div>
+          <div class="swatch swatch-hint">210</div>
+          <div class="swatch swatch-hint">240</div>
+          <div class="swatch swatch-hint">270</div>
+          <div class="swatch swatch-hint">300</div>
+          <div class="swatch swatch-hint">330</div>
+          <div class="swatch swatch-hint">360</div>
+        </div>
+        <div class="swatch-row next" style="--d21-l: 0.9;--d21-c: 0.05;">
+          <div class="swatch swatch-hint">0.90</div>
+          <div class="swatch b000"></div>
+          <div class="swatch b030"></div>
+          <div class="swatch b060"></div>
+          <div class="swatch b090"></div>
+          <div class="swatch b120"></div>
+          <div class="swatch b150"></div>
+          <div class="swatch b180"></div>
+          <div class="swatch b210"></div>
+          <div class="swatch b240"></div>
+          <div class="swatch b270"></div>
+          <div class="swatch b300"></div>
+          <div class="swatch b330"></div>
+          <div class="swatch b360"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Температура цвета</h2>
+    <div class="center">
+      <h4 class="tok-num">теплые</h4>
+      <img src="pictures/img/color-wheel.png" alt="color-wheel" style="width: 350px;margin:-1rem 0 -2.4rem;"/>
+      <h4 class="tok-prop">холодные</h4>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура синего</div>
+      <div class="stage">
+        <div class="swatch warm next"></div>
+        <div class="swatch neutral"></div>
+        <div class="swatch cold next"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = теплее, (--h + 10) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура синего</div>
+      <div class="stage">
+        <div class="swatch warm"></div>
+        <div class="swatch cold"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = теплее, (--h + 10) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура зеленого</div>
+      <div class="stage" style="--d22-h: 150">
+        <div class="swatch warm next"></div>
+        <div class="swatch neutral"></div>
+        <div class="swatch cold next"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = теплее, (--h + 10) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура зеленого</div>
+      <div class="stage" style="--d22-h: 150">
+        <div class="swatch warm"></div>
+        <div class="swatch cold"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = теплее, (--h + 10) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура красного</div>
+      <div class="stage" style="--d22-h: 30">
+        <div class="swatch warm next"></div>
+        <div class="swatch neutral"></div>
+        <div class="swatch cold next"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = холоднее, (--h + 10) = теплее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура красного</div>
+      <div class="stage" style="--d22-h: 30">
+        <div class="swatch warm"></div>
+        <div class="swatch cold"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = холоднее, (--h + 10) = теплее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h3>Правила сдвига</h3>
+        <h4 class="tok-num">Теплые</h4>
+        <p style="font-size:1.2rem;">
+          <span class="key">- h</span> <span class="dim">(по часовой)</span> = холодеют<br/>
+          <span class="key">+ h</span> <span class="dim">(против часовой)</span> = теплеют
+        </p>
+        <h4 class="tok-prop">Холодные</h4>
+        <p style="font-size:1.2rem;">
+          <span class="key">- h</span> <span class="dim">(по часовой)</span> = теплеют<br/>
+          <span class="key">+ h</span> <span class="dim">(против часовой)</span> = холодеют
+        </p>
+      </div>
+      <div>
+        <img src="pictures/img/color-wheel-temp.png" alt="color-wheel-temp" style="width: 400px;"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h3>Правила сдвига</h3>
+        <ul style="font-size:1.2rem; margin-top:4rem;">
+          <li>Требует точечного подбора</li>
+        </ul>
+      </div>
+      <div>
+        <img src="pictures/img/color-wheel-temp.png" alt="color-wheel-temp" style="width: 400px;"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h3>Цвет · Названия · <span class="grad">Шпаргалка</span></h3>
+    <div class="axis-table">
+      <div class="axis-row">
+        <span class="word">ярче / сочнее</span>
+        <span class="param"><span class="key">c</span> ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">спокойнее / бледнее</span>
+        <span class="param"><span class="key">c</span> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">светлее</span>
+        <span class="param"><span class="key">l</span> ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">темнее</span>
+        <span class="param"><span class="key">l</span> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">воздушнее / мягче / пастельное</span>
+        <span class="param"><span class="key">l</span> ↑ + <span class="key">c</span> ↓</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">тяжелее / глубже</span>
+        <span class="param"><span class="key">l</span> ↓ + <span class="key">c</span> ↑</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">кислотнее / неоновое</span>
+        <span class="param"><span class="key">с</span> ↑↑ + <span class="key">l</span> ~ &gt; 60%</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">чистые</span>
+        <span class="param"><span class="key">l</span> ~ &gt; 50%, <span class="key">c</span> ~ &gt; 0.2</span>
+      </div>
+      <div class="axis-row">
+        <span class="word">грязные / мутные</span>
+        <span class="param"><span class="key">l</span> ~ &lt; 50%, <span class="key">c</span> ~ &lt; 0.2</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OKKLCH SANDBOX!!! -->
+  <section class="slide">
+    <h2>Игра <span class="grad">«Я так вижу»</span></h2>
+
+    <div class="sandbox">
+
+      <div class="controls">
+        <div class="control" data-param="h">
+          <div class="label">
+            <span class="name"><code>h</code> · оттенок</span>
+            <span class="value" id="sandbox-val-h">320</span>
+          </div>
+          <input type="range" id="sandbox-range-h" min="0" max="360" value="320">
+        </div>
+
+        <div class="control" data-param="c">
+          <div class="label">
+            <span class="name"><code>c</code> · насыщенность</span>
+            <span class="value" id="sandbox-val-c">0.20</span>
+          </div>
+          <input type="range" id="sandbox-range-c" min="0" max="40" value="20">
+        </div>
+
+        <div class="control" data-param="l">
+          <div class="label">
+            <span class="name"><code>l</code> · светлота</span>
+            <span class="value" id="sandbox-val-l">65%</span>
+          </div>
+          <input type="range" id="sandbox-range-l" min="10" max="95" value="65">
+        </div>
+      </div>
+
+      <div class="sandbox-preview">
+        <div class="box" id="sandbox-demo-box"></div>
+        <div class="output" id="sandbox-demo-code">background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> <span class="tok-num">0.20</span> <span class="tok-num">320</span>);</div>
+      </div>
+
+    </div>
+    <script>
+      (function () {
+        const rangeH = document.getElementById('sandbox-range-h');
+        const rangeC = document.getElementById('sandbox-range-c');
+        const rangeL = document.getElementById('sandbox-range-l');
+
+        const valH = document.getElementById('sandbox-val-h');
+        const valC = document.getElementById('sandbox-val-c');
+        const valL = document.getElementById('sandbox-val-l');
+
+        const demoBox = document.getElementById('sandbox-demo-box');
+        const demoCode = document.getElementById('sandbox-demo-code');
+
+        function updateSandbox() {
+          const h = parseInt(rangeH.value, 10);
+          const c = (parseInt(rangeC.value, 10) / 100).toFixed(2);
+          const l = parseInt(rangeL.value, 10);
+
+          valH.textContent = h;
+          valC.textContent = c;
+          valL.textContent = l + '%';
+
+          const color = `oklch(${l}% ${c} ${h})`;
+          demoBox.style.background = color;
+          demoCode.innerHTML =
+            'background: <span class="tok-fn">oklch</span>(' +
+            '<span class="tok-num">' + l + '%</span> ' +
+            '<span class="tok-num">' + c + '</span> ' +
+            '<span class="tok-num">' + h + '</span>);';
+        }
+
+        rangeH.addEventListener('input', updateSandbox);
+        rangeC.addEventListener('input', updateSandbox);
+        rangeL.addEventListener('input', updateSandbox);
+
+        updateSandbox();
+      })();
+    </script>
+  </section>
+  <!-- SANDBOX!!! END -->
+
+  <section class="slide">
+    <h2>Цвет · <span class="grad">Задачи</span></h2>
+    <div class="layout-flex" style="margin-bottom:20px">
+      <div class="demo demo-one-color d2">
+        <div class="head"><span class="num"></span> Монохромная палитра</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch b900"></div>
+            <div class="swatch b700"></div>
+            <div class="swatch b500"></div>
+            <div class="swatch b300"></div>
+            <div class="swatch b100"></div>
+          </div>
+        </div>
+      </div>
+      <div class="demo demo-one-color d23 next">
+        <div class="head"><span class="num"></span> Градиент l: 95% - 20%</div>
+        <div class="stage">
+          <div style="width: 100%;">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="demo demo-one-color d24 next">
+        <div class="head"><span class="num"></span> Hover кнопки</div>
+        <div class="stage">
+          <button class="btn">Наведи на меня</button>
+        </div>
+      </div>
+    </div>
+    <div class="layout-flex">
+      <div class="demo demo-one-color d16 next">
+        <div class="head"><span class="num"></span> Статус-кнопки с одинаковыми L, C</div>
+        <div class="stage">
+          <span class="demo-badge s-success">success</span>
+          <span class="demo-badge s-warning">warning</span>
+          <span class="demo-badge s-error">error</span>
+          <span class="demo-badge s-info">info</span>
+        </div>
+      </div>
+      <div class="demo demo-one-color d26 next">
+        <div class="head"><span class="num"></span> Input:disabled</div>
+          <div class="stage">
+          <div class="input-wrap">
+            <label class="input-label" for="i4">Пароль</label>
+            <input class="input" id="i4" type="password" placeholder="••••••••" disabled value="secret123">
+          </div>
+        </div>
+      </div>
+      <div class="demo demo-one-color d25 next">
+        <div class="head"><span class="num"></span> Свечение</div>
+        <div class="stage">
+          <div class="spot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="slide">
+    <h1>Анимации</h1>
+    TODO
+  </section>
+
+  <section class="slide">
+    <h1>@property --hue</h1>
+    TODO
+    /* Анимируем ЧИСЛО, а не фон */
+    @property --hue {
+      syntax: '<number>';
+      initial-value: 0;
+      inherits: false;
+    }
+  </section> -->
+
+  <section class="slide">
+    <h2>Цвет · <span class="grad">Шпаргалка</span></h2>
+    <ul style="font-size:1.1rem;" class="dim">
+      <li>Цветовое пространство выбирается <span class="accent bold">под задачу</span>.</li>
+      <li class="next"><span class="accent bold">oklch()</span> самые гибкие вычисления с результатом, приближенным к восприятию глазом.</li>
+      <li class="next">Цвет можно настраивать отдельными токенами <span class="accent bold">--l, --c, --h</span>.</li>
+      <li class="next">У цвета еще есть <span class="accent bold">температура</span>.</li>
+      <li class="next"><span class="accent bold">Восприятие</span> можно связать с математикой.</li>
+      <li class="next" style="line-height:1.5rem;">Просите ИИ конвертировать цвета между пространствами по <span class="accent bold">матрицам конверсии W3C CSS Color Module Level</span> Х — так, как это делает Chrome DevTools.</li>
+    </ul>
+  </section>
+
   <!-- SUBTITLE SLIDE 03: COLOR HARMONY -->
   <section class="slide">
     <div class="slide-bg"></div>
@@ -204,13 +1200,353 @@
     </div>
   </section>
 
-  <!-- SUBTITLE SLIDE 04: THEORY -->
+  <!-- TURN ON THE GRADIENT -->
+  <section class="slide">
+    <div class="slide-bg"></div>
+    <h2 style="margin-top: 0">
+      Включаем <span class="grad">гармонию</span><br/>
+    </h2>
+    <div class="master-slider">
+      <input type="range" id="master-gradient-on" min="0" max="100" value="0">
+    </div>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const master = document.getElementById('master-gradient-on');
+
+        // Один ползунок управляет двумя токенами:
+        // t = 0    → --theme-c = 0.00, --theme-angle = 0
+        // t = 0.55 → --theme-c = 0.13, --theme-angle = 25
+        // t = 1    → --theme-c = 0.25, --theme-angle = 45  (дефолт)
+        function update() {
+          const t = parseInt(master.value, 10) / 100;
+
+          // --theme-angle: линейно 0 → 180
+          const angle = t * 45;
+
+          root.style.setProperty('--theme-angle', angle.toFixed(1));
+        }
+
+        master.addEventListener('input', update);
+        update();
+      })();
+    </script>
+  </section>
+
+  <section class="slide">
+    <h2>Все классно, <span class="grad">но</span>...</h2>
+    <ul>
+      <li>У вас уже цвета не в oklch()</li>
+      <li>Старая ДС</li>
+      <li>Внешняя ДС, к изменению которой нет доступа</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h3>from <span class="dim">= новые возможности</span></h3>
+        <div class="code" style="padding-inline:0; font-size: 1rem; line-height: 3rem;">
+          <span class="tok-prop">--base</span>: <span class="tok-num">#004B95</span>;<br/>
+
+          <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c h)</span><br/>
+          <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) <span class="tok-num">calc(l + 0.2)</span> c h)</span><br/>
+          <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l <span class="tok-num">0.3</span> h)</span><br/>
+          <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c <span class="tok-num">calc(h - 200)</span>)</span><br/>
+          <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c h / <span class="tok-num">0.5</span>)</span>
+        </div>
+      </div>
+      <div class="demo demo-one-color d27" style="margin-right: 100px">
+        <div class="head"><span class="num"></span> Demo</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch d100"></div>
+            <div class="swatch-hint">base</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch d200"></div>
+            <div class="swatch-hint">oklch</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch d300"></div>
+            <div class="swatch-hint">oklch + l</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch d400"></div>
+            <div class="swatch-hint">oklch + c</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch d500"></div>
+            <div class="swatch-hint">oklch + h</div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch d600"></div>
+            <div class="swatch-hint">oklch + a</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Цветовые гармонии</h2>
+    <div class="layout-flex" style="justify-content: center;">
+      <div>
+        <img src="pictures/img/palette-1.png" alt="palette-1" style="height:150px;" />
+      </div>
+      <div>
+        <img src="pictures/img/palette-2.png" alt="palette-2" style="height:150px;" />
+      </div>
+      <div>
+        <img src="pictures/img/palette-3.png" alt="palette-3" style="height:150px;" />
+      </div>
+    </div>
+    <div class="layout-flex" style="justify-content: center;">
+      <div>
+        <img src="pictures/img/palette-4.png" alt="palette-4" style="height:150px;" />
+      </div>
+      <div>
+        <img src="pictures/img/palette-5.png" alt="palette-5" style="height:150px;" />
+      </div>
+      <div>
+        <img src="pictures/img/palette-6.png" alt="palette-6" style="height:150px;" />
+      </div>
+      <div>
+        <img src="pictures/img/palette-7.png" alt="palette-7" style="height:150px;" />
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h3>Комплиментарная</h3>
+        <div class="code" style="padding-inline:0; font-size: 1rem;">
+          <span class="tok-prop">--base</span>: <span class="tok-num">oklch(0.65 0.25 350)</span>;<br/><br/>
+          <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c <span class="tok-num">calc(h + 180)</span>);</span><br/>
+        </div>
+      </div>
+      <div class="demo demo-linked-colors d4" style="width: 200px">
+        <div class="head"><span class="num"></span> Demo</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch comp-a"></div>
+            <div class="swatch comp-b"></div>
+          </div>
+        </div>
+        <div class="note">h + 180</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h3>Аналоговая</h3>
+        <div class="code" style="padding-inline:0; font-size: 1rem;">
+          <span class="next"><span class="tok-prop">--base-left</span>: <span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c <span class="tok-num">calc(h - 45)</span>);</span><br/><br/>
+          <span><span class="tok-prop">--base</span>: <span class="tok-num">oklch(0.65 0.25 350)</span>;</span><br/><br/>
+          <!-- <span class="tok-fn">var</span>(<span class="tok-prop">--base</span>);<br/> -->
+          <span class="next"><span class="tok-prop">--base-right</span>:<span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c <span class="tok-num">calc(h + 45)</span>);</span>
+        </div>
+      </div>
+      <div class="demo demo-linked-colors d5" style="width: 200px">
+        <div class="head"><span class="num"></span> Demo</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch ana-3"></div>
+            <div class="swatch ana-2"></div>
+            <div class="swatch ana-1"></div>
+          </div>
+        </div>
+        <div class="note">h + 180</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Можно создавать такие <span class="grad">градиенты</span></h2>
+    <div class="code layout-flex" style="padding-inline:0; font-size: 1rem;">
+      <div>
+        <span class="tok-prop">--theme-gradient</span>: <span class="tok-fn">linear-gradient</span>(<br/>
+          &nbsp;&nbsp;<span class="tok-num">90deg</span>,<br/>
+          &nbsp;&nbsp;var(<span class="tok-prop">--base-left</span>),<br/>
+          &nbsp;&nbsp;var(<span class="tok-prop">--base</span>),<br/>
+          &nbsp;&nbsp;var(<span class="tok-prop">--base-right</span>)<br/>
+        );
+      </div>
+      <div class="next">
+        <span class="tok-kw">.grad</span> {<br/>
+          &nbsp;&nbsp;<span class="tok-prop">background</span>: var(<span class="tok-prop">--theme-gradient</span>);<br/>
+          &nbsp;&nbsp;<span class="tok-prop">-webkit-background-clip</span>: text;<br/>
+          &nbsp;&nbsp;<span class="tok-prop">background-clip</span>: text;<br/>
+          &nbsp;&nbsp;<span class="tok-prop">color</span>: transparent;<br/>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-wide">
+    <div class="layout-flex">
+      <div>
+        <h3>color-mix()</h3>
+        <div class="code" style="padding-inline:0;font-size:1rem;">
+          <span class="tok-prop">--bg</span>: <span class="tok-num">#0E1016</span>;<br/>
+          <span class="tok-prop">--accent</span>: <span class="tok-num">#C08BFF</span>;<br/><br/>
+          <span class="next"><span class="tok-prop">--surface-60</span>: <span class="tok-fn">color-mix</span>(<span class="tok-kw">in oklab</span>, var(<span class="tok-prop">--accent</span>) <span class="tok-num">60%</span>, var(<span class="tok-prop">--bg</span>));</span><br/>
+          <span class="next"><span class="tok-prop">--surface-30</span>: <span class="tok-fn">color-mix</span>(<span class="tok-kw">in oklab</span>, var(<span class="tok-prop">--accent</span>) <span class="tok-num">30%</span>, var(<span class="tok-prop">--bg</span>));</span>
+        </div>
+      </div>
+      <div style="width:315px">
+        <div class="theme" data-demo="7" data-theme="dark">
+          <div class="label">color-mix()</div>
+          <div class="stage">
+            <div class="card">
+              <h2>Все оттенки — производные от акцента и фона.</h2>
+              <div class="swatches">
+                <div class="sw a">100%</div>
+                <div class="sw b">60%</div>
+                <div class="sw c">30%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h3>
+      color-mix(<span class="accent">in oklch</span>, ...) старая проблема
+    </h3>
+    <div class="layout-flex">
+      <div style="line-height:2rem;">
+        <div class="dim" style="margin:1.5rem 0;">
+          Раньше смешивание зеленых и синих оттенков в oklch выдавало желтизну. Поэтому использовали <span class="accent">color-mix(in oklab, ...)</span>.
+        </div>
+        <img src="pictures/img/color-mix-oklch-old.png" alt="color-mix-oklch-old-issue" style="height:250px" class="rounded"/>
+      </div>
+      <div class="next" style="line-height:2rem;">
+        <div class="dim" style="margin:1.5rem 0;">
+          Сейчас в последних версиях браузеров работает корректно. Фиксы на уровне движков, поэтому для старых стоит использовать как раньше <span class="accent">color-mix(in oklab, ...)</span>.
+        </div>
+        <img src="pictures/img/color-mix-oklch-new.png" alt="color-mix-oklch-new" style="height:250px" class="rounded"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Зависимые цвета · <span class="grad">Задачи</span></h2>
+    <div class="layout-flex" style="margin-bottom:20px">
+      <div class="demo demo-linked-colors d11">
+        <div class="head"><span class="num"></span> Производные от акцента</div>
+        <div class="stage">
+          <span class="demo-badge">status: ok</span>
+        </div>
+      </div>
+      <div class="demo demo-linked-colors d5 next" style="width: 200px">
+        <div class="head"><span class="num"></span> Цветовые гармонии</div>
+        <div class="stage">
+          <div class="swatch-row">
+            <div class="swatch ana-3"></div>
+            <div class="swatch ana-2"></div>
+            <div class="swatch ana-1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="demo demo-linked-colors d19 next">
+        <div class="head"><span class="num"></span> Градиент из одного цвета</div>
+        <div class="stage" style="font-size:1rem;">
+          <div class="grad" style="height: 50px;">Градиент от --pink</div>
+        </div>
+      </div>
+    </div>
+    <div class="layout-flex">
+      <div class="demo demo-linked-colors d16 next">
+        <div class="head"><span class="num"></span> Радужные хлебные крошки</div>
+          <div class="stage" style="width:500px;">
+            <div class="crumbs">
+              <span class="crumb">Главная</span>
+              <span class="crumb">Каталог</span>
+              <span class="crumb">Раздел</span>
+              <span class="crumb">Подраздел</span>
+              <span class="crumb">Товар</span>
+            </div>
+          </div>
+        <div class="note">hue = base + 25 × var(--i)</div>
+      </div>
+      <div class="demo demo-linked-colors d20 next">
+        <div class="head"><span class="num"></span> Цветовой круг</div>
+        <div class="stage" style="padding: 0">
+          <div class="wheel">
+            <div class="petal" style="--i:0"></div>
+            <div class="petal" style="--i:1"></div>
+            <div class="petal" style="--i:2"></div>
+            <div class="petal" style="--i:3"></div>
+            <div class="petal" style="--i:4"></div>
+            <div class="petal" style="--i:5"></div>
+            <div class="petal" style="--i:6"></div>
+            <div class="petal" style="--i:7"></div>
+            <div class="petal" style="--i:8"></div>
+            <div class="petal" style="--i:9"></div>
+            <div class="petal" style="--i:10"></div>
+            <div class="petal" style="--i:11"></div>
+          </div>
+        </div>
+        <div class="note">hue = base + 30 × --i, rotate</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Зависимые цвета · <span class="grad">Шпаргалка</span></h2>
+    <ul class="dim" style="font-size: 1.1rem;">
+      <li><span class="accent bold">from</span> помогает использовать возможности новых пространств даже на старых токенах.</li>
+      <li class="next">Через отступ по H можно создавать <span class="accent bold">контролируемые цветовые гармонии</span>.</li>
+      <li class="next">Смешивание в <span class="accent bold">color-mix()</span> позволяет получать промежуточные оттенки.</li>
+    </ul>
+  </section>
+
+  <!-- SUBTITLE SLIDE 04: COLOR ACCESSIBILITY -->
   <section class="slide">
     <div class="slide-bg"></div>
     <span class="bignum">04</span>
 
     <div class="content">
       <h1 class="center"><span class="grad">Цветовая</span> доступность</h1>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>
+      <span class="grad">Цветовая доступность</span> — это ...
+    </h2>
+    <p class="dim">
+      практика проектирования интерфейсов так, чтобы информация и элементы управления были различимы и понятны всем людям, независимо от особенностей их цветового восприятия.
+    </p>
+    <ol>
+      <li class="next">Информация передается не только цветом</li>
+      <li class="next">Контраст</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <h1>Дальтонизм</h1>
+    <p class="dim">И чувствительность к отдельным оттенкам.</p>
+    <p>
+      ~ 1 из 12 мужчин (8%)<br/>
+      ~ 1 из 200 женщин (0.5%)
+    </p>
+  </section>
+
+  <section class="slide">
+    <h3 style="margin-bottom: 1rem;">
+      More tools → Rendering → <span class="accent">Emulate vision deficiencies</span>
+    </h3>
+    <div class="layout-flex">
+      <img class="rounded" style="height: 240px;" src="pictures/img/rendering.png" alt="rendering" />
+      <img class="rounded" style="height: 240px;" src="pictures/img/rendering-simulation.png" alt="rendering" />
     </div>
   </section>
 
@@ -357,7 +1693,7 @@
         </ul>
         <p class="dim">(элементы форм, кнопки, иконки...)</p>
       </div>
-      <div class="next">
+      <div>
         <h2><span class="grad">AAA</span></h2>
         <ul>
           <li>Обычный текст — 7:1</li>
@@ -391,27 +1727,14 @@
   <section class="slide">
     <h1>OKLCH и WCAG</h1>
     <p>
-      Разница по L <span class="accent-2 bold">45%</span> и выше ~ попадание в АА
+      Разница по L <span class="accent-2 bold">50%</span> и выше ~ попадание в АА
     </p>
     <div class="card">
       <div class="code" style="font-size: 1.2rem">
         <div class="dim">// цвет фона</div>
         <div class="code-text"><span class="tok-tag">--bg</span>: <span class="tok-fn">oklch</span>(L C H)</div>
         <div class="dim">// цвет элемента в зависимости от темы</div>
-        <div class="code-text"><span class="tok-tag">--contrast</span>: <span class="tok-fn">oklch</span>(from var(<span class="tok-tag">--bg</span>) <span class="accent-2 bold">calc(l +/- 0.45)</span> c h)</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-contrast d1">
-      <div class="head"><span class="bullet"></span> Корректировка L</div>
-      <div class="stage">
-        <p>Мне не нравилось, как <span class="bold" style="color: var(--theme-accent)">акцентный цвет</span> выглядит в тексте.</br>
-        Теперь акцентный цвет для текста <span class="bold accent">вот такой</span>.</p>
-        <div class="code" style="padding-inline: 0; font-size: 1rem; width: 100%;">
-          <span class="tok-tag">--theme-accent-text</span>: <span class="tok-fn">oklch</span>(from var(<span class="tok-tag">--theme-accent</span>) <span class="tok-kw">calc(l + 0.15)</span> c h);
-        </div>
+        <div class="code-text"><span class="tok-tag">--contrast</span>: <span class="tok-fn">oklch</span>(from var(<span class="tok-tag">--bg</span>) <span class="accent-2 bold">calc(l +/- 0.5)</span> c h)</div>
       </div>
     </div>
   </section>
@@ -446,23 +1769,23 @@
   </section>
 
   <section class="slide">
-    <h2>Контраст · <span class="grad">Шпаргалка</span></h2>
-    <ul>
-      <li>oklch() + from() + calc() + L = настраиваемый контраст.</li>
-      <li class="next">clamp() - помощник в автоподборе (но аккуратно).</li>
-      <li class="next">contrast-color() - нативный автоподбор (сырой).</li>
-      <li class="next">Определитесь, в чем вы считаете L (число или процент).</li>
-      <li class="next">При генерации макетов/кода через ИИ, просите, чтобы текст проходил проверки по WCAG.</li>
-    </ul>
-  </section>
-
-  <section class="slide">
     <h2>Контраст · <span class="grad">Задачи</span></h2>
     <ul>
       <li>Подбор контрастного цвета (текст/иконки/...).</li>
       <li>Автоподбор контрастного цвета через CSS функции.</li>
       <li>Один вычисляемый токен на светлую/темную темы.</li>
       <li>Корректировка существующих токенов.</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Контраст · <span class="grad">Шпаргалка</span></h2>
+    <ul>
+      <li><span class="accent bold">oklch() + from + calc() + L</span> <span class="dim">= настраиваемый контраст.</span></li>
+      <li class="next">clamp() <span class="dim">- помощник в автоподборе (учитывайте пороги).</span></li>
+      <li class="next">contrast-color() <span class="dim">- нативный автоподбор (сырой).</span></li>
+      <li class="next"><span class="dim">Определитесь,</span> в чем вы считаете L <span class="dim">(число или процент).</span></li>
+      <li class="next"><span class="dim">ИИ просите, чтобы текст</span> проходил проверки по WCAG.</li>
     </ul>
   </section>
 
@@ -483,10 +1806,10 @@
       и их <span class="grad">производным</span>
     </h2>
     <div class="next">
-      <p>Которые могут вычисляться:</p>
+      <span class="dim">Которые могут вычисляться:</span>
       <ul>
         <li>из параметров</li>
-        <li>from()</li>
+        <li>from</li>
         <li>color-mix()</li>
         <li class="next"><span class="grad bold">ваша фантазия</span></li>
       </ul>
@@ -539,7 +1862,7 @@
   </section>
 
   <section class="slide">
-    <h2>Можно собрать на <span class="grad">from()</span></h2>
+    <h2>Можно собрать на <span class="grad">from</span></h2>
     <pre class="code" style="font-size: 1.1rem; padding: 0;">
       <span class="tok-kw">:root</span> <span class="tok-punct">{</span><br/>
       <span class="tok-prop">&nbsp;&nbsp;--base</span><span class="tok-punct">:</span> <span class="tok-num">#F637C6</span><span class="tok-punct">;</span><br/>
@@ -653,7 +1976,7 @@
 
   <section class="slide">
     <h1>Тема через <span class="grad">light-dark()</span></h1>
-    <pre class="code" style="padding-inline: 0">
+    <pre class="code" style="padding-inline: 0; font-size: 1.5rem;">
       <span class="tok-prop">color-scheme</span>: <span class="tok-str">light dark</span>;<br/>
       <span class="tok-prop">--accent</span>: <span class="tok-fn">light-dark</span>(<span class="tok-num">#F637C6</span>, <span class="tok-num">#FF6ED6</span>);
     </pre>
@@ -661,10 +1984,10 @@
 
   <section class="slide">
     <h3>Тема через <span class="grad">@media (prefers-color-scheme: dark/light)</span></h3>
-    <p>
-      Подстраивается под ОС и делает эти настройки приоритетными!<br/>
+    <p class="dim">
+      Подстраивается под системные настройки и делает их приоритетными!<br/>
     </p>
-    <pre class="code" style="padding-inline: 0">
+    <pre class="code" style="padding-inline: 0; font-size: 1.2rem;">
       <span class="tok-kw">:root</span> <span class="tok-punct">{</span><br/>
         <span class="tok-attr">&nbsp;&nbsp;color-scheme</span><span class="tok-punct">:</span> <span class="tok-str">light</span><span class="tok-punct">;</span><br/>
         <span class="tok-punct">&nbsp;&nbsp;// набор токенов светлой темы</span><br/>
@@ -677,13 +2000,23 @@
   </section>
 
   <section class="slide">
+    <h2>Темы · <span class="grad">Задачи</span></h2>
+    <ul>
+      <li>Гибкая базовая тема.</li>
+      <li>Вычисляемые светлая/темная.</li>
+      <li>Брендовая тема с настраиваемым акцентом и поддержкой светлого/темного режимов.</li>
+      <li>Цветной раздел на странице внутри основной темы.</li>
+    </ul>
+  </section>
+
+  <section class="slide">
     <h2>Темы · <span class="grad">Шпаргалка</span></h2>
     <div class="layout-flex">
       <div>
         <div class="dim">Вычисляться:</div>
         <ul>
           <li>из параметров цвета</li>
-          <li>from()</li>
+          <li>from</li>
           <li>color-mix()</li>
           <li>...</li>
         </ul>
@@ -699,16 +2032,6 @@
         </ul>
       </div>
     </div>
-  </section>
-
-  <section class="slide">
-    <h2>Темы · <span class="grad">Задачи</span></h2>
-    <ul>
-      <li>Гибкая базовая тема.</li>
-      <li>Вычисляемые светлая/темная.</li>
-      <li>Брендовая тема с настраиваемым акцентом и поддержкой светлого/темного режимов.</li>
-      <li>Цветной раздел на странице внутри основной темы.</li>
-    </ul>
   </section>
 
   <!-- SUBTITLE SLIDE 07: MAGIC -->
@@ -938,7 +2261,7 @@
             <li>--css-tokens</li>
             <li>oklch()</li>
             <li>calc()</li>
-            <li>from()</li>
+            <li>from</li>
             <li>color-mix()</li>
             <li>clamp()</li>
           </ul>
@@ -948,7 +2271,6 @@
         <ul>
           <li>другой цвет</li>
           <li>количество элементов</li>
-          <li>каунтер списка</li>
           <li>анимации @keyframes</li>
           <li>скролл</li>
           <li>темами</li>
@@ -1010,85 +2332,6 @@
     </div>
   </section>
 
-  <!-- SANDBOX!!! -->
-  <section class="slide">
-    <h2>Песочница <span class="grad">oklch()</span></h2>
-
-    <div class="sandbox">
-
-      <div class="controls">
-        <div class="control" data-param="h">
-          <div class="label">
-            <span class="name"><code>h</code> · оттенок</span>
-            <span class="value" id="sandbox-val-h">320</span>
-          </div>
-          <input type="range" id="sandbox-range-h" min="0" max="360" value="320">
-        </div>
-
-        <div class="control" data-param="c">
-          <div class="label">
-            <span class="name"><code>c</code> · насыщенность</span>
-            <span class="value" id="sandbox-val-c">0.20</span>
-          </div>
-          <input type="range" id="sandbox-range-c" min="0" max="40" value="20">
-        </div>
-
-        <div class="control" data-param="l">
-          <div class="label">
-            <span class="name"><code>l</code> · светлота</span>
-            <span class="value" id="sandbox-val-l">65%</span>
-          </div>
-          <input type="range" id="sandbox-range-l" min="10" max="95" value="65">
-        </div>
-      </div>
-
-      <div class="sandbox-preview">
-        <div class="box" id="sandbox-demo-box"></div>
-        <div class="output" id="sandbox-demo-code">background: <span class="tok-fn">oklch</span>(<span class="tok-num">65%</span> <span class="tok-num">0.20</span> <span class="tok-num">320</span>);</div>
-      </div>
-
-    </div>
-    <script>
-      (function () {
-        const rangeH = document.getElementById('sandbox-range-h');
-        const rangeC = document.getElementById('sandbox-range-c');
-        const rangeL = document.getElementById('sandbox-range-l');
-
-        const valH = document.getElementById('sandbox-val-h');
-        const valC = document.getElementById('sandbox-val-c');
-        const valL = document.getElementById('sandbox-val-l');
-
-        const demoBox = document.getElementById('sandbox-demo-box');
-        const demoCode = document.getElementById('sandbox-demo-code');
-
-        function updateSandbox() {
-          const h = parseInt(rangeH.value, 10);
-          const c = (parseInt(rangeC.value, 10) / 100).toFixed(2);
-          const l = parseInt(rangeL.value, 10);
-
-          valH.textContent = h;
-          valC.textContent = c;
-          valL.textContent = l + '%';
-
-          const color = `oklch(${l}% ${c} ${h})`;
-          demoBox.style.background = color;
-          demoCode.innerHTML =
-            'background: <span class="tok-fn">oklch</span>(' +
-            '<span class="tok-num">' + l + '%</span> ' +
-            '<span class="tok-num">' + c + '</span> ' +
-            '<span class="tok-num">' + h + '</span>);';
-        }
-
-        rangeH.addEventListener('input', updateSandbox);
-        rangeC.addEventListener('input', updateSandbox);
-        rangeL.addEventListener('input', updateSandbox);
-
-        updateSandbox();
-      })();
-    </script>
-  </section>
-  <!-- SANDBOX!!! END -->
-
   <!-- CODE EXAMPLE -->
   <section class="slide">
     <h2>Код хочу оформлять <span class="grad">вот так</span></h2>
@@ -1123,22 +2366,6 @@
         </div>
       </div>
       <div class="note">hsl(320 90% 92%) … hsl(320 70% 15%)</div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-one-color d2">
-      <div class="head"><span class="num"></span> OKLCH-шкала</div>
-      <div class="stage">
-        <div class="swatch-row">
-          <div class="swatch b100"></div>
-          <div class="swatch b300"></div>
-          <div class="swatch b500"></div>
-          <div class="swatch b700"></div>
-          <div class="swatch b900"></div>
-        </div>
-      </div>
-      <div class="note">oklch(95% 0.05 320) … oklch(25% 0.12 320)</div>
     </div>
   </section>
 
@@ -1640,6 +2867,22 @@
   <!-- LINKED COLORS AND COLOR HARMONIES END -->
 
   <!-- CONTRAST -->
+
+  <!-- L CORRECTION -->
+  <section class="slide">
+    <div class="demo demo-contrast d1">
+      <div class="head"><span class="bullet"></span> Корректировка L</div>
+      <div class="stage">
+        <p>Мне не нравилось, как <span class="bold" style="color: var(--theme-accent)">акцентный цвет</span> выглядит в тексте.</br>
+        Теперь акцентный цвет для текста <span class="bold accent">вот такой</span>.</p>
+        <div class="divider"></div>
+        <div class="code" style="padding-inline: 0; font-size: 1rem; width: 100%;">
+          <span class="tok-fn">oklch</span>(from var(<span class="tok-tag">--theme-accent</span>) <span class="tok-kw">calc(l + 0.1)</span> <span class="tok-kw">calc(с - 0.05)</span> h);
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="slide">
     <div class="demo demo-contrast d2">
       <div class="head"><span class="num"></span> Плохой / хороший контраст</div>

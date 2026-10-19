@@ -43,3 +43,36 @@
     overflow-wrap: break-word;
   }
 }
+
+.slide .axis-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 900px;
+  width: 100%;
+
+  .axis-row {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    align-items: baseline;
+    gap: 2rem;
+    padding: 0 0 0.5rem;
+    border-bottom: 1px solid var(--theme-border);
+
+    .word {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--theme-text);
+    }
+
+    .param {
+      color: var(--theme-text-dim);
+      font-size: 1rem;
+    }
+
+    .arrow {
+      color: var(--theme-text-mute);
+      margin-right: 0.3em;
+    }
+  }
+}

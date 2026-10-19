@@ -58,3 +58,10 @@
 .tok-prop { color: var(--theme-blue); }
 .tok-attr { color: var(--theme-yellow); }
 .tok-punct{ color: var(--theme-text-dim); }
+
+.key {
+  background: rgba(166, 77, 255, 0.12);
+  color: #C9A9FF;
+  padding: 0.1em 0.45em;
+  border-radius: 5px;
+}

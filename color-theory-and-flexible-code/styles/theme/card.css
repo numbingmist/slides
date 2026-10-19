@@ -38,27 +38,6 @@
   }
 }
 
-.card,
-.demo {
-  .bullet {
-    position: relative;
-    width: 1ch;
-
-    &::before {
-      content: '.';
-      color: transparent;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--theme-accent);
-      transform: translate(-50%, -50%);
-    }
-  }
-}
-
 .card.speaker {
   position: relative;
   z-index: 1;
