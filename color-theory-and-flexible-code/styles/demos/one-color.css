@@ -1,14 +1,22 @@
+.swatch {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 10px;
+  border: 1px solid oklch(1 0 0 / 0.08);
+
+  &.swatch-inline {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-bottom: -3px;
+  }
+}
 .demo-one-color {
   .swatch-row {
     display: flex;
     gap: 8px;
-  }
-
-  .swatch {
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.08);
   }
 
   .btn {
@@ -40,6 +48,8 @@
     --d2-c: 0.2;
     --d2-l: 0.5;
     --d2-step-l: 0.15;
+
+    --d2-c-hsl: 100%;
 
     .stage {
       flex-direction: column;
@@ -87,17 +97,17 @@
   &.d2 .b680 { background: oklch(calc(var(--d2-l) - var(--d2-step-l)) calc(var(--d2-c) - 0.2) var(--d2-hue)); }
   &.d2 .b880 { background: oklch(calc(var(--d2-l) - var(--d2-step-l)*2) calc(var(--d2-c) - 0.2) var(--d2-hue)); }
 
-  &.d2 .hslY100 { background: hsl(60deg 100% 90%); }
-  &.d2 .hslY300 { background: hsl(60deg 100% 75%); }
-  &.d2 .hslY500 { background: hsl(60deg 100% 50%); }
-  &.d2 .hslY700 { background: hsl(60deg 100% 35%); }
-  &.d2 .hslY900 { background: hsl(60deg 100% 20%); }
+  &.d2 .hslY100 { background: hsl(60deg var(--d2-c-hsl) 90%); }
+  &.d2 .hslY300 { background: hsl(60deg var(--d2-c-hsl) 75%); }
+  &.d2 .hslY500 { background: hsl(60deg var(--d2-c-hsl) 50%); }
+  &.d2 .hslY700 { background: hsl(60deg var(--d2-c-hsl) 35%); }
+  &.d2 .hslY900 { background: hsl(60deg var(--d2-c-hsl) 20%); }
 
-  &.d2 .hslB100 { background: hsl(240deg 100% 90%); }
-  &.d2 .hslB300 { background: hsl(240deg 100% 75%); }
-  &.d2 .hslB500 { background: hsl(240deg 100% 50%); }
-  &.d2 .hslB700 { background: hsl(240deg 100% 35%); }
-  &.d2 .hslB900 { background: hsl(240deg 100% 20%); }
+  &.d2 .hslB100 { background: hsl(240deg var(--d2-c-hsl) 90%); }
+  &.d2 .hslB300 { background: hsl(240deg var(--d2-c-hsl) 75%); }
+  &.d2 .hslB500 { background: hsl(240deg var(--d2-c-hsl) 50%); }
+  &.d2 .hslB700 { background: hsl(240deg var(--d2-c-hsl) 35%); }
+  &.d2 .hslB900 { background: hsl(240deg var(--d2-c-hsl) 20%); }
 
   /* ===== 3. color-mix states ===== */
   &.d3 .btn { background: var(--theme-accent-2); }

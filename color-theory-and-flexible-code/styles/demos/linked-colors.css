@@ -1,7 +1,10 @@
 .demo-linked-colors {
   .swatch-row { display: flex; gap: 6px; flex-wrap: wrap; }
   .swatch {
-    width: 38px; height: 38px; border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 8px;
     border: 1px solid rgba(255,255,255,0.08);
   }
   .menu { width: 100%; display: flex; flex-direction: column; gap: 6px; }
@@ -192,7 +195,7 @@
       hsl(from var(--theme-accent-2) calc(h + 40) s calc(l + 10)) 100%
     );
     display: grid; place-items: center;
-    color: #fff; font-weight: 700;
+    color: #000000; font-weight: 700;
     padding: 0 2rem;
   }
 

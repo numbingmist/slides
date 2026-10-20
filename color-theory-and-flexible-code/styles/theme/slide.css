@@ -15,10 +15,13 @@
   padding: 0;
   line-height: var(--ribbon-size);
   background: linear-gradient(45deg, var(--theme-accent-2) 0%, var(--theme-accent) 50%, var(--theme-accent-3) 100%);
-  left: 974px;
+  left: auto;
+  right: 0;
+  width: var(--ribbon-size);
   height: var(--ribbon-size);
-  border-bottom-left-radius: 20px;
-  color: oklch(from var(--theme-accent) clamp(0, (l - 0.7) * -1000, 1) 0 0);
+  font-size: calc(var(--ribbon-size) / 2);
+  border-bottom-left-radius: calc(var(--ribbon-size) / 2);
+  color: oklch(from var(--theme-accent) clamp(0, (l - 0.6) * -1000, 1) 0 0);
 }
 
 .slide#cover,

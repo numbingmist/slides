@@ -55,8 +55,8 @@
   <!-- ABOUT SPEAKER -->
   <section class="slide">
     <div class="slide-bg"></div>
+    <h1 style="content: counter(slide)"></h1>
     <div class="card speaker">
-
       <div class="avatar">
         <img style="margin-top: -5%" src="pictures/profile.jpg">
       </div>
@@ -537,53 +537,59 @@
       <div>
         <h3>Lightness <span class="dim">(0% - 100% / 0 - 1)</span></h3><br/>
         <ul style="font-size:1.1rem;">
-          <li>В hsl() L для разных H даст разную визуальную яркость.</li>
-          <li class="next">В oklch() для любого оттенка один и тот же L одинаково яркий.</li>
+          <li>В hsl() L для разных H даст разную визуальную светлоту.</li>
+          <li class="next">В oklch() для любого оттенка один и тот же L одинаково светлый.</li>
         </ul>
-        <div class="next" style="font-size:1.1rem;">
-          Особенности диапазона:
-          <ul>
-            <li><span class="bold">~90–100%</span> — <span class="dim">почти белый</span></li>
-            <li><span class="bold">~75–85%</span> — <span class="dim">светлые тона</span></li>
-            <li><span class="bold">~40–60%</span> — <span class="dim">средние тона («основные» цвета)</span></li>
-            <li><span class="bold">~10–20%</span> — <span class="dim">очень тёмные цвета</span></li>
-            <li><span class="bold">~0–10%</span> — <span class="dim">почти черный</span></li>
-          </ul>
-        </div>
       </div>
-      <div class="demo demo-one-color d2">
+      <div class="demo demo-one-color d2" style="width:200px;margin-right:150px">
         <div class="head"><span class="num"></span> [L] шкала</div>
         <div class="stage">
           <div class="swatch-row">
             <div class="swatch swatch-hint" style="text-align: right">l:</div>
-            <div class="swatch swatch-hint">20%</div>
+            <!-- <div class="swatch swatch-hint">20%</div>
+            <div class="swatch swatch-hint">35%</div> -->
+            <div class="swatch swatch-hint">50%</div>
+            <!-- <div class="swatch swatch-hint">75%</div>
+            <div class="swatch swatch-hint">90%</div> -->
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">hsl</div>
+            <!-- <div class="swatch hslY900"></div>
+            <div class="swatch hslY700"></div> -->
+            <div class="swatch hslY500"></div>
+            <!-- <div class="swatch hslY300"></div>
+            <div class="swatch hslY100"></div> -->
+          </div>
+          <div class="swatch-row">
+            <div class="swatch swatch-hint">hsl</div>
+            <!-- <div class="swatch hslB900"></div>
+            <div class="swatch hslB700"></div> -->
+            <div class="swatch hslB500"></div>
+            <!-- <div class="swatch hslB300"></div>
+            <div class="swatch hslB100"></div> -->
+          </div>
+          <div class="swatch-row" style="margin-top:1em">
+            <div class="swatch swatch-hint" style="text-align: right;">l:</div>
+            <!-- <div class="swatch swatch-hint">20%</div>
             <div class="swatch swatch-hint">35%</div>
             <div class="swatch swatch-hint">50%</div>
-            <div class="swatch swatch-hint">75%</div>
+            <div class="swatch swatch-hint">75%</div> -->
             <div class="swatch swatch-hint">90%</div>
           </div>
-          <div class="swatch-row">
-            <div class="swatch swatch-hint">hsl</div>
-            <div class="swatch hslY900"></div>
-            <div class="swatch hslY700"></div>
-            <div class="swatch hslY500"></div>
-            <div class="swatch hslY300"></div>
-            <div class="swatch hslY100"></div>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch swatch-hint">hsl</div>
-            <div class="swatch hslB900"></div>
-            <div class="swatch hslB700"></div>
-            <div class="swatch hslB500"></div>
-            <div class="swatch hslB300"></div>
-            <div class="swatch hslB100"></div>
-          </div>
-          <div class="swatch-row">
+          <div class="swatch-row" style="--d2-hue:110;--d2-l:0.9;">
             <div class="swatch swatch-hint">oklch</div>
-            <div class="swatch b900"></div>
+            <!-- <div class="swatch b900"></div>
             <div class="swatch b700"></div>
             <div class="swatch b500"></div>
-            <div class="swatch b300"></div>
+            <div class="swatch b300"></div> -->
+            <div class="swatch b100"></div>
+          </div>
+          <div class="swatch-row" style="--d2-hue:250;--d2-l:0.9;">
+            <div class="swatch swatch-hint">oklch</div>
+            <!-- <div class="swatch b900"></div>
+            <div class="swatch b700"></div>
+            <div class="swatch b500"></div>
+            <div class="swatch b300"></div> -->
             <div class="swatch b100"></div>
           </div>
         </div>
@@ -672,12 +678,6 @@
           <li>
             Но максимум зависит от hue и может быть ~0.5.
           </li>
-        </ul>
-        <ul style="font-size:1.1rem;">
-          <li><span class="bold">0.00-0.05</span> — <span class="dim">едва заметный оттенок (пастель)</span></li>
-          <li><span class="bold">0.10–0.15</span> — <span class="dim">уже цветной, но спокойный</span></li>
-          <li><span class="bold">0.20-0.35</span> — <span class="dim">яркий, насыщенный цвет</span></li>
-          <li><span class="bold">0.35 и выше</span> — <span class="dim">насыщенный, «неоновый»</span></li>
         </ul>
       </div>
       <div class="demo demo-one-color d2">
@@ -1248,7 +1248,7 @@
       <div>
         <h3>from <span class="dim">= новые возможности</span></h3>
         <div class="code" style="padding-inline:0; font-size: 1rem; line-height: 3rem;">
-          <span class="tok-prop">--base</span>: <span class="tok-num">#004B95</span>;<br/>
+          <span class="tok-prop">--base</span>: <span class="tok-num">#004B95</span>; <span class="swatch swatch-inline" style="background:#004B95"></span><br/>
 
           <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c h)</span><br/>
           <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) <span class="tok-num">calc(l + 0.2)</span> c h)</span><br/>
@@ -1323,7 +1323,7 @@
       <div>
         <h3>Комплиментарная</h3>
         <div class="code" style="padding-inline:0; font-size: 1rem;">
-          <span class="tok-prop">--base</span>: <span class="tok-num">oklch(0.65 0.25 350)</span>;<br/><br/>
+          <span class="tok-prop">--base</span>: <span class="tok-num">oklch(0.65 0.25 350)</span>; <span class="swatch swatch-inline" style="background:oklch(0.65 0.25 350)"></span><br/><br/>
           <span class="next"><span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c <span class="tok-num">calc(h + 180)</span>);</span><br/>
         </div>
       </div>
@@ -1346,7 +1346,7 @@
         <h3>Аналоговая</h3>
         <div class="code" style="padding-inline:0; font-size: 1rem;">
           <span class="next"><span class="tok-prop">--base-left</span>: <span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c <span class="tok-num">calc(h - 45)</span>);</span><br/><br/>
-          <span><span class="tok-prop">--base</span>: <span class="tok-num">oklch(0.65 0.25 350)</span>;</span><br/><br/>
+          <span><span class="tok-prop">--base</span>: <span class="tok-num">oklch(0.65 0.25 305)</span>; <span class="swatch swatch-inline" style="background:oklch(0.65 0.25 305)"></span></span><br/><br/>
           <!-- <span class="tok-fn">var</span>(<span class="tok-prop">--base</span>);<br/> -->
           <span class="next"><span class="tok-prop">--base-right</span>:<span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> var(<span class="tok-prop">--base</span>) l c <span class="tok-num">calc(h + 45)</span>);</span>
         </div>
@@ -1392,8 +1392,8 @@
       <div>
         <h3>color-mix()</h3>
         <div class="code" style="padding-inline:0;font-size:1rem;">
-          <span class="tok-prop">--bg</span>: <span class="tok-num">#0E1016</span>;<br/>
-          <span class="tok-prop">--accent</span>: <span class="tok-num">#C08BFF</span>;<br/><br/>
+          <span class="tok-prop">--bg</span>: <span class="tok-num">#0E1016</span>; <span class="swatch swatch-inline" style="background:#0E1016;border-color:oklch(1 0 0 / 0.5)"></span><br/>
+          <span class="tok-prop">--accent</span>: <span class="tok-num">#C08BFF</span>; <span class="swatch swatch-inline" style="background:#C08BFF"></span><br/><br/>
           <span class="next"><span class="tok-prop">--surface-60</span>: <span class="tok-fn">color-mix</span>(<span class="tok-kw">in oklab</span>, var(<span class="tok-prop">--accent</span>) <span class="tok-num">60%</span>, var(<span class="tok-prop">--bg</span>));</span><br/>
           <span class="next"><span class="tok-prop">--surface-30</span>: <span class="tok-fn">color-mix</span>(<span class="tok-kw">in oklab</span>, var(<span class="tok-prop">--accent</span>) <span class="tok-num">30%</span>, var(<span class="tok-prop">--bg</span>));</span>
         </div>
@@ -1458,7 +1458,7 @@
       <div class="demo demo-linked-colors d19 next">
         <div class="head"><span class="num"></span> Градиент из одного цвета</div>
         <div class="stage" style="font-size:1rem;">
-          <div class="grad" style="height: 50px;">Градиент от --pink</div>
+          <div class="grad" style="height: 50px;">Градиент от --base</div>
         </div>
       </div>
     </div>
@@ -1865,7 +1865,7 @@
     <h2>Можно собрать на <span class="grad">from</span></h2>
     <pre class="code" style="font-size: 1.1rem; padding: 0;">
       <span class="tok-kw">:root</span> <span class="tok-punct">{</span><br/>
-      <span class="tok-prop">&nbsp;&nbsp;--base</span><span class="tok-punct">:</span> <span class="tok-num">#F637C6</span><span class="tok-punct">;</span><br/>
+      <span class="tok-prop">&nbsp;&nbsp;--base</span><span class="tok-punct">:</span> <span class="tok-num">#F637C6</span><span class="tok-punct">;</span > <span class="swatch swatch-inline" style="background:#F637C6"></span><br/>
       <span class="tok-prop">&nbsp;&nbsp;--accent-soft</span><span class="tok-punct">:</span> <span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> <span class="tok-fn">var</span>(<span class="tok-prop">--base</span>) <span class="tok-fn">calc</span>(<span class="tok-num">l + 15%</span>) <span class="tok-fn">calc</span>(<span class="tok-num">c * 0.6</span>) h)<span class="tok-punct">;</span><br/>
       <span class="tok-prop">&nbsp;&nbsp;--accent-deep</span><span class="tok-punct">:</span> <span class="tok-fn">oklch</span>(<span class="tok-kw">from</span> <span class="tok-fn">var</span>(<span class="tok-prop">--base</span>) <span class="tok-fn">calc</span>(<span class="tok-num">l - 15%</span>) c h)<span class="tok-punct">;</span><br/>
       <span class="tok-punct">}</span>
@@ -1907,8 +1907,8 @@
     <h2>Можно собрать на <span class="grad">color-mix()</span></h2>
     <pre class="code" style="font-size: 1.1rem; padding: 0;">
       <span class="tok-kw">:root</span> <span class="tok-punct">{</span><br/>
-      <span class="tok-prop">&nbsp;&nbsp;--bg</span><span class="tok-punct">:</span> <span class="tok-num">#0E1016</span><span class="tok-punct">;</span><br/>
-      <span class="tok-prop">&nbsp;&nbsp;--accent</span><span class="tok-punct">:</span> <span class="tok-num">#C08BFF</span><span class="tok-punct">;</span><br/>
+      <span class="tok-prop">&nbsp;&nbsp;--bg</span><span class="tok-punct">:</span> <span class="tok-num">#0E1016</span><span class="tok-punct">;</span> <span class="swatch swatch-inline" style="background:#0E1016;border-color:oklch(1 0 0 / 0.5)"></span><br/>
+      <span class="tok-prop">&nbsp;&nbsp;--accent</span><span class="tok-punct">:</span> <span class="tok-num">#C08BFF</span><span class="tok-punct">;</span> <span class="swatch swatch-inline" style="background:#C08BFF;"></span><br/>
       <span class="tok-prop">&nbsp;&nbsp;--bg-60</span><span class="tok-punct">:</span> <span class="tok-fn">color-mix</span>(in oklab, <span class="tok-fn">var</span>(<span class="tok-prop">--accent</span>) <span class="tok-num">60%</span>, <span class="tok-fn">var</span>(<span class="tok-prop">--bg</span>))<span class="tok-punct">;</span><br/>
       <span class="tok-prop">&nbsp;&nbsp;--bg-30</span><span class="tok-punct">:</span> <span class="tok-fn">color-mix</span>(in oklab, <span class="tok-fn">var</span>(<span class="tok-prop">--accent</span>) <span class="tok-num">30%</span>, <span class="tok-fn">var</span>(<span class="tok-prop">--bg</span>))<span class="tok-punct">;</span><br/>
       <span class="tok-punct">}</span>
@@ -1978,7 +1978,7 @@
     <h1>Тема через <span class="grad">light-dark()</span></h1>
     <pre class="code" style="padding-inline: 0; font-size: 1.5rem;">
       <span class="tok-prop">color-scheme</span>: <span class="tok-str">light dark</span>;<br/>
-      <span class="tok-prop">--accent</span>: <span class="tok-fn">light-dark</span>(<span class="tok-num">#F637C6</span>, <span class="tok-num">#FF6ED6</span>);
+      <span class="tok-prop">--accent</span>: <span class="tok-fn">light-dark</span>(<span class="tok-num">#F637C6</span> <span class="swatch swatch-inline" style="background:#F637C6;margin:0;width:20px;height:20px;"></span>, <span class="tok-num">#FF6ED6</span> <span class="swatch swatch-inline" style="background:#FF6ED6;margin:0;width:20px;height:20px;"></span>);
     </pre>
   </section>
 
@@ -2836,7 +2836,7 @@
     <div class="demo demo-linked-colors d19">
       <div class="head"><span class="num"></span> Градиент из одного цвета</div>
       <div class="stage" style="width:400px;">
-        <div class="grad">Градиент от --pink</div>
+        <div class="grad">Градиент от --base</div>
       </div>
       <div class="note">h + 40, l + 10 на втором стопе</div>
     </div>
@@ -4786,6 +4786,30 @@
   </footer>
 
   <div class="progress new"></div>
+
+  <!-- <script>
+    const slides = document.querySelectorAll('.slide');
+    const root = document.documentElement;
+    const BASE_H = 305;
+    const STEP_H = 2;
+
+    function updateFromActive() {
+      const active = document.querySelector('.slide.active');
+      if (!active) return;
+
+      const index = [...slides].indexOf(active);
+      root.style.setProperty('--theme-h', BASE_H + STEP_H * index);
+    }
+
+    // MutationObserver ловит смену класса .active
+    const observer = new MutationObserver(updateFromActive);
+    slides.forEach(slide => {
+      observer.observe(slide, { attributes: true, attributeFilter: ['class'] });
+    });
+
+    // Первичный вызов
+    window.addEventListener('load', updateFromActive);
+  </script> -->
 
   <!-- LOCAL -->
 	<!-- <script src="node_modules/@shower/core/dist/index.js"></script> -->

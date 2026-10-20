@@ -59,6 +59,7 @@
 .shower {
   --color-grey: oklch(30% 0.0050 250);
   --progress-size: 4px;
+  --ribbon-size: 30px;
   color: oklch(100% 0 0 / 0.85);
 }
 
