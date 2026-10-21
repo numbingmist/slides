@@ -53,8 +53,8 @@
 
   .axis-row {
     display: grid;
-    grid-template-columns: 2fr 3fr;
-    align-items: baseline;
+    grid-template-columns: 2fr 2fr 1fr;
+    align-items: center;
     gap: 2rem;
     padding: 0 0 0.5rem;
     border-bottom: 1px solid var(--theme-border);
@@ -73,6 +73,20 @@
     .arrow {
       color: var(--theme-text-mute);
       margin-right: 0.3em;
+    }
+
+    .swatch {
+      --l: var(--theme-l);
+      --c: var(--theme-c);
+      --h: var(--theme-h);
+
+      width: 100px;
+      height: 30px;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border-radius: 5px;
+      background: oklch(var(--l) var(--c) var(--h));
     }
   }
 }

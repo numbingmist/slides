@@ -854,168 +854,52 @@
   </section>
 
   <section class="slide">
-    <h2>Температура цвета</h2>
-    <div class="center">
-      <h4 class="tok-num">теплые</h4>
-      <img src="pictures/img/color-wheel.png" alt="color-wheel" style="width: 350px;margin:-1rem 0 -2.4rem;"/>
-      <h4 class="tok-prop">холодные</h4>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-one-color d22">
-      <div class="head"><span class="num"></span> Температура синего</div>
-      <div class="stage">
-        <div class="swatch blue warm next"></div>
-        <div class="swatch blue neutral"></div>
-        <div class="swatch blue cold next"></div>
-      </div>
-      <div class="note">
-        (--h - 40) = теплее, (--h + 10) = холоднее
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-one-color d22">
-      <div class="head"><span class="num"></span> Температура синего</div>
-      <div class="stage">
-        <div class="swatch blue warm"></div>
-        <div class="swatch blue cold"></div>
-      </div>
-      <div class="note">
-        (--h - 40) = теплее, (--h + 10) = холоднее
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-one-color d22">
-      <div class="head"><span class="num"></span> Температура зеленого</div>
-      <div class="stage">
-        <div class="swatch green warm next"></div>
-        <div class="swatch green neutral"></div>
-        <div class="swatch green cold next"></div>
-      </div>
-      <div class="note">
-        (--h - 20) = теплее, (--h + 20) = холоднее
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-one-color d22">
-      <div class="head"><span class="num"></span> Температура зеленого</div>
-      <div class="stage">
-        <div class="swatch green warm"></div>
-        <div class="swatch green cold"></div>
-      </div>
-      <div class="note">
-        (--h - 20) = теплее, (--h + 20) = холоднее
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-one-color d22">
-      <div class="head"><span class="num"></span> Температура красного</div>
-      <div class="stage">
-        <div class="swatch red cold next"></div>
-        <div class="swatch red neutral"></div>
-        <div class="swatch red warm next"></div>
-      </div>
-      <div class="note">
-        (--h - 20) = холоднее, (--h + 10) = теплее
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="demo demo-one-color d22">
-      <div class="head"><span class="num"></span> Температура красного</div>
-      <div class="stage">
-        <div class="swatch red cold"></div>
-        <div class="swatch red warm"></div>
-      </div>
-      <div class="note">
-        (--h - 20) = холоднее, (--h + 10) = теплее
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="layout-flex">
-      <div>
-        <h3>Правила сдвига</h3>
-        <h4 class="tok-num">Теплые</h4>
-        <p style="font-size:1.2rem;">
-          <span class="key">- h</span> <span class="dim">(по часовой)</span> = холодеют<br/>
-          <span class="key">+ h</span> <span class="dim">(против часовой)</span> = теплеют
-        </p>
-        <h4 class="tok-prop">Холодные</h4>
-        <p style="font-size:1.2rem;">
-          <span class="key">- h</span> <span class="dim">(по часовой)</span> = теплеют<br/>
-          <span class="key">+ h</span> <span class="dim">(против часовой)</span> = холодеют
-        </p>
-      </div>
-      <div>
-        <img src="pictures/img/color-wheel-temp.png" alt="color-wheel-temp" style="width: 400px;"/>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="layout-flex">
-      <div>
-        <h3>Правила сдвига</h3>
-        <ul style="font-size:1.2rem; margin-top:4rem;">
-          <li>Требует точечного подбора</li>
-        </ul>
-      </div>
-      <div>
-        <img src="pictures/img/color-wheel-temp.png" alt="color-wheel-temp" style="width: 400px;"/>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide">
     <h3>Цвет · Названия · <span class="grad">Шпаргалка</span></h3>
     <div class="axis-table">
       <div class="axis-row">
         <span class="word">ярче / сочнее</span>
         <span class="param"><span class="key">c</span> ↑</span>
+        <span class="swatch" style="--c:0.35"></span>
       </div>
       <div class="axis-row">
         <span class="word">спокойнее / бледнее</span>
         <span class="param"><span class="key">c</span> ↓</span>
+        <span class="swatch"></span>
       </div>
       <div class="axis-row">
         <span class="word">светлее</span>
         <span class="param"><span class="key">l</span> ↑</span>
+        <span class="swatch" style="--l:0.75"></span>
       </div>
       <div class="axis-row">
         <span class="word">темнее</span>
         <span class="param"><span class="key">l</span> ↓</span>
+        <span class="swatch" style="--l:0.3"></span>
       </div>
       <div class="axis-row">
         <span class="word">воздушнее / мягче / пастельное</span>
         <span class="param"><span class="key">l</span> ↑ + <span class="key">c</span> ↓</span>
+        <span class="swatch" style="--l:0.8;--c:0.2"></span>
       </div>
       <div class="axis-row">
         <span class="word">тяжелее / глубже</span>
         <span class="param"><span class="key">l</span> ↓ + <span class="key">c</span> ↑</span>
+        <span class="swatch" style="--l:0.1;--c:0.35"></span>
       </div>
       <div class="axis-row">
         <span class="word">кислотнее / неоновое</span>
         <span class="param"><span class="key">с</span> ↑↑ + <span class="key">l</span> ~ &gt; 60%</span>
+        <span class="swatch" style="--l:0.8;--c:0.4"></span>
       </div>
       <div class="axis-row">
         <span class="word">чистые</span>
         <span class="param"><span class="key">l</span> ~ &gt; 50%, <span class="key">c</span> ~ &gt; 0.2</span>
+        <span class="swatch" style="--l:0.6;--c:0.25"></span>
       </div>
       <div class="axis-row">
         <span class="word">грязные / мутные</span>
         <span class="param"><span class="key">l</span> ~ &lt; 50%, <span class="key">c</span> ~ &lt; 0.2</span>
+        <span class="swatch" style="--l:0.4;--c:0.1"></span>
       </div>
     </div>
   </section>
@@ -1910,20 +1794,20 @@
   <section class="slide">
     <h3>Тема через <span class="grad">@media (prefers-color-scheme: dark/light)</span></h3>
     <p class="dim">
-      Подстраивается под системные настройки и делает их приоритетными!<br/>
+      Подстраивается под системные настройки
     </p>
     <pre class="code" style="padding-inline: 0; font-size: 1.2rem;">
       <span class="tok-kw">@media</span> <span class="tok-punct">(</span><span class="tok-prop">prefers-color-scheme</span><span class="tok-punct">:</span> <span class="tok-str">dark</span><span class="tok-punct">) {</span><br/>
       <span class="tok-punct">&nbsp;&nbsp;// набор токенов темной темы</span><br/>
       <span class="tok-punct">}</span>
     </pre>
-    <pre class="code next" style="padding-inline: 0; font-size: 1.2rem;">
+    <!-- <pre class="code next" style="padding-inline: 0; font-size: 1.2rem;">
       <span class="tok-kw">:root</span> <span class="tok-punct">{</span><br/>
         <span class="tok-attr">&nbsp;&nbsp;color-scheme</span><span class="tok-punct">:</span> <span class="tok-str">light</span><span class="tok-punct">;</span><br/>
         <span class="tok-punct">&nbsp;&nbsp;// набор токенов светлой темы</span><br/>
       <span class="tok-punct">}</span>
     </pre>
-    <p class="dim next">Отработает prerefs-color-scheme, если у пользователя стоит темная тема</p>
+    <p class="dim next">Отработает prerefs-color-scheme, если у пользователя стоит темная тема</p> -->
   </section>
 
   <section class="slide">
@@ -2313,6 +2197,133 @@
       </div>
     </div>
   </section>
+
+  <!-- COLOR TEMPERATURE -->
+  <section class="slide">
+    <h2>Температура цвета</h2>
+    <div class="center">
+      <h4 class="tok-num">теплые</h4>
+      <img src="pictures/img/color-wheel.png" alt="color-wheel" style="width: 350px;margin:-1rem 0 -2.4rem;"/>
+      <h4 class="tok-prop">холодные</h4>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура синего</div>
+      <div class="stage">
+        <div class="swatch blue warm next"></div>
+        <div class="swatch blue neutral"></div>
+        <div class="swatch blue cold next"></div>
+      </div>
+      <div class="note">
+        (--h - 40) = теплее, (--h + 10) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура синего</div>
+      <div class="stage">
+        <div class="swatch blue warm"></div>
+        <div class="swatch blue cold"></div>
+      </div>
+      <div class="note">
+        (--h - 40) = теплее, (--h + 10) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура зеленого</div>
+      <div class="stage">
+        <div class="swatch green warm next"></div>
+        <div class="swatch green neutral"></div>
+        <div class="swatch green cold next"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = теплее, (--h + 20) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура зеленого</div>
+      <div class="stage">
+        <div class="swatch green warm"></div>
+        <div class="swatch green cold"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = теплее, (--h + 20) = холоднее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура красного</div>
+      <div class="stage">
+        <div class="swatch red cold next"></div>
+        <div class="swatch red neutral"></div>
+        <div class="swatch red warm next"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = холоднее, (--h + 10) = теплее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="demo demo-one-color d22">
+      <div class="head"><span class="num"></span> Температура красного</div>
+      <div class="stage">
+        <div class="swatch red cold"></div>
+        <div class="swatch red warm"></div>
+      </div>
+      <div class="note">
+        (--h - 20) = холоднее, (--h + 10) = теплее
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h3>Правила сдвига</h3>
+        <h4 class="tok-num">Теплые</h4>
+        <p style="font-size:1.2rem;">
+          <span class="key">- h</span> <span class="dim">(по часовой)</span> = холодеют<br/>
+          <span class="key">+ h</span> <span class="dim">(против часовой)</span> = теплеют
+        </p>
+        <h4 class="tok-prop">Холодные</h4>
+        <p style="font-size:1.2rem;">
+          <span class="key">- h</span> <span class="dim">(по часовой)</span> = теплеют<br/>
+          <span class="key">+ h</span> <span class="dim">(против часовой)</span> = холодеют
+        </p>
+      </div>
+      <div>
+        <img src="pictures/img/color-wheel-temp.png" alt="color-wheel-temp" style="width: 400px;"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="layout-flex">
+      <div>
+        <h3>Правила сдвига</h3>
+        <ul style="font-size:1.2rem; margin-top:4rem;">
+          <li>Требует точечного подбора</li>
+        </ul>
+      </div>
+      <div>
+        <img src="pictures/img/color-wheel-temp.png" alt="color-wheel-temp" style="width: 400px;"/>
+      </div>
+    </div>
+  </section>
+  <!-- END COLOR TEMPERATURE -->
 
   <!-- SUBTITLE SLIDE: COLOR ACCESSIBILITY -->
   <section class="slide">
