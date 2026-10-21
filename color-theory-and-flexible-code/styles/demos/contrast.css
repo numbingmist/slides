@@ -84,7 +84,7 @@
   /* 6. Автотекст по APCA-подобной формуле */
   &.d6 .auto {
     width: 100%;
-    padding: 1rem 1.2rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 10px;
     font-weight: 700;
     font-size: 1rem;

@@ -378,13 +378,23 @@
 
   /* ===== 22. Color temperature ===== */
   &.d22 {
-    --d22-h: 265;
+    --d22-h-blue: 265;
+    --d22-h-green: 150;
+    --d22-h-red: 30;
   }
   &.d22 .stage   { gap: 0.5rem; }
   &.d22 .swatch  { width: 150px; height: 150px; }
-  &.d22 .warm    { background: oklch(0.45 0.15 calc(var(--d22-h) - 20)); }
-  &.d22 .neutral { background: oklch(0.45 0.15 var(--d22-h)); }
-  &.d22 .cold    { background: oklch(0.45 0.15 calc(var(--d22-h) + 10)); }
+  &.d22 .blue.warm    { background: oklch(0.45 0.2 calc(var(--d22-h-blue) - 40)); }
+  &.d22 .blue.neutral { background: oklch(0.45 0.2 var(--d22-h-blue)); }
+  &.d22 .blue.cold    { background: oklch(0.45 0.2 calc(var(--d22-h-blue) + 10)); }
+
+  &.d22 .green.warm    { background: oklch(0.45 0.15 calc(var(--d22-h-green) - 20)); }
+  &.d22 .green.neutral { background: oklch(0.45 0.15 var(--d22-h-green)); }
+  &.d22 .green.cold    { background: oklch(0.45 0.15 calc(var(--d22-h-green) + 20)); }
+
+  &.d22 .red.warm    { background: oklch(0.45 0.15 calc(var(--d22-h-red) + 10)); }
+  &.d22 .red.neutral { background: oklch(0.45 0.15 var(--d22-h-red)); }
+  &.d22 .red.cold    { background: oklch(0.45 0.15 calc(var(--d22-h-red) - 20)); }
 
   /* ===== 23. Color gradient ===== */
   &.d23 {

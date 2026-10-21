@@ -60,8 +60,8 @@
 .tok-punct{ color: var(--theme-text-dim); }
 
 .key {
-  background: rgba(166, 77, 255, 0.12);
-  color: #C9A9FF;
+  background: oklch(from var(--theme-accent) l c h / 0.12);
+  color: oklch(0.8 clamp(0, var(--theme-c), 0.12) var(--hue1));
   padding: 0.1em 0.45em;
   border-radius: 5px;
 }

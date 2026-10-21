@@ -52,10 +52,24 @@
   &.d3 .mono-6 { background: oklch(from var(--theme-accent-3) 20% c h); }
 
   /* 4. Комплиментарная гармония */
+  &.d4 .stage {
+    flex-direction: column;
+
+    .swatch-row {
+      margin: 3px 0;
+    }
+  }
   &.d4 .comp-a { background: oklch(from var(--theme-accent-2) l c h); }
   &.d4 .comp-b { background: oklch(from var(--theme-accent-2) l c calc(h + 180)); }
 
   /* 5. Аналоговая гармония */
+  &.d5 .stage {
+    flex-direction: column;
+
+    .swatch-row {
+      margin: 3px 0;
+    }
+  }
   &.d5 .ana-1 { background: oklch(from var(--theme-accent) l c calc(h - 45)); }
   &.d5 .ana-2 { background: oklch(from var(--theme-accent) l c h); }
   &.d5 .ana-3 { background: oklch(from var(--theme-accent) l c calc(h + 45)); }
@@ -191,11 +205,11 @@
     height: 100px; border-radius: 12px;
     background: linear-gradient(
       135deg,
-      hsl(from var(--theme-accent-2) h s l) 0%,
-      hsl(from var(--theme-accent-2) calc(h + 40) s calc(l + 10)) 100%
+      oklch(from var(--theme-accent-2) l c h) 0%,
+      oklch(from var(--theme-accent-2) calc(l + 0.1) c calc(h + 40)) 100%
     );
     display: grid; place-items: center;
-    color: #000000; font-weight: 700;
+    color: oklch(1 0 0); font-weight: 700;
     padding: 0 2rem;
   }
 
