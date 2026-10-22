@@ -227,3 +227,30 @@
     background: hsl(from var(--theme-accent) calc(h + 30 * var(--i)) 70% 55%);
   }
 }
+
+.palette {
+  .palette-name {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    opacity: 0.7;
+  }
+
+  .palette-wheel {
+    position: relative;
+    padding: 0;
+    width: 180px;
+    text-align: center;
+    box-sizing: border-box;
+
+    .palette-color {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 2px solid black;
+    }
+  }
+}
