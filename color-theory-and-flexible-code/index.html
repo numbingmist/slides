@@ -724,7 +724,7 @@
 
   <section class="slide">
     <h3>Hue <span class="dim">(0 - 360)</span></h3>
-    <div class="code" style="padding-inline:0; font-size: 1rem;">
+    <div class="code" style="padding-inline:0; font-size: 1rem; overflow:hidden;">
       <span class="tok-fn">oklch</span>(<span class="tok-punct">[l] [c]</span> <span class="tok-num">X</span>)
     </div>
     <div class="demo demo-one-color d21">
@@ -1562,7 +1562,7 @@
         <div class="auto" style="--c: oklch(0.88 0.13 93.65);">Светлый фон → тёмный текст</div>
         <div class="auto c1" style="--c: oklch(0.17 0.01 270.61); border: 1px solid var(--theme-border)">Темный фон clamp(0, (l - 0.6) * -1, 1)</div>
         <div class="auto" style="--c: oklch(0.17 0.01 270.61); border: 1px solid var(--theme-border)">Тёмный фон → белый текст</div>
-        <div class="code" style="padding-inline: 0; width: 100%; font-size: 1.1rem">
+        <div class="code" style="padding-inline: 0; width: 100%; font-size: 1.1rem; overflow: hidden;">
           <div class="dim">// при -1 контраст провалится в середине диапазона на сером фоне</div>
           <div class="dim">// -100 мягкая ступенька,  -1000 жесткая ступенька</div>
           color: <span class="tok-fn">oklch</span>(from var(<span class="tok-tag">--bg</span>) <span class="tok-kw">clamp(0, (l - 0.6) * -100, 1)</span> 0 h)
@@ -1643,7 +1643,7 @@
       Из которых можно <span class="grad">собрать</span> все остальное
     </h3>
     <div class="dim">// hue для цветовой гармонии</div>
-    <pre class="code" style="font-size: 1rem; padding: 0;">
+    <pre class="code" style="font-size: 1rem; padding: 0; overflow: hidden;">
       <span class="tok-kw">:root</span> <span class="tok-punct">{</span><br/>
       <span class="tok-prop">&nbsp;&nbsp;--hue1</span><span class="tok-punct">:</span> <span class="tok-fn">var</span>(<span class="tok-prop">--theme-h</span>)<span class="tok-punct">;</span><br/>
       <span class="tok-prop">&nbsp;&nbsp;--hue2</span><span class="tok-punct">:</span> <span class="tok-fn">calc</span>(<span class="tok-fn">var</span>(<span class="tok-prop">--theme-h</span>) + <span class="tok-fn">var</span>(<span class="tok-prop">--theme-angle</span>))<span class="tok-punct">;</span><br/>
